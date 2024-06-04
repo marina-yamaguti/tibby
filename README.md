@@ -12,7 +12,7 @@
 
 ## Description
 - Team Members: Elsner, Godinho, Madu, Maria, Marina, Natalia and Sofia
-- Project: iOS App
+- Project: iOS App!
 
 ## Planning
 Detailed within the project's Airtable.
