@@ -1,4 +1,4 @@
-<h1 align="center"> Macro (TBD) </h1>
+<h1 align="center"> Tibby: Pet App </h1>
 
 ### Repository for our final app :)
 
@@ -11,11 +11,11 @@
 
 
 ## Description
-- Team Members: Elsner, Godinho, Madu, Maria, Marina, Natalia and Sofia
+- Team Members: Elsner, Godinho, Madu, Marina, Natalia and Sofia
 - Project: iOS App
 
 ## Planning
-Detailed within the project's Airtable.
+Detailed within the project's Jira.
 
 ## Tecnologies
 Swift, SwiftUI, tbd...
