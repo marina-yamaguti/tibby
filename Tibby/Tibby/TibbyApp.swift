@@ -12,7 +12,7 @@ import SwiftData
 struct TibbyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Tibby.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,7 @@ struct TibbyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //first screen
         }
         .modelContainer(sharedModelContainer)
     }
