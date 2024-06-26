@@ -19,7 +19,7 @@ final class Tibby {
     var ownerId: UUID
     
     /// The name of the Tibby.
-    var name: String
+    var name: String?
     
     /// Additional details about the Tibby.
     var details: String
@@ -67,10 +67,9 @@ final class Tibby {
     ///   - sleep: The sleep level of the Tibby.
     ///   - friendship: The friendship level of the Tibby with its owner.
     ///   - lastUpdated: The date when the Tibby was last updated.
-    init(id: UUID, ownerId: UUID, name: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
+    init(id: UUID, ownerId: UUID, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
         self.id = id
         self.ownerId = ownerId
-        self.name = name
         self.details = details
         self.personality = personality
         self.species = species
