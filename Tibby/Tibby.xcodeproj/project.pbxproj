@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
+		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
+		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
+		92B647892C2C97EC0068E98E /* TibbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647882C2C97EC0068E98E /* TibbyTests.swift */; };
+		92B647932C2C97EC0068E98E /* TibbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647922C2C97EC0068E98E /* TibbyUITests.swift */; };
+		92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */; };
+		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92B647852C2C97EC0068E98E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B647702C2C97EB0068E98E;
+			remoteInfo = Tibby;
+		};
+		92B6478F2C2C97EC0068E98E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B647702C2C97EB0068E98E;
+			remoteInfo = Tibby;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
+		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92B6477C2C2C97EC0068E98E /* Tibby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tibby.entitlements; sourceTree = "<group>"; };
+		92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92B647842C2C97EC0068E98E /* TibbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TibbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B647882C2C97EC0068E98E /* TibbyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyTests.swift; sourceTree = "<group>"; };
+		92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TibbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B647922C2C97EC0068E98E /* TibbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITests.swift; sourceTree = "<group>"; };
+		92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92B6476E2C2C97EB0068E98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B647812C2C97EC0068E98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B6478B2C2C97EC0068E98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92B647682C2C97EB0068E98E = {
+			isa = PBXGroup;
+			children = (
+				92B647732C2C97EB0068E98E /* Tibby */,
+				92B647872C2C97EC0068E98E /* TibbyTests */,
+				92B647912C2C97EC0068E98E /* TibbyUITests */,
+				92B647722C2C97EB0068E98E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92B647722C2C97EB0068E98E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92B647712C2C97EB0068E98E /* Tibby.app */,
+				92B647842C2C97EC0068E98E /* TibbyTests.xctest */,
+				92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92B647732C2C97EB0068E98E /* Tibby */ = {
+			isa = PBXGroup;
+			children = (
+				FDE4F8272C2CA7B200490F38 /* Models */,
+				92B647742C2C97EB0068E98E /* TibbyApp.swift */,
+				92B6477A2C2C97EC0068E98E /* Assets.xcassets */,
+				92B6477C2C2C97EC0068E98E /* Tibby.entitlements */,
+				92B6477D2C2C97EC0068E98E /* Preview Content */,
+			);
+			path = Tibby;
+			sourceTree = "<group>";
+		};
+		92B6477D2C2C97EC0068E98E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92B647872C2C97EC0068E98E /* TibbyTests */ = {
+			isa = PBXGroup;
+			children = (
+				92B647882C2C97EC0068E98E /* TibbyTests.swift */,
+			);
+			path = TibbyTests;
+			sourceTree = "<group>";
+		};
+		92B647912C2C97EC0068E98E /* TibbyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				92B647922C2C97EC0068E98E /* TibbyUITests.swift */,
+				92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */,
+			);
+			path = TibbyUITests;
+			sourceTree = "<group>";
+		};
+		FDE4F8272C2CA7B200490F38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDE4F8282C2CA7C900490F38 /* Tibby.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92B647702C2C97EB0068E98E /* Tibby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B647982C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "Tibby" */;
+			buildPhases = (
+				92B6476D2C2C97EB0068E98E /* Sources */,
+				92B6476E2C2C97EB0068E98E /* Frameworks */,
+				92B6476F2C2C97EB0068E98E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tibby;
+			productName = Tibby;
+			productReference = 92B647712C2C97EB0068E98E /* Tibby.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92B647832C2C97EC0068E98E /* TibbyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B6479B2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyTests" */;
+			buildPhases = (
+				92B647802C2C97EC0068E98E /* Sources */,
+				92B647812C2C97EC0068E98E /* Frameworks */,
+				92B647822C2C97EC0068E98E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92B647862C2C97EC0068E98E /* PBXTargetDependency */,
+			);
+			name = TibbyTests;
+			productName = TibbyTests;
+			productReference = 92B647842C2C97EC0068E98E /* TibbyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92B6478D2C2C97EC0068E98E /* TibbyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B6479E2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyUITests" */;
+			buildPhases = (
+				92B6478A2C2C97EC0068E98E /* Sources */,
+				92B6478B2C2C97EC0068E98E /* Frameworks */,
+				92B6478C2C2C97EC0068E98E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92B647902C2C97EC0068E98E /* PBXTargetDependency */,
+			);
+			name = TibbyUITests;
+			productName = TibbyUITests;
+			productReference = 92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92B647692C2C97EB0068E98E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					92B647702C2C97EB0068E98E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					92B647832C2C97EC0068E98E = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 92B647702C2C97EB0068E98E;
+					};
+					92B6478D2C2C97EC0068E98E = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 92B647702C2C97EB0068E98E;
+					};
+				};
+			};
+			buildConfigurationList = 92B6476C2C2C97EB0068E98E /* Build configuration list for PBXProject "Tibby" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92B647682C2C97EB0068E98E;
+			productRefGroup = 92B647722C2C97EB0068E98E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92B647702C2C97EB0068E98E /* Tibby */,
+				92B647832C2C97EC0068E98E /* TibbyTests */,
+				92B6478D2C2C97EC0068E98E /* TibbyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92B6476F2C2C97EB0068E98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */,
+				92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B647822C2C97EC0068E98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B6478C2C2C97EC0068E98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92B6476D2C2C97EB0068E98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
+				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B647802C2C97EC0068E98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B647892C2C97EC0068E98E /* TibbyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B6478A2C2C97EC0068E98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B647932C2C97EC0068E98E /* TibbyUITests.swift in Sources */,
+				92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92B647862C2C97EC0068E98E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92B647702C2C97EB0068E98E /* Tibby */;
+			targetProxy = 92B647852C2C97EC0068E98E /* PBXContainerItemProxy */;
+		};
+		92B647902C2C97EC0068E98E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92B647702C2C97EB0068E98E /* Tibby */;
+			targetProxy = 92B6478F2C2C97EC0068E98E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		92B647962C2C97EC0068E98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92B647972C2C97EC0068E98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		92B647992C2C97EC0068E98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tibby/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92B6479A2C2C97EC0068E98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tibby/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92B6479C2C2C97EC0068E98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godinho.TibbyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tibby.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tibby";
+			};
+			name = Debug;
+		};
+		92B6479D2C2C97EC0068E98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godinho.TibbyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tibby.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tibby";
+			};
+			name = Release;
+		};
+		92B6479F2C2C97EC0068E98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godinho.TibbyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tibby;
+			};
+			name = Debug;
+		};
+		92B647A02C2C97EC0068E98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.godinho.TibbyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tibby;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92B6476C2C2C97EB0068E98E /* Build configuration list for PBXProject "Tibby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B647962C2C97EC0068E98E /* Debug */,
+				92B647972C2C97EC0068E98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92B647982C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "Tibby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B647992C2C97EC0068E98E /* Debug */,
+				92B6479A2C2C97EC0068E98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92B6479B2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B6479C2C2C97EC0068E98E /* Debug */,
+				92B6479D2C2C97EC0068E98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92B6479E2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B6479F2C2C97EC0068E98E /* Debug */,
+				92B647A02C2C97EC0068E98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92B647692C2C97EB0068E98E /* Project object */;
+}
