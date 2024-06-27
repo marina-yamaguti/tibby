@@ -91,6 +91,39 @@ final class TibbyTests: XCTestCase {
         XCTAssertNil(user.passwordHash)
     }
     
+    func testAccessoryInitialization() throws {
+        // Given
+        let id = UUID()
+        let tibbyId = UUID()
+        let name = "Hat"
+        let image = "hat.png"
+        
+        // When
+        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image)
+        
+        // Then
+        XCTAssertEqual(accessory.id, id)
+        XCTAssertEqual(accessory.tibbyId, tibbyId)
+        XCTAssertEqual(accessory.name, name)
+        XCTAssertEqual(accessory.image, image)
+    }
+    
+    func testAccessoryInitializationWithoutOptionalParameter() throws {
+        // Given
+        let id = UUID()
+        let name = "Scarf"
+        let image = "scarf.png"
+        
+        // When
+        let accessory = Accessory(id: id, name: name, image: image)
+        
+        // Then
+        XCTAssertEqual(accessory.id, id)
+        XCTAssertNil(accessory.tibbyId)
+        XCTAssertEqual(accessory.name, name)
+        XCTAssertEqual(accessory.image, image)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
