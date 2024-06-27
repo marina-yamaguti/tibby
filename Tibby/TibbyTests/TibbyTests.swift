@@ -30,6 +30,7 @@ final class TibbyTests: XCTestCase {
         // Given
         let id = UUID()
         let ownerId = UUID()
+        let rariry = "Rare"
         let details = "A cute and fluffy virtual pet."
         let personality = "Friendly"
         let species = "Cat"
@@ -42,11 +43,12 @@ final class TibbyTests: XCTestCase {
         let lastUpdated = Date()
         
         // When
-        let tibby = Tibby(id: id, ownerId: ownerId, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated)
+        let tibby = Tibby(id: id, ownerId: ownerId, rarity: rariry, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated)
         
         // Then
         XCTAssertEqual(tibby.id, id)
         XCTAssertEqual(tibby.ownerId, ownerId)
+        XCTAssertEqual(tibby.rarity, rariry)
         XCTAssertEqual(tibby.details, details)
         XCTAssertEqual(tibby.personality, personality)
         XCTAssertEqual(tibby.species, species)
@@ -122,6 +124,21 @@ final class TibbyTests: XCTestCase {
         XCTAssertNil(accessory.tibbyId)
         XCTAssertEqual(accessory.name, name)
         XCTAssertEqual(accessory.image, image)
+    }
+    
+    func testActivityInitialization() throws {
+        // Given
+        let id = UUID()
+        let name = "Dormir"
+        let effect = "[sleep: +2, hunger: -2]"
+        
+        // When
+        let activity = Activity(id: id, name: name, effect: effect)
+        
+        // Then
+        XCTAssertEqual(activity.id, id)
+        XCTAssertEqual(activity.name, name)
+        XCTAssertEqual(activity.effect, effect)
     }
     
     func testPerformanceExample() throws {
