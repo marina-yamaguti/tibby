@@ -61,7 +61,6 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(tibby.friendship, friendship)
         XCTAssertEqual(tibby.lastUpdated, lastUpdated)
     }
-    
     func testUserInitialization() throws {
         // Given
         let id = UUID()
