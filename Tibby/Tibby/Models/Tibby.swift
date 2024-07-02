@@ -16,10 +16,13 @@ final class Tibby {
     var id: UUID
     
     /// The unique identifier of the owner of the Tibby.
-    var ownerId: UUID
+    var ownerId: UUID?
     
     /// The name of the Tibby.
     var name: String?
+    
+    /// The chance of getting this Tibby
+    var rarity: String
     
     /// Additional details about the Tibby.
     var details: String
@@ -57,6 +60,7 @@ final class Tibby {
     ///   - id: The unique identifier for the Tibby.
     ///   - ownerId: The unique identifier of the owner of the Tibby.
     ///   - name: The name of the Tibby.
+    ///   - rarity: The chance of getting this Tibby
     ///   - details: Additional details about the Tibby.
     ///   - personality: The personality traits of the Tibby.
     ///   - species: The species of the Tibby.
@@ -67,9 +71,10 @@ final class Tibby {
     ///   - sleep: The sleep level of the Tibby.
     ///   - friendship: The friendship level of the Tibby with its owner.
     ///   - lastUpdated: The date when the Tibby was last updated.
-    init(id: UUID, ownerId: UUID, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
+    init(id: UUID, ownerId: UUID, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
         self.id = id
         self.ownerId = ownerId
+        self.rarity = rarity
         self.details = details
         self.personality = personality
         self.species = species

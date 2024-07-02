@@ -31,7 +31,7 @@ final class TibbyTests: XCTestCase {
         // Given
         let id = UUID()
         let ownerId = UUID()
-        let name = "Fluffy"
+        let rariry = "Rare"
         let details = "A cute and fluffy virtual pet."
         let personality = "Friendly"
         let species = "Cat"
@@ -44,11 +44,12 @@ final class TibbyTests: XCTestCase {
         let lastUpdated = Date()
         
         // When
-        let tibby = Tibby(id: id, ownerId: ownerId, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated)
+        let tibby = Tibby(id: id, ownerId: ownerId, rarity: rariry, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated)
         
         // Then
         XCTAssertEqual(tibby.id, id)
         XCTAssertEqual(tibby.ownerId, ownerId)
+        XCTAssertEqual(tibby.rarity, rariry)
         XCTAssertEqual(tibby.details, details)
         XCTAssertEqual(tibby.personality, personality)
         XCTAssertEqual(tibby.species, species)
@@ -92,6 +93,54 @@ final class TibbyTests: XCTestCase {
         XCTAssertNil(user.passwordHash)
     }
     
+    func testAccessoryInitialization() throws {
+        // Given
+        let id = UUID()
+        let tibbyId = UUID()
+        let name = "Hat"
+        let image = "hat.png"
+        
+        // When
+        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image)
+        
+        // Then
+        XCTAssertEqual(accessory.id, id)
+        XCTAssertEqual(accessory.tibbyId, tibbyId)
+        XCTAssertEqual(accessory.name, name)
+        XCTAssertEqual(accessory.image, image)
+    }
+    
+    func testAccessoryInitializationWithoutOptionalParameter() throws {
+        // Given
+        let id = UUID()
+        let name = "Scarf"
+        let image = "scarf.png"
+        
+        // When
+        let accessory = Accessory(id: id, name: name, image: image)
+        
+        // Then
+        XCTAssertEqual(accessory.id, id)
+        XCTAssertNil(accessory.tibbyId)
+        XCTAssertEqual(accessory.name, name)
+        XCTAssertEqual(accessory.image, image)
+    }
+    
+    func testActivityInitialization() throws {
+        // Given
+        let id = UUID()
+        let name = "Dormir"
+        let effect = "[sleep: +2, hunger: -2]"
+        
+        // When
+        let activity = Activity(id: id, name: name, effect: effect)
+        
+        // Then
+        XCTAssertEqual(activity.id, id)
+        XCTAssertEqual(activity.name, name)
+        XCTAssertEqual(activity.effect, effect)
+    }
+    
     class TibbyProtocolTest: TibbyProtocol {
         var tibby: SKSpriteNode = SKSpriteNode()
         
@@ -124,13 +173,13 @@ final class TibbyTests: XCTestCase {
         
         tibbyTest.removeAccessory()
         XCTAssertEqual(tibbyTest.tibby.children, [])
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+        
+        func testPerformanceExample() throws {
+            // This is an example of a performance test case.
+            measure {
+                // Put the code you want to measure the time of here.
+            }
         }
+        
     }
-    
 }
