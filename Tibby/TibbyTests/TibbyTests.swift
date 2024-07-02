@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Tibby
+import SpriteKit
 
 final class TibbyTests: XCTestCase {
     
@@ -60,7 +61,6 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(tibby.friendship, friendship)
         XCTAssertEqual(tibby.lastUpdated, lastUpdated)
     }
-    
     func testUserInitialization() throws {
         // Given
         let id = UUID()
@@ -156,6 +156,39 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(interaction.tibbyId, tibbyId)
         XCTAssertEqual(interaction.activityId, activityId)
         XCTAssertEqual(interaction.timestamp, timestamp)
+    }
+    class TibbyProtocolTest: TibbyProtocol {
+        var tibby: SKSpriteNode = SKSpriteNode()
+        
+        var accessory: SKSpriteNode = SKSpriteNode()
+        
+        func addAccessory(_ imageName: String) {
+            accessory.name = imageName
+            tibby.addChild(accessory)
+        }
+        
+        func removeAccessory() {
+            if let child = self.accessory as? SKSpriteNode {
+                child.removeFromParent()
+            }
+        }
+        
+        func animateTibby() {
+            self.tibby.name = "Tibby"
+        }
+        
+    }
+    
+    func testTibbyProtocol() throws {
+        var tibbyTest = TibbyProtocolTest()
+        tibbyTest.animateTibby()
+        XCTAssertEqual(tibbyTest.tibby.name, "Tibby")
+        
+        tibbyTest.addAccessory("test")
+        XCTAssertEqual(tibbyTest.accessory.name, "test")
+        
+        tibbyTest.removeAccessory()
+        XCTAssertEqual(tibbyTest.tibby.children, [])
     }
     
     func testPerformanceExample() throws {
