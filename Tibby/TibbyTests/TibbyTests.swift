@@ -141,6 +141,23 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(activity.effect, effect)
     }
     
+    func testInteractionInitialization() throws {
+        // Given
+        let id = UUID()
+        let tibbyId = UUID()
+        let activityId = UUID()
+        let timestamp = Date()
+        
+        // When
+        let interaction = Interaction(id: id, tibbyId: tibbyId, activityId: activityId, timestamp: timestamp)
+        
+        // Then
+        XCTAssertEqual(interaction.id, id)
+        XCTAssertEqual(interaction.tibbyId, tibbyId)
+        XCTAssertEqual(interaction.activityId, activityId)
+        XCTAssertEqual(interaction.timestamp, timestamp)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
