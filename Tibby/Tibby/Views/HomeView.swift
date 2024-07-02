@@ -10,12 +10,31 @@ import SpriteKit
 
 struct HomeView: View {
     
-    var tibby: SKScene = TibbyView()
+    var tibby: TibbyProtocol = TibbyView()
     
     var body: some View {
         VStack {
-            Text("AAA")
-            SpriteView(scene: tibby, options: [.allowsTransparency])
+            SpriteView(scene: tibby as! SKScene, options: [.allowsTransparency])
+            
+            Text("Add Accessory")
+            HStack{
+                Button {
+                    tibby.addAccessory("Fire")
+                } label: {
+                    Text("Add fire")
+                }
+                Button {
+                    tibby.addAccessory("Spider")
+                } label: {
+                    Text("Add spider")
+                }
+                Button {
+                    tibby.removeAccessory()
+                } label: {
+                    Text("Remove")
+                }
+
+            }
         }
     }
 }
