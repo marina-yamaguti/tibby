@@ -142,43 +142,44 @@ final class TibbyTests: XCTestCase {
     }
     
     class TibbyProtocolTest: TibbyProtocol {
-            var tibby: SKSpriteNode = SKSpriteNode()
-            
-            var accessory: SKSpriteNode = SKSpriteNode()
-            
-            func addAccessory(_ imageName: String) {
-                accessory.name = imageName
-                tibby.addChild(accessory)
-            }
-            
-            func removeAccessory() {
-                if let child = self.accessory as? SKSpriteNode {
-                    child.removeFromParent()
-                }
-            }
-            
-            func animateTibby() {
-                self.tibby.name = "Tibby"
-            }
-            
+        var tibby: SKSpriteNode = SKSpriteNode()
+        
+        var accessory: SKSpriteNode = SKSpriteNode()
+        
+        func addAccessory(_ imageName: String) {
+            accessory.name = imageName
+            tibby.addChild(accessory)
         }
         
-        func testTibbyProtocol() throws {
-            var tibbyTest = TibbyProtocolTest()
-            tibbyTest.animateTibby()
-            XCTAssertEqual(tibbyTest.tibby.name, "Tibby")
-            
-            tibbyTest.addAccessory("test")
-            XCTAssertEqual(tibbyTest.accessory.name, "test")
-            
-            tibbyTest.removeAccessory()
-            XCTAssertEqual(tibbyTest.tibby.children, [])
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+        func removeAccessory() {
+            if let child = self.accessory as? SKSpriteNode {
+                child.removeFromParent()
+            }
         }
+        
+        func animateTibby() {
+            self.tibby.name = "Tibby"
+        }
+        
     }
     
+    func testTibbyProtocol() throws {
+        var tibbyTest = TibbyProtocolTest()
+        tibbyTest.animateTibby()
+        XCTAssertEqual(tibbyTest.tibby.name, "Tibby")
+        
+        tibbyTest.addAccessory("test")
+        XCTAssertEqual(tibbyTest.accessory.name, "test")
+        
+        tibbyTest.removeAccessory()
+        XCTAssertEqual(tibbyTest.tibby.children, [])
+        
+        func testPerformanceExample() throws {
+            // This is an example of a performance test case.
+            measure {
+                // Put the code you want to measure the time of here.
+            }
+        }
+        
+    }
 }
