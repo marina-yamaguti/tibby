@@ -7,6 +7,30 @@
 
 import Foundation
 import SwiftData
+import SpriteKit
+
+///enum to represent the types of nodes in the SpriteKit View
+enum NodeType {
+    case tibby
+    case accessory
+}
+
+/// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
+protocol TibbyProtocol {
+    
+    // MARK: Tibby and accessory Nodes instances
+    var tibby: SKSpriteNode { get set }
+    var accessory: SKSpriteNode { get set }
+    /// Tibby ID to operate in the view
+    var tibbyID: UUID? { get set }
+    func setTibbyID(tibbyId: UUID)
+    
+    ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
+    func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)
+    func removeAccessory(_ service: Service)
+    ///Pass the set of images for the animation and what is animating
+    func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
+}
 
 /// A model representing a Tibby, a virtual pet with various attributes and states.
 @Model
