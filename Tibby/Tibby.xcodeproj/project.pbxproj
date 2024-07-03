@@ -19,6 +19,24 @@
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
 		FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A62C2DECD9000E5F24 /* Interaction.swift */; };
+		FD9075AF2C3489A4000E5F24 /* tibby_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075AE2C3489A4000E5F24 /* tibby_watchApp.swift */; };
+		FD9075B12C3489A4000E5F24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075B02C3489A4000E5F24 /* ContentView.swift */; };
+		FD9075B32C3489A6000E5F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9075B22C3489A6000E5F24 /* Assets.xcassets */; };
+		FD9075B62C3489A6000E5F24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9075B52C3489A6000E5F24 /* Preview Assets.xcassets */; };
+		FD9075C02C3489A6000E5F24 /* tibby_watch_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075BF2C3489A6000E5F24 /* tibby_watch_Watch_AppTests.swift */; };
+		FD9075CA2C3489A6000E5F24 /* tibby_watch_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075C92C3489A6000E5F24 /* tibby_watch_Watch_AppUITests.swift */; };
+		FD9075CC2C3489A6000E5F24 /* tibby_watch_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075CB2C3489A6000E5F24 /* tibby_watch_Watch_AppUITestsLaunchTests.swift */; };
+		FD9075CF2C3489A6000E5F24 /* tibby-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FD9075AC2C3489A4000E5F24 /* tibby-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD9075E12C3489F1000E5F24 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9075E02C3489F1000E5F24 /* WidgetKit.framework */; };
+		FD9075E32C3489F1000E5F24 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9075E22C3489F1000E5F24 /* SwiftUI.framework */; };
+		FD9075E62C3489F1000E5F24 /* widgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075E52C3489F1000E5F24 /* widgetBundle.swift */; };
+		FD9075E82C3489F1000E5F24 /* widgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075E72C3489F1000E5F24 /* widgetLiveActivity.swift */; };
+		FD9075EA2C3489F1000E5F24 /* widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075E92C3489F1000E5F24 /* widget.swift */; };
+		FD9075EC2C3489F1000E5F24 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075EB2C3489F1000E5F24 /* AppIntent.swift */; };
+		FD9075EE2C3489F2000E5F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9075ED2C3489F2000E5F24 /* Assets.xcassets */; };
+		FD9075F22C3489F2000E5F24 /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */; };
+		FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F502C34EEFE0075E0C7 /* Service.swift */; };
 		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +55,60 @@
 			remoteGlobalIDString = 92B647702C2C97EB0068E98E;
 			remoteInfo = Tibby;
 		};
+		FD9075BC2C3489A6000E5F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD9075AB2C3489A4000E5F24;
+			remoteInfo = "tibby-watch Watch App";
+		};
+		FD9075C62C3489A6000E5F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD9075AB2C3489A4000E5F24;
+			remoteInfo = "tibby-watch Watch App";
+		};
+		FD9075CD2C3489A6000E5F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD9075AB2C3489A4000E5F24;
+			remoteInfo = "tibby-watch Watch App";
+		};
+		FD9075F02C3489F2000E5F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92B647692C2C97EB0068E98E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD9075DD2C3489F1000E5F24;
+			remoteInfo = widgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD9075D02C3489A6000E5F24 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FD9075CF2C3489A6000E5F24 /* tibby-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075F62C3489F2000E5F24 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FD9075F22C3489F2000E5F24 /* widgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
@@ -56,6 +127,27 @@
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FD9075A62C2DECD9000E5F24 /* Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
+		FD9075AC2C3489A4000E5F24 /* tibby-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tibby-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9075AE2C3489A4000E5F24 /* tibby_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tibby_watchApp.swift; sourceTree = "<group>"; };
+		FD9075B02C3489A4000E5F24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FD9075B22C3489A6000E5F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD9075B52C3489A6000E5F24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FD9075BB2C3489A6000E5F24 /* tibby-watch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tibby-watch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9075BF2C3489A6000E5F24 /* tibby_watch_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tibby_watch_Watch_AppTests.swift; sourceTree = "<group>"; };
+		FD9075C52C3489A6000E5F24 /* tibby-watch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tibby-watch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9075C92C3489A6000E5F24 /* tibby_watch_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tibby_watch_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		FD9075CB2C3489A6000E5F24 /* tibby_watch_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tibby_watch_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9075E02C3489F1000E5F24 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FD9075E22C3489F1000E5F24 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FD9075E52C3489F1000E5F24 /* widgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widgetBundle.swift; sourceTree = "<group>"; };
+		FD9075E72C3489F1000E5F24 /* widgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widgetLiveActivity.swift; sourceTree = "<group>"; };
+		FD9075E92C3489F1000E5F24 /* widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widget.swift; sourceTree = "<group>"; };
+		FD9075EB2C3489F1000E5F24 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		FD9075ED2C3489F2000E5F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD9075EF2C3489F2000E5F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDExample.swift; sourceTree = "<group>"; };
+		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,12 +173,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD9075A92C3489A4000E5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075B82C3489A6000E5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075C22C3489A6000E5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075DB2C3489F1000E5F24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075E32C3489F1000E5F24 /* SwiftUI.framework in Frameworks */,
+				FD9075E12C3489F1000E5F24 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
 				7C2ED2682C2DF0620030D0B9 /* HomeView.swift */,
 			);
@@ -107,6 +230,11 @@
 				92B647732C2C97EB0068E98E /* Tibby */,
 				92B647872C2C97EC0068E98E /* TibbyTests */,
 				92B647912C2C97EC0068E98E /* TibbyUITests */,
+				FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */,
+				FD9075BE2C3489A6000E5F24 /* tibby-watch Watch AppTests */,
+				FD9075C82C3489A6000E5F24 /* tibby-watch Watch AppUITests */,
+				FD9075E42C3489F1000E5F24 /* widget */,
+				FD9075DF2C3489F1000E5F24 /* Frameworks */,
 				92B647722C2C97EB0068E98E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +245,10 @@
 				92B647712C2C97EB0068E98E /* Tibby.app */,
 				92B647842C2C97EC0068E98E /* TibbyTests.xctest */,
 				92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */,
+				FD9075AC2C3489A4000E5F24 /* tibby-watch Watch App.app */,
+				FD9075BB2C3489A6000E5F24 /* tibby-watch Watch AppTests.xctest */,
+				FD9075C52C3489A6000E5F24 /* tibby-watch Watch AppUITests.xctest */,
+				FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +256,7 @@
 		92B647732C2C97EB0068E98E /* Tibby */ = {
 			isa = PBXGroup;
 			children = (
+				FD9075F72C34A2AB000E5F24 /* Service */,
 				7C2ED2642C2DF02B0030D0B9 /* Views */,
 				FDE4F8272C2CA7B200490F38 /* Models */,
 				92B647742C2C97EB0068E98E /* TibbyApp.swift */,
@@ -159,6 +292,80 @@
 			path = TibbyUITests;
 			sourceTree = "<group>";
 		};
+		FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075AE2C3489A4000E5F24 /* tibby_watchApp.swift */,
+				FD9075B02C3489A4000E5F24 /* ContentView.swift */,
+				FD9075B22C3489A6000E5F24 /* Assets.xcassets */,
+				FD9075B42C3489A6000E5F24 /* Preview Content */,
+			);
+			path = "tibby-watch Watch App";
+			sourceTree = "<group>";
+		};
+		FD9075B42C3489A6000E5F24 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075B52C3489A6000E5F24 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD9075BE2C3489A6000E5F24 /* tibby-watch Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075BF2C3489A6000E5F24 /* tibby_watch_Watch_AppTests.swift */,
+			);
+			path = "tibby-watch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		FD9075C82C3489A6000E5F24 /* tibby-watch Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075C92C3489A6000E5F24 /* tibby_watch_Watch_AppUITests.swift */,
+				FD9075CB2C3489A6000E5F24 /* tibby_watch_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "tibby-watch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		FD9075DF2C3489F1000E5F24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075E02C3489F1000E5F24 /* WidgetKit.framework */,
+				FD9075E22C3489F1000E5F24 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD9075E42C3489F1000E5F24 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075E52C3489F1000E5F24 /* widgetBundle.swift */,
+				FD9075E72C3489F1000E5F24 /* widgetLiveActivity.swift */,
+				FD9075E92C3489F1000E5F24 /* widget.swift */,
+				FD9075EB2C3489F1000E5F24 /* AppIntent.swift */,
+				FD9075ED2C3489F2000E5F24 /* Assets.xcassets */,
+				FD9075EF2C3489F2000E5F24 /* Info.plist */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
+		FD9075F72C34A2AB000E5F24 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FDCD3F502C34EEFE0075E0C7 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FD9075FE2C34B564000E5F24 /* CRUD Example */ = {
+			isa = PBXGroup;
+			children = (
+				FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */,
+			);
+			path = "CRUD Example";
+			sourceTree = "<group>";
+		};
 		FDE4F8272C2CA7B200490F38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,10 +388,14 @@
 				92B6476D2C2C97EB0068E98E /* Sources */,
 				92B6476E2C2C97EB0068E98E /* Frameworks */,
 				92B6476F2C2C97EB0068E98E /* Resources */,
+				FD9075D02C3489A6000E5F24 /* Embed Watch Content */,
+				FD9075F62C3489F2000E5F24 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD9075CE2C3489A6000E5F24 /* PBXTargetDependency */,
+				FD9075F12C3489F2000E5F24 /* PBXTargetDependency */,
 			);
 			name = Tibby;
 			productName = Tibby;
@@ -227,6 +438,76 @@
 			productReference = 92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FD9075AB2C3489A4000E5F24 /* tibby-watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD9075D72C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch App" */;
+			buildPhases = (
+				FD9075A82C3489A4000E5F24 /* Sources */,
+				FD9075A92C3489A4000E5F24 /* Frameworks */,
+				FD9075AA2C3489A4000E5F24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tibby-watch Watch App";
+			productName = "tibby-watch Watch App";
+			productReference = FD9075AC2C3489A4000E5F24 /* tibby-watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD9075BA2C3489A6000E5F24 /* tibby-watch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD9075D82C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppTests" */;
+			buildPhases = (
+				FD9075B72C3489A6000E5F24 /* Sources */,
+				FD9075B82C3489A6000E5F24 /* Frameworks */,
+				FD9075B92C3489A6000E5F24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD9075BD2C3489A6000E5F24 /* PBXTargetDependency */,
+			);
+			name = "tibby-watch Watch AppTests";
+			productName = "tibby-watch Watch AppTests";
+			productReference = FD9075BB2C3489A6000E5F24 /* tibby-watch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FD9075C42C3489A6000E5F24 /* tibby-watch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD9075D92C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppUITests" */;
+			buildPhases = (
+				FD9075C12C3489A6000E5F24 /* Sources */,
+				FD9075C22C3489A6000E5F24 /* Frameworks */,
+				FD9075C32C3489A6000E5F24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD9075C72C3489A6000E5F24 /* PBXTargetDependency */,
+			);
+			name = "tibby-watch Watch AppUITests";
+			productName = "tibby-watch Watch AppUITests";
+			productReference = FD9075C52C3489A6000E5F24 /* tibby-watch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FD9075DD2C3489F1000E5F24 /* widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD9075F32C3489F2000E5F24 /* Build configuration list for PBXNativeTarget "widgetExtension" */;
+			buildPhases = (
+				FD9075DA2C3489F1000E5F24 /* Sources */,
+				FD9075DB2C3489F1000E5F24 /* Frameworks */,
+				FD9075DC2C3489F1000E5F24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = widgetExtension;
+			productName = widgetExtension;
+			productReference = FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,7 +515,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					92B647702C2C97EB0068E98E = {
@@ -247,6 +528,20 @@
 					92B6478D2C2C97EC0068E98E = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 92B647702C2C97EB0068E98E;
+					};
+					FD9075AB2C3489A4000E5F24 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					FD9075BA2C3489A6000E5F24 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = FD9075AB2C3489A4000E5F24;
+					};
+					FD9075C42C3489A6000E5F24 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = FD9075AB2C3489A4000E5F24;
+					};
+					FD9075DD2C3489F1000E5F24 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -266,6 +561,10 @@
 				92B647702C2C97EB0068E98E /* Tibby */,
 				92B647832C2C97EC0068E98E /* TibbyTests */,
 				92B6478D2C2C97EC0068E98E /* TibbyUITests */,
+				FD9075AB2C3489A4000E5F24 /* tibby-watch Watch App */,
+				FD9075BA2C3489A6000E5F24 /* tibby-watch Watch AppTests */,
+				FD9075C42C3489A6000E5F24 /* tibby-watch Watch AppUITests */,
+				FD9075DD2C3489F1000E5F24 /* widgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +593,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD9075AA2C3489A4000E5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075B62C3489A6000E5F24 /* Preview Assets.xcassets in Resources */,
+				FD9075B32C3489A6000E5F24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075B92C3489A6000E5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075C32C3489A6000E5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075DC2C3489F1000E5F24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075EE2C3489F2000E5F24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,6 +631,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
+				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
@@ -329,6 +661,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD9075A82C3489A4000E5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075B12C3489A4000E5F24 /* ContentView.swift in Sources */,
+				FD9075AF2C3489A4000E5F24 /* tibby_watchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075B72C3489A6000E5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075C02C3489A6000E5F24 /* tibby_watch_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075C12C3489A6000E5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075CA2C3489A6000E5F24 /* tibby_watch_Watch_AppUITests.swift in Sources */,
+				FD9075CC2C3489A6000E5F24 /* tibby_watch_Watch_AppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD9075DA2C3489F1000E5F24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD9075EA2C3489F1000E5F24 /* widget.swift in Sources */,
+				FD9075EC2C3489F1000E5F24 /* AppIntent.swift in Sources */,
+				FD9075E82C3489F1000E5F24 /* widgetLiveActivity.swift in Sources */,
+				FD9075E62C3489F1000E5F24 /* widgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -341,6 +710,26 @@
 			isa = PBXTargetDependency;
 			target = 92B647702C2C97EB0068E98E /* Tibby */;
 			targetProxy = 92B6478F2C2C97EC0068E98E /* PBXContainerItemProxy */;
+		};
+		FD9075BD2C3489A6000E5F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD9075AB2C3489A4000E5F24 /* tibby-watch Watch App */;
+			targetProxy = FD9075BC2C3489A6000E5F24 /* PBXContainerItemProxy */;
+		};
+		FD9075C72C3489A6000E5F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD9075AB2C3489A4000E5F24 /* tibby-watch Watch App */;
+			targetProxy = FD9075C62C3489A6000E5F24 /* PBXContainerItemProxy */;
+		};
+		FD9075CE2C3489A6000E5F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD9075AB2C3489A4000E5F24 /* tibby-watch Watch App */;
+			targetProxy = FD9075CD2C3489A6000E5F24 /* PBXContainerItemProxy */;
+		};
+		FD9075F12C3489F2000E5F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD9075DD2C3489F1000E5F24 /* widgetExtension */;
+			targetProxy = FD9075F02C3489F2000E5F24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -464,6 +853,7 @@
 		92B647992C2C97EC0068E98E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
@@ -511,6 +901,7 @@
 		92B6479A2C2C97EC0068E98E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
@@ -649,6 +1040,218 @@
 			};
 			name = Release;
 		};
+		FD9075D12C3489A6000E5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.tibby;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		FD9075D22C3489A6000E5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.tibby;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
+		FD9075D32C3489A6000E5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tibby-watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tibby-watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		FD9075D42C3489A6000E5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tibby-watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tibby-watch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
+		FD9075D52C3489A6000E5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "tibby-watch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		FD9075D62C3489A6000E5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "tibby-watch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
+		FD9075F42C3489F2000E5F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD9075F52C3489F2000E5F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -684,6 +1287,42 @@
 			buildConfigurations = (
 				92B6479F2C2C97EC0068E98E /* Debug */,
 				92B647A02C2C97EC0068E98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD9075D72C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9075D12C3489A6000E5F24 /* Debug */,
+				FD9075D22C3489A6000E5F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD9075D82C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9075D32C3489A6000E5F24 /* Debug */,
+				FD9075D42C3489A6000E5F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD9075D92C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9075D52C3489A6000E5F24 /* Debug */,
+				FD9075D62C3489A6000E5F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD9075F32C3489F2000E5F24 /* Build configuration list for PBXNativeTarget "widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9075F42C3489F2000E5F24 /* Debug */,
+				FD9075F52C3489F2000E5F24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
