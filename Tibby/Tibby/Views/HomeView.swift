@@ -19,17 +19,17 @@ struct HomeView: View {
             Text("Add Accessory")
             HStack{
                 Button {
-                    tibby.addAccessory("Fire")
+//                    tibby.addAccessory("Fire")
                 } label: {
                     Text("Add fire")
                 }
                 Button {
-                    tibby.addAccessory("Spider")
+//                    tibby.addAccessory("Spider")
                 } label: {
                     Text("Add spider")
                 }
                 Button {
-                    tibby.removeAccessory()
+//                    tibby.removeAccessory()
                 } label: {
                     Text("Remove")
                 }

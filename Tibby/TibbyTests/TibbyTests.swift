@@ -158,6 +158,12 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(interaction.timestamp, timestamp)
     }
     class TibbyProtocolTest: TibbyProtocol {
+        var tibbyID: UUID?
+        
+        func setTibbyID(tibbyId: UUID) {
+            //testar
+        }
+        
         var tibby: SKSpriteNode = SKSpriteNode()
         
         var accessory: SKSpriteNode = SKSpriteNode()
