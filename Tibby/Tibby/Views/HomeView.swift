@@ -27,6 +27,7 @@ struct HomeView: View {
                     tibby.addAccessory("Spider")
                 } label: {
                     Text("Add spider")
+                        .font(.fontStyle(.logo))
                 }
                 Button {
                     tibby.removeAccessory()
