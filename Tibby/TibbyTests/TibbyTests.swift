@@ -8,6 +8,7 @@
 import XCTest
 @testable import Tibby
 import SpriteKit
+import SwiftData
 
 final class TibbyTests: XCTestCase {
     
@@ -157,37 +158,56 @@ final class TibbyTests: XCTestCase {
         XCTAssertEqual(interaction.activityId, activityId)
         XCTAssertEqual(interaction.timestamp, timestamp)
     }
+    
     class TibbyProtocolTest: TibbyProtocol {
+        
         var tibby: SKSpriteNode = SKSpriteNode()
-        
         var accessory: SKSpriteNode = SKSpriteNode()
+        var tibbyID: UUID?
         
-        func addAccessory(_ imageName: String) {
-            accessory.name = imageName
-            tibby.addChild(accessory)
+        func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?) {
+            self.accessory.name = accessory.name
+            tibby.addChild(self.accessory)
         }
         
-        func removeAccessory() {
+        func removeAccessory(_ service: Service) {
             if let child = self.accessory as? SKSpriteNode {
                 child.removeFromParent()
             }
         }
         
-        func animateTibby() {
-            self.tibby.name = "Tibby"
+        func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval) {
+            if nodeID == . tibby {
+                self.tibby.name = textureList[0] + String(timeFrame)
+            }
+        }
+        
+        func setTibbyID(tibbyId: UUID) {
+            self.tibbyID = tibbyId
         }
         
     }
     
     func testTibbyProtocol() throws {
-        var tibbyTest = TibbyProtocolTest()
-        tibbyTest.animateTibby()
-        XCTAssertEqual(tibbyTest.tibby.name, "Tibby")
+        //Given
+        let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
+        let tibbyTest = TibbyProtocolTest()
+        let tibbyUUID = UUID()
+        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test")
         
-        tibbyTest.addAccessory("test")
+        //When
+        tibbyTest.setTibbyID(tibbyId: tibbyUUID)
+        tibbyTest.animateTibby(["Tibby"], nodeID: .tibby, timeFrame: 1)
+        tibbyTest.addAccessory(accessoryTest, serviceTest, tibbyID: UUID())
+        
+        //Then
+        XCTAssertEqual(tibbyTest.tibbyID, tibbyUUID)
+        XCTAssertEqual(tibbyTest.tibby.name, "Tibby1.0")
         XCTAssertEqual(tibbyTest.accessory.name, "test")
         
-        tibbyTest.removeAccessory()
+        //When
+        tibbyTest.removeAccessory(serviceTest)
+        //Then
         XCTAssertEqual(tibbyTest.tibby.children, [])
     }
     

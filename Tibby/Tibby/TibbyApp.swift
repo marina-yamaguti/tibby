@@ -12,7 +12,7 @@ import SwiftData
 struct TibbyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Tibby.self
+            Tibby.self, Accessory.self, User.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,12 +22,14 @@ struct TibbyApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
     var body: some Scene {
         WindowGroup {
             //change screen
-            HomeView()
+            //HomeView()
+           CRUDExample()
         }
         .modelContainer(sharedModelContainer)
+        .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
     }
 }
