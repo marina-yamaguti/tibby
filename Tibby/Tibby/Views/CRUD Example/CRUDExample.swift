@@ -36,26 +36,27 @@ struct CRUDExample: View {
                         // Button to add the accessory to the Tibby view.
                         Button {
                             if let selectedTibby {
-                                tibbyView.addAccessory(accessory: accessory, service: service, tibbyID: selectedTibby.id)
+                                tibbyView.addAccessory(accessory, service, tibbyID: selectedTibby.id)
                             }
                         } label: {
                             Text("Add \(accessory.name)")
-                        }.onChange(of: selectedTibby, {
+                        }
+                          .onChange(of: selectedTibby, {
                             // Observes changes in the selected Tibby to update accessory interactions.
                             if let selectedTibby {
                                 if selectedTibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory: accessory, service: service, tibbyID: selectedTibby.id)
+                                    tibbyView.addAccessory(accessory, service, tibbyID: selectedTibby.id)
                                 }
                             }
                         })
-                        
-                        // Button to remove the accessory from Tibby view.
-                        Button {
-                            tibbyView.removeAccessory(accessory: accessory, service: service)
-                        } label: {
-                            Text("Remove")
-                        }
                     }
+                    // Button to remove the accessory from Tibby view.
+                    Button {
+                        tibbyView.removeAccessory(service)
+                    } label: {
+                        Text("Remove")
+                    }
+
                 }
             }
             
@@ -71,6 +72,18 @@ struct CRUDExample: View {
                 }
             }
             .navigationTitle("Tibby")
+        }
+        .onAppear {
+            ///Exemple of creating only one instance of shark and hat and animate it
+            if (service.getAllTibbies()!.isEmpty) {
+                let firstTibby = Tibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date())
+                service.addTibby(tibby: firstTibby)
+            }
+            if (service.getAllAccessories()!.isEmpty) {
+                let firstAccessory = Accessory(id: UUID(), name: "hat", image: "hat")
+                service.addAccessory(accessory: firstAccessory)
+            }
+            tibbyView.animateTibby(["shark1", "shark2"], nodeID: .tibby, timeFrame: 0.5)
         }
     }
 }
