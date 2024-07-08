@@ -190,6 +190,31 @@ class MockService: ServiceProtocol {
         if let activityIdWP = activityId { interaction.activityId = activityIdWP }
         if let timestampWP = timestamp { interaction.timestamp = timestampWP }
     }
+    func applyInteractionToTibby(_ interaction: Interaction) {
+        guard let activity = self.getActivityByID(id: interaction.activityId) else {return}
+        guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else {return}
+        
+        guard let effectData = activity.effect.data(using: .utf8),
+              let effect = try? JSONSerialization.jsonObject(with: effectData, options: []) as? [String: Int] else {
+            return
+        }
+        if let happinessEffect = effect["happiness"] {
+            tibby.happiness += happinessEffect
+        }
+        if let hungerEffect = effect["hunger"] {
+            tibby.hunger += hungerEffect
+        }
+        if let sleepEffect = effect["sleep"] {
+            tibby.sleep += sleepEffect
+        }
+        if let xpEffect = effect["xp"] {
+            tibby.xp += xpEffect
+        }
+        if let friendshipEffect = effect["friendship"] {
+            tibby.friendship += friendshipEffect
+        }
+        return
+    }
 }
 
 
@@ -360,4 +385,41 @@ final class ServiceTests: XCTestCase {
         mockService.updateInteraction(interaction: interaction!, id: nil, tibbyId: nil, activityId: nil, timestamp: Date().addingTimeInterval(60))
         XCTAssertNotNil(mockService.getInteractionByID(id: id))
     }
+    
+    func testApplyInteractionToTibby() {
+           // Setup initial data
+           let tibbyId = UUID()
+           let activityId = UUID()
+           let interactionId = UUID()
+
+           // Create a Tibby
+           mockService.createTibby(id: tibbyId, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 50, hunger: 50, sleep: 50, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+           // Create an Activity with effects
+           let effect = "{\"happiness\": 10, \"hunger\": -5, \"sleep\": 5, \"xp\": 20, \"friendship\": 15}"
+           mockService.createActivity(id: activityId, name: "Playing", effect: effect)
+           // Create an Interaction
+           mockService.createInteraction(id: interactionId, tibbyId: tibbyId, activityId: activityId, timestamp: Date())
+
+           // Retrieve the created interaction
+           guard let interaction = mockService.getInteractionByID(id: interactionId) else {
+               XCTFail("Interaction not created")
+               return
+           }
+
+           // Apply the interaction effects
+           mockService.applyInteractionToTibby(interaction)
+
+           // Retrieve the Tibby to check the effects
+           guard let tibby = mockService.getTibbyByID(id: tibbyId) else {
+               XCTFail("Tibby not found")
+               return
+           }
+
+           // Assertions
+           XCTAssertEqual(tibby.happiness, 60)
+           XCTAssertEqual(tibby.hunger, 45)
+           XCTAssertEqual(tibby.sleep, 55)
+           XCTAssertEqual(tibby.xp, 20)
+           XCTAssertEqual(tibby.friendship, 65)
+       }
 }
