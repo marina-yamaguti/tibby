@@ -287,4 +287,31 @@ class Service: ObservableObject, ServiceProtocol {
         if let tibbyIdWP = tibbyId {interaction.tibbyId = tibbyIdWP}
         if let activityIdWP = activityId {interaction.activityId = activityIdWP}
     }
+    
+    /// Applies the interaction Effects into the right Tibby
+    func applyInteractionToTibby(_ interaction: Interaction) {
+        guard let activity = self.getActivityByID(id: interaction.activityId) else { return }
+        guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else { return }
+        
+        guard let effectData = activity.effect.data(using: .utf8),
+              let effect = try? JSONSerialization.jsonObject(with: effectData, options: []) as? [String: Int] else {
+            return
+        }
+        if let happinessEffect = effect["happiness"] {
+            tibby.happiness += happinessEffect
+        }
+        if let hungerEffect = effect["hunger"] {
+            tibby.hunger += hungerEffect
+        }
+        if let sleepEffect = effect["sleep"] {
+            tibby.sleep += sleepEffect
+        }
+        if let xpEffect = effect["xp"] {
+            tibby.xp += xpEffect
+        }
+        if let friendshipEffect = effect["friendship"] {
+            tibby.friendship += friendshipEffect
+        }
+        return
+    }
 }
