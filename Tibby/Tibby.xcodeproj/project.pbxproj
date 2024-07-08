@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
-		7C2ED2692C2DF0620030D0B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2682C2DF0620030D0B9 /* HomeView.swift */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
 		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
 		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
@@ -46,15 +45,6 @@
 		FD9075F22C3489F2000E5F24 /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */; };
 		FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F502C34EEFE0075E0C7 /* Service.swift */; };
-		FDCD3F542C3717FF0075E0C7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F532C3717FF0075E0C7 /* Onboarding.swift */; };
-		FDCD3F592C37186C0075E0C7 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F582C37186C0075E0C7 /* SplashScreen.swift */; };
-		FDCD3F5D2C3718D70075E0C7 /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F5C2C3718D70075E0C7 /* BedroomView.swift */; };
-		FDCD3F602C3719050075E0C7 /* KitchenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F5F2C3719050075E0C7 /* KitchenView.swift */; };
-		FDCD3F632C3719280075E0C7 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F622C3719280075E0C7 /* GardenView.swift */; };
-		FDCD3F662C3719570075E0C7 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F652C3719570075E0C7 /* CollectionView.swift */; };
-		FDCD3F682C3719750075E0C7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F672C3719750075E0C7 /* SettingsView.swift */; };
-		FDCD3F6B2C3719900075E0C7 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6A2C3719900075E0C7 /* StoreView.swift */; };
-		FDCD3F6E2C3719CA0075E0C7 /* Gacha.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6D2C3719CA0075E0C7 /* Gacha.swift */; };
 		FDCD3F702C3744970075E0C7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */; };
 		FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */; };
 		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
@@ -132,7 +122,6 @@
 
 /* Begin PBXFileReference section */
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
-		7C2ED2682C2DF0620030D0B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
 		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,15 +164,6 @@
 		FD9075EF2C3489F2000E5F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDExample.swift; sourceTree = "<group>"; };
 		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		FDCD3F532C3717FF0075E0C7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
-		FDCD3F582C37186C0075E0C7 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		FDCD3F5C2C3718D70075E0C7 /* BedroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
-		FDCD3F5F2C3719050075E0C7 /* KitchenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenView.swift; sourceTree = "<group>"; };
-		FDCD3F622C3719280075E0C7 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
-		FDCD3F652C3719570075E0C7 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
-		FDCD3F672C3719750075E0C7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FDCD3F6A2C3719900075E0C7 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
-		FDCD3F6D2C3719CA0075E0C7 /* Gacha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gacha.swift; sourceTree = "<group>"; };
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
@@ -249,7 +229,6 @@
 			children = (
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
-				7C2ED2682C2DF0620030D0B9 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -690,7 +669,6 @@
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
-				7C2ED2692C2DF0620030D0B9 /* HomeView.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
