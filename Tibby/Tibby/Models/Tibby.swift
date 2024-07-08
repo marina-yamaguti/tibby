@@ -78,6 +78,9 @@ final class Tibby {
     /// The date when the Tibby was last updated.
     var lastUpdated: Date
     
+    /// If this tibby is arealdy unlocked for the main User
+    var isUnlocked: Bool
+    
     /// Initializes a new Tibby with the specified attributes.
     ///
     /// - Parameters:
@@ -95,7 +98,8 @@ final class Tibby {
     ///   - sleep: The sleep level of the Tibby.
     ///   - friendship: The friendship level of the Tibby with its owner.
     ///   - lastUpdated: The date when the Tibby was last updated.
-    init(id: UUID, ownerId: UUID, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
+    ///   - isUnlocked: If this Tibby is already unlocked for the User
+    init(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
         self.id = id
         self.ownerId = ownerId
         self.rarity = rarity
@@ -109,5 +113,6 @@ final class Tibby {
         self.sleep = sleep
         self.friendship = friendship
         self.lastUpdated = lastUpdated
+        self.isUnlocked = isUnlocked
     }
 }
