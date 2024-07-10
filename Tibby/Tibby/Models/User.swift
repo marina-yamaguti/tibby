@@ -28,6 +28,9 @@ final class User {
     var coins: Int
     var gems: Int
     
+    /// A intentory dictionary with a the Id of a Food and its Quantity
+    var foodInventory: [UUID : Int] = [:]
+    
     /// Initializes a new user with the specified attributes.
     ///
     /// - Parameters:

@@ -32,11 +32,13 @@ class MockModelContext {
 
 // Mock Service
 class MockService: ServiceProtocol {
+    
     private var tibbies: [Tibby] = []
     private var accessories: [Accessory] = []
     private var users: [User] = []
     private var activities: [Activity] = []
     private var interactions: [Interaction] = []
+    private var foods: [Food] = []
     
     // Tibby Operations
     func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
@@ -77,8 +79,8 @@ class MockService: ServiceProtocol {
     }
     
     // Accessory Operations
-    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String) {
-        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image)
+    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String, price: Int) {
+        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price)
         accessories.append(accessory)
     }
     
@@ -110,11 +112,12 @@ class MockService: ServiceProtocol {
         return accessories.filter { $0.tibbyId == tibbyID }
     }
     
-    func updateAccessory(accessory: Accessory, id: UUID?, tibbyId: UUID?, name: String?, image: String?) {
+    func updateAccessory(accessory: Accessory, id: UUID?, tibbyId: UUID?, name: String?, image: String?, price: Int?) {
         if let idWP = id { accessory.id = idWP }
         if let tibbyIdWP = tibbyId { accessory.tibbyId = tibbyIdWP }
         if let nameWP = name { accessory.name = nameWP }
         if let imageWP = image { accessory.image = imageWP }
+        if let priceWP = price { accessory.price = priceWP }
     }
 
     // User Operations
@@ -190,8 +193,58 @@ class MockService: ServiceProtocol {
         if let activityIdWP = activityId { interaction.activityId = activityIdWP }
         if let timestampWP = timestamp { interaction.timestamp = timestampWP }
     }
-}
+    func applyInteractionToTibby(_ interaction: Interaction) {
+        guard let activity = self.getActivityByID(id: interaction.activityId) else {return}
+        guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else {return}
+        
+        guard let effectData = activity.effect.data(using: .utf8),
+              let effect = try? JSONSerialization.jsonObject(with: effectData, options: []) as? [String: Int] else {
+            return
+        }
+        if let happinessEffect = effect["happiness"] {
+            tibby.happiness += happinessEffect
+        }
+        if let hungerEffect = effect["hunger"] {
+            tibby.hunger += hungerEffect
+        }
+        if let sleepEffect = effect["sleep"] {
+            tibby.sleep += sleepEffect
+        }
+        if let xpEffect = effect["xp"] {
+            tibby.xp += xpEffect
+        }
+        if let friendshipEffect = effect["friendship"] {
+            tibby.friendship += friendshipEffect
+        }
+        return
+    }
+    func createFood(id: UUID, userId: UUID?, name: String, image: String, price: Int) {
+        let food = Food(id: id, name: name, image: image, price: price)
+        self.foods.append(food)
+    }
+    func deleteFood(food: Food) {
+        foods.removeAll { $0.id == food.id }
+    }
+    func addFoodToUser(userId: UUID, food: Food) {
+        
+    }
+    func removeFoodFromUser(food: Food) {
+        foods.removeAll { $0.id == food.id }
+    }
+    func getAllFoods() -> [Food] {
+        return foods
+    }
+    func getFoodByID(ID: UUID) -> Food? {
+        return foods.first { $0.id == ID }
+    }
 
+    func updateFood(food: Food, id: UUID?, name: String?, image: String?, price: Int?) {
+        if let idWP = id { food.id = idWP }
+        if let nameWP = name { food.name = nameWP }
+        if let imageWP = image { food.image = imageWP }
+        if let priceWP = price { food.price = priceWP }
+    }
+}
 
 final class ServiceTests: XCTestCase {
     var mockService: MockService!
@@ -244,7 +297,7 @@ final class ServiceTests: XCTestCase {
 
     func testCreateAccessory() {
         let id = UUID()
-        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png")
+        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png", price: 10)
         let accessory = mockService.getAccessoryByID(ID: id)
         XCTAssertNotNil(accessory)
         XCTAssertEqual(accessory?.id, id)
@@ -252,7 +305,7 @@ final class ServiceTests: XCTestCase {
 
     func testDeleteAccessory() {
         let id = UUID()
-        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png")
+        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png", price: 10)
         let accessory = mockService.getAccessoryByID(ID: id)
         XCTAssertNotNil(accessory)
         mockService.deleteAccessory(accessory: accessory!)
@@ -261,16 +314,16 @@ final class ServiceTests: XCTestCase {
 
     func testGetAccessoriesByTibbyID() {
         let tibbyId = UUID()
-        mockService.createAccessory(id: UUID(), tibbyId: tibbyId, name: "Hat", image: "hat.png")
+        mockService.createAccessory(id: UUID(), tibbyId: tibbyId, name: "Hat", image: "hat.png", price: 10)
         let accessories = mockService.getAccessoriesByTibbyID(tibbyID: tibbyId)
         XCTAssertEqual(accessories.count, 1)
     }
 
     func testUpdateAccessory() {
         let id = UUID()
-        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png")
+        mockService.createAccessory(id: id, tibbyId: nil, name: "Hat", image: "hat.png", price: 10)
         let accessory = mockService.getAccessoryByID(ID: id)
-        mockService.updateAccessory(accessory: accessory!, id: nil, tibbyId: nil, name: "Cap", image: nil)
+        mockService.updateAccessory(accessory: accessory!, id: nil, tibbyId: nil, name: "Cap", image: nil, price: 10)
         XCTAssertEqual(mockService.getAccessoryByID(ID: id)?.name, "Cap")
     }
 
@@ -360,4 +413,41 @@ final class ServiceTests: XCTestCase {
         mockService.updateInteraction(interaction: interaction!, id: nil, tibbyId: nil, activityId: nil, timestamp: Date().addingTimeInterval(60))
         XCTAssertNotNil(mockService.getInteractionByID(id: id))
     }
+    
+    func testApplyInteractionToTibby() {
+           // Setup initial data
+           let tibbyId = UUID()
+           let activityId = UUID()
+           let interactionId = UUID()
+
+           // Create a Tibby
+           mockService.createTibby(id: tibbyId, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 50, hunger: 50, sleep: 50, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+           // Create an Activity with effects
+           let effect = "{\"happiness\": 10, \"hunger\": -5, \"sleep\": 5, \"xp\": 20, \"friendship\": 15}"
+           mockService.createActivity(id: activityId, name: "Playing", effect: effect)
+           // Create an Interaction
+           mockService.createInteraction(id: interactionId, tibbyId: tibbyId, activityId: activityId, timestamp: Date())
+
+           // Retrieve the created interaction
+           guard let interaction = mockService.getInteractionByID(id: interactionId) else {
+               XCTFail("Interaction not created")
+               return
+           }
+
+           // Apply the interaction effects
+           mockService.applyInteractionToTibby(interaction)
+
+           // Retrieve the Tibby to check the effects
+           guard let tibby = mockService.getTibbyByID(id: tibbyId) else {
+               XCTFail("Tibby not found")
+               return
+           }
+
+           // Assertions
+           XCTAssertEqual(tibby.happiness, 60)
+           XCTAssertEqual(tibby.hunger, 45)
+           XCTAssertEqual(tibby.sleep, 55)
+           XCTAssertEqual(tibby.xp, 20)
+           XCTAssertEqual(tibby.friendship, 65)
+       }
 }
