@@ -26,8 +26,8 @@ struct TibbyApp: App {
     var body: some Scene {
         WindowGroup {
             //change screen
-            KitchenExample()
-           //CRUDExample()
+            //KitchenExample()
+           CRUDExample()
         }
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
