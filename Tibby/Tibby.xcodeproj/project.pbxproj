@@ -23,6 +23,9 @@
 		D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80755C62C3C57D9000CA029 /* dogicapixel.ttf */; };
 		D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */; };
 		D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */; };
+		D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D80755CE2C3C6800000CA029 /* Localizable.xcstrings */; };
+		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
+		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -139,6 +142,9 @@
 		D80755C62C3C57D9000CA029 /* dogicapixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixel.ttf; sourceTree = "<group>"; };
 		D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixelbold.ttf; sourceTree = "<group>"; };
 		D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDictionaryFont.swift; sourceTree = "<group>"; };
+		D80755CE2C3C6800000CA029 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -237,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */,
+				D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */,
+				D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */,
 			);
 			path = Tibby;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 				7C2ED2642C2DF02B0030D0B9 /* Views */,
 				FDE4F8272C2CA7B200490F38 /* Models */,
 				92B647742C2C97EB0068E98E /* TibbyApp.swift */,
+				D80755CE2C3C6800000CA029 /* Localizable.xcstrings */,
 				92B6477A2C2C97EC0068E98E /* Assets.xcassets */,
 				92B6477C2C2C97EC0068E98E /* Tibby.entitlements */,
 				92B6477D2C2C97EC0068E98E /* Preview Content */,
@@ -578,6 +587,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 92B647682C2C97EB0068E98E;
 			productRefGroup = 92B647722C2C97EB0068E98E /* Products */;
@@ -601,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */,
+				D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */,
 				92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */,
 				D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
 				D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
@@ -666,9 +677,11 @@
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
+				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
+				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
@@ -828,6 +841,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -883,6 +897,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
