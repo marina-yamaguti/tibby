@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
+		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
+		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
 		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
 		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
@@ -122,6 +124,8 @@
 
 /* Begin PBXFileReference section */
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
+		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
 		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 			children = (
 				FDCD3F502C34EEFE0075E0C7 /* Service.swift */,
 				FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */,
+				7CF056C92C3C774D006039A4 /* Constants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				FD9075A22C2DDC95000E5F24 /* Accessory.swift */,
 				FD9075A42C2DE065000E5F24 /* Activity.swift */,
 				FD9075A62C2DECD9000E5F24 /* Interaction.swift */,
+				7CF056C72C3C64E9006039A4 /* Reward.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -662,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
+				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
@@ -673,6 +680,7 @@
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
+				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,
 				FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */,
