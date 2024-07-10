@@ -18,19 +18,19 @@ protocol ServiceProtocol {
     func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, level: Int?, xp: Int?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?)
 
     // Accessory Operations
-    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String)
+    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String, price: Int)
     func deleteAccessory(accessory: Accessory)
     func addAccessoryToTibby(tibbyId: UUID, accessory: Accessory)
     func removeAccessoryFromTibby(accessory: Accessory)
     func getAllAccessories() -> [Accessory]?
     func getAccessoryByID(ID: UUID) -> Accessory?
     func getAccessoriesByTibbyID(tibbyID: UUID) -> [Accessory]
-    func updateAccessory(accessory: Accessory, id: UUID?, tibbyId: UUID?, name: String?, image: String?)
+    func updateAccessory(accessory: Accessory, id: UUID?, tibbyId: UUID?, name: String?, image: String?, price: Int?)
 
     // User Operations
     func createUser(id: UUID, username: String, email: String?, passwordHash: String?)
     func deleteUser(user: User)
-    func getAllUsers() -> [User]?
+    func getAllUsers() -> [User]
     func getUser() -> User?
     func updateUser(user: User, id: UUID?, username: String?, email: String?, passwordHash: String?)
 
@@ -47,4 +47,13 @@ protocol ServiceProtocol {
     func getAllInteractions() -> [Interaction]?
     func getInteractionByID(id: UUID) -> Interaction?
     func updateInteraction(interaction: Interaction, id: UUID?, tibbyId: UUID?, activityId: UUID?, timestamp: Date?)
+    func applyInteractionToTibby(_ interaction: Interaction)
+    
+    // Food Operations
+    func createFood(id: UUID, userId: UUID?, name: String, image: String, price: Int)
+    func deleteFood(food: Food)
+    func removeFoodFromUser(food: Food)
+    func getAllFoods() -> [Food]
+    func getFoodByID(ID: UUID) -> Food?
+    func updateFood(food: Food, id: UUID?, name: String?, image: String?, price: Int?)
 }

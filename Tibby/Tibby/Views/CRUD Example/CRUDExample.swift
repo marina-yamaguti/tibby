@@ -79,7 +79,7 @@ struct CRUDExample: View {
                 service.createTibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
             }
             if (service.getAllAccessories()!.isEmpty) {
-                service.createAccessory(id: UUID(), tibbyId: nil, name: "hat", image: "hat")
+                service.createAccessory(id: UUID(), tibbyId: nil, name: "hat", image: "hat", price: 10)
             }
             tibbyView.animateTibby(["shark1", "shark2"], nodeID: .tibby, timeFrame: 0.5)
         }
