@@ -62,7 +62,7 @@ final class TibbyTests: XCTestCase {
         let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
         let tibbyTest = TibbyProtocolTest()
         let tibbyUUID = UUID()
-        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test")
+        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10)
         
         //When
         tibbyTest.setTibbyID(tibbyId: tibbyUUID)

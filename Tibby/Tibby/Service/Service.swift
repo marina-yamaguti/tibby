@@ -12,7 +12,7 @@ class Service: ObservableObject, ServiceProtocol {
     // MARK: - Tibby Operations
     
     /// Adds a Tibby object to the model context.
-    func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
+    func createTibby(id: UUID, ownerId: UUID? = nil, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
         let tibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked)
         modelContext.insert(tibby)
     }
@@ -64,8 +64,8 @@ class Service: ObservableObject, ServiceProtocol {
         return nil
     }
     
-    /// Updates the atributes of the given tibby 
-    func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, level: Int?, xp: Int?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?) {
+    /// Updates the atributes of the given tibby
+    func updateTibby(tibby: Tibby, id: UUID? = nil, ownerId: UUID? = nil, rarity: String? = nil, details: String? = nil, personality: String? = nil, species: String? = nil, level: Int? = nil, xp: Int? = nil, happiness: Int? = nil, hunger: Int? = nil, sleep: Int? = nil, friendship: Int? = nil, lastUpdated: Date? = nil) {
         if let idWP = id {tibby.id = idWP}
         if let ownerIdWP = ownerId {tibby.ownerId = ownerIdWP}
         if let rarityWP = rarity {tibby.rarity = rarityWP}
@@ -84,8 +84,8 @@ class Service: ObservableObject, ServiceProtocol {
     // MARK: - Accessory Operations
     
     /// Adds an Accessory object to the model context.
-    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String) {
-        var accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image)
+    func createAccessory(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int) {
+        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price)
         modelContext.insert(accessory)
     }
     
@@ -147,17 +147,18 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Updates the atributes of the given accessory
-    func updateAccessory(accessory: Accessory, id: UUID?, tibbyId: UUID?, name: String?, image: String?) {
+    func updateAccessory(accessory: Accessory, id: UUID? = nil, tibbyId: UUID? = nil, name: String? = nil, image: String? = nil, price: Int? = nil) {
         if let idWP = id {accessory.id = idWP}
         if let tibbyIdWP = tibbyId {accessory.tibbyId = tibbyIdWP}
         if let nameWP = name {accessory.name = nameWP}
         if let imageWP = image {accessory.image = imageWP}
+        if let priceWP = price {accessory.price = priceWP}
     }
     
     // MARK: - User Operations
     /// Adds a User object to the model context.
-    func createUser(id: UUID, username: String, email: String?, passwordHash: String?) {
-        var user = User(id: id, username: username, email: email, passwordHash: passwordHash)
+    func createUser(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil) {
+        let user = User(id: id, username: username, email: email, passwordHash: passwordHash)
         modelContext.insert(user)
     }
     
@@ -167,14 +168,14 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Retrieves all Users
-    func getAllUsers() -> [User]? {
+    func getAllUsers() -> [User] {
+        var users: [User] = []
         do {
-            let users = try modelContext.fetch(FetchDescriptor<User>())
-            return users
+            users = try modelContext.fetch(FetchDescriptor<User>())
         } catch {
             print("Error getting Users: \(error)")
         }
-        return nil
+        return users
     }
     
     /// Retrieves the first User
@@ -189,18 +190,45 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Updates the atributes of the given User
-    func updateUser(user: User, id: UUID?, username: String?, email: String?, passwordHash: String?) {
+    func updateUser(user: User, id: UUID? = nil, username: String? = nil, email: String? = nil, passwordHash: String? = nil) {
         if let idWP = id {user.id = idWP}
         if let usernameWP = username {user.username = usernameWP}
         if let emailWP = email {user.email = emailWP}
         if let passwordHashWP = passwordHash {user.passwordHash = passwordHashWP}
     }
     
+    /// Retrieves all the ids of the foods from the user with its quantities
+    func getFoodsIDsFromUser() -> [UUID : Int] {
+        if let user = self.getUser() {
+            return user.foodInventory
+        }
+        return [:]
+    }
+    
+    func getFoodsFromUser() -> [Food : Int] {
+        var foods: [Food : Int] = [:]
+        let foodIDs = self.getFoodsIDsFromUser()
+        
+        for (fID, count) in foodIDs {
+            guard let food = self.getFoodByID(ID: fID) else {
+                print("error: no food matching")
+                continue
+            }
+            
+            if let currentQuantity = foods[food] {
+                foods[food] = currentQuantity + count
+            } else {
+                foods[food] = count
+            }
+        }
+        return foods
+    }
+    
     //MARK: - Activity Operations
     
     /// Adds a Activity object to the model context.
     func createActivity(id: UUID, name: String, effect: String) {
-        var activity = Activity(id: id, name: name, effect: effect)
+        let activity = Activity(id: id, name: name, effect: effect)
         modelContext.insert(activity)
     }
     
@@ -236,7 +264,7 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Updates the atributes of the given activity
-    func updateActivity(activity: Activity, id: UUID?, name: String?, effect: String?) {
+    func updateActivity(activity: Activity, id: UUID? = nil, name: String? = nil, effect: String? = nil) {
         if let idWP = id {activity.id = idWP}
         if let nameWP = name {activity.name = nameWP}
         if let effectWP = effect {activity.effect = effectWP}
@@ -246,7 +274,7 @@ class Service: ObservableObject, ServiceProtocol {
     
     /// Adds a Interaction object to the model context.
     func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) {
-        var interaction = Interaction(id: id, tibbyId: tibbyId, activityId: activityId, timestamp: timestamp)
+        let interaction = Interaction(id: id, tibbyId: tibbyId, activityId: activityId, timestamp: timestamp)
         modelContext.insert(interaction)
     }
     
@@ -282,7 +310,7 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Updates the atributes of the given interaction
-    func updateInteraction(interaction: Interaction, id: UUID?, tibbyId: UUID?, activityId: UUID?, timestamp: Date?) {
+    func updateInteraction(interaction: Interaction, id: UUID? = nil, tibbyId: UUID? = nil, activityId: UUID? = nil, timestamp: Date? = nil) {
         if let idWP = id {interaction.id = idWP}
         if let tibbyIdWP = tibbyId {interaction.tibbyId = tibbyIdWP}
         if let activityIdWP = activityId {interaction.activityId = activityIdWP}
@@ -313,5 +341,82 @@ class Service: ObservableObject, ServiceProtocol {
             tibby.friendship += friendshipEffect
         }
         return
+    }
+    
+    //MARK: - Food Operations
+    
+    func createFood(id: UUID, userId: UUID? = nil, name: String, image: String, price: Int) {
+        let food = Food(id: id, name: name, image: image, price: price)
+        modelContext.insert(food)
+    }
+    
+    func deleteFood(food: Food) {
+        modelContext.delete(food)
+    }
+    
+    func addFoodToUser(food: Food) {
+        if let user = self.getUser() {
+            if var quantity = user.foodInventory[food.id] {
+                quantity += 1
+                user.foodInventory.updateValue(quantity, forKey: food.id)
+                print("user: \(user.username)")
+                print("food: \(food.name)")
+                print("quantity: \(user.foodInventory[food.id])")
+                return
+            }
+            user.foodInventory[food.id] = 1
+            print("user: \(user.username)")
+            print("food: \(food.name)")
+            
+            return
+        } else {
+            print("error: no user available to add a food")
+        }
+    }
+    
+    func removeFoodFromUser(food: Food) {
+        if let user = self.getUser() {
+            if var quantity = user.foodInventory[food.id] {
+                quantity -= 1
+                if quantity >= 0 {
+                    user.foodInventory.updateValue(quantity, forKey: food.id)
+                } else {
+                    user.foodInventory.removeValue(forKey: food.id)
+                }
+                return
+            }
+        }
+    }
+    
+    func getAllFoods() -> [Food] {
+        var foods: [Food] = []
+        
+        do {
+            foods = try modelContext.fetch(FetchDescriptor<Food>())
+        } catch {
+            print("Error getting Foods: \(error)")
+        }
+        return foods
+    }
+    
+    func getFoodByID(ID: UUID) -> Food? {
+        do {
+            let foods = try modelContext.fetch(FetchDescriptor<Food>())
+            for food in foods {
+                if food.id == ID {
+                    return food
+                }
+            }
+        } catch {
+            print("Error getting Foods: \(error)")
+        }
+        return nil
+    }
+    
+    func updateFood(food: Food, id: UUID? = nil, name: String? = nil, image: String? = nil, price: Int? = nil) {
+        if let idWP = id {food.id = idWP}
+        if let nameWP = name {food.name = nameWP}
+        if let imageWP = image {food.image = imageWP}
+        if let priceWP = price {food.price = priceWP}
     }
 }
