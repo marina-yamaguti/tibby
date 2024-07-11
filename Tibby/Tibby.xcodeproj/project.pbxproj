@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
+		7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95859C2C405C7900780558 /* BedroomExemple.swift */; };
 		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
 		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
@@ -129,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
+		7C95859C2C405C7900780558 /* BedroomExemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomExemple.swift; sourceTree = "<group>"; };
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -429,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */,
+				7C95859C2C405C7900780558 /* BedroomExemple.swift */,
 			);
 			path = "Interaction Example";
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
+				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
@@ -1030,7 +1034,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1054,7 +1058,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1077,7 +1081,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1100,7 +1104,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F3LPWZ43F8;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1122,9 +1126,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
@@ -1141,6 +1143,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1161,7 +1164,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 856F4M2786;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
@@ -1191,6 +1194,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppTests";
@@ -1211,6 +1215,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppTests";
@@ -1231,6 +1236,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppUITests";
@@ -1250,6 +1256,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tibby-watch-Watch-AppUITests";
@@ -1274,7 +1281,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -1306,7 +1313,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 856F4M2786;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;

@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct TibbyApp: App {
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self
@@ -26,10 +27,11 @@ struct TibbyApp: App {
     var body: some Scene {
         WindowGroup {
             //change screen
-            //KitchenExample()
-           CRUDExample()
+            KitchenExample()
+           //CRUDExample()
         }
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
+        .environmentObject(Constants())
     }
 }
