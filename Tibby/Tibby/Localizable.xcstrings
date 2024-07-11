@@ -1,0 +1,25 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Add %@" : {
+
+    },
+    "Remove" : {
+
+    },
+    "This is a Splash Screen" : {
+
+    },
+    "Tibby" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tibby"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
