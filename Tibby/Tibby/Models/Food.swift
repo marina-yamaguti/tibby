@@ -1,8 +1,8 @@
 //
-//  Accessory.swift
+//  Food.swift
 //  Tibby
 //
-//  Created by Sofia Sartori on 27/06/24.
+//  Created by Sofia Sartori on 08/07/24.
 //
 
 import Foundation
@@ -10,13 +10,10 @@ import SwiftData
 
 /// A model representing an accessory in the application.
 @Model
-final class Accessory {
+final class Food {
     
     /// The unique identifier for the accessory.
     var id: UUID
-    
-    /// The identifier for the associated Tibby, if any.
-    var tibbyId: UUID?
     
     /// The name of the accessory.
     var name: String
@@ -24,23 +21,20 @@ final class Accessory {
     /// The image associated with the accessory.
     var image: String
     
-    /// The price for this Item
+    /// The price of this Item
     var price: Int
     
     /// Initializes a new accessory with the specified attributes.
     ///
     /// - Parameters:
     ///   - id: The unique identifier for the accessory.
-    ///   - tibbyId: The identifier for the associated Tibby. Default is `nil`.
     ///   - name: The name of the accessory.
     ///   - image: The image associated with the accessory.
-    ///   - price: The price for this Item
-    init(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int) {
+    ///   - price: The cost of this item.
+    init(id: UUID, name: String, image: String, price: Int) {
         self.id = id
-        self.tibbyId = tibbyId
         self.name = name
         self.image = image
         self.price = price
     }
 }
-
