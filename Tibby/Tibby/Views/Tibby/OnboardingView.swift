@@ -11,7 +11,7 @@ struct OnboardingView: View {
     var imageName: String
     var title: String
     var description: String
-    
+    @State var selection: Int = 0
     var body: some View {
         VStack(spacing: 20) {
             Image(imageName)
@@ -32,8 +32,4 @@ struct OnboardingView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    OnboardingView(imageName: hat", title: "Onboarding", description: "lorem ipsum")
 }

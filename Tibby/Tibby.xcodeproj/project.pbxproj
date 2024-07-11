@@ -315,7 +315,7 @@
 				FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */,
 			);
 			path = TibbyTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		92B647912C2C97EC0068E98E /* TibbyUITests */ = {
 			isa = PBXGroup;
