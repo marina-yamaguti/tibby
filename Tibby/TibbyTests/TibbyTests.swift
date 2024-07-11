@@ -57,6 +57,31 @@ final class TibbyTests: XCTestCase {
         
     }
     
+    class RewardProtocolTets: RewardProtocol {
+        func reward(quantity: Int, rewardType: RewardType, user: User? = nil, tibby: Tibby? = nil) {
+            switch rewardType {
+            case .xp:
+                if let tibby = tibby {
+                    tibby.xp = quantity
+                }
+            case .coin:
+                if let user = user {
+                    user.coins = quantity
+                }
+            case .gem:
+                if let user = user {
+                    user.gems = quantity
+                }
+            }
+        }
+        
+        func levelUp(_ tibby: Tibby) {
+            tibby.level += 1
+        }
+        
+        
+    }
+    
     func testTibbyProtocol() throws {
         //Given
         let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
@@ -78,6 +103,27 @@ final class TibbyTests: XCTestCase {
         tibbyTest.removeAccessory(serviceTest)
         //Then
         XCTAssertEqual(tibbyTest.tibby.children, [])
+    }
+    
+    func testRewardProtocol() throws {
+        //Given
+        let rewardTest = RewardProtocolTets()
+        var userMock = User(id: UUID(), username: "")
+        var tibbyMock = Tibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
+        let quantity = 10
+        
+        //When
+        rewardTest.reward(quantity: quantity, rewardType: .xp, tibby: tibbyMock)
+        rewardTest.reward(quantity: quantity, rewardType: .coin, user: userMock)
+        rewardTest.reward(quantity: quantity, rewardType: .gem, user: userMock)
+        rewardTest.levelUp(tibbyMock)
+        
+        //Then
+        
+        XCTAssertEqual(tibbyMock.xp, quantity)
+        XCTAssertEqual(tibbyMock.level, 2)
+        XCTAssertEqual(userMock.coins, quantity)
+        XCTAssertEqual(userMock.gems, quantity)
     }
     
     func testPerformanceExample() throws {

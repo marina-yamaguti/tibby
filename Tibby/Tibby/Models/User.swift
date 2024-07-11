@@ -24,6 +24,10 @@ final class User {
     /// The hashed password of the user.
     var passwordHash: String?
     
+    /// The coins and gems that the user will gain in game
+    var coins: Int
+    var gems: Int
+    
     /// A intentory dictionary with a the Id of a Food and its Quantity
     var foodInventory: [UUID : Int] = [:]
     
@@ -34,11 +38,15 @@ final class User {
     ///   - username: The username of the user.
     ///   - email: The email address of the user. Default is `nil`.
     ///   - passwordHash: The hashed password of the user. Default is `nil`.
+    ///   - coins: The coins of the user. Always will start with `0`.
+    ///   - gems: The gems of the user. Always will start with `0`.
     init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil) {
         self.id = id
         self.username = username
         self.email = email
         self.passwordHash = passwordHash
+        self.coins = 0
+        self.gems = 0
     }
 }
 
