@@ -16,4 +16,17 @@ class Constants: ObservableObject {
     let maxLevel = -1
     ///defines a constants that, multiplied by the level, defines the XP quantity to level up
     let xpPerLevel = 20
+    
+    //rooms variables
+    ///defines if the tibby is sleeping or not and if the lights will be on or off
+    @Published var tibbySleeping = false
+    var brightness: Double {
+        if tibbySleeping {
+            return -0.5
+        }
+        else {
+            return 0
+        }
+    }
+    
 }
