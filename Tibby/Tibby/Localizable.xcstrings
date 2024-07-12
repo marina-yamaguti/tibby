@@ -4,6 +4,15 @@
     "Add %@" : {
 
     },
+    "my food inventory: " : {
+
+    },
+    "price: %lld" : {
+
+    },
+    "quantity: %lld" : {
+
+    },
     "Remove" : {
 
     },
@@ -19,6 +28,12 @@
           }
         }
       }
+    },
+    "uau quero comprar %@" : {
+
+    },
+    "uau quero devolver %@" : {
+
     }
   },
   "version" : "1.0"
