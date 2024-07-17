@@ -14,7 +14,7 @@ protocol ServiceProtocol {
     func deleteTibby(tibby: Tibby)
     func getTibbyByID(id: UUID) -> Tibby?
     func getTibbiesByUserID(userID: UUID) -> [Tibby]
-    func getAllTibbies() -> [Tibby]?
+    func getAllTibbies() -> [Tibby]
     func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, level: Int?, xp: Int?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?)
 
     // Accessory Operations

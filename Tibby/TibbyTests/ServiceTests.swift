@@ -40,6 +40,9 @@ class MockService: ServiceProtocol {
     private var interactions: [Interaction] = []
     private var foods: [Food] = []
     
+    func getAllUsers() -> [User] {
+        return users
+    }
     // Tibby Operations
     func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
         let tibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked)
@@ -58,7 +61,7 @@ class MockService: ServiceProtocol {
         return tibbies.filter { $0.ownerId == userID }
     }
     
-    func getAllTibbies() -> [Tibby]? {
+    func getAllTibbies() -> [Tibby] {
         return tibbies
     }
     

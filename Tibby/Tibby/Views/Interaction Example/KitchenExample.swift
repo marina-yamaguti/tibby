@@ -16,7 +16,7 @@ struct KitchenExample: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ForEach(service.getAllTibbies() ?? []) { tibby in
+                ForEach(service.getAllTibbies()) { tibby in
                     VStack(alignment: .leading) {
                         Text("my food inventory: ").font(.title)
                         ForEach(service.getFoodsFromUser().sorted(by: {$0.key.name < $1.key.name}), id: \.key) { key, value in
@@ -77,7 +77,7 @@ struct KitchenExample: View {
                 if(service.getAllFoods().isEmpty) {
                     service.createFood(id: UUID(), name: "Pizza", image: "pizza", price: 10)
                 }
-                if (service.getAllTibbies()!.isEmpty) {
+                if (service.getAllTibbies().isEmpty) {
                     service.createTibby(id: UUID(), ownerId: service.getUser()?.id, rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
                 }
                 print(service.getFoodsFromUser())

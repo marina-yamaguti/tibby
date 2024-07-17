@@ -30,6 +30,9 @@ protocol TibbyProtocol {
     func removeAccessory(_ service: Service)
     ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
+    
+    ///Return the acnhor point of the sprite node of the Tibby
+    func getTibbyPosition() -> CGPoint
 }
 
 /// A model representing a Tibby, a virtual pet with various attributes and states.
