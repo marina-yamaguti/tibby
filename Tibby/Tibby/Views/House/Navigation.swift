@@ -59,6 +59,8 @@ struct NavigationTabbarView: View {
                     } label: {
                         Image(systemName: enviroments[ind].getIconAsset())
                     }
+                    .buttonNavigation()
+                    
                 }
             }
         }

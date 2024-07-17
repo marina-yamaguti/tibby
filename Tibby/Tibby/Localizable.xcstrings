@@ -10,9 +10,6 @@
     "Garden" : {
 
     },
-    "House" : {
-
-    },
     "Kitchen" : {
 
     },
@@ -20,6 +17,9 @@
 
     },
     "my food inventory: " : {
+
+    },
+    "Play" : {
 
     },
     "price: %lld" : {
