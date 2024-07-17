@@ -9,6 +9,47 @@ import Foundation
 import SwiftData
 import SpriteKit
 
+///enum to represent the types of tibbies
+enum TibbySpecie: String {
+    //Complete with all the species
+    case shark
+    
+    func baseAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["shark1", "shark2"]
+        }
+    }
+    
+    func sleepAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkSleep1", "sharkSleep2", "sharkSleep3", "sharkSleep4"]
+        }
+    }
+    
+    func happyAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkHappy1", "sharkHappy2"]
+        }
+    }
+    
+    func sadAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkSad1", "sharkSad2"]
+        }
+    }
+    
+    func eatAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkEat1", "sharkEat2"]
+        }
+    }
+}
+
 ///enum to represent the types of nodes in the SpriteKit View
 enum NodeType {
     case tibby
@@ -22,8 +63,10 @@ protocol TibbyProtocol {
     var tibby: SKSpriteNode { get set }
     var accessory: SKSpriteNode { get set }
     /// Tibby ID to operate in the view
-    var tibbyID: UUID? { get set }
-    func setTibbyID(tibbyId: UUID)
+    var tibbyObject: Tibby? { get set }
+    func setTibby(tibbyObject: Tibby)
+    var tibbySpecie: TibbySpecie? { get set }
+    func setTibbySpecie(tibbySpecie: TibbySpecie)
     
     ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
     func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)

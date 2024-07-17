@@ -22,6 +22,9 @@ struct CRUDExample: View {
     /// Service object responsible for data operations.
     @EnvironmentObject var service: Service
     
+    @State var tibbySpecie: TibbySpecie?
+
+    
     // MARK: - Body
     
     var body: some View {
@@ -81,7 +84,7 @@ struct CRUDExample: View {
             if (service.getAllAccessories()!.isEmpty) {
                 service.createAccessory(id: UUID(), tibbyId: nil, name: "hat", image: "hat", price: 10)
             }
-            tibbyView.animateTibby(["shark1", "shark2"], nodeID: .tibby, timeFrame: 0.5)
+            tibbyView.setTibbySpecie(tibbySpecie: TibbySpecie(rawValue: (selectedTibby?.species) ?? "shark") ?? .shark)
         }
     }
 }
