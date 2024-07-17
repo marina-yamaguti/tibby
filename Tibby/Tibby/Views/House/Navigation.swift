@@ -59,8 +59,10 @@ struct NavigationTabbarView: View {
                     Button {
                         constants.currentEnviroment = enviroments[ind]
                     } label: {
-                        Image(systemName: enviroments[ind].getIconAsset())
-                    }.padding()
+                        //Image(systemName: enviroments[ind].getIconAsset())
+                    }
+                    .buttonNavigation()
+                    
                 }
             }
         }
