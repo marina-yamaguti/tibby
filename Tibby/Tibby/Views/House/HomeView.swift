@@ -16,6 +16,9 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                
+                Button("oi", action: {})
+                    
                 SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                 //HomeView
                 NavigationLink {

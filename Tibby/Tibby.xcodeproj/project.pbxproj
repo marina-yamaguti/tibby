@@ -35,6 +35,7 @@
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
+		D8B7D1AD2C486FEC00A1739E /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AC2C486FEC00A1739E /* ButtonSecondary.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
 		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
 		D8C53A982C482E2000CAB009 /* NeedsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */; };
@@ -168,6 +169,7 @@
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
+		D8B7D1AC2C486FEC00A1739E /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonView.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
 				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
+				D8B7D1AC2C486FEC00A1739E /* ButtonSecondary.swift */,
 				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
 				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
 				D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */,
@@ -774,6 +777,7 @@
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
+				D8B7D1AD2C486FEC00A1739E /* ButtonSecondary.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
