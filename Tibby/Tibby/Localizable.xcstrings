@@ -22,6 +22,9 @@
     "my food inventory: " : {
 
     },
+    "Play" : {
+
+    },
     "price: %lld" : {
 
     },
@@ -43,6 +46,9 @@
           }
         }
       }
+    },
+    "Tibby Name" : {
+
     },
     "uau quero comprar %@" : {
 

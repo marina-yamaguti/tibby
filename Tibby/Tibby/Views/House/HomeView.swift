@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var navigate: Bool = false
     var body: some View {
-        NavigationStack {
-            //HomeView
-            NavigationLink {
-                NavigationTabbarView()
-            } label: {
-                Text("House")
-            }
-        }
+//        VStack {
+//            Text("Tibby Name")
+//                .font(.typography(.body))
+//            
+//                NavigationTabbarView()
+//        }
     }
 }
