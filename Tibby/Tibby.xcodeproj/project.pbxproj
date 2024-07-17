@@ -34,9 +34,10 @@
 		D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D80755CE2C3C6800000CA029 /* Localizable.xcstrings */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
+		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
 		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
-		D8C53A982C482E2000CAB009 /* ButtonNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A972C482E2000CAB009 /* ButtonNavigation.swift */; };
+		D8C53A982C482E2000CAB009 /* NeedsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -166,9 +167,10 @@
 		D80755CE2C3C6800000CA029 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
+		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		D8C53A972C482E2000CAB009 /* ButtonNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNavigation.swift; sourceTree = "<group>"; };
+		D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonView.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -352,7 +354,8 @@
 				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
 				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
-				D8C53A972C482E2000CAB009 /* ButtonNavigation.swift */,
+				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
+				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
 				D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */,
 				FD9075F72C34A2AB000E5F24 /* Service */,
 				7C2ED2642C2DF02B0030D0B9 /* Views */,
@@ -756,11 +759,12 @@
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
+				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
-				D8C53A982C482E2000CAB009 /* ButtonNavigation.swift in Sources */,
+				D8C53A982C482E2000CAB009 /* NeedsButtonView.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
