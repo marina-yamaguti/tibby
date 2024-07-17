@@ -16,7 +16,11 @@ struct SplashScreen: View {
             HomeView(tibby: service.getAllTibbies().first!)
         } else {
             VStack {
-                Text("This is a Splash Screen")
+                Image("shark1")
+                    .resizable()
+                    .scaledToFit()
+                Text("TIBBY")
+                    .font(.typography(.title))
             }.onAppear {
                 if service.getAllTibbies().isEmpty {
                     service.setupData()

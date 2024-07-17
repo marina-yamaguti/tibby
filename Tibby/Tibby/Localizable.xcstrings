@@ -7,10 +7,16 @@
     "Bedroom" : {
 
     },
+    "Clothes" : {
+
+    },
     "Garden" : {
 
     },
     "Hello, World!" : {
+
+    },
+    "Kitchen" : {
 
     },
     "Light" : {
@@ -31,9 +37,6 @@
     "Remove" : {
 
     },
-    "This is a Splash Screen" : {
-
-    },
     "Tibby" : {
       "localizations" : {
         "pt-BR" : {
@@ -44,7 +47,7 @@
         }
       }
     },
-    "Tibby Name" : {
+    "TIBBY" : {
 
     },
     "uau quero comprar %@" : {

@@ -9,23 +9,33 @@ import SwiftUI
 import SpriteKit
 
 struct HomeView: View {
+    @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var tibby: Tibby
     @State var tibbyView: TibbyProtocol = TibbyView()
     
     var body: some View {
         NavigationStack {
-            VStack {
-                SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-                //HomeView
-                NavigationLink {
-                    NavigationTabbarView(tibby: tibby)
-                } label: {
-                    Text("Play")
+            HStack {
+                Spacer()
+                VStack {
+                    Spacer()
+                    SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                    //HomeView
+                    NavigationLink {
+                        NavigationTabbarView(tibby: tibby)
+                    } label: {
+                        Text("Play")
+                    }
+                    Spacer()
                 }
+                Spacer()
             }
+            .background(
+                .tibbyBaseBlue
+            )
         }.onAppear {
-            tibbyView.animateTibby(["shark1", "shark2"], nodeID: .tibby, timeFrame: 0.5)
+            tibbyView.setTibby(tibbyObject: tibby, constants: constants)
         }
     }
 }
