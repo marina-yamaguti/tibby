@@ -44,10 +44,10 @@ struct NavigationTabbarView: View {
             //Decide the room depending on the button the user select
             switch constants.currentEnviroment {
             case .bedroom:
-                BedroomView()
+                BedroomView(tibby: tibby)
                     .brightness(constants.brightness)
             case .garden:
-                GardenView()
+                GardenView(tibby: tibby)
                     .brightness(constants.brightness)
             case .kitchen:
                 KitchenView(tibby: tibby)
@@ -67,7 +67,7 @@ struct NavigationTabbarView: View {
             }
         }
         .background(
-        
+            .tibbyBasePink
         )
     }
 

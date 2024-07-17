@@ -64,7 +64,7 @@ protocol TibbyProtocol {
     var accessory: SKSpriteNode { get set }
     /// Tibby ID to operate in the view
     var tibbyObject: Tibby? { get set }
-    func setTibby(tibbyObject: Tibby)
+    func setTibby(tibbyObject: Tibby, constants: Constants)
     var tibbySpecie: TibbySpecie? { get set }
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
@@ -73,9 +73,6 @@ protocol TibbyProtocol {
     func removeAccessory(_ service: Service)
     ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
-    
-    ///Return the acnhor point of the sprite node of the Tibby
-    func getTibbyPosition() -> CGPoint
 }
 
 /// A model representing a Tibby, a virtual pet with various attributes and states.
