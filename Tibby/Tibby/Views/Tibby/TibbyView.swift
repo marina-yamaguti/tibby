@@ -120,4 +120,8 @@ class TibbyView: SKScene, TibbyProtocol {
         tibby.run(pettingAction)
         // TODO: Aumentar a felicidade do Tibby usando a classe de serviço
     }
+    
+    func getTibbyPosition() -> CGPoint {
+        return tibby.position
+    }
 }

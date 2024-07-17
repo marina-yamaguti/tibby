@@ -54,14 +54,14 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Retrieves all Tibbies in the model context.
-    func getAllTibbies() -> [Tibby]? {
+    func getAllTibbies() -> [Tibby] {
+        var tibbies: [Tibby] = []
         do {
-            let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
-            return tibbies
+            tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
         } catch {
             print("Error getting Tibbies: \(error)")
         }
-        return nil
+        return tibbies
     }
     
     /// Updates the atributes of the given tibby
@@ -418,5 +418,20 @@ class Service: ObservableObject, ServiceProtocol {
         if let nameWP = name {food.name = nameWP}
         if let imageWP = image {food.image = imageWP}
         if let priceWP = price {food.price = priceWP}
+    }
+    
+    //MARK: - Data Setup (creating all pre existing instances
+    func setupData() {
+        //User
+        self.createUser(id: UUID(), username: "Sofia")
+        
+        //Tibbies
+        self.createTibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
+        
+        //Accessories
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "hat", image: "hat", price: 10)
+        
+        //Food
+        self.createFood(id: UUID(), name: "Niguiri", image: "Niguiri", price: 10)
     }
 }

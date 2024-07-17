@@ -62,7 +62,7 @@ struct CRUDExample: View {
             
             // List of Tibbies displayed in the navigation stack.
             List {
-                ForEach(service.getAllTibbies() ?? []) { tibby in
+                ForEach(service.getAllTibbies()) { tibby in
                     VStack(alignment: .leading) {
                         Text(tibby.species)
                             .font(.headline)
@@ -75,7 +75,7 @@ struct CRUDExample: View {
         }
         .onAppear {
             ///Exemple of creating only one instance of shark and hat and animate it
-            if (service.getAllTibbies()!.isEmpty) {
+            if (service.getAllTibbies().isEmpty) {
                 service.createTibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
             }
             if (service.getAllAccessories()!.isEmpty) {
