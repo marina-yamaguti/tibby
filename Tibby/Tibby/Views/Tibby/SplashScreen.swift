@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @EnvironmentObject var service: Service
+    @State var canProceed: Bool = false
+    
     var body: some View {
-        Text("This is a Splash Screen")
+        if canProceed {
+            HomeView(tibby: service.getAllTibbies().first!)
+        } else {
+            VStack {
+                Text("This is a Splash Screen")
+            }.onAppear {
+                if service.getAllTibbies().isEmpty {
+                    service.setupData()
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                    canProceed = true
+                })
+            }
+        }
     }
 }
 
-#Preview {
-    SplashScreen()
-}

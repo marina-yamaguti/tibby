@@ -10,16 +10,16 @@
     "Garden" : {
 
     },
-    "House" : {
-
-    },
-    "Kitchen" : {
+    "Hello, World!" : {
 
     },
     "Light" : {
 
     },
     "my food inventory: " : {
+
+    },
+    "Play" : {
 
     },
     "price: %lld" : {

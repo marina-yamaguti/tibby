@@ -28,8 +28,9 @@ struct TibbyApp: App {
         WindowGroup {
             //change screen
             //KitchenExample()
-            CRUDExample()
+            //CRUDExample()
             //HomeView()
+            SplashScreen()
         }
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
