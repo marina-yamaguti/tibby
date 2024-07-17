@@ -35,10 +35,12 @@ enum Enviroment {
 
 struct NavigationTabbarView: View {
     @EnvironmentObject var constants: Constants
+    let tibby: Tibby
     let enviroments: [Enviroment] = [.kitchen, .bedroom, .garden]
     
     var body: some View {
         VStack {
+            Spacer()
             //Decide the room depending on the button the user select
             switch constants.currentEnviroment {
             case .bedroom:
@@ -48,7 +50,7 @@ struct NavigationTabbarView: View {
                 GardenView()
                     .brightness(constants.brightness)
             case .kitchen:
-                KitchenView()
+                KitchenView(tibby: tibby)
                     .brightness(constants.brightness)
             }
             //Custom Tabbar
@@ -58,7 +60,7 @@ struct NavigationTabbarView: View {
                         constants.currentEnviroment = enviroments[ind]
                     } label: {
                         Image(systemName: enviroments[ind].getIconAsset())
-                    }
+                    }.padding()
                 }
             }
         }
