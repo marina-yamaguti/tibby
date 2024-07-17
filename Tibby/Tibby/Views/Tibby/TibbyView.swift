@@ -35,6 +35,10 @@ class TibbyView: SKScene, TibbyProtocol {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         longPressRecognizer.minimumPressDuration = 0.5 // duration can be customized
         view.addGestureRecognizer(longPressRecognizer)
+        
+        // Drag gesture recognizer
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        view.addGestureRecognizer(panGesture)
     }
     
     func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?) {
@@ -94,6 +98,18 @@ class TibbyView: SKScene, TibbyProtocol {
                 petTibby()
             }
         }
+    }
+    
+    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        gesture.setTranslation(.zero, in: view)
+                
+        let currentPosition = gesture.location(in: view)
+        let newPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y - translation.y)
+        if currentPosition != newPosition {
+            petTibby()
+        }
+        
     }
     
     func petTibby() {
