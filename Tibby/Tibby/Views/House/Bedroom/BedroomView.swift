@@ -21,7 +21,7 @@ struct BedroomView: View {
             Text("Bedroom")
                 .font(.typography(.title))
             Spacer()
-            SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+            SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
             Spacer()
             HStack {
                 Button {
@@ -51,6 +51,11 @@ struct BedroomView: View {
                 .padding()
             }
         } .onAppear {
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                }
+            }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
             if constants.tibbySleeping {
                 tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)

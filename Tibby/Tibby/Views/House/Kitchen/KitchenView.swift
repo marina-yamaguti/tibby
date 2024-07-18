@@ -116,6 +116,11 @@ struct KitchenView: View {
                 }
             }
         }.onAppear {
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                }
+            }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
             if service.getFoodsFromUser().isEmpty {
                 service.addFoodToUser(food: service.getAllFoods().first!)

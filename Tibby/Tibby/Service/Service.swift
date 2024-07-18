@@ -447,7 +447,9 @@ class Service: ObservableObject, ServiceProtocol {
         self.createTibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
         
         //Accessories
-        self.createAccessory(id: UUID(), tibbyId: nil, name: "hat", image: "hat", price: 10)
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "Hat", price: 10)
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Heart Glasses", image: "Heart-glasses", price: 10)
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Tie", image: "Tie", price: 10)
         
         //Food
         self.createFood(id: UUID(), name: "Niguiri", image: "Niguiri", price: 10)
