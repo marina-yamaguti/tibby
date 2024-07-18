@@ -25,6 +25,8 @@
 		92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
+		A5126BE52C499165008703E7 /* HeartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE42C499165008703E7 /* HeartsView.swift */; };
+		A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -164,6 +166,8 @@
 		92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
+		A5126BE42C499165008703E7 /* HeartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsView.swift; sourceTree = "<group>"; };
+		A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 			children = (
 				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
+				A5126BE62C4992C8008703E7 /* Hearts */,
 				A5126BE02C498A59008703E7 /* Money */,
 			);
 			path = Components;
@@ -452,6 +457,15 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
+			sourceTree = "<group>";
+		};
+		A5126BE62C4992C8008703E7 /* Hearts */ = {
+			isa = PBXGroup;
+			children = (
+				A5126BE42C499165008703E7 /* HeartsView.swift */,
+				A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */,
+			);
+			path = Hearts;
 			sourceTree = "<group>";
 		};
 		FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */ = {
@@ -822,6 +836,7 @@
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
+				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
@@ -837,6 +852,7 @@
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
+				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
