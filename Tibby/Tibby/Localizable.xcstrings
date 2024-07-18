@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "Add %@" : {
 
     },
@@ -19,9 +22,6 @@
     "my food inventory: " : {
 
     },
-    "oi" : {
-
-    },
     "Play" : {
 
     },
@@ -34,7 +34,7 @@
     "Remove" : {
 
     },
-    "This is a Splash Screen" : {
+    "tibby" : {
 
     },
     "Tibby" : {
@@ -46,6 +46,9 @@
           }
         }
       }
+    },
+    "Tibby Name" : {
+
     },
     "uau quero comprar %@" : {
 

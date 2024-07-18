@@ -15,9 +15,15 @@ struct SplashScreen: View {
         if canProceed {
             HomeView(tibby: service.getAllTibbies().first!)
         } else {
-            VStack {
-                Text("This is a Splash Screen")
-            }.onAppear {
+            ZStack {
+                Color.tibbyBaseBlue
+                VStack {
+                    Text("tibby")
+                        .font(.typography(.display))
+                }
+            }
+            .ignoresSafeArea()
+            .onAppear {
                 if service.getAllTibbies().isEmpty {
                     service.setupData()
                 }

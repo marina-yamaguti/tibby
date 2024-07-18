@@ -15,18 +15,21 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                
-                Button("oi", action: {})
-                    
-                SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-                //HomeView
-                NavigationLink {
-                    NavigationTabbarView(tibby: tibby)
-                } label: {
-                    Text("Play")
+            ZStack {
+                Color.tibbyBaseBlue
+                VStack {
+                    StyledPicker()
+                    Text("Tibby Name")
+                    SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                    //HomeView
+                    NavigationLink {
+                        NavigationTabbarView(tibby: tibby)
+                    } label: {
+                        Text("Play")
+                    }
                 }
             }
+            .ignoresSafeArea()
         }.onAppear {
             tibbyView.animateTibby(["shark1", "shark2"], nodeID: .tibby, timeFrame: 0.5)
         }
