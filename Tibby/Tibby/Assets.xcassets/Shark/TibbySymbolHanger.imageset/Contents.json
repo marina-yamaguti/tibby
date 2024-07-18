@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "FireTraceNew.png",
+      "filename" : "Type=Hanger.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Type=Hanger@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Type=Hanger@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

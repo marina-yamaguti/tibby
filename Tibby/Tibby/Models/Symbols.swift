@@ -15,4 +15,6 @@ enum Symbols: String {
     case ball = "TibbySymbolBall"
     case arrowUp = "TibbySymbolArrowUp"
     case arrowDown = "TibbySymbolArrowDown"
+    case hanger = "TibbySymbolHanger"
+    case lightBulb = "TibbySymbolLightBulb"
 }

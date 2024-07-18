@@ -84,7 +84,7 @@ struct NavigationTabbarView: View {
             }
         }
         .background(
-            .tibbyBaseBlue
+            .tibbyBaseWhite
         )
     }
 
