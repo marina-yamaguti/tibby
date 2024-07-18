@@ -8,17 +8,19 @@
 import Foundation
 import SpriteKit
 import UIKit
-
-import Foundation
-import SpriteKit
-import UIKit
+import SwiftUI
 
 class TibbyView: SKScene, TibbyProtocol {
-    
     /// Represents the Nodes to appear in the Sprite View
     var tibby: SKSpriteNode = SKSpriteNode()
     var accessory: SKSpriteNode = SKSpriteNode()
-    var tibbyID: UUID?
+    @Published var tibbyObject: Tibby?
+    var tibbySpecie: TibbySpecie?
+    var petAnimation = false
+    var constants: Constants?
+    var service: Service?
+    
+    
     
     override func didMove(to view: SKView) {
         // Clear the Scene background
@@ -30,11 +32,6 @@ class TibbyView: SKScene, TibbyProtocol {
         self.tibby.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         self.tibby.name = "Tibby"
         self.addChild(tibby)
-        
-        // Long press gesture recognizer
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPressRecognizer.minimumPressDuration = 0.5 // duration can be customized
-        view.addGestureRecognizer(longPressRecognizer)
         
         // Drag gesture recognizer
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
@@ -85,43 +82,48 @@ class TibbyView: SKScene, TibbyProtocol {
         }
     }
     
-    func setTibbyID(tibbyId: UUID) {
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {
         // Set the tibby to manage in the view
-        self.tibbyID = tibbyId
+        self.service = service
+        self.constants = constants
+        self.tibbyObject = tibbyObject
+        setTibbySpecie(tibbySpecie: TibbySpecie(rawValue: self.tibbyObject!.species)!)
+        animateTibby((self.tibbyObject!.happiness < 33 || self.tibbyObject!.hunger < 33 || self.tibbyObject!.sleep < 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
     }
     
-    @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            let location = sender.location(in: sender.view)
-            let sceneLocation = convertPoint(fromView: location)
-            if tibby.contains(sceneLocation) {
-                petTibby()
-            }
-        }
+    func setTibbySpecie(tibbySpecie: TibbySpecie) {
+        // Set the tibby specie to manage in the view
+        self.tibbySpecie = tibbySpecie
     }
     
     @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: view)
-        gesture.setTranslation(.zero, in: view)
-                
-        let currentPosition = gesture.location(in: view)
-        let newPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y - translation.y)
-        if currentPosition != newPosition {
-            petTibby()
+        if !(constants!.tibbySleeping) {
+            let translation = gesture.translation(in: view)
+            gesture.setTranslation(.zero, in: view)
+            
+            let currentPosition = gesture.location(in: view)
+            let newPosition = CGPoint(x: currentPosition.x + translation.x, y: currentPosition.y - translation.y)
+            if currentPosition != newPosition {
+                if petAnimation {
+                    animateTibby(tibbySpecie!.happyAnimation(), nodeID: .tibby, timeFrame: 0.5)
+                    // TODO: Aumentar a felicidade do Tibby usando a classe de serviço
+                    if let tibby = tibbyObject {
+                        if let activity = service?.getActivityByName(name: "Pet") {
+                            let interaction = service?.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
+                            service?.applyInteractionToTibby(interaction: interaction!, tibby: tibby)
+                            print(tibby.happiness)
+                        }
+                    }
+
+                    petAnimation = false
+                }
+                HapticManager.instance.impact(style: .soft)
+            }
+            else {
+                petAnimation = true
+                animateTibby((tibbyObject!.happiness > 33 || tibbyObject!.hunger > 33 || tibbyObject!.sleep > 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
+            }
+            
         }
-        
-    }
-    
-    func petTibby() {
-        let pettingAction = SKAction.sequence([
-            SKAction.scale(to: CGSize(width: 1.2, height: 1.2), duration: 0.1),
-            SKAction.scale(to: CGSize(width: 1, height: 1), duration: 0.1)
-        ])
-        tibby.run(pettingAction)
-        // TODO: Aumentar a felicidade do Tibby usando a classe de serviço
-    }
-    
-    func getTibbyPosition() -> CGPoint {
-        return tibby.position
     }
 }

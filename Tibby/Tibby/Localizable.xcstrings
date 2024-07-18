@@ -10,10 +10,16 @@
     "Bedroom" : {
 
     },
+    "Clothes" : {
+
+    },
     "Garden" : {
 
     },
     "Hello, World!" : {
+
+    },
+    "Kitchen" : {
 
     },
     "Light" : {
@@ -47,7 +53,7 @@
         }
       }
     },
-    "Tibby Name" : {
+    "TIBBY" : {
 
     },
     "uau quero comprar %@" : {

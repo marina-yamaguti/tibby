@@ -64,12 +64,6 @@ struct KitchenExample: View {
                         })
                     }
                 }
-                NavigationLink {
-                    BedroomExemple()
-                        .brightness(constants.brightness)
-                } label: {
-                    Text("Bedroom")
-                }
             }.onAppear {
                 if(service.getAllUsers().isEmpty) {
                     service.createUser(id: UUID(), username: "sofia")

@@ -6,9 +6,29 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct GardenView: View {
+    @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
+    var tibby: Tibby
+    @ObservedObject var tibbyView = TibbyView()
+    
     var body: some View {
-        Text("Garden")
+        VStack {
+            Text("Garden")
+                .font(.typography(.title))
+            Spacer()
+            HStack {
+                Spacer()
+                if !constants.tibbySleeping {
+                    SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                }
+                Spacer()
+            }
+            Spacer()
+        } .onAppear {
+            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+        }
     }
 }

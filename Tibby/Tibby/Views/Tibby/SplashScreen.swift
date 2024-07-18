@@ -15,15 +15,15 @@ struct SplashScreen: View {
         if canProceed {
             HomeView(tibby: service.getAllTibbies().first!)
         } else {
-            ZStack {
-                Color.tibbyBaseBlue
-                VStack {
-                    Text("tibby")
-                        .font(.typography(.display))
-                }
-            }
-            .ignoresSafeArea()
-            .onAppear {
+            VStack {
+                Spacer()
+                Image("shark1")
+                    .resizable()
+                    .scaledToFit()
+                Text("tibby")
+                    .font(.typography(.title))
+                Spacer()
+            }.onAppear {
                 if service.getAllTibbies().isEmpty {
                     service.setupData()
                 }
@@ -31,6 +31,7 @@ struct SplashScreen: View {
                     canProceed = true
                 })
             }
+            .background(.tibbyBaseBlue)
         }
     }
 }
