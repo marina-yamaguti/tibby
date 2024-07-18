@@ -13,6 +13,7 @@ struct BedroomView: View {
     var tibby: Tibby
     @State var tibbyView: TibbyProtocol = TibbyView()
     @EnvironmentObject var constants: Constants
+    @State var wardrobeIsOpen = false
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct BedroomView: View {
             Spacer()
             HStack {
                 Button {
-                    //
+                    wardrobeIsOpen.toggle()
                 } label: {
                     Text("Clothes")
                 }
@@ -49,5 +50,6 @@ struct BedroomView: View {
                 tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
             }
         }
+        .sheet(isPresented: $wardrobeIsOpen, content: {WardrobeView(tibby: tibby)})
     }
 }
