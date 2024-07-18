@@ -13,7 +13,7 @@ struct KitchenView: View {
     @EnvironmentObject var service: Service
     var tibby: Tibby
     @State var isEating = false
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
     
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.5)

@@ -9,7 +9,7 @@ import SwiftUI
 import SpriteKit
 
 struct WardrobeView: View {
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var selectedAccessory: Accessory?

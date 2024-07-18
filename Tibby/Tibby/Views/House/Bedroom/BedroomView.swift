@@ -11,7 +11,7 @@ import SpriteKit
 struct BedroomView: View {
     
     var tibby: Tibby
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     @EnvironmentObject var constants: Constants
     @State var wardrobeIsOpen = false
     @EnvironmentObject var service: Service

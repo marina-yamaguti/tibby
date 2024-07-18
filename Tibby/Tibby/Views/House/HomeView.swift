@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var tibby: Tibby
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     
     var body: some View {
         NavigationStack {

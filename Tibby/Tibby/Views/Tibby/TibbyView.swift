@@ -14,7 +14,7 @@ class TibbyView: SKScene, TibbyProtocol {
     /// Represents the Nodes to appear in the Sprite View
     var tibby: SKSpriteNode = SKSpriteNode()
     var accessory: SKSpriteNode = SKSpriteNode()
-    @Published var tibbyObject: Tibby?
+    var tibbyObject: Tibby?
     var tibbySpecie: TibbySpecie?
     var petAnimation = false
     var constants: Constants?
@@ -121,7 +121,7 @@ class TibbyView: SKScene, TibbyProtocol {
             }
             else {
                 petAnimation = true
-                animateTibby((tibbyObject!.happiness > 33 || tibbyObject!.hunger > 33 || tibbyObject!.sleep > 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
+                animateTibby((tibbyObject!.happiness < 33 || tibbyObject!.hunger < 33 || tibbyObject!.sleep < 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
             }
             
         }
