@@ -33,6 +33,10 @@
 		D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */; };
 		D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */; };
 		D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D80755CE2C3C6800000CA029 /* Localizable.xcstrings */; };
+		D81694532C49A87D0036BD03 /* ItemCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694522C49A87D0036BD03 /* ItemCardComponent.swift */; };
+		D81694552C49A8900036BD03 /* TibbyNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694542C49A8900036BD03 /* TibbyNameComponent.swift */; };
+		D81694572C49A8B10036BD03 /* StyledPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694562C49A8B10036BD03 /* StyledPicker.swift */; };
+		D81694592C49A8E10036BD03 /* CurvedRectangleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694582C49A8E10036BD03 /* CurvedRectangleComponent.swift */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
@@ -168,6 +172,10 @@
 		D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixelbold.ttf; sourceTree = "<group>"; };
 		D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDictionaryFont.swift; sourceTree = "<group>"; };
 		D80755CE2C3C6800000CA029 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D81694522C49A87D0036BD03 /* ItemCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardComponent.swift; sourceTree = "<group>"; };
+		D81694542C49A8900036BD03 /* TibbyNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameComponent.swift; sourceTree = "<group>"; };
+		D81694562C49A8B10036BD03 /* StyledPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledPicker.swift; sourceTree = "<group>"; };
+		D81694582C49A8E10036BD03 /* CurvedRectangleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectangleComponent.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
@@ -355,6 +363,7 @@
 				D80755C62C3C57D9000CA029 /* dogicapixel.ttf */,
 				D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */,
 				D80755C02C3C5717000CA029 /* Extension + Border.swift */,
+				D81694522C49A87D0036BD03 /* ItemCardComponent.swift */,
 				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
 				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
 				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
@@ -370,6 +379,9 @@
 				92B6477A2C2C97EC0068E98E /* Assets.xcassets */,
 				92B6477C2C2C97EC0068E98E /* Tibby.entitlements */,
 				92B6477D2C2C97EC0068E98E /* Preview Content */,
+				D81694542C49A8900036BD03 /* TibbyNameComponent.swift */,
+				D81694562C49A8B10036BD03 /* StyledPicker.swift */,
+				D81694582C49A8E10036BD03 /* CurvedRectangleComponent.swift */,
 			);
 			path = Tibby;
 			sourceTree = "<group>";
@@ -766,6 +778,7 @@
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
+				D81694592C49A8E10036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
@@ -782,15 +795,18 @@
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
+				D81694532C49A87D0036BD03 /* ItemCardComponent.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
+				D81694572C49A8B10036BD03 /* StyledPicker.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
+				D81694552C49A8900036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,
 				FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */,
 			);
