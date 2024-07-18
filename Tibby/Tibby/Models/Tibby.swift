@@ -159,3 +159,9 @@ final class Tibby {
         self.isUnlocked = isUnlocked
     }
 }
+
+enum SelectionStatus {
+    case locked
+    case unselected
+    case selected
+}

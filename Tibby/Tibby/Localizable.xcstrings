@@ -1,7 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Add %@" : {
+    "" : {
+
+    },
+    "%lld" : {
 
     },
     "Bedroom" : {
@@ -34,10 +37,8 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
-
-    },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

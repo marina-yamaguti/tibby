@@ -23,6 +23,10 @@
 		92B647892C2C97EC0068E98E /* TibbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647882C2C97EC0068E98E /* TibbyTests.swift */; };
 		92B647932C2C97EC0068E98E /* TibbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647922C2C97EC0068E98E /* TibbyUITests.swift */; };
 		92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */; };
+		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
+		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
+		A5126BE52C499165008703E7 /* HeartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE42C499165008703E7 /* HeartsView.swift */; };
+		A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -33,6 +37,11 @@
 		D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */; };
 		D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */; };
 		D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D80755CE2C3C6800000CA029 /* Localizable.xcstrings */; };
+		D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694482C49A3D20036BD03 /* StyledPicker.swift */; };
+		D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */; };
+		D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944C2C49A4630036BD03 /* ItemCard.swift */; };
+		D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944E2C49A4720036BD03 /* AcessoryCard.swift */; };
+		D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
@@ -161,6 +170,10 @@
 		92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TibbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647922C2C97EC0068E98E /* TibbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITests.swift; sourceTree = "<group>"; };
 		92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
+		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
+		A5126BE42C499165008703E7 /* HeartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsView.swift; sourceTree = "<group>"; };
+		A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -169,6 +182,11 @@
 		D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogicapixelbold.ttf; sourceTree = "<group>"; };
 		D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDictionaryFont.swift; sourceTree = "<group>"; };
 		D80755CE2C3C6800000CA029 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D81694482C49A3D20036BD03 /* StyledPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledPicker.swift; sourceTree = "<group>"; };
+		D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameComponent.swift; sourceTree = "<group>"; };
+		D816944C2C49A4630036BD03 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
+		D816944E2C49A4720036BD03 /* AcessoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcessoryCard.swift; sourceTree = "<group>"; };
+		D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectangleComponent.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
@@ -357,14 +375,7 @@
 			children = (
 				D80755C62C3C57D9000CA029 /* dogicapixel.ttf */,
 				D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */,
-				D80755C02C3C5717000CA029 /* Extension + Border.swift */,
-				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
-				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
-				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
-				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
-				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
-				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
-				D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */,
+				A5126BD92C4987B2008703E7 /* Design System */,
 				FD9075F72C34A2AB000E5F24 /* Service */,
 				7C2ED2642C2DF02B0030D0B9 /* Views */,
 				FDE4F8272C2CA7B200490F38 /* Models */,
@@ -401,6 +412,78 @@
 				92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */,
 			);
 			path = TibbyUITests;
+			sourceTree = "<group>";
+		};
+		A5126BD92C4987B2008703E7 /* Design System */ = {
+			isa = PBXGroup;
+			children = (
+				A5126BDD2C49880D008703E7 /* Style Dictionary */,
+				A5126BDB2C4987D6008703E7 /* Components */,
+				A5126BDA2C4987C1008703E7 /* Extensions */,
+			);
+			path = "Design System";
+			sourceTree = "<group>";
+		};
+		A5126BDA2C4987C1008703E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D80755C02C3C5717000CA029 /* Extension + Border.swift */,
+				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
+				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5126BDB2C4987D6008703E7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D816944C2C49A4630036BD03 /* ItemCard.swift */,
+				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
+				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
+				D81694482C49A3D20036BD03 /* StyledPicker.swift */,
+				A5126BDC2C4987E2008703E7 /* Buttons */,
+				A5126BE62C4992C8008703E7 /* Hearts */,
+				A5126BE02C498A59008703E7 /* Money */,
+				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
+				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A5126BDC2C4987E2008703E7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
+				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
+				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A5126BDD2C49880D008703E7 /* Style Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				D80755CC2C3C588B000CA029 /* StyleDictionaryFont.swift */,
+			);
+			path = "Style Dictionary";
+			sourceTree = "<group>";
+		};
+		A5126BE02C498A59008703E7 /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				A5126BDE2C498842008703E7 /* MoneyView.swift */,
+				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		A5126BE62C4992C8008703E7 /* Hearts */ = {
+			isa = PBXGroup;
+			children = (
+				A5126BE42C499165008703E7 /* HeartsView.swift */,
+				A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */,
+			);
+			path = Hearts;
 			sourceTree = "<group>";
 		};
 		FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */ = {
@@ -771,6 +854,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
+				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
@@ -779,6 +864,8 @@
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
+				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
+				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
@@ -791,11 +878,16 @@
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
+				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
+				D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
+				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
+				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
+				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
@@ -1028,7 +1120,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tibby/Preview Content\"";
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1212,7 +1304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
@@ -1246,7 +1338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
@@ -1363,7 +1455,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -1395,7 +1487,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
