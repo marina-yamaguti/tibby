@@ -57,14 +57,14 @@ enum NodeType {
 }
 
 /// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
-protocol TibbyProtocol {
+protocol TibbyProtocol: ObservableObject {
     
     // MARK: Tibby and accessory Nodes instances
     var tibby: SKSpriteNode { get set }
     var accessory: SKSpriteNode { get set }
     /// Tibby ID to operate in the view
     var tibbyObject: Tibby? { get set }
-    func setTibby(tibbyObject: Tibby, constants: Constants)
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service)
     var tibbySpecie: TibbySpecie? { get set }
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     

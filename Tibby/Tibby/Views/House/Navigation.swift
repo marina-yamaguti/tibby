@@ -10,15 +10,35 @@ import SwiftUI
 enum Enviroment {
     case garden, kitchen, bedroom
     
-    func getIconAsset() -> String {
+    func getIconAsset() -> Symbols {
         switch self {
         case .garden:
-            return "tree.fill"
+            return Symbols.ball
         case .kitchen:
-            return "fork.knife"
+            return Symbols.food
         case .bedroom:
-            return "bed.double.fill"
+            return Symbols.sleepy
         }
+    }
+    
+    func getTibbyProperties(tibby: Tibby) -> Binding<Int> {
+        switch self {
+        case .garden:
+                return Binding<Int>(
+                    get: { tibby.happiness },
+                    set: { tibby.happiness = $0 }
+                )
+            case .kitchen:
+                return Binding<Int>(
+                    get: { tibby.hunger },
+                    set: { tibby.hunger = $0 }
+                )
+            case .bedroom:
+                return Binding<Int>(
+                    get: { tibby.sleep },
+                    set: { tibby.sleep = $0 }
+                )
+            }
     }
     
 //    func getbackground() -> String {
@@ -35,7 +55,7 @@ enum Enviroment {
 
 struct NavigationTabbarView: View {
     @EnvironmentObject var constants: Constants
-    let tibby: Tibby
+    @ObservedObject var vm: NavigationViewModel
     let enviroments: [Enviroment] = [.kitchen, .bedroom, .garden]
     
     var body: some View {
@@ -44,28 +64,27 @@ struct NavigationTabbarView: View {
             //Decide the room depending on the button the user select
             switch constants.currentEnviroment {
             case .bedroom:
-                BedroomView(tibby: tibby)
+                BedroomView(tibby: vm.tibby)
                     .brightness(constants.brightness)
             case .garden:
-                GardenView(tibby: tibby)
+                GardenView(tibby: vm.tibby)
                     .brightness(constants.brightness)
             case .kitchen:
-                KitchenView(tibby: tibby)
+                KitchenView(tibby: vm.tibby)
                     .brightness(constants.brightness)
             }
             //Custom Tabbar
             HStack(spacing: 30){
                 ForEach(0..<enviroments.count) { ind in
-                    Button {
-                        constants.currentEnviroment = enviroments[ind]
-                    } label: {
-                        //Image(systemName: enviroments[ind].getIconAsset())
-                    }                    
+                    NeedsButton(symbol: enviroments[ind].getIconAsset(), progress: enviroments[ind].getTibbyProperties(tibby: vm.tibby))
+                        .onTapGesture {
+                            constants.currentEnviroment = enviroments[ind]
+                        }
                 }
             }
         }
         .background(
-            .tibbyBasePink
+            .tibbyBaseBlue
         )
     }
 
