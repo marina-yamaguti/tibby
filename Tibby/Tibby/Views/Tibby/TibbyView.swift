@@ -14,10 +14,11 @@ class TibbyView: SKScene, TibbyProtocol {
     /// Represents the Nodes to appear in the Sprite View
     var tibby: SKSpriteNode = SKSpriteNode()
     var accessory: SKSpriteNode = SKSpriteNode()
-    var tibbyObject: Tibby?
+    @Published var tibbyObject: Tibby?
     var tibbySpecie: TibbySpecie?
     var petAnimation = false
     var constants: Constants?
+    var service: Service?
     
     
     
@@ -81,12 +82,13 @@ class TibbyView: SKScene, TibbyProtocol {
         }
     }
     
-    func setTibby(tibbyObject: Tibby, constants: Constants) {
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {
         // Set the tibby to manage in the view
+        self.service = service
         self.constants = constants
         self.tibbyObject = tibbyObject
         setTibbySpecie(tibbySpecie: TibbySpecie(rawValue: self.tibbyObject!.species)!)
-        animateTibby((self.tibbyObject!.happiness > 33 || self.tibbyObject!.hunger > 33 || self.tibbyObject!.sleep > 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
+        animateTibby((self.tibbyObject!.happiness < 33 || self.tibbyObject!.hunger < 33 || self.tibbyObject!.sleep < 33 ? tibbySpecie!.sadAnimation() : tibbySpecie!.baseAnimation()), nodeID: .tibby, timeFrame: 0.5)
     }
     
     func setTibbySpecie(tibbySpecie: TibbySpecie) {
@@ -105,6 +107,14 @@ class TibbyView: SKScene, TibbyProtocol {
                 if petAnimation {
                     animateTibby(tibbySpecie!.happyAnimation(), nodeID: .tibby, timeFrame: 0.5)
                     // TODO: Aumentar a felicidade do Tibby usando a classe de serviço
+                    if let tibby = tibbyObject {
+                        if let activity = service?.getActivityByName(name: "Pet") {
+                            let interaction = service?.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
+                            service?.applyInteractionToTibby(interaction: interaction!, tibby: tibby)
+                            print(tibby.happiness)
+                        }
+                    }
+
                     petAnimation = false
                 }
                 HapticManager.instance.impact(style: .soft)

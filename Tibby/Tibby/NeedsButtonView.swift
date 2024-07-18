@@ -11,7 +11,7 @@ struct NeedsButton: View {
     var symbol: Symbols
     @State var pressed: Bool = false
     @ObservedObject var vm = NeedsButtonViewModel()
-    @State var progress: Int = 50
+    @Binding var progress: Int
     
     var body: some View {
         ZStack {
@@ -50,13 +50,10 @@ struct NeedsButton: View {
                 }
             }
         }
-        .onTapGesture {
-            pressed.toggle()
-        }
     }
 }
 
 
-#Preview {
-    NeedsButton(symbol: .food)
-}
+//#Preview {
+//    NeedsButton(symbol: .food, progress: 50)
+//}
