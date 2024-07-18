@@ -7,6 +7,9 @@
     "%lld" : {
 
     },
+    "Add %@" : {
+
+    },
     "Bedroom" : {
 
     },
@@ -37,8 +40,10 @@
     "quantity: %lld" : {
 
     },
+    "Remove" : {
+
+    },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
