@@ -60,6 +60,7 @@
 		FD9075EE2C3489F2000E5F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9075ED2C3489F2000E5F24 /* Assets.xcassets */; };
 		FD9075F22C3489F2000E5F24 /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */; };
+		FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9846AC2C4979450047575F /* NavigationViewModel.swift */; };
 		FD9846B02C4988350047575F /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9846AF2C4988350047575F /* WardrobeView.swift */; };
 		FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F502C34EEFE0075E0C7 /* Service.swift */; };
 		FDCD3F702C3744970075E0C7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */; };
@@ -199,6 +200,7 @@
 		FD9075EF2C3489F2000E5F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDExample.swift; sourceTree = "<group>"; };
 		FD9846AF2C4988350047575F /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
+		FD9846AC2C4979450047575F /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				7C7B59182C459DC6004FFD4B /* Graden */,
 				7C7B59222C459E62004FFD4B /* Navigation.swift */,
 				7CC14D3C2C45AD68002715F5 /* HomeView.swift */,
+				FD9846AC2C4979450047575F /* NavigationViewModel.swift */,
 			);
 			path = House;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
+				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,

@@ -258,7 +258,22 @@ class Service: ObservableObject, ServiceProtocol {
                 }
             }
         } catch {
-            print("Error getting activities: \(error)")
+            print("Error getting activity: \(error)")
+        }
+        return nil
+    }
+    
+    /// Retrieves a Activity based on the given Name
+    func getActivityByName(name: String) -> Activity? {
+        do {
+            let activities = try modelContext.fetch(FetchDescriptor<Activity>())
+            for activity in activities {
+                if activity.name == name {
+                    return activity
+                }
+            }
+        } catch {
+            print("Error getting activity: \(error)")
         }
         return nil
     }
@@ -273,9 +288,10 @@ class Service: ObservableObject, ServiceProtocol {
     //MARK: - Interaction Operations
     
     /// Adds a Interaction object to the model context.
-    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) {
+    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) -> Interaction {
         let interaction = Interaction(id: id, tibbyId: tibbyId, activityId: activityId, timestamp: timestamp)
         modelContext.insert(interaction)
+        return interaction
     }
     
     /// Deletes a Interaction from the model context.
@@ -317,22 +333,30 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     /// Applies the interaction Effects into the right Tibby
-    func applyInteractionToTibby(_ interaction: Interaction) {
+    func applyInteractionToTibby(interaction: Interaction, tibby: Tibby) {
         guard let activity = self.getActivityByID(id: interaction.activityId) else { return }
-        guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else { return }
+//        guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else { return }
         
         guard let effectData = activity.effect.data(using: .utf8),
               let effect = try? JSONSerialization.jsonObject(with: effectData, options: []) as? [String: Int] else {
+            print("error deserializing the effect")
             return
         }
-        if let happinessEffect = effect["happiness"] {
-            tibby.happiness += happinessEffect
+        print(effect)
+        if let happinessEffect = effect["happiness"]{
+            if tibby.happiness < 100 {
+                tibby.happiness += happinessEffect
+            }
         }
         if let hungerEffect = effect["hunger"] {
-            tibby.hunger += hungerEffect
+            if tibby.hunger < 100 {
+                tibby.hunger += hungerEffect
+            }
         }
         if let sleepEffect = effect["sleep"] {
-            tibby.sleep += sleepEffect
+            if tibby.sleep < 100 {
+                tibby.sleep += sleepEffect
+            }
         }
         if let xpEffect = effect["xp"] {
             tibby.xp += xpEffect
@@ -359,15 +383,9 @@ class Service: ObservableObject, ServiceProtocol {
             if var quantity = user.foodInventory[food.id] {
                 quantity += 1
                 user.foodInventory.updateValue(quantity, forKey: food.id)
-                print("user: \(user.username)")
-                print("food: \(food.name)")
-                print("quantity: \(user.foodInventory[food.id])")
                 return
             }
             user.foodInventory[food.id] = 1
-            print("user: \(user.username)")
-            print("food: \(food.name)")
-            
             return
         } else {
             print("error: no user available to add a food")
@@ -433,5 +451,10 @@ class Service: ObservableObject, ServiceProtocol {
         
         //Food
         self.createFood(id: UUID(), name: "Niguiri", image: "Niguiri", price: 10)
+        
+        //Activties
+        self.createActivity(id: UUID(), name: "Eat", effect: "{\"hunger\": 25}")
+        self.createActivity(id: UUID(), name: "Pet", effect: "{\"happiness\": 25}")
+        self.createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 100}")
     }
 }

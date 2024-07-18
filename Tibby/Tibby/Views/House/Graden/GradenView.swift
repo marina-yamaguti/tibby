@@ -10,8 +10,9 @@ import SpriteKit
 
 struct GardenView: View {
     @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
     var tibby: Tibby
-    @State var tibbyView: TibbyProtocol = TibbyView()
+    @ObservedObject var tibbyView = TibbyView()
     
     var body: some View {
         VStack {
@@ -27,7 +28,7 @@ struct GardenView: View {
             }
             Spacer()
         } .onAppear {
-            tibbyView.setTibby(tibbyObject: tibby, constants: constants)
+            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
         }
     }
 }

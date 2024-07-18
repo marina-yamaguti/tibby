@@ -39,15 +39,16 @@ protocol ServiceProtocol {
     func deleteActivity(activity: Activity)
     func getAllActivities() -> [Activity]?
     func getActivityByID(id: UUID) -> Activity?
+    func getActivityByName(name: String) -> Activity?
     func updateActivity(activity: Activity, id: UUID?, name: String?, effect: String?)
 
     // Interaction Operations
-    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date)
+    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) -> Interaction
     func deleteInteraction(interaction: Interaction)
     func getAllInteractions() -> [Interaction]?
     func getInteractionByID(id: UUID) -> Interaction?
     func updateInteraction(interaction: Interaction, id: UUID?, tibbyId: UUID?, activityId: UUID?, timestamp: Date?)
-    func applyInteractionToTibby(_ interaction: Interaction)
+    func applyInteractionToTibby(interaction: Interaction, tibby: Tibby)
     
     // Food Operations
     func createFood(id: UUID, userId: UUID?, name: String, image: String, price: Int)

@@ -33,6 +33,10 @@ class MockModelContext {
 // Mock Service
 class MockService: ServiceProtocol {
     
+    func getActivityByName(name: String) -> Activity? {
+        <#code#>
+    }
+    
     private var tibbies: [Tibby] = []
     private var accessories: [Accessory] = []
     private var users: [User] = []
@@ -173,7 +177,7 @@ class MockService: ServiceProtocol {
     }
 
     // Interaction Operations
-    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) {
+    func createInteraction(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) -> Interaction {
         let interaction = Interaction(id: id, tibbyId: tibbyId, activityId: activityId, timestamp: timestamp)
         interactions.append(interaction)
     }
@@ -196,7 +200,7 @@ class MockService: ServiceProtocol {
         if let activityIdWP = activityId { interaction.activityId = activityIdWP }
         if let timestampWP = timestamp { interaction.timestamp = timestampWP }
     }
-    func applyInteractionToTibby(_ interaction: Interaction) {
+    func applyInteractionToTibby(interaction: Interaction) {
         guard let activity = self.getActivityByID(id: interaction.activityId) else {return}
         guard let tibby = self.getTibbyByID(id: interaction.tibbyId) else {return}
         
@@ -438,7 +442,7 @@ final class ServiceTests: XCTestCase {
            }
 
            // Apply the interaction effects
-           mockService.applyInteractionToTibby(interaction)
+        mockService.applyInteractionToTibby(interaction: interaction)
 
            // Retrieve the Tibby to check the effects
            guard let tibby = mockService.getTibbyByID(id: tibbyId) else {
