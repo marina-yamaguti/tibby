@@ -70,6 +70,7 @@
 		FD9075F22C3489F2000E5F24 /* widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD9075DE2C3489F1000E5F24 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */; };
 		FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9846AC2C4979450047575F /* NavigationViewModel.swift */; };
+		FD9846B02C4988350047575F /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9846AF2C4988350047575F /* WardrobeView.swift */; };
 		FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F502C34EEFE0075E0C7 /* Service.swift */; };
 		FDCD3F702C3744970075E0C7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */; };
 		FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */; };
@@ -216,6 +217,7 @@
 		FD9075ED2C3489F2000E5F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9075EF2C3489F2000E5F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDExample.swift; sourceTree = "<group>"; };
+		FD9846AF2C4988350047575F /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		FD9846AC2C4979450047575F /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		7C7B591B2C459DE6004FFD4B /* Bedroom */ = {
 			isa = PBXGroup;
 			children = (
+				FD9846AE2C4988260047575F /* Wardrobe */,
 				7C7B591C2C459E2A004FFD4B /* BedroomView.swift */,
 			);
 			path = Bedroom;
@@ -558,6 +561,14 @@
 				FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */,
 			);
 			path = "CRUD Example";
+			sourceTree = "<group>";
+		};
+		FD9846AE2C4988260047575F /* Wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				FD9846AF2C4988350047575F /* WardrobeView.swift */,
+			);
+			path = Wardrobe;
 			sourceTree = "<group>";
 		};
 		FDE4F8272C2CA7B200490F38 /* Models */ = {
@@ -846,6 +857,7 @@
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
+				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,

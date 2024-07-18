@@ -12,7 +12,7 @@ struct GardenView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     var tibby: Tibby
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     
     var body: some View {
         VStack {
@@ -22,12 +22,17 @@ struct GardenView: View {
             HStack {
                 Spacer()
                 if !constants.tibbySleeping {
-                    SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                    SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                 }
                 Spacer()
             }
             Spacer()
-        } .onAppear {
+        }.onAppear {
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                }
+            }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
         }
     }

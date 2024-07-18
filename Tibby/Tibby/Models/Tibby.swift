@@ -57,7 +57,7 @@ enum NodeType {
 }
 
 /// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
-protocol TibbyProtocol: ObservableObject {
+protocol TibbyProtocol {
     
     // MARK: Tibby and accessory Nodes instances
     var tibby: SKSpriteNode { get set }

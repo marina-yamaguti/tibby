@@ -13,7 +13,7 @@ struct KitchenView: View {
     @EnvironmentObject var service: Service
     var tibby: Tibby
     @State var isEating = false
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
     
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.5)
@@ -116,6 +116,11 @@ struct KitchenView: View {
                 }
             }
         }.onAppear {
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                }
+            }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
             if service.getFoodsFromUser().isEmpty {
                 service.addFoodToUser(food: service.getAllFoods().first!)

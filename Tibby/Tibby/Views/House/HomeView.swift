@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var tibby: Tibby
-    @ObservedObject var tibbyView = TibbyView()
+    @State var tibbyView = TibbyView()
     
     var body: some View {
         NavigationStack {
@@ -21,6 +21,9 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                        .onAppear {
+                            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                        }
                     //HomeView
                     NavigationLink {
                         NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
@@ -38,7 +41,6 @@ struct HomeView: View {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
-            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
         }
     }
 }

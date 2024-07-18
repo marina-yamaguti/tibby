@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tibbySharkHat11.png",
+      "filename" : "sharkAccessory2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tibbySharkHat11@2x.png",
+      "filename" : "sharkAccessory2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tibbySharkHat11@3x.png",
+      "filename" : "sharkAccessory2@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
