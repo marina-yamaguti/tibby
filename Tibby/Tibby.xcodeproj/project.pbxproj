@@ -41,6 +41,7 @@
 		D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */; };
 		D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944C2C49A4630036BD03 /* ItemCard.swift */; };
 		D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944E2C49A4720036BD03 /* AcessoryCard.swift */; };
+		D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
@@ -184,6 +185,7 @@
 		D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameComponent.swift; sourceTree = "<group>"; };
 		D816944C2C49A4630036BD03 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		D816944E2C49A4720036BD03 /* AcessoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcessoryCard.swift; sourceTree = "<group>"; };
+		D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectangleComponent.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			children = (
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
 				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
+				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				D81694482C49A3D20036BD03 /* StyledPicker.swift */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
 				A5126BE62C4992C8008703E7 /* Hearts */,
@@ -840,6 +843,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
