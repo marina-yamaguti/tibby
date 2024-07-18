@@ -42,7 +42,7 @@ struct ItemCard: View {
             .padding()
         }
         .overlay {
-            if status == .unselected {
+            if status == .unlocked {
                 
             } else if status == .selected {
                 RoundedRectangle(cornerRadius: 15)
