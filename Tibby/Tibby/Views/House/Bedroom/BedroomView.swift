@@ -11,8 +11,9 @@ import SpriteKit
 struct BedroomView: View {
     
     var tibby: Tibby
-    @State var tibbyView: TibbyProtocol = TibbyView()
+    @ObservedObject var tibbyView = TibbyView()
     @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
     
     var body: some View {
         VStack {
@@ -33,10 +34,15 @@ struct BedroomView: View {
                     constants.tibbySleeping.toggle()
                     if constants.tibbySleeping {
                         tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                        if let activity = service.getActivityByName(name: "Sleep") {
+                            let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
+                            service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
+                            print(tibby.sleep)
+                        }
                     }
                     else {
                         let tibbySpecie = TibbySpecie(rawValue: tibby.species)
-                        tibbyView.animateTibby((tibby.happiness > 33 || tibby.hunger > 33 || tibby.sleep > 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                        tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                     }
                 } label: {
                     Text("Light")
@@ -44,7 +50,7 @@ struct BedroomView: View {
                 .padding()
             }
         } .onAppear {
-            tibbyView.setTibby(tibbyObject: tibby, constants: constants)
+            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
             if constants.tibbySleeping {
                 tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
             }

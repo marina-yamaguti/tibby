@@ -13,7 +13,7 @@ struct KitchenView: View {
     @EnvironmentObject var service: Service
     var tibby: Tibby
     @State var isEating = false
-    @State var tibbyView: TibbyProtocol = TibbyView()
+    @ObservedObject var tibbyView = TibbyView()
     @State var selectedFood: Food?
     
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.5)
@@ -52,15 +52,23 @@ struct KitchenView: View {
                                                 foodLocation = state.location
                                                 let tibbySpecie = TibbySpecie(rawValue: tibby.species)
                                                 if (foodLocation.x >= mouth.x - 100 && foodLocation.x <= mouth.x + 100 && foodLocation.y >= mouth.y - 50 && foodLocation.y <= mouth.y + 50) {
-                                                    tibbyView.animateTibby((tibby.happiness > 33 || tibby.hunger > 33 || tibby.sleep > 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                                                    tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                                                    
                                                     toEat = false
                                                     isEating = false
                                                     selectedFood = nil
                                                     foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
                                                     
                                                     //delete food from inventory
+                                                    print(tibby.hunger)
                                                     
                                                     //update tibby hunger atribute
+                                                    if let activity = service.getActivityByName(name: "Eat") {
+                                                        let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
+                                                        service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
+                                                        print(tibby.hunger)
+                                                        tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                                    }
                                                 }
                                                 
                                             })
@@ -108,7 +116,7 @@ struct KitchenView: View {
                 }
             }
         }.onAppear {
-            tibbyView.setTibby(tibbyObject: tibby, constants: constants)
+            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
             if service.getFoodsFromUser().isEmpty {
                 service.addFoodToUser(food: service.getAllFoods().first!)
             }
