@@ -12,24 +12,36 @@ struct SplashScreen: View {
     @State var canProceed: Bool = false
     
     var body: some View {
-        if canProceed {
-            HomeView(tibby: service.getAllTibbies().first!)
-        } else {
-            VStack {
-                Image("shark1")
-                    .resizable()
-                    .scaledToFit()
-                Text("TIBBY")
-                    .font(.typography(.title))
-            }.onAppear {
-                if service.getAllTibbies().isEmpty {
-                    service.setupData()
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                if canProceed {
+                    HomeView(tibby: service.getAllTibbies().first!)
+                } else {
+                    VStack {
+                        Image("shark1")
+                            .resizable()
+                            .scaledToFit()
+                        Text("TIBBY")
+                            .font(.typography(.title))
+                    }.onAppear {
+                        if service.getAllTibbies().isEmpty {
+                            service.setupData()
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                            canProceed = true
+                        })
+                    }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    canProceed = true
-                })
+                Spacer()
             }
+            Spacer()
         }
+        .background(
+            .tibbyBaseBlue
+        )
+        
     }
 }
 

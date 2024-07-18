@@ -59,13 +59,14 @@ struct NavigationTabbarView: View {
                     Button {
                         constants.currentEnviroment = enviroments[ind]
                     } label: {
-                        //Image(systemName: enviroments[ind].getIconAsset())
-                    }                    
+                        Image(systemName: enviroments[ind].getIconAsset())
+                    } 
+                    
                 }
             }
         }
         .background(
-            .tibbyBasePink
+            .tibbyBaseBlue
         )
     }
 

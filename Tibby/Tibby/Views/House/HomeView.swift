@@ -21,6 +21,14 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                        .onAppear(perform: {
+                            if constants.tibbySleeping {
+                                tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                            }
+                            else {
+                                tibbyView.animateTibby((tibby.happiness > 33 || tibby.hunger > 33 || tibby.sleep > 33 ? TibbySpecie(rawValue: tibby.species)?.sadAnimation() : TibbySpecie(rawValue: tibby.species)?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                            }
+                        })
                     //HomeView
                     NavigationLink {
                         NavigationTabbarView(tibby: tibby)
