@@ -42,6 +42,8 @@
 		D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944C2C49A4630036BD03 /* ItemCard.swift */; };
 		D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944E2C49A4720036BD03 /* AcessoryCard.swift */; };
 		D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */; };
+		D816945B2C49B03C0036BD03 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816945A2C49B03C0036BD03 /* CircleButton.swift */; };
+		D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
@@ -187,6 +189,8 @@
 		D816944C2C49A4630036BD03 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		D816944E2C49A4720036BD03 /* AcessoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcessoryCard.swift; sourceTree = "<group>"; };
 		D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectangleComponent.swift; sourceTree = "<group>"; };
+		D816945A2C49B03C0036BD03 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
@@ -217,8 +221,8 @@
 		FD9075ED2C3489F2000E5F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9075EF2C3489F2000E5F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD9075FF2C34BB1F000E5F24 /* CRUDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDExample.swift; sourceTree = "<group>"; };
-		FD9846AF2C4988350047575F /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		FD9846AC2C4979450047575F /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		FD9846AF2C4988350047575F /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
@@ -456,6 +460,8 @@
 				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
 				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
+				D816945A2C49B03C0036BD03 /* CircleButton.swift */,
+				D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -889,10 +895,12 @@
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
 				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
+				D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
+				D816945B2C49B03C0036BD03 /* CircleButton.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,

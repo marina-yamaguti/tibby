@@ -13,9 +13,6 @@
     "Bedroom" : {
 
     },
-    "Clothes" : {
-
-    },
     "Garden" : {
 
     },
@@ -44,6 +41,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
