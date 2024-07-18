@@ -22,6 +22,18 @@ struct BedroomView: View {
                 .font(.typography(.title))
             Spacer()
             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                .onAppear {
+                    tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                    for accessory in service.getAllAccessories() ?? [] {
+                        if tibby.id == accessory.tibbyId {
+                            tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                        }
+                    }
+                    
+                    if constants.tibbySleeping {
+                        tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                    }
+                }
             Spacer()
             HStack {
                 Button {
@@ -34,6 +46,7 @@ struct BedroomView: View {
                 Button {
                     constants.tibbySleeping.toggle()
                     if constants.tibbySleeping {
+                        print("mimiu")
                         tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                         if let activity = service.getActivityByName(name: "Sleep") {
                             let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
@@ -50,17 +63,12 @@ struct BedroomView: View {
                 }
                 .padding()
             }
-        } .onAppear {
-            for accessory in service.getAllAccessories() ?? [] {
-                if tibby.id == accessory.tibbyId {
-                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
-                }
-            }
-            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+        }
+        .onChange(of: constants.tibbySleeping, {
             if constants.tibbySleeping {
                 tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
             }
-        }
+        })
         .sheet(isPresented: $wardrobeIsOpen, content: {WardrobeView(tibby: tibby)})
     }
 }
