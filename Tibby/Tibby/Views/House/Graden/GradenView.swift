@@ -15,18 +15,38 @@ struct GardenView: View {
     @State var tibbyView = TibbyView()
     
     var body: some View {
-        VStack {
-            Text("Garden")
-                .font(.typography(.title))
-            Spacer()
-            HStack {
+        ZStack {
+            CurvedRectangleComponent()
+            VStack {
+                HStack {
+                    HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .fun, service: service))
+                }.padding()
+                HStack(alignment: .center) {
+                    Spacer()
+                    TibbyNameComponent(name: "Shark")
+                    Spacer()
+                }.padding()
                 Spacer()
-                if !constants.tibbySleeping {
-                    SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                HStack {
+                    Spacer()
+                    if !constants.tibbySleeping {
+                        SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                    }
+                    Spacer()
                 }
                 Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        //sheet saing minigames coming soon
+                    } label: {
+                        Image(Symbols.controller.rawValue)
+                    }
+                    .buttonSecondary()
+                    .padding()
+                }
+                
             }
-            Spacer()
         }.onAppear {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {

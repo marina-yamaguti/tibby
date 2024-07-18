@@ -10,16 +10,7 @@
     "Add %@" : {
 
     },
-    "Bedroom" : {
-
-    },
-    "Garden" : {
-
-    },
     "Hello, World!" : {
-
-    },
-    "Kitchen" : {
 
     },
     "Light" : {
@@ -41,7 +32,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

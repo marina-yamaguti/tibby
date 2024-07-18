@@ -19,9 +19,15 @@ struct BedroomView: View {
         ZStack {
             CurvedRectangleComponent()
             VStack {
-                Text("Bedroom")
-                    .font(.typography(.title))
-                Spacer()
+                HStack {
+                    HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .sleep, service: service))
+                }.padding()
+                HStack(alignment: .center) {
+                    Spacer()
+                    TibbyNameComponent(name: "Shark")
+                    Spacer()
+                }.padding()
+                
                 SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                     .onAppear {
                         tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
