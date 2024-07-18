@@ -21,6 +21,6 @@ struct MoneyView: View {
     }
 }
 
-#Preview {
-    MoneyView(viewModel: MoneyViewModel(moneyType: .coin, value: 20))
-}
+//#Preview {
+//    MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: Service()))
+//}

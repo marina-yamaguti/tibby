@@ -6,16 +6,34 @@
 //
 
 import Foundation
+import SwiftData
 
 class MoneyViewModel: ObservableObject {
     @Published var moneyType: MoneyType
     @Published var value: Int
     
-    init(moneyType: MoneyType, value: Int) {
-        self.moneyType = moneyType
-        self.value = value
+    private var service: Service
+    
+    init(moneyType: MoneyType, service: Service) {
+         self.moneyType = moneyType
+         self.value = 0
+         self.service = service
+         fetchMoneyValue()
+     }
+    
+    func fetchMoneyValue() {
+        guard let user = service.getUser() else { return }
+        
+        switch moneyType {
+        case .coin:
+            self.value = user.coins
+        case .gem:
+            self.value = user.gems
+        }
     }
     
+    //image based on the type of money
+
     func getImageName() -> String {
         switch moneyType {
         case .coin:
@@ -26,6 +44,7 @@ class MoneyViewModel: ObservableObject {
     }
 }
 
+//enum for the type of money
 enum MoneyType {
     case coin
     case gem
