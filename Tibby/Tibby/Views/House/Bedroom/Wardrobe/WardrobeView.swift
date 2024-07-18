@@ -13,25 +13,24 @@ struct WardrobeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var selectedAccessory: Accessory?
+    @State var status: SelectionStatus = .unselected
     var tibby: Tibby
+    var columns = [GridItem(.adaptive(minimum: 80))]
     
     var body: some View {
         VStack {
             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
             
-            HStack {
+            LazyVGrid(columns: columns) {
                 ForEach(service.getAllAccessories() ?? []) { accessory in
                     Button {
                         tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                     } label: {
-                        VStack {
-                            Image("\(accessory.image)-wardrobe")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                            Text("Add \(accessory.name)")
-                        }
+                        //item card component não estava aparecendo nada pra mim, não sei porque mas acho que o name component é mt grande e não cabe aqui
+                        //imagem é "\(accessory.image)-wardrobe" pra pegar a certa
+                        
                     }
-                    .onChange(of: tibby, {
+                    .onChange(of: selectedAccessory, {
                         // Observes changes in the selected Tibby to update accessory interactions.
                         if tibby.id == accessory.tibbyId {
                             tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
@@ -40,15 +39,10 @@ struct WardrobeView: View {
                     })
                     
                 }
-                // Button to remove the accessory from Tibby view.
-                Button {
-                    tibbyView.removeAccessory(service)
-                } label: {
-                    Text("Remove")
-                }
-                
             }
-        }.onAppear {
+        }
+        .background(.tibbyBaseBlue)
+        .onAppear {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {
                     tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)

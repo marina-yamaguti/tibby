@@ -29,6 +29,6 @@ class Constants: ObservableObject {
         }
     }
     ///defines where the user is
-    @Published var currentEnviroment: Enviroment = .bedroom
+    @Published var currentEnviroment: Enviroment = .kitchen
     
 }

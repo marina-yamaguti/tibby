@@ -55,6 +55,7 @@ enum Enviroment {
 
 struct NavigationTabbarView: View {
     @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
     @ObservedObject var vm: NavigationViewModel
     let enviroments: [Enviroment] = [.kitchen, .bedroom, .garden]
     
@@ -70,7 +71,7 @@ struct NavigationTabbarView: View {
                 GardenView(tibby: vm.tibby)
                     .brightness(constants.brightness)
             case .kitchen:
-                KitchenView(tibby: vm.tibby)
+                KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
                     .brightness(constants.brightness)
             }
             //Custom Tabbar
@@ -87,6 +88,4 @@ struct NavigationTabbarView: View {
             .tibbyBaseWhite
         )
     }
-
-    
 }

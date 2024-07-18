@@ -37,11 +37,13 @@ struct HomeView: View {
             .background(
                 .tibbyBaseBlue
             )
-        }.onAppear {
+        }
+        .onAppear {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
         }
+        
     }
 }
 
