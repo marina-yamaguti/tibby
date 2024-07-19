@@ -7,9 +7,6 @@
     "%lld" : {
 
     },
-    "Add %@" : {
-
-    },
     "Hello, World!" : {
 
     },
@@ -28,10 +25,8 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
-
-    },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

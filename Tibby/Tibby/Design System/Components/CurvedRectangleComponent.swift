@@ -9,11 +9,8 @@ import SwiftUI
 
 struct CurvedRectangleComponent: View {
     var body: some View {
-        ZStack {
             UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0, bottomLeading: 45, bottomTrailing: 45, topTrailing: 0))
                 .foregroundStyle(Color.tibbyBaseBlue)
-        }
-        .ignoresSafeArea()
     }
 }
 
