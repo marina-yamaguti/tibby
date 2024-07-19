@@ -7,10 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import UIKit
+
 
 @main
 struct TibbyApp: App {
-    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self

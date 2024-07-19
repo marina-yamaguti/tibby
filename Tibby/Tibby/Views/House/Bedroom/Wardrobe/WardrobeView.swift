@@ -28,7 +28,6 @@ struct WardrobeView: View {
                     } label: {
                         //item card component não estava aparecendo nada pra mim, não sei porque mas acho que o name component é mt grande e não cabe aqui
                         //imagem é "\(accessory.image)-wardrobe" pra pegar a certa
-                        
                     }
                     .onChange(of: selectedAccessory, {
                         // Observes changes in the selected Tibby to update accessory interactions.

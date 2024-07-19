@@ -13,6 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var service: Service
     @State var tibby: Tibby
     @State var tibbyView = TibbyView()
+    @State var navigate = false
     
     var body: some View {
         NavigationStack {
@@ -24,12 +25,20 @@ struct HomeView: View {
                         .onAppear {
                             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                         }
-                    //HomeView
-                    NavigationLink {
-                        NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
-                    } label: {
-                        Text("Play")
+                    Button(action: {
+                        navigate.toggle()
+                    }) {
+                        HStack {
+                            Image(Symbols.play.rawValue)
+                                .padding(.trailing, 26)
+                            Text("Play")
+                        }
                     }
+                    .buttonPrimary()
+                    .navigationDestination(isPresented: $navigate) {
+                        NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
+                    }
+                    
                     Spacer()
                 }
                 Spacer()
@@ -43,7 +52,6 @@ struct HomeView: View {
             tibby.sleep = 0
             tibby.happiness = 0
         }
-        
     }
 }
 

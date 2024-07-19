@@ -9,17 +9,18 @@ import Foundation
 import SwiftUI
 
 struct ButtonPrimary: ButtonStyle {
-    /// Define colors for unpressed and pressed states
-    let foregroundColorUnpressed: Color = .tibbyBaseBlack
-    let foregroundColorPressed: Color = .tibbyBaseYellow
-    let backgroundColor: Color = .tibbyBaseYellow
-
     /// Create the button body with the specified style
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .padding()
-            .background(backgroundColor)
-            .foregroundColor(configuration.isPressed ? foregroundColorPressed : foregroundColorUnpressed)
+            .font(.typography(.title))
+            .foregroundStyle(Color.tibbyBaseBlack)
+            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
+            .background(.tibbyBaseBlue)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color(configuration.isPressed ? .tibbyBaseBlue : .tibbyBaseBlack), lineWidth: 3)
+            )
     }
 }

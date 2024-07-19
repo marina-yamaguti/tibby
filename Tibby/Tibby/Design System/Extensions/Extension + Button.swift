@@ -15,5 +15,8 @@ extension Button {
     func buttonSecondary(isDisabled: Bool? = false) -> some View {
         self.buttonStyle(ButtonSecondary())
     }
-
+    
+    func buttonRound(isDisabled: Bool? = false) -> some View {
+        self.buttonStyle(RoundButton())
+    }
 }

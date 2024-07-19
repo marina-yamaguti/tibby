@@ -73,6 +73,7 @@ struct BedroomView: View {
                     .padding()
                 }
             }
+            .toolbarBackground(.tibbyBaseBlue, for: .navigationBar)
             .onChange(of: constants.tibbySleeping, {
                 if constants.tibbySleeping {
                     tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
@@ -80,6 +81,6 @@ struct BedroomView: View {
             })
             .sheet(isPresented: $wardrobeIsOpen, content: {WardrobeView(tibby: tibby)})
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all)
     }
 }

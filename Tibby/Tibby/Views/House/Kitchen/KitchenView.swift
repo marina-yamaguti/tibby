@@ -154,7 +154,10 @@ struct KitchenView: View {
                             .padding()
                     }
                 }
-            }.onAppear {
+            }
+            
+            .ignoresSafeArea()
+            .onAppear {
                 for accessory in service.getAllAccessories() ?? [] {
                     if tibby.id == accessory.tibbyId {
                         tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
@@ -165,6 +168,6 @@ struct KitchenView: View {
                     service.addFoodToUser(food: service.getAllFoods().first!)
                 }
             }
-        }
+        }        
     }
 }
