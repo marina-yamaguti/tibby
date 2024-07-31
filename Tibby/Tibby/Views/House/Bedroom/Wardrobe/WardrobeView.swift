@@ -19,13 +19,14 @@ struct WardrobeView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-            
             LazyVGrid(columns: columns) {
                 ForEach(service.getAllAccessories() ?? []) { accessory in
                     Button {
                         tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                     } label: {
+                        ItemCard(status: .unselected, image: "\(accessory.image)-wardrobe")
                         //item card component não estava aparecendo nada pra mim, não sei porque mas acho que o name component é mt grande e não cabe aqui
                         //imagem é "\(accessory.image)-wardrobe" pra pegar a certa
                     }
@@ -39,6 +40,7 @@ struct WardrobeView: View {
                     
                 }
             }
+            Spacer()
         }
         .background(.tibbyBaseBlue)
         .onAppear {

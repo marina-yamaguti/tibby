@@ -13,6 +13,7 @@ struct GardenView: View {
     @EnvironmentObject var service: Service
     var tibby: Tibby
     @State var tibbyView = TibbyView()
+    @State var sheet = false
     
     var body: some View {
         ZStack {
@@ -38,7 +39,7 @@ struct GardenView: View {
                 HStack {
                     Spacer()
                     Button {
-                        //sheet saing minigames coming soon
+                        sheet = true
                     } label: {
                         Image(Symbols.controller.rawValue)
                     }
@@ -47,7 +48,8 @@ struct GardenView: View {
                 }
                 
             }
-        }.onAppear {
+        }
+        .onAppear {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {
                     tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
@@ -55,5 +57,18 @@ struct GardenView: View {
             }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
         }
+        .sheet(isPresented: $sheet, content: {
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("COMMING SOON")
+                        .font(.typography(.title))
+                    Spacer()
+                }
+                Spacer()
+            }
+            .background(.tibbyBaseBlue)
+        })
     }
 }

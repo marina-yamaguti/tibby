@@ -17,7 +17,7 @@ struct KitchenView: View {
     @State var selectedFood: Food?
     
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.2)
-    @GestureState var plate = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
+    @GestureState var plate = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
     @State var foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
     @State var toEat = true
     
@@ -68,7 +68,7 @@ struct KitchenView: View {
                                                             toEat = false
                                                             isEating = false
                                                             selectedFood = nil
-                                                            foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
+                                                            foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y:  UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
                                                             
                                                             //delete food from inventory
                                                             print(tibby.hunger)
