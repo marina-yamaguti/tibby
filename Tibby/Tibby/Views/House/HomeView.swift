@@ -21,7 +21,7 @@ struct HomeView: View {
                 Spacer()
                 VStack {
                     Spacer()
-                    SpriteView(scene: tibbyView as! SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                    SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                         .onAppear {
                             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                         }
@@ -46,6 +46,7 @@ struct HomeView: View {
             .background(
                 .tibbyBaseBlue
             )
+            .ignoresSafeArea()
         }
         .onAppear {
             tibby.hunger = 0

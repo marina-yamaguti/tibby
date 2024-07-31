@@ -13,7 +13,3 @@ struct CurvedRectangleComponent: View {
                 .foregroundStyle(Color.tibbyBaseBlue)
     }
 }
-
-#Preview {
-    CurvedRectangleComponent()
-}

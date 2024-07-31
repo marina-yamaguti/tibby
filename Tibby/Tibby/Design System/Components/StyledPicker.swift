@@ -16,7 +16,7 @@ import UIKit
 
 struct StyledPicker: View {
     @State private var selectedSegment = 0
-    let segments = ["Option 1", "Option 2", "Option 3"]
+    var segments = ["All", "Head", "Body"]
     
     init() {
         // Sets the background color of the Picker

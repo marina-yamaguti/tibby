@@ -15,12 +15,10 @@ struct KitchenView: View {
     @State var isEating = false
     @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
-    
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.2)
     @GestureState var plate = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
     @State var foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
     @State var toEat = true
-    
     var platePos = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
     
     var body: some View {
@@ -28,16 +26,12 @@ struct KitchenView: View {
             ZStack {
                 CurvedRectangleComponent().brightness(selectedFood == nil ? -0.5 : 0)
                 VStack {
-                    HStack {
+                    VStack(spacing: 8) {
                         HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
-                    }.padding()
-                    HStack(alignment: .center) {
-                        Spacer()
                         TibbyNameComponent(name: "Shark")
-                        Spacer()
-                    }.padding()
+                    }
+                    .padding(.top, 100)
                     Spacer()
-                    
                     if !constants.tibbySleeping {
                         GeometryReader { reader in
                             HStack {
@@ -155,8 +149,8 @@ struct KitchenView: View {
                     }
                 }
             }
-            
-            .ignoresSafeArea()
+//            .toolbarBackground(.visible, for: .navigationBar)
+//            .toolbarBackground(.tibbyBaseBlue, for: .navigationBar)
             .onAppear {
                 for accessory in service.getAllAccessories() ?? [] {
                     if tibby.id == accessory.tibbyId {

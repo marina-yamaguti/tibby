@@ -18,14 +18,11 @@ struct GardenView: View {
         ZStack {
             CurvedRectangleComponent()
             VStack {
-                HStack {
-                    HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .fun, service: service))
-                }.padding()
-                HStack(alignment: .center) {
-                    Spacer()
+                VStack(spacing: 8) {
+                    HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
                     TibbyNameComponent(name: "Shark")
-                    Spacer()
-                }.padding()
+                }
+                .padding(.top, 100)
                 Spacer()
                 HStack {
                     Spacer()
@@ -47,7 +44,10 @@ struct GardenView: View {
                 }
                 
             }
-        }.onAppear {
+        }
+//        .toolbarBackground(.visible, for: .navigationBar)
+//        .toolbarBackground(.tibbyBaseBlue, for: .navigationBar)
+        .onAppear {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {
                     tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
