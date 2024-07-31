@@ -31,6 +31,9 @@ final class User {
     /// A intentory dictionary with a the Id of a Food and its Quantity
     var foodInventory: [UUID : Int] = [:]
     
+    /// The identifier for the Tibby the User is currently using
+    var currentTibbyID: UUID?
+    
     /// Initializes a new user with the specified attributes.
     ///
     /// - Parameters:
@@ -40,13 +43,15 @@ final class User {
     ///   - passwordHash: The hashed password of the user. Default is `nil`.
     ///   - coins: The coins of the user. Always will start with `0`.
     ///   - gems: The gems of the user. Always will start with `0`.
-    init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil) {
+    ///   - currentTibbyID: The identifier for the Tibby the User is currently using. Default is `nil`.
+    init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, currentTibbyID: UUID? = nil) {
         self.id = id
         self.username = username
         self.email = email
         self.passwordHash = passwordHash
         self.coins = 0
         self.gems = 0
+        self.currentTibbyID = currentTibbyID
     }
 }
 

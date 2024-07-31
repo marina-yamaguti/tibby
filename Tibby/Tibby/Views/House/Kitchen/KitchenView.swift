@@ -15,6 +15,7 @@ struct KitchenView: View {
     @State var isEating = false
     @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
+    @State var openSelector = false
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.2)
     @GestureState var plate = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
     @State var foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/1.8)
@@ -24,7 +25,7 @@ struct KitchenView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                CurvedRectangleComponent().brightness(selectedFood == nil ? -0.5 : 0)
+                CurvedRectangleComponent().brightness(openSelector ? -0.5 : 0)
                 VStack {
                     VStack(spacing: 8) {
                         HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
@@ -39,9 +40,10 @@ struct KitchenView: View {
                                 SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                                 Spacer()
                             }
-                            if selectedFood != nil {
+                            if !openSelector && selectedFood != nil {
                                 HStack {
                                     if toEat {
+                                        
                                         Image(selectedFood!.image)
                                             .resizable()
                                             .frame(width: 50, height: 50)
@@ -62,7 +64,7 @@ struct KitchenView: View {
                                                             toEat = false
                                                             isEating = false
                                                             selectedFood = nil
-                                                            foodLocation = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/3)
+                                                            foodLocation = platePos
                                                             
                                                             //delete food from inventory
                                                             print(tibby.hunger)
@@ -99,21 +101,21 @@ struct KitchenView: View {
                     HStack {
                         Spacer()
                         Button {
-                            selectedFood = nil
+                            openSelector = true
                         } label: {
                             Image(Symbols.carrot.rawValue)
                         }
                         .buttonSecondary()
                         .padding()
                     }
-                }.brightness(selectedFood == nil ? -0.5 : 0)
-                if selectedFood == nil {
+                }.brightness(openSelector ? -0.5 : 0)
+                if openSelector {
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
                             Button(action: {
-                                selectedFood = service.getFoodsFromUser().keys.first
+                                openSelector = false
                             }, label: {
                                 ZStack {
                                     Circle()
@@ -128,18 +130,17 @@ struct KitchenView: View {
                             Spacer()
                         }
                         ScrollView(.horizontal) {
-                            ForEach(service.getFoodsFromUser().sorted(by: {$0.key.name < $1.key.name}), id: \.key) { key, value in
-                                ZStack {
-                                    VStack {
-                                        Image(key.image)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .padding()
-                                            .onTapGesture {
-                                                self.toEat = true
-                                                self.selectedFood = key
-                                            }
+                            HStack {
+                                ForEach(service.getFoodsFromUser().sorted(by: {$0.key.name < $1.key.name}), id: \.key) { key, value in
+                                    Image(key.image)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .padding()
+                                        .onTapGesture {
+                                            self.toEat = true
+                                            self.selectedFood = key
+                                            self.openSelector = false
                                     }
                                 }.padding()
                             }
@@ -159,9 +160,12 @@ struct KitchenView: View {
                 }
                 tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                 if service.getFoodsFromUser().isEmpty {
-                    service.addFoodToUser(food: service.getAllFoods().first!)
+                    for food in service.getAllFoods() {
+                        print(food.name)
+                        service.addFoodToUser(food: food)
+                    }
                 }
             }
-        }        
+        }
     }
 }

@@ -13,6 +13,7 @@ struct SplashScreen: View {
     
     var body: some View {
         if canProceed {
+            //change this to initializa with the right tibby
             HomeView(tibby: service.getAllTibbies().first!)
         } else {
             VStack {
@@ -24,9 +25,7 @@ struct SplashScreen: View {
                     .font(.typography(.title))
                 Spacer()
             }.onAppear {
-                if service.getAllTibbies().isEmpty {
-                    service.setupData()
-                }
+                service.setupData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true
                 })

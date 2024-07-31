@@ -13,8 +13,21 @@ class Service: ObservableObject, ServiceProtocol {
     
     /// Adds a Tibby object to the model context.
     func createTibby(id: UUID, ownerId: UUID? = nil, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
-        let tibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked)
-        modelContext.insert(tibby)
+        
+        let newTibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked)
+        
+        do {
+            let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
+            for tibby in tibbies {
+                if tibby.species == newTibby.species {
+                    return
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        
+        modelContext.insert(newTibby)
     }
     
     /// Deletes a Tibby object from the model context.
@@ -85,8 +98,19 @@ class Service: ObservableObject, ServiceProtocol {
     
     /// Adds an Accessory object to the model context.
     func createAccessory(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int) {
-        let accessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price)
-        modelContext.insert(accessory)
+        let newAccessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price)
+        do {
+            let accessories = try modelContext.fetch(FetchDescriptor<Accessory>())
+            for accessory in accessories {
+                if accessory.name == newAccessory.name {
+                    return
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        
+        modelContext.insert(newAccessory)
     }
     
     /// Deletes an Accessory object from the model context.
@@ -228,8 +252,20 @@ class Service: ObservableObject, ServiceProtocol {
     
     /// Adds a Activity object to the model context.
     func createActivity(id: UUID, name: String, effect: String) {
-        let activity = Activity(id: id, name: name, effect: effect)
-        modelContext.insert(activity)
+        let newActivity = Activity(id: id, name: name, effect: effect)
+        
+        do {
+            let activities = try modelContext.fetch(FetchDescriptor<Activity>())
+            for activity in activities {
+                if activity.name == newActivity.name {
+                    return
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        
+        modelContext.insert(newActivity)
     }
     
     /// Deletes a Activity from the model context.
@@ -370,8 +406,20 @@ class Service: ObservableObject, ServiceProtocol {
     //MARK: - Food Operations
     
     func createFood(id: UUID, userId: UUID? = nil, name: String, image: String, price: Int) {
-        let food = Food(id: id, name: name, image: image, price: price)
-        modelContext.insert(food)
+        let newFood = Food(id: id, name: name, image: image, price: price)
+        
+        do {
+            let foods = try modelContext.fetch(FetchDescriptor<Food>())
+            for food in foods {
+                if food.name == newFood.name {
+                    return
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        
+        modelContext.insert(newFood)
     }
     
     func deleteFood(food: Food) {
@@ -441,8 +489,10 @@ class Service: ObservableObject, ServiceProtocol {
     //MARK: - Data Setup (creating all pre existing instances
     func setupData() {
         //User
-        self.createUser(id: UUID(), username: "Sofia")
-        
+        /// change this to do the setup in the onboarding
+        if getUser() == nil {
+            self.createUser(id: UUID(), username: "Sofia")
+        }
         //Tibbies
         self.createTibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
         
@@ -453,6 +503,7 @@ class Service: ObservableObject, ServiceProtocol {
         
         //Food
         self.createFood(id: UUID(), name: "Niguiri", image: "niguiri", price: 10)
+        self.createFood(id: UUID(), name: "Uramaki", image: "uramaki", price: 10)
         
         //Activties
         self.createActivity(id: UUID(), name: "Eat", effect: "{\"hunger\": 25}")
