@@ -40,17 +40,6 @@ enum Enviroment {
                 )
             }
     }
-    
-//    func getbackground() -> String {
-//        switch self {
-//        case .garden:
-//            return ""
-//        case .kitchen:
-//            return ""
-//        case .bedroom:
-//            return ""
-//        }
-//    }
 }
 
 struct NavigationTabbarView: View {
@@ -61,29 +50,29 @@ struct NavigationTabbarView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            //Decide the room depending on the button the user select
-            switch constants.currentEnviroment {
-            case .bedroom:
-                BedroomView(tibby: vm.tibby)
-                    .brightness(constants.brightness)
-            case .garden:
-                GardenView(tibby: vm.tibby)
-                    .brightness(constants.brightness)
-            case .kitchen:
-                KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
-                    .brightness(constants.brightness)
-            }
-            //Custom Tabbar
-            HStack(spacing: 30){
-                ForEach(0..<enviroments.count) { ind in
-                    NeedsButton(symbol: enviroments[ind].getIconAsset(), progress: enviroments[ind].getTibbyProperties(tibby: vm.tibby))
-                        .onTapGesture {
-                            constants.currentEnviroment = enviroments[ind]
-                        }
+                //Decide the room depending on the button the user select
+                switch constants.currentEnviroment {
+                case .bedroom:
+                    BedroomView(tibby: vm.tibby)
+                        .brightness(constants.brightness)
+                case .garden:
+                    GardenView(tibby: vm.tibby)
+                        .brightness(constants.brightness)
+                case .kitchen:
+                    KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
+                        .brightness(constants.brightness)
+                }
+                //Custom Tabbar
+                HStack(spacing: 30){
+                    ForEach(0..<enviroments.count) { ind in
+                        NeedsButton(symbol: enviroments[ind].getIconAsset(), progress: enviroments[ind].getTibbyProperties(tibby: vm.tibby))
+                            .onTapGesture {
+                                constants.currentEnviroment = enviroments[ind]
+                            }
+                    }
                 }
             }
-        }
+        .ignoresSafeArea(edges: [.top])
         .background(
             .tibbyBaseWhite
         )

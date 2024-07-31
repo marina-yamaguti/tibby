@@ -27,7 +27,3 @@ struct HeartsView: View {
         }
     }
 }
-
-//#Preview {
-//HeartsView(viewModel: HeartsViewModel(category: .hunger, tibby: Tibby(id: UUID(), hunger: 50, sleep: 70, happiness: 90), service: Service()))
-//}

@@ -30,7 +30,6 @@ struct TibbyApp: App {
             //change screen
             //KitchenExample()
             //CRUDExample()
-            //HomeView()
             SplashScreen()
         }
         .modelContainer(sharedModelContainer)

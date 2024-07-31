@@ -41,6 +41,8 @@ struct ItemCard: View {
             TibbyNameComponent(name: name)
             .padding()
         }
+        .background(Color.tibbyBaseWhite)
+        .withBorderRadius(15)
         .overlay {
             if status == .unselected {
                 
