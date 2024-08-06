@@ -72,7 +72,7 @@ struct KitchenExample: View {
                     service.createFood(id: UUID(), name: "Pizza", image: "pizza", price: 10)
                 }
                 if (service.getAllTibbies().isEmpty) {
-                    service.createTibby(id: UUID(), ownerId: service.getUser()?.id, rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
+                    service.createTibby(id: UUID(), ownerId: service.getUser()?.id, rarity: "", details: "", personality: "", species: "shark", level: 0, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "seaSeries")
                 }
                 print(service.getFoodsFromUser())
                 print(service.getFoodsIDsFromUser())
