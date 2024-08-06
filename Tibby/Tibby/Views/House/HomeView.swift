@@ -52,8 +52,9 @@ struct HomeView: View {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
+            
         }
-}
+    }
 }
 
 

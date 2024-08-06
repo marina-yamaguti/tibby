@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Collections {
+enum Collection: String {
     case seaSeries
     case houseSeries
     case forestSeries
