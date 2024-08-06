@@ -10,7 +10,7 @@ import Foundation
 // Define a protocol for the Service
 protocol ServiceProtocol {
     // Tibby Operations
-    func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool)
+    func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String)
     func deleteTibby(tibby: Tibby)
     func getTibbyByID(id: UUID) -> Tibby?
     func getTibbiesByUserID(userID: UUID) -> [Tibby]

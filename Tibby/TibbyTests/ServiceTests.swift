@@ -32,6 +32,10 @@ class MockModelContext {
 
 // Mock Service
 class MockService: ServiceProtocol {
+    func applyInteractionToTibby(interaction: Interaction, tibby: Tibby) {
+        <#code#>
+    }
+    
     
     func getActivityByName(name: String) -> Activity? {
         <#code#>
@@ -48,8 +52,8 @@ class MockService: ServiceProtocol {
         return users
     }
     // Tibby Operations
-    func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
-        let tibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked)
+    func createTibby(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
+        let tibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked, collection: collection)
         tibbies.append(tibby)
     }
     
@@ -270,7 +274,7 @@ final class ServiceTests: XCTestCase {
 
     func testCreateTibby() {
         let id = UUID()
-        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true, collection: "seaSeries")
         let tibby = mockService.getTibbyByID(id: id)
         XCTAssertNotNil(tibby)
         XCTAssertEqual(tibby?.id, id)
@@ -278,7 +282,7 @@ final class ServiceTests: XCTestCase {
 
     func testDeleteTibby() {
         let id = UUID()
-        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true, collection: "seaSeries")
         let tibby = mockService.getTibbyByID(id: id)
         XCTAssertNotNil(tibby)
         mockService.deleteTibby(tibby: tibby!)
@@ -287,14 +291,14 @@ final class ServiceTests: XCTestCase {
 
     func testGetTibbiesByUserID() {
         let ownerId = UUID()
-        mockService.createTibby(id: UUID(), ownerId: ownerId, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+        mockService.createTibby(id: UUID(), ownerId: ownerId, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true, collection: "seaSeries")
         let tibbies = mockService.getTibbiesByUserID(userID: ownerId)
         XCTAssertEqual(tibbies.count, 1)
     }
 
     func testUpdateTibby() {
         let id = UUID()
-        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+        mockService.createTibby(id: id, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 100, hunger: 0, sleep: 100, friendship: 50, lastUpdated: Date(), isUnlocked: true, collection: "seaSeries")
         let tibby = mockService.getTibbyByID(id: id)
         mockService.updateTibby(tibby: tibby!, id: nil, ownerId: nil, rarity: "Rare", details: nil, personality: nil, species: nil, level: nil, xp: nil, happiness: nil, hunger: nil, sleep: nil, friendship: nil, lastUpdated: nil)
         XCTAssertEqual(mockService.getTibbyByID(id: id)?.rarity, "Rare")
@@ -428,7 +432,7 @@ final class ServiceTests: XCTestCase {
            let interactionId = UUID()
 
            // Create a Tibby
-           mockService.createTibby(id: tibbyId, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 50, hunger: 50, sleep: 50, friendship: 50, lastUpdated: Date(), isUnlocked: true)
+           mockService.createTibby(id: tibbyId, ownerId: nil, rarity: "Common", details: "Test details", personality: "Friendly", species: "Test species", level: 1, xp: 0, happiness: 50, hunger: 50, sleep: 50, friendship: 50, lastUpdated: Date(), isUnlocked: true, collection: "seaSeries")
            // Create an Activity with effects
            let effect = "{\"happiness\": 10, \"hunger\": -5, \"sleep\": 5, \"xp\": 20, \"friendship\": 15}"
            mockService.createActivity(id: activityId, name: "Playing", effect: effect)
