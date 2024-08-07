@@ -35,5 +35,6 @@ struct TibbyApp: App {
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
         .environmentObject(Constants())
+        .environmentObject(HealthManager())
     }
 }

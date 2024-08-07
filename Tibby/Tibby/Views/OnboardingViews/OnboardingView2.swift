@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView2: View {
     
     @EnvironmentObject var constants: Constants
+    @EnvironmentObject var healthManager: HealthManager
     
     var body: some View {
         VStack {
@@ -33,7 +34,7 @@ struct OnboardingView2: View {
                 .foregroundStyle(.tibbyBaseGrey)
                 
                 Button(action: {
-                    //Sheet HealthKit
+                    healthManager.authorizationToWriteInHealthStore()
                     constants.currentOnboarding = .onboarding3
                     constants.onboardingVisited[2] = true
                 }, label: {
@@ -42,6 +43,8 @@ struct OnboardingView2: View {
                 })
                 .buttonPrimary()
                 .foregroundStyle(.tibbyBaseYellow)
+                
+                
             }
         }
     }
