@@ -10,11 +10,17 @@ import SwiftUI
 struct SplashScreen: View {
     @EnvironmentObject var service: Service
     @State var canProceed: Bool = false
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
     var body: some View {
         if canProceed {
-            //change this to initializa with the right tibby
-            HomeView(tibby: service.getAllTibbies().first!)
+            if firstTimeHere {
+                OnboardingTab(firstTime: $firstTimeHere)
+            }
+            else {
+                //change this to initializa with the right tibby
+                HomeView(tibby: service.getAllTibbies().first!)
+            }
         } else {
             VStack {
                 Spacer()

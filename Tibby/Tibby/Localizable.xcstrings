@@ -7,16 +7,37 @@
     "%lld" : {
 
     },
-    "Add %@" : {
+    "<" : {
+
+    },
+    "Before you start" : {
+
+    },
+    "Daily Energy Goal" : {
+
+    },
+    "Daily Exercise" : {
+
+    },
+    "Daily Steps" : {
 
     },
     "Hello, World!" : {
+
+    },
+    "Hi, welcome!" : {
 
     },
     "Light" : {
 
     },
     "my food inventory: " : {
+
+    },
+    "Name" : {
+
+    },
+    "Next" : {
 
     },
     "Play" : {
@@ -28,10 +49,23 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
+    "small explanation about needing\nhealthkit permission for the app to\nwork." : {
+
+    },
+    "small explanation about tibby,\nwellbeing app, promote good\nhabits with a companion." : {
+
+    },
+    "So, to recap..." : {
+
+    },
+    "Start" : {
+
+    },
+    "Tell us about\nyourself :)" : {
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
