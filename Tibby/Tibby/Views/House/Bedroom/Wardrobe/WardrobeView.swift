@@ -30,8 +30,8 @@ struct WardrobeView: View {
                         Button {
                             tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                         } label: {
-                            ItemCard(status: status, image: "\(accessory.image)-wardrobe" )
-                                .frame(width: 200, height: 200)
+//                            ItemCard(status: status, image: "\(accessory.image)-wardrobe" )
+//                                .frame(width: 200, height: 200)
                         }
                         .onChange(of: selectedAccessory, {
                             // Observes changes in the selected Tibby to update accessory interactions.

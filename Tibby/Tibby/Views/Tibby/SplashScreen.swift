@@ -15,6 +15,7 @@ struct SplashScreen: View {
         if canProceed {
             //change this to initializa with the right tibby
             HomeView(tibby: service.getAllTibbies().first!)
+//            TibbySelectionView(tibby: service.getAllTibbies().first!)
         } else {
             VStack {
                 Spacer()

@@ -15,49 +15,67 @@ struct HomeView: View {
     @State var tibbyView = TibbyView()
     @State var navigate = false
     @State var showSprite = false
+    @State var sheetHeight: CGFloat = 100
+    @State var arrowUp = true
     
     var body: some View {
         NavigationStack {
-            HStack {
-                Spacer()
-                VStack {
+            ZStack {
+                HStack {
                     Spacer()
-                    ZStack {
-                        SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-                            .onAppear {
-                                tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                    VStack {
+                        Spacer()
+                        ZStack {
+                            SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                                .onAppear {
+                                    tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                }
+                                .opacity(showSprite ? 1 : 0)
+                            
+                            if !showSprite {
+                                Image("\(tibby.species)1")
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
                             }
-                            .opacity(showSprite ? 1 : 0)
+                        }.frame(width: 300, height: 300)
                         
-                        if !showSprite {
-                            Image("\(tibby.species)1")
-                                .resizable()
-                                .frame(width: 300, height: 300)
+                        Button(action: {
+                            navigate.toggle()
+                        }) {
+                            HStack {
+                                Image(Symbols.play.rawValue)
+                                    .padding(.trailing, 26)
+                                Text("Play")
+                            }
                         }
-                    }.frame(width: 300, height: 300)
-                    
-                    Button(action: {
-                        navigate.toggle()
-                    }) {
-                        HStack {
-                            Image(Symbols.play.rawValue)
-                                .padding(.trailing, 26)
-                            Text("Play")
+                        .buttonPrimary()
+                        .navigationDestination(isPresented: $navigate) {
+                            NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                         }
+                        
+                        Spacer()
                     }
-                    .buttonPrimary()
-                    .navigationDestination(isPresented: $navigate) {
-                        NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
-                    }
-                    
                     Spacer()
                 }
-                Spacer()
+                VStack {
+                    if arrowUp {
+                        Spacer()
+                    }
+                    SheetWithCircle(goingUp: arrowUp)
+                        .ignoresSafeArea(.all)
+                        .frame(height: sheetHeight)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    let newHeight = sheetHeight - value.translation.height
+                                    sheetHeight = max(100, newHeight)
+                                }
+                        )
+                }
             }
             .background(
                 .tibbyBaseBlue
             )
-            .ignoresSafeArea()
         }
         .onAppear {
             tibby.hunger = 0
