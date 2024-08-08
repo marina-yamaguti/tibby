@@ -11,12 +11,35 @@ struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
     @State var tibby: Tibby
     @State var tibbies: [Tibby] = []
+    @Binding var showSheet: Bool
+    @State var sheetHeight: CGFloat = 100
     var body: some View {
         let columns = [
             GridItem(.flexible()),
             GridItem(.flexible())
         ]
         VStack {
+            SheetWithCircle(goingUp: false)
+                .ignoresSafeArea(.all)
+                .frame(height: sheetHeight)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            if showSheet {
+                                let newHeight = sheetHeight - value.translation.height * -1
+                                sheetHeight = max(100, newHeight)
+                                print(sheetHeight)
+                                if sheetHeight > 250 {
+                                    withAnimation {
+                                        showSheet.toggle()
+                                    }
+                                }
+                            }
+                        }
+                        .onEnded { state in
+                            sheetHeight = 100
+                        }
+                )
             ScrollView {
                 VStack {
                     Spacer()
@@ -47,7 +70,10 @@ struct TibbySelectionView: View {
                     Spacer()
                 }
             }
-        }.background(Color.tibbyBaseWhite)
+        }
+            .background(Color.tibbyBaseWhite)
+            .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
+            .animation(.easeInOut, value: showSheet)
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {

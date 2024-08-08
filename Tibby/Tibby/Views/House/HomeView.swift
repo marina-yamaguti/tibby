@@ -17,6 +17,7 @@ struct HomeView: View {
     @State var showSprite = false
     @State var sheetHeight: CGFloat = 100
     @State var arrowUp = true
+    @State var showSheet = false
     
     var body: some View {
         NavigationStack {
@@ -58,19 +59,37 @@ struct HomeView: View {
                     Spacer()
                 }
                 VStack {
-                    if arrowUp {
+                    if !showSheet {
                         Spacer()
+                        SheetWithCircle(goingUp: arrowUp)
+                            .ignoresSafeArea(.all)
+                            .frame(height: sheetHeight)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { value in
+                                        if !showSheet {
+                                            let newHeight = sheetHeight - value.translation.height
+                                            sheetHeight = max(100, newHeight)
+                                            if sheetHeight > 250 {
+                                                withAnimation {
+                                                    showSheet.toggle()
+                                                    sheetHeight = 100
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .onEnded { state in
+                                        withAnimation {
+                                            sheetHeight = 100
+                                        }
+                                    }
+                            )
                     }
-                    SheetWithCircle(goingUp: arrowUp)
-                        .ignoresSafeArea(.all)
-                        .frame(height: sheetHeight)
-                        .gesture(
-                            DragGesture()
-                                .onChanged { value in
-                                    let newHeight = sheetHeight - value.translation.height
-                                    sheetHeight = max(100, newHeight)
-                                }
-                        )
+                    if showSheet {
+                        TibbySelectionView(tibby: tibby, showSheet: $showSheet)
+                            .transition(.move(edge: .bottom))
+                            .animation(.bouncy, value: showSheet)
+                    }
                 }
             }
             .background(
