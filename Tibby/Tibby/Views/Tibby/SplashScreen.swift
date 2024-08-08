@@ -9,13 +9,19 @@ import SwiftUI
 
 struct SplashScreen: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var healthManager: HealthManager
     @State var canProceed: Bool = false
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
     var body: some View {
         if canProceed {
-            //change this to initializa with the right tibby
-            HomeView(tibby: service.getAllTibbies().first!)
-//            TibbySelectionView(tibby: service.getAllTibbies().first!)
+            if firstTimeHere {
+                OnboardingTab(firstTime: $firstTimeHere)
+            }
+            else {
+                //change this to initializa with the right tibby
+                HomeView(tibby: service.getAllTibbies().first!)
+            }
         } else {
             VStack {
                 Spacer()
@@ -26,6 +32,9 @@ struct SplashScreen: View {
                     .font(.typography(.title))
                 Spacer()
             }.onAppear {
+                if !firstTimeHere {
+                    healthManager.fetchAllInformation()
+                }
                 service.setupData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true

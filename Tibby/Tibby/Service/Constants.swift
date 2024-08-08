@@ -30,5 +30,7 @@ class Constants: ObservableObject {
     }
     ///defines where the user is
     @Published var currentEnviroment: Enviroment = .kitchen
+    @Published var currentOnboarding: OnboardingScreens = .onboarding1
+    @Published var onboardingVisited: [Bool] = [true, false, false, false]
     
 }

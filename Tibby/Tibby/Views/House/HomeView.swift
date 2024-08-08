@@ -11,6 +11,7 @@ import SpriteKit
 struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
+    @EnvironmentObject var healthManager: HealthManager
     @State var tibby: Tibby
     @State var tibbyView = TibbyView()
     @State var navigate = false
