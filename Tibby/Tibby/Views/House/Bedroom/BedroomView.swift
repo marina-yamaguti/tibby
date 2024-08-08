@@ -21,11 +21,6 @@ struct BedroomView: View {
             ZStack {
                 CurvedRectangleComponent()
                 VStack {
-                    VStack(spacing: 16) {
-                        HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
-                        TibbyNameComponent(name: "Shark")
-                    }
-                    .padding(.top, 100)
                     ZStack {
                         SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                             .opacity(showSprite ? 1 : 0)

@@ -39,8 +39,6 @@
 		A50E92C82C6535E500762A11 /* Biryani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
-		A5126BE52C499165008703E7 /* HeartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE42C499165008703E7 /* HeartsView.swift */; };
-		A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -203,8 +201,6 @@
 		A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Biryani-Bold.ttf"; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
-		A5126BE42C499165008703E7 /* HeartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsView.swift; sourceTree = "<group>"; };
-		A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -506,7 +502,6 @@
 				D81694482C49A3D20036BD03 /* StyledPicker.swift */,
 				A50E92BE2C6534F900762A11 /* Labels */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
-				A5126BE62C4992C8008703E7 /* Hearts */,
 				A5126BE02C498A59008703E7 /* Money */,
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
@@ -541,15 +536,6 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
-			sourceTree = "<group>";
-		};
-		A5126BE62C4992C8008703E7 /* Hearts */ = {
-			isa = PBXGroup;
-			children = (
-				A5126BE42C499165008703E7 /* HeartsView.swift */,
-				A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */,
-			);
-			path = Hearts;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -955,7 +941,6 @@
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
-				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
@@ -979,7 +964,6 @@
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
-				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
 				FD45F26A2C6530740046DE49 /* SheetWithCircle.swift in Sources */,
 				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,

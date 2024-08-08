@@ -28,11 +28,6 @@ struct KitchenView: View {
             ZStack {
                 CurvedRectangleComponent().brightness(openSelector ? -0.5 : 0)
                 VStack {
-                    VStack(spacing: 8) {
-                        HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
-                        TibbyNameComponent(name: "Shark")
-                    }
-                    .padding(.top, 100)
                     Spacer()
                     if !constants.tibbySleeping {
                         GeometryReader { reader in
