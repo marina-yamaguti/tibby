@@ -6,12 +6,47 @@
 //
 
 import Foundation
+import SwiftUI
 
-enum Collection: String {
-    case seaSeries
-    case houseSeries
-    case forestSeries
-    case beachSeries
-    case foodSeries
-    case urbanSeries
+enum Collection: String, CaseIterable {
+    var description: String {
+        switch self {
+        case .seaSeries:
+            return ""
+        case .forestSeries:
+            return ""
+        case .beachSeries:
+            return ""
+        case .houseSeries:
+            return ""
+        case .foodSeries:
+            return ""
+        case .urbanSeries:
+            return ""
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .seaSeries:
+            return Color.tibbyBaseBlue
+        case .forestSeries:
+            return Color.tibbyBaseGreen
+        case .beachSeries:
+            return Color.tibbyBaseOrange
+        case .houseSeries:
+            return Color.tibbyBasePink
+        case .foodSeries:
+            return Color.tibbyBaseWhite
+        case .urbanSeries:
+            return Color.tibbyBaseGrey
+        }
+    }
+    
+    case seaSeries = "Sea Series"
+    case houseSeries = "House Series"
+    case forestSeries = "Forest Series"
+    case beachSeries = "Beach Series"
+    case foodSeries = "Food Series"
+    case urbanSeries = "Urban Series"
 }

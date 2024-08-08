@@ -12,9 +12,9 @@ class Service: ObservableObject, ServiceProtocol {
     // MARK: - Tibby Operations
     
     /// Adds a Tibby object to the model context.
-    func createTibby(id: UUID, ownerId: UUID? = nil, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
+    func createTibby(id: UUID, ownerId: UUID? = nil, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         
-        let newTibby = Tibby(id: id, ownerId: ownerId, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked, collection: collection)
+        let newTibby = Tibby(id: id, ownerId: ownerId, name: name, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked, collection: collection)
         
         do {
             let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
@@ -494,7 +494,10 @@ class Service: ObservableObject, ServiceProtocol {
             self.createUser(id: UUID(), username: "Sofia")
         }
         //Tibbies
-        self.createTibby(id: UUID(), ownerId: UUID(), rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "")
+        self.createTibby(id: UUID(), ownerId: nil, name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        self.createTibby(id: UUID(), ownerId: nil, name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        self.createTibby(id: UUID(), ownerId: nil, name: "Roger",rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
         
         //Accessories
         self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "hat", price: 10)
