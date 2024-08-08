@@ -86,7 +86,7 @@ final class Tibby {
     var ownerId: UUID?
     
     /// The name of the Tibby.
-    var name: String?
+    var name: String
     
     /// The chance of getting this Tibby
     var rarity: String
@@ -124,6 +124,9 @@ final class Tibby {
     /// If this tibby is arealdy unlocked for the main User
     var isUnlocked: Bool
     
+    /// The collection this Tibby is a part of (this should be a name matching the Collections enum)
+    var collection: String
+    
     /// Initializes a new Tibby with the specified attributes.
     ///
     /// - Parameters:
@@ -142,9 +145,11 @@ final class Tibby {
     ///   - friendship: The friendship level of the Tibby with its owner.
     ///   - lastUpdated: The date when the Tibby was last updated.
     ///   - isUnlocked: If this Tibby is already unlocked for the User
-    init(id: UUID, ownerId: UUID?, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool) {
+    ///   - collection: The collection this Tibby is a part of (this should be a name matching the Collections enum)
+    init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id
         self.ownerId = ownerId
+        self.name = name
         self.rarity = rarity
         self.details = details
         self.personality = personality
@@ -157,6 +162,7 @@ final class Tibby {
         self.friendship = friendship
         self.lastUpdated = lastUpdated
         self.isUnlocked = isUnlocked
+        self.collection = collection
     }
 }
 

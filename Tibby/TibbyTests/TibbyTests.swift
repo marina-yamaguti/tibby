@@ -29,6 +29,19 @@ final class TibbyTests: XCTestCase {
     }
    
     class TibbyProtocolTest: TibbyProtocol {
+        var tibbyObject: Tibby?
+        
+        func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {
+            
+        }
+        
+        var tibbySpecie: TibbySpecie?
+        
+        func setTibbySpecie(tibbySpecie: TibbySpecie) {
+            
+            
+        }
+        
         
         var tibby: SKSpriteNode = SKSpriteNode()
         var accessory: SKSpriteNode = SKSpriteNode()
@@ -109,7 +122,7 @@ final class TibbyTests: XCTestCase {
         //Given
         let rewardTest = RewardProtocolTets()
         var userMock = User(id: UUID(), username: "")
-        var tibbyMock = Tibby(id: UUID(), ownerId: UUID(), rarity: "", details: "", personality: "", species: "", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false)
+        var tibbyMock = Tibby(id: UUID(), ownerId: UUID(), name: "Shark", rarity: "", details: "", personality: "", species: "", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "seaSeries")
         let quantity = 10
         
         //When

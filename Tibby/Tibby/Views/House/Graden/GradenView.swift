@@ -13,6 +13,7 @@ struct GardenView: View {
     @EnvironmentObject var service: Service
     var tibby: Tibby
     @State var tibbyView = TibbyView()
+    @State var showSprite = false
     
     var body: some View {
         ZStack {
@@ -27,7 +28,19 @@ struct GardenView: View {
                 HStack {
                     Spacer()
                     if !constants.tibbySleeping {
-                        SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                        ZStack {
+                            SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                                .onAppear {
+                                    tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                }
+                                .opacity(showSprite ? 1 : 0)
+                            
+                            if !showSprite {
+                                Image("\(tibby.species)1")
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
+                            }
+                        }.frame(width: 300, height: 300)
                     }
                     Spacer()
                 }
@@ -52,6 +65,9 @@ struct GardenView: View {
                 }
             }
             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                showSprite = true
+            }
         }
     }
 }

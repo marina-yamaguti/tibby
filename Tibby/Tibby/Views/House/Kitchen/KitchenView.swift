@@ -12,6 +12,7 @@ struct KitchenView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     var tibby: Tibby
+    @State var showSprite = false
     @State var isEating = false
     @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
@@ -37,7 +38,19 @@ struct KitchenView: View {
                         GeometryReader { reader in
                             HStack {
                                 Spacer()
-                                SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                                ZStack {
+                                    SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                                        .opacity(showSprite ? 1 : 0)
+                                        .onAppear {
+                                            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                        }
+                                    
+                                    if !showSprite {
+                                        Image("\(tibby.species)1")
+                                            .resizable()
+                                            .frame(width: 300, height: 300)
+                                    }
+                                }.frame(width: 300, height: 300)
                                 Spacer()
                             }
                             if !openSelector && selectedFood != nil {
@@ -164,6 +177,9 @@ struct KitchenView: View {
                         print(food.name)
                         service.addFoodToUser(food: food)
                     }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    showSprite = true
                 }
             }
         }

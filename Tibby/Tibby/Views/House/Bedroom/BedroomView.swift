@@ -14,6 +14,7 @@ struct BedroomView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @State var wardrobeIsOpen: Bool = false
+    @State var showSprite = false
     
     var body: some View {
         VStack {
@@ -25,20 +26,28 @@ struct BedroomView: View {
                         TibbyNameComponent(name: "Shark")
                     }
                     .padding(.top, 100)
-                    
-                    SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-                        .onAppear {
-                            tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
-                            for accessory in service.getAllAccessories() ?? [] {
-                                if tibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                    ZStack {
+                        SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                            .opacity(showSprite ? 1 : 0)
+                            .onAppear {
+                                tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                for accessory in service.getAllAccessories() ?? [] {
+                                    if tibby.id == accessory.tibbyId {
+                                        tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                    }
+                                }
+                                
+                                if constants.tibbySleeping {
+                                    tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                                 }
                             }
-                            
-                            if constants.tibbySleeping {
-                                tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
-                            }
+                        if !showSprite {
+                            Image("\(tibby.species)1")
+                                .resizable()
+                                .frame(width: 300, height: 300)
                         }
+                    }.frame(width: 300, height: 300)
+                        
                     Spacer()
                     HStack {
                         Button {
@@ -78,6 +87,10 @@ struct BedroomView: View {
                         tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                     }
                 })
+            }.onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    showSprite = true
+                }
             }
         }
     }
