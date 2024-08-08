@@ -45,8 +45,6 @@ struct GardenView: View {
                 
             }
         }
-//        .toolbarBackground(.visible, for: .navigationBar)
-//        .toolbarBackground(.tibbyBaseBlue, for: .navigationBar)
         .onAppear {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {

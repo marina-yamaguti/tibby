@@ -42,14 +42,14 @@
 		D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944C2C49A4630036BD03 /* ItemCard.swift */; };
 		D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816944E2C49A4720036BD03 /* AcessoryCard.swift */; };
 		D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */; };
-		D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */; };
+		D83265D82C6550CF00764ECE /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83265D72C6550CF00764ECE /* TabBarButton.swift */; };
+		D83265DA2C65582000764ECE /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83265D92C65582000764ECE /* ButtonLabel.swift */; };
+		D83265DC2C6560E300764ECE /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83265DB2C6560E300764ECE /* NavigationButton.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* Symbols.swift */; };
-		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
-		D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */; };
+		D8B7D1A92C48588D00A1739E /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* SheetView.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
 		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
-		D8C53A982C482E2000CAB009 /* NeedsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -189,14 +189,14 @@
 		D816944C2C49A4630036BD03 /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		D816944E2C49A4720036BD03 /* AcessoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcessoryCard.swift; sourceTree = "<group>"; };
 		D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedRectangleComponent.swift; sourceTree = "<group>"; };
-		D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
+		D83265D72C6550CF00764ECE /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		D83265D92C65582000764ECE /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
+		D83265DB2C6560E300764ECE /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
-		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
-		D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonViewModel.swift; sourceTree = "<group>"; };
+		D8B7D1A82C48588D00A1739E /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsButtonView.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -442,7 +442,8 @@
 			isa = PBXGroup;
 			children = (
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
-				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
+				D83265D92C65582000764ECE /* ButtonLabel.swift */,
+				D8B7D1A82C48588D00A1739E /* SheetView.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				D81694482C49A3D20036BD03 /* StyledPicker.swift */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
@@ -457,10 +458,9 @@
 		A5126BDC2C4987E2008703E7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
-				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
+				D83265D72C6550CF00764ECE /* TabBarButton.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
-				D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */,
+				D83265DB2C6560E300764ECE /* NavigationButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -865,19 +865,18 @@
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
+				D83265DA2C65582000764ECE /* ButtonLabel.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
-				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
-				D8C53A982C482E2000CAB009 /* NeedsButtonView.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
@@ -891,14 +890,15 @@
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
 				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
+				D83265D82C6550CF00764ECE /* TabBarButton.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
-				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
+				D8B7D1A92C48588D00A1739E /* SheetView.swift in Sources */,
 				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
-				D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
+				D83265DC2C6560E300764ECE /* NavigationButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,

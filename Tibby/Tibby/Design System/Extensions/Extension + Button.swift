@@ -12,11 +12,10 @@ extension Button {
     func buttonPrimary(isDisabled: Bool? = false) -> some View {
         self.buttonStyle(ButtonPrimary())
     }
-    func buttonSecondary(isDisabled: Bool? = false) -> some View {
-        self.buttonStyle(ButtonSecondary())
+    func navigationButton(isDisabled: Bool? = false) -> some View {
+        self.buttonStyle(NavigationButton())
     }
-    
-    func buttonRound(isDisabled: Bool? = false) -> some View {
-        self.buttonStyle(RoundButton())
+    func tabBarButton() -> some View {
+        self.buttonStyle(TabBarButton())
     }
 }

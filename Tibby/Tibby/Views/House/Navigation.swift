@@ -65,10 +65,12 @@ struct NavigationTabbarView: View {
                 //Custom Tabbar
                 HStack(spacing: 30){
                     ForEach(0..<enviroments.count) { ind in
-                        NeedsButton(symbol: enviroments[ind].getIconAsset(), progress: enviroments[ind].getTibbyProperties(tibby: vm.tibby))
-                            .onTapGesture {
-                                constants.currentEnviroment = enviroments[ind]
-                            }
+                        Button {
+                            constants.currentEnviroment = enviroments[ind]
+                        } label: {
+                            Image(enviroments[ind].getIconAsset().rawValue)
+                        }
+                        .navigationButton()
                     }
                 }
             }

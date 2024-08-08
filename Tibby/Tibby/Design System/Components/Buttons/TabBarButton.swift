@@ -1,15 +1,14 @@
 //
-//  ButtonPrimary.swift
+//  NavigationButton.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 04/07/24.
+//  Created by Natalia Dal Pizzol on 08/08/24.
 //
 
 import Foundation
 import SwiftUI
 
-struct ButtonPrimary: ButtonStyle {
-    /// Create the button body with the specified style
+struct TabBarButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
@@ -30,23 +29,12 @@ struct ButtonPrimary: ButtonStyle {
                     .background {
                         RoundedRectangle(cornerRadius: 17, style: .circular)
                             .fill(
-                                LinearGradient(
-                                stops: [
-                                Gradient.Stop(color: .white.opacity(0.3), location: 0.00),
-                                Gradient.Stop(color: Color(red: 0.53, green: 0.53, blue: 0.53).opacity(0), location: 0.50),
-                                Gradient.Stop(color: .black.opacity(0.3), location: 1.00),
-                                ],
-                                startPoint: UnitPoint(x: 0, y: 0.5),
-                                endPoint: UnitPoint(x: 1, y: 0.5)
-                                )
-                            )
+                                .black)
                     }
             )
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0), value: configuration.isPressed)
-
-
+        
+        
     }
-    
 }
-
