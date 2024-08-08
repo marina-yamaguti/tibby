@@ -15,6 +15,13 @@
 		7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95859C2C405C7900780558 /* BedroomExemple.swift */; };
 		7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D3C2C45AD68002715F5 /* HomeView.swift */; };
 		7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D402C484FB5002715F5 /* Configurations.swift */; };
+		7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */; };
+		7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CC2C63F3D0001D7348 /* OnboardingView1.swift */; };
+		7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CF2C63F400001D7348 /* OnboardingView2.swift */; };
+		7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D12C63F408001D7348 /* OnboardingView3.swift */; };
+		7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D32C63F413001D7348 /* OnboardingView4.swift */; };
+		7CE131D62C640773001D7348 /* HealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D52C640773001D7348 /* HealthKit.swift */; };
+		7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D72C652EEA001D7348 /* Extension + Data.swift */; };
 		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
 		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
@@ -163,6 +170,13 @@
 		7C95859C2C405C7900780558 /* BedroomExemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomExemple.swift; sourceTree = "<group>"; };
 		7CC14D3C2C45AD68002715F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7CC14D402C484FB5002715F5 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
+		7CE131CC2C63F3D0001D7348 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
+		7CE131CF2C63F400001D7348 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		7CE131D12C63F408001D7348 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
+		7CE131D32C63F413001D7348 /* OnboardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4.swift; sourceTree = "<group>"; };
+		7CE131D52C640773001D7348 /* HealthKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKit.swift; sourceTree = "<group>"; };
+		7CE131D72C652EEA001D7348 /* Extension + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Data.swift"; sourceTree = "<group>"; };
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +309,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CE131C92C63F386001D7348 /* OnboardingViews */,
 				7C7B59172C459DB4004FFD4B /* House */,
 				FDFF4ABD2C3C842100831968 /* Interaction Example */,
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
@@ -349,6 +364,18 @@
 				7C7B591C2C459E2A004FFD4B /* BedroomView.swift */,
 			);
 			path = Bedroom;
+			sourceTree = "<group>";
+		};
+		7CE131C92C63F386001D7348 /* OnboardingViews */ = {
+			isa = PBXGroup;
+			children = (
+				7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */,
+				7CE131CC2C63F3D0001D7348 /* OnboardingView1.swift */,
+				7CE131CF2C63F400001D7348 /* OnboardingView2.swift */,
+				7CE131D12C63F408001D7348 /* OnboardingView3.swift */,
+				7CE131D32C63F413001D7348 /* OnboardingView4.swift */,
+			);
+			path = OnboardingViews;
 			sourceTree = "<group>";
 		};
 		92B647682C2C97EB0068E98E = {
@@ -440,6 +467,7 @@
 				D80755C02C3C5717000CA029 /* Extension + Border.swift */,
 				D80755C42C3C5774000CA029 /* Extension + Font.swift */,
 				D80755C22C3C5755000CA029 /* Extension + Button.swift */,
+				7CE131D72C652EEA001D7348 /* Extension + Data.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -586,6 +614,7 @@
 		FDE4F8272C2CA7B200490F38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7CE131D52C640773001D7348 /* HealthKit.swift */,
 				FDE4F8282C2CA7C900490F38 /* Tibby.swift */,
 				FD9075A02C2DD42E000E5F24 /* User.swift */,
 				FD9075A22C2DDC95000E5F24 /* Accessory.swift */,
@@ -871,6 +900,7 @@
 			files = (
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
+				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
@@ -878,7 +908,9 @@
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
+				7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
+				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
@@ -897,16 +929,20 @@
 				7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
+				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
+				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
 				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
+				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
 				D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */,
 				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
+				7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
@@ -1137,15 +1173,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tibby/Preview Content\"";
-				DEVELOPMENT_TEAM = 99TYK429DP;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1163,6 +1204,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1180,15 +1222,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tibby/Tibby.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tibby/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1206,6 +1253,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1315,10 +1363,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = F3LPWZ43F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
@@ -1329,9 +1379,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Tibby Watch Prov Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1349,10 +1400,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tibby-watch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = F3LPWZ43F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "tibby-watch";
@@ -1363,8 +1415,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Tibby Watch Prov Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1467,9 +1521,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -1483,6 +1538,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Widget Prov Profile";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1499,9 +1556,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Mateus Godinho (66M853Z527)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
@@ -1515,6 +1573,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Widget Prov Profile";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

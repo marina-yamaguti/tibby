@@ -11,6 +11,7 @@ import SpriteKit
 struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
+    @EnvironmentObject var healthManager: HealthManager
     @State var tibby: Tibby
     @State var tibbyView = TibbyView()
     @State var navigate = false
@@ -38,6 +39,7 @@ struct HomeView: View {
                     .navigationDestination(isPresented: $navigate) {
                         NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                     }
+
                     
                     Spacer()
                 }
@@ -52,7 +54,6 @@ struct HomeView: View {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
-            
         }
     }
 }
