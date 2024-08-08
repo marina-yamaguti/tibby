@@ -39,15 +39,6 @@ struct HomeView: View {
                     .navigationDestination(isPresented: $navigate) {
                         NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                     }
-                    
-                    Button(action: {
-                        healthManager.goToiOSSettings()
-                    }) {
-                        HStack {
-                            Text("iOS Settings")
-                        }
-                    }
-                    .buttonPrimary()
 
                     
                     Spacer()
@@ -63,7 +54,6 @@ struct HomeView: View {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
-            
         }
     }
 }

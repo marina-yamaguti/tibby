@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingView4: View {
     @EnvironmentObject var constants: Constants
+    @EnvironmentObject var healthManager: HealthManager
     @Binding var firstTime: Bool
     
     var body: some View {
@@ -41,6 +42,9 @@ struct OnboardingView4: View {
                 .buttonPrimary()
                 .foregroundStyle(.tibbyBaseYellow)
             }
+        }
+        .onAppear {
+            healthManager.fetchAllInformation()
         }
     }
 }

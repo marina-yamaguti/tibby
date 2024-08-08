@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SplashScreen: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var healthManager: HealthManager
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
@@ -31,6 +32,9 @@ struct SplashScreen: View {
                     .font(.typography(.title))
                 Spacer()
             }.onAppear {
+                if !firstTimeHere {
+                    healthManager.fetchAllInformation()
+                }
                 service.setupData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true
