@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
-    @State var tibby: Tibby
+    @Binding var tibby: Tibby
     @State var tibbies: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
@@ -27,8 +27,7 @@ struct TibbySelectionView: View {
                         .onChanged { value in
                             if showSheet {
                                 let newHeight = sheetHeight - value.translation.height * -1
-                                sheetHeight = max(100, newHeight)
-                                print(sheetHeight)
+                                sheetHeight = max(100, newHeight)er
                                 if sheetHeight > 250 {
                                     withAnimation {
                                         showSheet.toggle()
@@ -40,6 +39,16 @@ struct TibbySelectionView: View {
                             sheetHeight = 100
                         }
                 )
+            HStack {
+                Spacer()
+                NavigationLink(destination: { TibbyBook(tibby: $tibby)}, label: {
+                    ZStack {
+                        Circle().foregroundStyle(.black.opacity(0.5))
+                        Rectangle().stroke(Color.tibbyBaseWhite, lineWidth: 3)
+                            .padding(14)
+                    }.frame(width: 40, height: 40)
+                }).padding(.horizontal)
+            }
             ScrollView {
                 VStack {
                     Spacer()
@@ -51,12 +60,12 @@ struct TibbySelectionView: View {
                                     .font(.typography(.title))
                                     .padding(.leading)
                                 LazyVGrid(columns: columns, spacing: 8) {
-                                    ForEach(collectionTibbies) { tibby in
-                                        if service.getUser()?.currentTibbyID == tibby.id {
-                                            ItemCard(name: tibby.species, status: .selected, color: collection.color, image: "\(tibby.species)1")
+                                    ForEach(collectionTibbies) { tibbyL in
+                                        if  tibbyL.id == tibby.id {
+                                            ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
                                                 .padding()
                                         } else {
-                                            ItemCard(name: tibby.name, status: .unselected, color: collection.color, image: "\(tibby.species)1")
+                                            ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                 .padding()
                                         }
                                     }
@@ -74,6 +83,7 @@ struct TibbySelectionView: View {
             .background(Color.tibbyBaseWhite)
             .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
             .animation(.easeInOut, value: showSheet)
+            .navigationBarBackButtonHidden(true) 
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {

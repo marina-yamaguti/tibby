@@ -20,5 +20,6 @@ enum Symbols: String {
     case controller = "TibbySymbolController"
     case carrot = "TibbySymbolCarrot"
     case home = "TibbySymbolHome"
+    case chevronLeft = "TibbySymbolChevronLeft"
 
 }

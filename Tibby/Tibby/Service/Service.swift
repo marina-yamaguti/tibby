@@ -495,7 +495,7 @@ class Service: ObservableObject, ServiceProtocol {
         }
         //Tibbies
         self.createTibby(id: UUID(), ownerId: nil, name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        self.createTibby(id: UUID(), ownerId: nil, name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        self.createTibby(id: UUID(), ownerId: nil, name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Roger",rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
         
@@ -512,5 +512,7 @@ class Service: ObservableObject, ServiceProtocol {
         self.createActivity(id: UUID(), name: "Eat", effect: "{\"hunger\": 25}")
         self.createActivity(id: UUID(), name: "Pet", effect: "{\"happiness\": 25}")
         self.createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 100}")
+        
+        print("setup done")
     }
 }

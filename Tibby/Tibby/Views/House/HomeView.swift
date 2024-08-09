@@ -87,7 +87,7 @@ struct HomeView: View {
                             )
                     }
                     if showSheet {
-                        TibbySelectionView(tibby: tibby, showSheet: $showSheet)
+                        TibbySelectionView(tibby: $tibby, showSheet: $showSheet)
                             .transition(.move(edge: .bottom))
                             .animation(.bouncy, value: showSheet)
                     }
@@ -101,6 +101,7 @@ struct HomeView: View {
             tibby.hunger = 0
             tibby.sleep = 0
             tibby.happiness = 0
+            print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 showSprite = true
             }
