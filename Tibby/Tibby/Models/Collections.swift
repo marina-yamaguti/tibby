@@ -12,7 +12,7 @@ enum Collection: String, CaseIterable {
     var description: String {
         switch self {
         case .seaSeries:
-            return ""
+            return "small description about the sea series"
         case .forestSeries:
             return ""
         case .beachSeries:
