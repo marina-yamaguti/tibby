@@ -50,7 +50,7 @@ struct HomeView: View {
                                 Text("Play")
                             }
                         }
-                        .buttonPrimary()
+                        .buttonPrimary(bgColor: .tibbyBaseBlue)
                         .navigationDestination(isPresented: $navigate) {
                             NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                         }

@@ -28,7 +28,7 @@ struct OnboardingView1: View {
                 Text("Next")
                     .font(.typography(.title))
             })
-            .buttonPrimary()
+            .buttonPrimary(bgColor: .tibbyBaseBlue)
             .foregroundStyle(.tibbyBaseRed)
         }
     }

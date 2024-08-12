@@ -63,7 +63,7 @@ struct OnboardingView3: View {
                     Text("<")
                         .font(.typography(.title))
                 })
-                .buttonPrimary()
+                .buttonPrimary(bgColor: .tibbyBaseBlue)
                 .foregroundStyle(.tibbyBaseGrey)
                 
                 Button(action: {
@@ -73,7 +73,7 @@ struct OnboardingView3: View {
                     Text("Next")
                         .font(.typography(.title))
                 })
-                .buttonPrimary()
+                .buttonPrimary(bgColor: .tibbyBaseBlue)
                 .foregroundStyle(.tibbyBaseYellow)
             }
             .padding(.top, 50)

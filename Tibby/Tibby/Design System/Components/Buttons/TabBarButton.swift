@@ -1,24 +1,25 @@
 //
-//  ButtonPrimary.swift
+//  NavigationButton.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 04/07/24.
+//  Created by Natalia Dal Pizzol on 08/08/24.
 //
 
 import Foundation
 import SwiftUI
 
-struct ButtonPrimary: ButtonStyle {
-    var foregroundColor: Color = .tibbyBaseDarkBlue
-    var shadowColor: Color = .tibbyBackgroundShadowGreen
-    var bgColor: Color
+struct TabBarButton: ButtonStyle {
+    var foregroundColor: Color = .tibbyBaseBlack
+    var shadowColor: Color = .tibbyBaseBlack
+    var bgColor: Color = .tibbyBaseWhite
+    var overlayColor: Color = .tibbyBackgroundShadowGrey
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .padding(EdgeInsets(top: 16, leading: 64, bottom: 16, trailing: 64))
+            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
-                    .fill(bgColor)
+                    .fill(configuration.isPressed ? overlayColor : bgColor)
                     .strokeBorder(foregroundColor, lineWidth: 2)
                 
             }
@@ -29,19 +30,22 @@ struct ButtonPrimary: ButtonStyle {
                     .fill(shadowColor)
                     .strokeBorder(foregroundColor, lineWidth: 2)
             }
-            .overlay(GradientBackgroundView(bgColor: bgColor, cornerRadius: 20))
+            .overlay(GradientBackgroundView(bgColor: shadowColor, cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0), value: configuration.isPressed)
     }
 }
-
-struct TestView: View {
-    var body: some View {
-        Button(action: {}, label: {ButtonLabel(type: .primary, image: Symbols.play.rawValue, text: "Play")})
-            .buttonPrimary(bgColor: .tibbyBaseBlue)
+    
+    
+    
+    struct TabButtonView: View {
+        var body: some View {
+            Button(action: {}, label: {ButtonLabel(type: .tabBar, image: Symbols.play.rawValue, text: "")})
+                .buttonStyle(TabBarButton())
+        }
     }
-}
-
-#Preview {
-    TestView()
-}
+    
+    #Preview {
+        TabButtonView()
+    }
+    

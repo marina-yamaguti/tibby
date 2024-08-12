@@ -27,7 +27,7 @@ struct TibbySelectionView: View {
                         .onChanged { value in
                             if showSheet {
                                 let newHeight = sheetHeight - value.translation.height * -1
-                                sheetHeight = max(100, newHeight)er
+                                sheetHeight = max(100, newHeight)
                                 if sheetHeight > 250 {
                                     withAnimation {
                                         showSheet.toggle()

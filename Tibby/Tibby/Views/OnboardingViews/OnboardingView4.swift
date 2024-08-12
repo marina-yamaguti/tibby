@@ -29,7 +29,7 @@ struct OnboardingView4: View {
                     Text("<")
                         .font(.typography(.title))
                 })
-                .buttonPrimary()
+                .buttonPrimary(bgColor: .tibbyBaseBlue)
                 .foregroundStyle(.tibbyBaseGrey)
                 
                 Button(action: {
@@ -39,7 +39,7 @@ struct OnboardingView4: View {
                     Text("Start")
                         .font(.typography(.title))
                 })
-                .buttonPrimary()
+                .buttonPrimary(bgColor: .tibbyBaseBlue)
                 .foregroundStyle(.tibbyBaseYellow)
             }
         }
