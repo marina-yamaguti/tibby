@@ -12,14 +12,14 @@ struct TibbyDescriptionLabel: View {
     @State var color: Color
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 8) {
             Text("description")
-                .font(.typography(.title))
+                .font(.typography(.body2))
             HStack(spacing: 4) {
                 Text(description)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.body))
+                    .font(.typography(FontStyle.body2))
                     .multilineTextAlignment(.center)
             }
             .padding()

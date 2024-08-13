@@ -25,7 +25,7 @@ struct TibbyRarityLabel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("rarity")
-                .font(.typography(.body))
+                .font(.typography(.body2))
             HStack(spacing: 4) {
                 Circle()
                     .frame(width: 27, height: 27)
@@ -34,7 +34,7 @@ struct TibbyRarityLabel: View {
                 Text(rarity.rawValue.lowercased())
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.title))
+                    .font(.typography(FontStyle.body))
             }
             .padding()
             .background(
