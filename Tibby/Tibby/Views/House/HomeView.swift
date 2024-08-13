@@ -12,6 +12,9 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State var tibby: Tibby
     @State var tibbyView = TibbyView()
     @State var navigate = false
@@ -97,15 +100,40 @@ struct HomeView: View {
                 .tibbyBaseBlue
             )
         }
-        .onAppear {
-            tibby.hunger = 0
-            tibby.sleep = 0
-            tibby.happiness = 0
+        .onAppear(perform: {
             print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 showSprite = true
             }
-        }
+            //Decrease the time spent out of the app
+            let enteredApp: Bool = UserDefaults.standard.value(forKey: "enteredApp") as? Bool ?? false
+            if enteredApp {
+                let exitDate: Date = UserDefaults.standard.value(forKey: "exitDate") as? Date ?? .now
+                UserDefaults.standard.setValue(false, forKey: "enteredApp")
+                
+                //calculate the time interval that the user was background
+                let interval = abs(exitDate.timeIntervalSince(Date()))
+                constants.decreseTibby(tibby: tibby, timeInterval: Double(interval), statusList: [.hungry, .happy, .sleep]) {
+                    //save the context of the changes
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    constants.objectWillChange.send()
+                }
+            }
+            //create the timers for each necessity item
+            constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
+                //save the context of the changes
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    constants.objectWillChange.send()
+            }
+        })
     }
 }
 

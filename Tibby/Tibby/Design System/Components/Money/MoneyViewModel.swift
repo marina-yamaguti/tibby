@@ -39,7 +39,7 @@ class MoneyViewModel: ObservableObject {
         case .coin:
             return "TibbyImageCoin"
         case .gem:
-            return "TibbyImageRedCoin"
+            return "TibbyImageGem"
         }
     }
 }
