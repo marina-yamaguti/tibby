@@ -382,16 +382,25 @@ class Service: ObservableObject, ServiceProtocol {
         if let happinessEffect = effect["happiness"]{
             if tibby.happiness < 100 {
                 tibby.happiness += happinessEffect
+                if tibby.happiness > 100 {
+                    tibby.happiness = 100
+                }
             }
         }
         if let hungerEffect = effect["hunger"] {
             if tibby.hunger < 100 {
                 tibby.hunger += hungerEffect
+                if tibby.hunger > 100 {
+                    tibby.hunger = 100
+                }
             }
         }
         if let sleepEffect = effect["sleep"] {
             if tibby.sleep < 100 {
                 tibby.sleep += sleepEffect
+                if tibby.sleep > 100 {
+                    tibby.sleep = 100
+                }
             }
         }
         if let xpEffect = effect["xp"] {

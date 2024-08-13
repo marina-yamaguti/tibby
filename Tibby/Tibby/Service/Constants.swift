@@ -33,4 +33,52 @@ class Constants: ObservableObject {
     @Published var currentOnboarding: OnboardingScreens = .onboarding1
     @Published var onboardingVisited: [Bool] = [true, false, false, false]
     
+    
+    ///defines the timers of the pet
+    func decreseTibby(tibby: Tibby, timeInterval: Double, statusList: [TibbyStatus], closure: () -> Void) {
+        //subtract when user has the app in background
+        for statusT in statusList {
+            switch statusT {
+            case .hungry:
+                tibby.hunger -= Int(timeInterval/TibbyStatus.hungry.timeDecrease())
+                if tibby.hunger <= 0 {
+                    tibby.hunger = 0
+                }
+            case .sleep:
+                tibby.sleep -= Int(timeInterval/TibbyStatus.sleep.timeDecrease())
+                if tibby.sleep <= 0 {
+                    tibby.sleep = 0
+                }
+            case .happy:
+                tibby.happiness -= Int(timeInterval/TibbyStatus.happy.timeDecrease())
+                if tibby.happiness <= 0 {
+                    tibby.happiness = 0
+                }
+            }
+        }
+        closure()
+    }
+    
+    func createTimer(tibby: Tibby, statusList: [TibbyStatus], closure: () -> Void) {
+        //create the timers for each necessity item and decrease the necessity
+        for statusT in statusList {
+            Timer.scheduledTimer(withTimeInterval: TimeInterval(statusT.timeDecrease()), repeats: true) { _ in
+                switch statusT {
+                case .hungry:
+                    if tibby.hunger != 0 {
+                        tibby.hunger -= 1
+                    }
+                case .sleep:
+                    if tibby.sleep != 0 {
+                        tibby.sleep -= 1
+                    }
+                case .happy:
+                    if tibby.happiness != 0 {
+                        tibby.happiness -= 1
+                    }
+                }
+            }
+            closure()
+        }
+    }
 }

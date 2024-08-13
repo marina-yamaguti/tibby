@@ -13,9 +13,6 @@
     "<" : {
 
     },
-    "Add %@" : {
-
-    },
     "Before you start" : {
 
     },
@@ -28,10 +25,16 @@
     "Daily Steps" : {
 
     },
+    "happy" : {
+
+    },
     "Hello, World!" : {
 
     },
     "Hi, welcome!" : {
+
+    },
+    "home" : {
 
     },
     "Light" : {
@@ -58,7 +61,7 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
+    "settings" : {
 
     },
     "small explanation about needing\nhealthkit permission for the app to\nwork." : {
@@ -76,7 +79,11 @@
     "Tell us about\nyourself :)" : {
 
     },
+    "tibby" : {
+
+    },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

@@ -50,17 +50,16 @@ struct NavigationTabbarView: View {
     
     var body: some View {
         VStack {
+            RetroNavigationBar()
+                .padding(.top, 60)
                 //Decide the room depending on the button the user select
                 switch constants.currentEnviroment {
                 case .bedroom:
-                    BedroomView(tibby: vm.tibby)
-                        .brightness(constants.brightness)
+                    BedroomView(tibby: vm.tibby, vm: BedroomViewModel(constants: constants, service: service))
                 case .garden:
                     GardenView(tibby: vm.tibby)
-                        .brightness(constants.brightness)
                 case .kitchen:
                     KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
-                        .brightness(constants.brightness)
                 }
                 //Custom Tabbar
                 HStack(spacing: 30){
@@ -72,6 +71,7 @@ struct NavigationTabbarView: View {
                     }
                 }
             }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(edges: [.top])
         .background(
             .tibbyBaseWhite

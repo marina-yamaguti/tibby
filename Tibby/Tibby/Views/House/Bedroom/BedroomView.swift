@@ -15,12 +15,27 @@ struct BedroomView: View {
     @EnvironmentObject var service: Service
     @State var wardrobeIsOpen: Bool = false
     @State var showSprite = false
+    @ObservedObject var vm: BedroomViewModel
     
     var body: some View {
         VStack {
             ZStack {
-                CurvedRectangleComponent()
+                RoundedRectangle(cornerRadius: 45)
+                    .foregroundStyle(.tibbyBasePink)
+                RoundedRectangle(cornerRadius: 45)
+                    .stroke(lineWidth: 2).foregroundStyle(.tibbyBaseBlack)
+                
+                Image("backgroundBedroom")
+                    .resizable()
+                    .scaledToFill()
+                    .opacity(0.2)
+                    .frame(maxWidth: UIScreen.main.bounds.width - UIScreen.main.bounds.width/16)
+                    .clipShape(RoundedRectangle(cornerRadius: 45))
+                
+                
                 VStack {
+                    StatusBar().padding(.horizontal).padding(.top, 24)
+                    Spacer()
                     ZStack {
                         SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                             .opacity(showSprite ? 1 : 0)
@@ -41,53 +56,30 @@ struct BedroomView: View {
                                 .resizable()
                                 .frame(width: 300, height: 300)
                         }
-                    }.frame(width: 300, height: 300)
-                        
+                    }.frame(width: 300, height: 300) //tibby
                     Spacer()
                     HStack {
-                        Button {
-                            constants.tibbySleeping.toggle()
-                            if constants.tibbySleeping {
-                                print("mimiu")
-                                tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
-                                if let activity = service.getActivityByName(name: "Sleep") {
-                                    let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
-                                    service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
-                                    print(tibby.sleep)
-                                }
-                            }
-                            else {
-                                let tibbySpecie = TibbySpecie(rawValue: tibby.species)
-                                tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
-                            }
-                        } label: {
-                            Image(Symbols.lightBulb.rawValue)
-                        }
-                        .buttonSecondary()
-                        .padding()
+                        ActionButton(image: Symbols.lightBulb.rawValue, action: {vm.lightsOff(tibby: tibby)})
                         Spacer()
-                        Button {
-                            wardrobeIsOpen = true
-                        } label: {
-                            Image(Symbols.hanger.rawValue)
-                        }
-                        .buttonSecondary()
-                        .padding()
-                    }
+                        ActionButton(image: Symbols.hanger.rawValue, action: {wardrobeIsOpen.toggle()})
+                    }.padding(.bottom, 32).padding(.horizontal,20)
                 }
-//                .toolbarBackground(.visible, for: .navigationBar)
-//                .toolbarBackground(.tibbyBaseBlue, for: .navigationBar)
-                .onChange(of: constants.tibbySleeping, {
-                    if constants.tibbySleeping {
-                        tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
-                    }
-                })
-            }.onAppear {
+            }.padding().brightness(constants.brightness)
+        }.background(.tibbyBaseWhite)
+            .navigationBarBackButtonHidden(true)
+            .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     showSprite = true
                 }
             }
-        }
+            .onChange(of: constants.tibbySleeping, {
+                if constants.tibbySleeping {
+                    tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                } else {
+                    let tibbySpecie = TibbySpecie(rawValue: tibby.species)
+                    tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                }
+            })
     }
 }
 
