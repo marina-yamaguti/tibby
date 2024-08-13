@@ -14,7 +14,7 @@ struct MoneyView: View {
         HStack {
             Image(viewModel.getImageName())
                 .resizable()
-                .frame(width: 32, height: 32)
+                .frame(width: 22, height: 22)
             Text("\(viewModel.value)")
                 .font(.typography(.body))
         }
