@@ -15,6 +15,7 @@ struct TibbySpeciesLabel: View {
         VStack(alignment: .leading, spacing: 8){
             Text("species")
                 .font(.typography(.body2))
+                .foregroundStyle(Color.tibbyBaseBlack)
             HStack(spacing: 4) {
                 Circle()
                     .frame(width: 27, height: 27)
@@ -24,6 +25,7 @@ struct TibbySpeciesLabel: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .font(.typography(FontStyle.body))
+                    .foregroundStyle(Color.tibbyBaseBlack)
             }
             .padding()
             .background(

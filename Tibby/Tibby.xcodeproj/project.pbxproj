@@ -42,6 +42,7 @@
 		A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CD2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift */; };
 		A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */; };
 		A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D12C6BDB6000762A11 /* TibbySelectedViewModel.swift */; };
+		A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
@@ -210,6 +211,7 @@
 		A50E92CD2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyDescriptionLabel.swift; sourceTree = "<group>"; };
 		A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyProfileIcon.swift; sourceTree = "<group>"; };
 		A50E92D12C6BDB6000762A11 /* TibbySelectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySelectedViewModel.swift; sourceTree = "<group>"; };
+		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
 				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
+				A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
+				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
