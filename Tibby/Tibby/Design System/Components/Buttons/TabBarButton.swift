@@ -35,17 +35,3 @@ struct TabBarButton: ButtonStyle {
             .animation(.linear(duration: 0), value: configuration.isPressed)
     }
 }
-    
-    
-    
-    struct TabButtonView: View {
-        var body: some View {
-            Button(action: {}, label: {ButtonLabel(type: .tabBar, image: Symbols.play.rawValue, text: "")})
-                .buttonStyle(TabBarButton())
-        }
-    }
-    
-    #Preview {
-        TabButtonView()
-    }
-    

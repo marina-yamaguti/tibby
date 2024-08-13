@@ -10,14 +10,14 @@ import SwiftUI
 enum Enviroment {
     case garden, kitchen, bedroom
     
-    func getIconAsset() -> Symbols {
+    func getIconAsset() -> TibbySymbols {
         switch self {
         case .garden:
-            return Symbols.ball
+            return TibbySymbols.ball
         case .kitchen:
-            return Symbols.food
+            return TibbySymbols.food
         case .bedroom:
-            return Symbols.sleepy
+            return TibbySymbols.sleepy
         }
     }
     
@@ -65,10 +65,10 @@ struct NavigationTabbarView: View {
                 //Custom Tabbar
                 HStack(spacing: 30){
                     ForEach(0..<enviroments.count) { ind in
-                        NeedsButton(symbol: enviroments[ind].getIconAsset(), progress: enviroments[ind].getTibbyProperties(tibby: vm.tibby))
-                            .onTapGesture {
-                                constants.currentEnviroment = enviroments[ind]
-                            }
+                        Button(action: {constants.currentEnviroment = enviroments[ind]},
+                               label: {ButtonLabel(type: .tabBar, image: enviroments[ind].getIconAsset().rawValue, text: "")}
+                        )
+                        .buttonTabBar()
                     }
                 }
             }

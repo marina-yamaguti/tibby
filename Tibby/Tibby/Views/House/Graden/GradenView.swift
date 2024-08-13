@@ -45,9 +45,9 @@ struct GardenView: View {
                     Button {
                         //sheet saing minigames coming soon
                     } label: {
-                        Image(Symbols.controller.rawValue)
+                        Image(TibbySymbols.controller.rawValue)
                     }
-                    .buttonSecondary()
+                    .buttonSecondary(bgColor: .black)
                     .padding()
                 }
                 

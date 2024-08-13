@@ -10,28 +10,10 @@
     "%lld" : {
 
     },
-    "<" : {
-
-    },
-    "Add %@" : {
-
-    },
-    "Before you start" : {
-
-    },
-    "Daily Energy Goal" : {
-
-    },
-    "Daily Exercise" : {
-
-    },
-    "Daily Steps" : {
-
-    },
     "Hello, World!" : {
 
     },
-    "Hi, welcome!" : {
+    "important feature" : {
 
     },
     "Light" : {
@@ -41,9 +23,6 @@
 
     },
     "Name" : {
-
-    },
-    "Next" : {
 
     },
     "OK" : {
@@ -58,25 +37,11 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
-
-    },
-    "small explanation about needing\nhealthkit permission for the app to\nwork." : {
-
-    },
-    "small explanation about tibby,\nwellbeing app, promote good\nhabits with a companion." : {
-
-    },
-    "So, to recap..." : {
-
-    },
-    "Start" : {
-
-    },
-    "Tell us about\nyourself :)" : {
+    "Small title" : {
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

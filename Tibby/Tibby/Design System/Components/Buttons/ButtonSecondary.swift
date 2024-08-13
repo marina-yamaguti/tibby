@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ButtonSecondary: ButtonStyle {
-    var bgColor: Color = .black
+    var bgColor: Color 
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
@@ -22,15 +22,4 @@ struct ButtonSecondary: ButtonStyle {
         
         
     }
-}
-
-struct TestViewSecondary: View {
-    var body: some View {
-        Button(action: {}, label: {ButtonLabel(type: .secondary, image: Symbols.lightBulb.rawValue, text: "")})
-            .buttonStyle(ButtonSecondary())
-    }
-}
-
-#Preview {
-    TestViewSecondary()
 }

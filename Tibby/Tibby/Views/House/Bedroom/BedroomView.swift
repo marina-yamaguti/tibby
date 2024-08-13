@@ -61,17 +61,17 @@ struct BedroomView: View {
                                 tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                             }
                         } label: {
-                            Image(Symbols.lightBulb.rawValue)
+                            Image(TibbySymbols.lightBulb.rawValue)
                         }
-                        .buttonSecondary()
+                        .buttonSecondary(bgColor: .black)
                         .padding()
                         Spacer()
                         Button {
                             wardrobeIsOpen = true
                         } label: {
-                            Image(Symbols.hanger.rawValue)
+                            Image(TibbySymbols.hanger.rawValue)
                         }
-                        .buttonSecondary()
+                        .buttonSecondary(bgColor: .black)
                         .padding()
                     }
                 }

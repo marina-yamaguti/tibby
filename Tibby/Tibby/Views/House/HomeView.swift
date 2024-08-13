@@ -45,7 +45,7 @@ struct HomeView: View {
                             navigate.toggle()
                         }) {
                             HStack {
-                                Image(Symbols.play.rawValue)
+                                Image(TibbySymbols.play.rawValue)
                                     .padding(.trailing, 26)
                                 Text("Play")
                             }

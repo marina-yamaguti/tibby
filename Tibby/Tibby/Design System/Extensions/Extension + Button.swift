@@ -12,8 +12,8 @@ extension Button {
     func buttonPrimary(bgColor: Color, isDisabled: Bool? = false) -> some View {
         self.buttonStyle(ButtonPrimary(bgColor: bgColor))
     }
-    func buttonSecondary(isDisabled: Bool? = false) -> some View {
-        self.buttonStyle(ButtonSecondary())
+    func buttonSecondary(isDisabled: Bool? = false, bgColor: Color) -> some View {
+        self.buttonStyle(ButtonSecondary(bgColor: bgColor))
     }
     func buttonTertiary(isDisabled: Bool? = false) -> some View {
         self.buttonStyle(ButtonTertiary())

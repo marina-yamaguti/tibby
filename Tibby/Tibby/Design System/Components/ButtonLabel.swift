@@ -30,5 +30,5 @@ struct ButtonLabel: View {
 }
 
 #Preview {
-    ButtonLabel(type: .primary, image: Symbols.play.rawValue, text: "Play")
+    ButtonLabel(type: .primary, image: TibbySymbols.play.rawValue, text: "Play")
 }

@@ -23,7 +23,3 @@ struct GradientBackgroundView: View {
         .withBorderRadius(cornerRadius)
     }
 }
-
-#Preview {
-    GradientBackgroundView(bgColor: .tibbyBaseBlue, cornerRadius: 50)
-}

@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonTertiary: ButtonStyle {
     var foregroundColor: Color = .white
     var bgColor: Color = .tibbyBaseBlack
-    var shadowColor: Color = .tibbyBackgroundShadowGreen
+    var shadowColor: Color = .tibbyBackgroundShadowBlack
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
@@ -31,19 +31,4 @@ struct ButtonTertiary: ButtonStyle {
             .padding(.top, configuration.isPressed ? 4 : 0)
             .animation(.linear(duration: 0), value: configuration.isPressed)
     }
-}
-
-struct TertiaryTestView: View {
-    var body: some View {
-        Button {
-        } label: {
-            HStack(spacing: 24) {
-                Text("")
-            }
-        }
-        .buttonStyle(ButtonTertiary())
-    }
-}
-#Preview {
-    TertiaryTestView()
 }

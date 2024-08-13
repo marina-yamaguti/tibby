@@ -34,14 +34,3 @@ struct ButtonPrimary: ButtonStyle {
             .animation(.linear(duration: 0), value: configuration.isPressed)
     }
 }
-
-struct TestView: View {
-    var body: some View {
-        Button(action: {}, label: {ButtonLabel(type: .primary, image: Symbols.play.rawValue, text: "Play")})
-            .buttonPrimary(bgColor: .tibbyBaseBlue)
-    }
-}
-
-#Preview {
-    TestView()
-}

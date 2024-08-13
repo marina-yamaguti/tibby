@@ -111,9 +111,9 @@ struct KitchenView: View {
                         Button {
                             openSelector = true
                         } label: {
-                            Image(Symbols.carrot.rawValue)
+                            Image(TibbySymbols.carrot.rawValue)
                         }
-                        .buttonSecondary()
+                        .buttonSecondary(bgColor: .black)
                         .padding()
                     }
                 }.brightness(openSelector ? -0.5 : 0)
