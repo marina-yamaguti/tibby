@@ -1,5 +1,5 @@
 //
-//  TibbyRarityLabel.swift
+//  TibbyDescriptionLabel.swift
 //  Tibby
 //
 //  Created by Marina Yamaguti on 13/08/24.
@@ -7,34 +7,20 @@
 
 import SwiftUI
 
-struct TibbyRarityLabel: View {
-    @State var rarity: Rarity
+struct TibbyDescriptionLabel: View {
+    @State var description: String
     @State var color: Color
-    //when we have capsule assets, change to image of capsules
-    private var rarityColor: Color {
-        switch rarity {
-        case .common:
-            return Color.tibbyRarityCommon
-        case .rare:
-            return Color.tibbyRarityRare
-        case .epic:
-            return Color.tibbyRarityEpic
-        }
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("rarity")
+            Text("description")
                 .font(.typography(.title))
             HStack(spacing: 4) {
-                Circle()
-                    .frame(width: 27, height: 27)
-                    .foregroundColor(rarityColor)
-                    .saturation(2.0)
-                Text(rarity.rawValue.lowercased())
+                Text(description)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .font(.typography(FontStyle.body))
+                    .multilineTextAlignment(.center)
             }
             .padding()
             .background(
@@ -51,5 +37,5 @@ struct TibbyRarityLabel: View {
 }
 
 #Preview {
-    TibbyRarityLabel(rarity: Rarity.common, color: Color.tibbyBaseBlue)
+    TibbyDescriptionLabel(description: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", color: Color.tibbyBaseBlue)
 }

@@ -39,6 +39,8 @@
 		A50E92C82C6535E500762A11 /* Biryani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */; };
 		A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92C92C6BC92200762A11 /* TibbySelectedView.swift */; };
 		A50E92CC2C6BC9E300762A11 /* TibbyRarityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CB2C6BC9E300762A11 /* TibbyRarityLabel.swift */; };
+		A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CD2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift */; };
+		A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
@@ -204,6 +206,8 @@
 		A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Biryani-Bold.ttf"; sourceTree = "<group>"; };
 		A50E92C92C6BC92200762A11 /* TibbySelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySelectedView.swift; sourceTree = "<group>"; };
 		A50E92CB2C6BC9E300762A11 /* TibbyRarityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyRarityLabel.swift; sourceTree = "<group>"; };
+		A50E92CD2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyDescriptionLabel.swift; sourceTree = "<group>"; };
+		A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyProfileIcon.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 			children = (
 				A50E92BF2C65351E00762A11 /* TibbySpeciesLabel.swift */,
 				A50E92CB2C6BC9E300762A11 /* TibbyRarityLabel.swift */,
+				A50E92CD2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				A5126BDC2C4987E2008703E7 /* Buttons */,
 				A5126BE02C498A59008703E7 /* Money */,
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
+				A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
 				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
 			);
@@ -942,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */,
 				A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */,
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
@@ -993,6 +1000,7 @@
 				D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */,
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
+				A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
