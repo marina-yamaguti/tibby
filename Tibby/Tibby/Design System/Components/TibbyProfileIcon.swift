@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TibbyProfileIcon: View {
     @State var icon: Image
+    @State var status: SelectionStatus
+    //action
     
     var body: some View {
         ZStack {
@@ -17,6 +19,7 @@ struct TibbyProfileIcon: View {
         }
         .frame(width: 200, height: 200)
         .cornerRadius(16)
+        
         .overlay(
             RoundedRectangle(cornerRadius: 16)
                 .inset(by: 0.5)
@@ -26,5 +29,5 @@ struct TibbyProfileIcon: View {
 }
 
 #Preview {
-    TibbyProfileIcon(icon: Image("shark1Icon"))
+    TibbyProfileIcon(icon: Image("shark1Icon"), status: SelectionStatus.selected)
 }

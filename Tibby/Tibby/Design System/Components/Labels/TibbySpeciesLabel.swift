@@ -12,9 +12,9 @@ struct TibbySpeciesLabel: View {
     @State var color: Color
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16){
+        VStack(alignment: .leading, spacing: 8){
             Text("species")
-                .font(.typography(.title))
+                .font(.typography(.body))
             HStack(spacing: 4) {
                 Circle()
                     .frame(width: 27, height: 27)
@@ -23,7 +23,7 @@ struct TibbySpeciesLabel: View {
                 Text(species)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.body))
+                    .font(.typography(FontStyle.title))
             }
             .padding()
             .background(
