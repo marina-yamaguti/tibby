@@ -111,7 +111,7 @@ struct HomeView: View {
                 UserDefaults.standard.setValue(false, forKey: "enteredApp")
                 
                 let interval = abs(exitDate.timeIntervalSince(Date()))
-                constants.decreseTibby(tibby: service.getAllTibbies().first!, timeInterval: Double(interval), statusList: [.hungry, .happy, .sleep]) {
+                constants.decreseTibby(tibby: tibby, timeInterval: Double(interval), statusList: [.hungry, .happy, .sleep]) {
                     do {
                         try managedObjectContext.save()
                     } catch {
@@ -120,7 +120,7 @@ struct HomeView: View {
                     constants.objectWillChange.send()
                 }
             }
-            constants.createTimer(tibby: service.getAllTibbies().first!, statusList: [.hungry, .happy, .sleep]) {
+            constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
                     do {
                         try managedObjectContext.save()
                     } catch {
