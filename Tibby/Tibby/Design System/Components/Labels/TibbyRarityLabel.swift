@@ -1,16 +1,16 @@
 //
-//  TibbyDetailsLabel.swift
+//  TibbyRarityLabel.swift
 //  Tibby
 //
-//  Created by Marina Yamaguti on 08/08/24.
+//  Created by Marina Yamaguti on 13/08/24.
 //
 
 import SwiftUI
 
-struct TibbyDetailsLabel: View {
-    var species: String
+struct TibbyRarityLabel: View {
+    @State var rarity: Rarity
     var collection: Collection
-    private var circleColor: Color {
+    private var color: Color {
         switch collection {
         case .seaSeries:
             return Color.tibbyBaseBlue
@@ -27,14 +27,25 @@ struct TibbyDetailsLabel: View {
         }
     }
     
-
+    //when we have capsule assets, change to image of capsules
+    private var rarityColor: Color {
+        switch rarity {
+        case .common:
+            return Color.green
+        case .rare:
+            return Color.blue
+        case .epic:
+            return Color.purple
+        }
+    }
+    
     var body: some View {
         HStack(spacing: 4) {
             Circle()
                 .frame(width: 27, height: 27)
-                .foregroundColor(circleColor)
+                .foregroundColor(rarityColor)
                 .saturation(2.0)
-            Text(species)
+            Text(rarity.rawValue.lowercased())
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
                 .font(.typography(FontStyle.body))
@@ -43,7 +54,7 @@ struct TibbyDetailsLabel: View {
         .background(
             GeometryReader { geometry in
                 Rectangle()
-                    .foregroundColor(Color.tibbyBaseLightGrey)
+                    .foregroundColor(color)
                     .opacity(0.5)
                     .cornerRadius(20)
                     .frame(width: geometry.size.width, height: geometry.size.height)
@@ -52,9 +63,6 @@ struct TibbyDetailsLabel: View {
     }
 }
 
-
-
-
 #Preview {
-    TibbyDetailsLabel(species: "shark", collection: Collection.seaSeries)
+    TibbyRarityLabel(rarity: Rarity.common, collection: Collection.seaSeries)
 }
