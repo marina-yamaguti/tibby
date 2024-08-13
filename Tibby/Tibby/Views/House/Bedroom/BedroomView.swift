@@ -29,7 +29,7 @@ struct BedroomView: View {
                     .resizable()
                     .scaledToFill()
                     .opacity(0.2)
-                    .frame(maxWidth: 360)
+                    .frame(maxWidth: UIScreen.main.bounds.width - UIScreen.main.bounds.width/16)
                     .clipShape(RoundedRectangle(cornerRadius: 45))
                 
                 
@@ -62,7 +62,7 @@ struct BedroomView: View {
                         ActionButton(image: Symbols.lightBulb.rawValue, action: {vm.lightsOff(tibby: tibby)})
                         Spacer()
                         ActionButton(image: Symbols.hanger.rawValue, action: {wardrobeIsOpen.toggle()})
-                    }.padding(.vertical, 32).padding(.horizontal,20)
+                    }.padding(.bottom, 32).padding(.horizontal,20)
                 }
             }.padding().brightness(constants.brightness)
         }.background(.tibbyBaseWhite)
