@@ -13,9 +13,6 @@
     "<" : {
 
     },
-    "Add %@" : {
-
-    },
     "Before you start" : {
 
     },
@@ -86,6 +83,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
