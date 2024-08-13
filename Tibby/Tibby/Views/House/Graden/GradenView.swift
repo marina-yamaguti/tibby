@@ -19,11 +19,6 @@ struct GardenView: View {
         ZStack {
             CurvedRectangleComponent()
             VStack {
-                VStack(spacing: 8) {
-                    HeartsView(viewModel: HeartsViewModel(tibby: tibby, category: .hunger, service: service))
-                    TibbyNameComponent(name: "Shark")
-                }
-                .padding(.top, 100)
                 Spacer()
                 HStack {
                     Spacer()

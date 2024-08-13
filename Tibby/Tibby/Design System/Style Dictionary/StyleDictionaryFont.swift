@@ -21,8 +21,8 @@ public enum FontStyle {
         switch self {
         case .display: return "Dogica Pixel"
         case .headline: return "Dogica Pixel"
-        case .body: return "Dogica Pixel"
-        case .label: return "Dogica Pixel"
+        case .body: return "Biryani"
+        case .label: return "Biryani"
         case .title: return "Dogica Pixel"
         }
     }

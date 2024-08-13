@@ -30,10 +30,15 @@
 		92B647892C2C97EC0068E98E /* TibbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647882C2C97EC0068E98E /* TibbyTests.swift */; };
 		92B647932C2C97EC0068E98E /* TibbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647922C2C97EC0068E98E /* TibbyUITests.swift */; };
 		92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */; };
+		A50E92C02C65351E00762A11 /* TibbyDetailsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92BF2C65351E00762A11 /* TibbyDetailsLabel.swift */; };
+		A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */; };
+		A50E92C42C6535DF00762A11 /* Biryani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */; };
+		A50E92C52C6535E000762A11 /* Biryani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */; };
+		A50E92C62C6535E300762A11 /* Biryani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */; };
+		A50E92C72C6535E400762A11 /* Biryani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */; };
+		A50E92C82C6535E500762A11 /* Biryani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
-		A5126BE52C499165008703E7 /* HeartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE42C499165008703E7 /* HeartsView.swift */; };
-		A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -197,10 +202,11 @@
 		92B6478E2C2C97EC0068E98E /* TibbyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TibbyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647922C2C97EC0068E98E /* TibbyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITests.swift; sourceTree = "<group>"; };
 		92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A50E92BF2C65351E00762A11 /* TibbyDetailsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyDetailsLabel.swift; sourceTree = "<group>"; };
+		A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Biryani-Regular.ttf"; sourceTree = "<group>"; };
+		A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Biryani-Bold.ttf"; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
-		A5126BE42C499165008703E7 /* HeartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsView.swift; sourceTree = "<group>"; };
-		A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -431,6 +437,8 @@
 			children = (
 				D80755C62C3C57D9000CA029 /* dogicapixel.ttf */,
 				D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */,
+				A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */,
+				A50E92C12C6535D700762A11 /* Biryani-Regular.ttf */,
 				A5126BD92C4987B2008703E7 /* Design System */,
 				FD9075F72C34A2AB000E5F24 /* Service */,
 				7C2ED2642C2DF02B0030D0B9 /* Views */,
@@ -470,6 +478,14 @@
 			path = TibbyUITests;
 			sourceTree = "<group>";
 		};
+		A50E92BE2C6534F900762A11 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				A50E92BF2C65351E00762A11 /* TibbyDetailsLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		A5126BD92C4987B2008703E7 /* Design System */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,8 +514,8 @@
 				D8B7D1A82C48588D00A1739E /* CustomSheet.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				D81694482C49A3D20036BD03 /* StyledPicker.swift */,
+				A50E92BE2C6534F900762A11 /* Labels */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
-				A5126BE62C4992C8008703E7 /* Hearts */,
 				A5126BE02C498A59008703E7 /* Money */,
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
@@ -538,15 +554,6 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
-			sourceTree = "<group>";
-		};
-		A5126BE62C4992C8008703E7 /* Hearts */ = {
-			isa = PBXGroup;
-			children = (
-				A5126BE42C499165008703E7 /* HeartsView.swift */,
-				A5126BE72C4992DB008703E7 /* HeartsViewModel.swift */,
-			);
-			path = Hearts;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -880,6 +887,8 @@
 				D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */,
 				92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */,
 				D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
+				A50E92C62C6535E300762A11 /* Biryani-Regular.ttf in Resources */,
+				A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */,
 				D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,7 +911,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50E92C72C6535E400762A11 /* Biryani-Regular.ttf in Resources */,
 				FD9075B62C3489A6000E5F24 /* Preview Assets.xcassets in Resources */,
+				A50E92C42C6535DF00762A11 /* Biryani-Bold.ttf in Resources */,
 				FD9075B32C3489A6000E5F24 /* Assets.xcassets in Resources */,
 				D80755C82C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
 				D80755C92C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
@@ -927,6 +938,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50E92C82C6535E500762A11 /* Biryani-Regular.ttf in Resources */,
+				A50E92C52C6535E000762A11 /* Biryani-Bold.ttf in Resources */,
 				FD9075EE2C3489F2000E5F24 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,6 +958,7 @@
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
+				A50E92C02C65351E00762A11 /* TibbyDetailsLabel.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
@@ -955,7 +969,6 @@
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				D8B7D1AB2C485B5800A1739E /* NeedsButtonViewModel.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
-				A5126BE82C4992DB008703E7 /* HeartsViewModel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
@@ -980,7 +993,6 @@
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
-				A5126BE52C499165008703E7 /* HeartsView.swift in Sources */,
 				FD45F26A2C6530740046DE49 /* SheetWithCircle.swift in Sources */,
 				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
@@ -1318,7 +1330,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1342,7 +1354,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1365,7 +1377,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1388,7 +1400,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 856F4M2786;
+				DEVELOPMENT_TEAM = 3MS8Y2RCJZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
