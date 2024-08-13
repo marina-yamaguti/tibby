@@ -68,6 +68,11 @@
 		FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2652C63F4070046DE49 /* TibbySelectionView.swift */; };
 		FD45F26A2C6530740046DE49 /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2692C6530740046DE49 /* SheetWithCircle.swift */; };
 		FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F26C2C65716B0046DE49 /* TibbyBook.swift */; };
+		FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F26E2C667D900046DE49 /* CustomBackButton.swift */; };
+		FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */; };
+		FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2752C669BA30046DE49 /* StatusBar.swift */; };
+		FD45F2782C6BCB960046DE49 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2772C6BCB960046DE49 /* ActionButton.swift */; };
+		FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -229,6 +234,11 @@
 		FD45F2652C63F4070046DE49 /* TibbySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySelectionView.swift; sourceTree = "<group>"; };
 		FD45F2692C6530740046DE49 /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		FD45F26C2C65716B0046DE49 /* TibbyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyBook.swift; sourceTree = "<group>"; };
+		FD45F26E2C667D900046DE49 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroNavigationBar.swift; sourceTree = "<group>"; };
+		FD45F2752C669BA30046DE49 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		FD45F2772C6BCB960046DE49 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomViewModel.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -376,6 +386,7 @@
 			children = (
 				FD9846AE2C4988260047575F /* Wardrobe */,
 				7C7B591C2C459E2A004FFD4B /* BedroomView.swift */,
+				FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */,
 			);
 			path = Bedroom;
 			sourceTree = "<group>";
@@ -509,6 +520,8 @@
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
 				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
+				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
+				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -516,10 +529,12 @@
 		A5126BDC2C4987E2008703E7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				FD45F26E2C667D900046DE49 /* CustomBackButton.swift */,
 				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
 				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
 				D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */,
+				FD45F2772C6BCB960046DE49 /* ActionButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -939,6 +954,7 @@
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
+				FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
@@ -946,6 +962,7 @@
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
+				FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
@@ -965,6 +982,7 @@
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
+				FD45F2782C6BCB960046DE49 /* ActionButton.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
@@ -985,8 +1003,10 @@
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				D816945D2C49B0A50036BD03 /* ButtonSecondary.swift in Sources */,
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
+				FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
+				FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,
