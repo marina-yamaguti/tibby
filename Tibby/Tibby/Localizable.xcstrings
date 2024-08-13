@@ -13,9 +13,6 @@
     "<" : {
 
     },
-    "Add %@" : {
-
-    },
     "Before you start" : {
 
     },
@@ -58,9 +55,6 @@
     "quantity: %lld" : {
 
     },
-    "Remove" : {
-
-    },
     "small explanation about needing\nhealthkit permission for the app to\nwork." : {
 
     },
@@ -77,6 +71,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
