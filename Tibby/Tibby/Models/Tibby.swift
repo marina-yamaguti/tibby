@@ -59,14 +59,15 @@ enum NodeType {
 enum TibbyStatus {
     case hungry, sleep, happy
     
+    ///TIME in SECONDS to decrease 1 point in the Tibby necessity
     func timeDecrease() -> Double {
         switch self {
         case .hungry:
-            return 1
+            return 172
         case .sleep:
-            return 1
+            return 432
         case .happy:
-            return 1
+            return 172
         }
     }
 }
