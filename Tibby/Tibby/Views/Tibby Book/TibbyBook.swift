@@ -12,7 +12,6 @@ struct TibbyBook: View {
     @Binding var tibby: Tibby
     @State var tibbies: [Tibby] = []
     @State var showPopUp = false
-    @Environment(\.presentationMode) var presentationMode
     @State var collectionAlert: Collection = .seaSeries
     var body: some View {
         let columns = [
@@ -29,18 +28,7 @@ struct TibbyBook: View {
                     Spacer()
                 }
                 HStack {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        ZStack {
-                            Circle().foregroundStyle(.black.opacity(0.5))
-                            Image(systemName: "chevron.left")
-                                .foregroundStyle(.tibbyBaseWhite)
-                                .font(.system(size: 14))
-                                .bold()
-                                .padding()
-                        }.frame(width: 30, height: 30)
-                    }
+                    CustomBackButton()
                     Spacer()
                 }
             }.padding()
