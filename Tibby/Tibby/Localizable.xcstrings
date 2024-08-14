@@ -11,6 +11,28 @@
 
     },
     "Detail" : {
+    "<" : {
+
+    },
+    "Before you start" : {
+
+    },
+    "Click to equip" : {
+
+    },
+    "Daily Energy Goal" : {
+
+    },
+    "Daily Exercise" : {
+
+    },
+    "Daily Steps" : {
+
+    },
+    "description" : {
+
+    },
+    "Given Name" : {
 
     },
     "happy" : {
@@ -46,10 +68,28 @@
     "quantity: %lld" : {
 
     },
+    "rarity" : {
+
+    },
     "settings" : {
 
     },
-    "Small title" : {
+    "small explanation about needing\nhealthkit permission for the app to\nwork." : {
+
+    },
+    "small explanation about tibby,\nwellbeing app, promote good\nhabits with a companion." : {
+
+    },
+    "So, to recap..." : {
+
+    },
+    "species" : {
+
+    },
+    "Start" : {
+
+    },
+    "Tell us about\nyourself :)" : {
 
     },
     "tibby" : {
