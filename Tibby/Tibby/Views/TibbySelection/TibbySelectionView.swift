@@ -62,15 +62,13 @@ struct TibbySelectionView: View {
                                 LazyVGrid(columns: columns, spacing: 8) {
                                     ForEach(collectionTibbies) { tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL))) {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
                                                 ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                    .padding()
                                                     .padding()
                                             }
                                         } else {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL))) {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
                                                 ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                    .padding()
                                                     .padding()
                                             }
                                         }

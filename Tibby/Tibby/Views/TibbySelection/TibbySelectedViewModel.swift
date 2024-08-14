@@ -10,25 +10,31 @@ import SwiftUI
 import SwiftData
 
 class TibbySelectedViewModel: ObservableObject {
+    var service: Service
     @Published var tibby: Tibby
+    @Binding var currentTibby: Tibby
+    @Published var status: SelectionStatus
     
-    init(tibby: Tibby) {
+    init(tibby: Tibby, currentTibby: Binding<Tibby>, status: SelectionStatus, service: Service) {
         self.tibby = tibby
+        self._currentTibby = currentTibby
+        self.status = status
+        self.service = service
     }
     
     var color: Color {
         switch tibby.collection {
-        case "seaSeries":
+        case Collection.seaSeries.rawValue:
             return Color.tibbyBaseBlue
-        case "houseSeries":
+        case Collection.houseSeries.rawValue:
             return Color.tibbyBasePink
-        case "forestSeries":
+        case Collection.forestSeries.rawValue:
             return Color.tibbyBaseGreen
-        case "beachSeries":
+        case Collection.beachSeries.rawValue:
             return Color.tibbyBaseOrange
-        case "foodSeries":
+        case Collection.foodSeries.rawValue:
             return Color.tibbyBaseRed
-        case "urbanSeries":
+        case Collection.urbanSeries.rawValue:
             return Color.tibbyBaseGrey
         default:
             return Color.gray
@@ -39,16 +45,19 @@ class TibbySelectedViewModel: ObservableObject {
         return tibby.species
     }
     
-    var rarity: String {
-        return tibby.rarity
+    var rarity: Rarity {
+        return Rarity(rawValue: tibby.rarity) ?? Rarity.common
     }
     
     var description: String {
-        return tibby.details.description
+        return tibby.details
     }
+
     
-    var isSelected: Bool {
-        #warning("tem q ser is selected")
-        return tibby.isUnlocked
+    func changeTibby() {
+        currentTibby = tibby
+        service.getUser()?.currentTibbyID = currentTibby.id
+        status = .selected
+        //change selected tibby
     }
 }

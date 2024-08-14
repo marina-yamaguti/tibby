@@ -12,25 +12,45 @@ struct TibbySelectedView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 391, height: 300.62421)
-                .background(viewModel.color)
-                .cornerRadius(20)
-            
+            ZStack (alignment: .top) {
+                Color.tibbyBaseWhite.ignoresSafeArea()
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(viewModel.color)
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
+            } .ignoresSafeArea()
             VStack {
-                TibbyProfileIcon(icon: "\(viewModel.species)1", status: .selected, action: {})
-                TibbyNameEdit(name: viewModel.tibby.name)
+                
+                //Back Button
                 HStack {
-                    
-                    Text("Species: \(viewModel.species)")
-                    Text("Rarity: \(viewModel.rarity)")
+                    CustomBackButton()
+                    Spacer()
                 }
-                .font(.headline)
-                .padding()
-                TibbyDescriptionLabel(description: viewModel.description, color: viewModel.color)
+               
+                VStack (alignment: .center, spacing: 16){
+                    
+                    // Tibby Name Edit
+                    TibbyNameEdit(name: viewModel.tibby.name)
+                    // Tibby Profile Icon
+                    TibbyProfileIcon(icon: "shark1Icon", status: $viewModel.status, action: viewModel.changeTibby)
+                }
+                .padding(.bottom, 40)
+                ScrollView {
+                    VStack (alignment: .leading, spacing: 16) {
+                        // Tibby Info Labels
+                        HStack(spacing: 32) {
+                            TibbySpeciesLabel(species: viewModel.species, color: viewModel.color)
+                            TibbyRarityLabel(rarity: viewModel.rarity, color:  viewModel.color)
+                        }
+                        
+                        // Tibby Description
+                        TibbyDescriptionLabel(description: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", color: viewModel.color)
+                    }
+                } .scrollIndicators(.hidden)
             }
+            .padding()
+            .padding(.horizontal, 16)
         }
+        .background(Color.tibbyBaseWhite)
         .navigationBarBackButtonHidden(true)
     }
 }
