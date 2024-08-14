@@ -13,11 +13,18 @@ import SpriteKit
 enum TibbySpecie: String {
     //Complete with all the species
     case shark
+    case dolphin
+   // case dog
+    case yellowShark
     
     func baseAnimation() -> [String] {
         switch self {
         case .shark:
             return ["shark1", "shark2"]
+        case .yellowShark:
+            return ["yellowShark1", "yellowShark2"]
+        case .dolphin:
+            return ["dolphin1", "dolphin2"]
         }
     }
     
@@ -25,13 +32,22 @@ enum TibbySpecie: String {
         switch self {
         case .shark:
             return ["sharkSleep1", "sharkSleep2", "sharkSleep3", "sharkSleep4"]
+        case .yellowShark:
+            return ["yellowSharkSleep1", "yellowSharkSleep2", "yellowSharkSleep3", "yellowSharkSleep4"]
+        case .dolphin:
+            return ["dolphinSleep1", "dolphinSleep2", "dolphinSleep3", "dolphinSleep4"]
         }
+        
     }
     
     func happyAnimation() -> [String] {
         switch self {
         case .shark:
             return ["sharkHappy1", "sharkHappy2"]
+        case .yellowShark:
+            return ["yellowSharkHappy1", "yellowSharkHappy2"]
+        case .dolphin:
+            return ["dolphinHappy1", "dolphinHappy2"]
         }
     }
     
@@ -39,6 +55,10 @@ enum TibbySpecie: String {
         switch self {
         case .shark:
             return ["sharkSad1", "sharkSad2"]
+        case .yellowShark:
+            return ["yellowSharkSad1", "yellowSharkSad2"]
+        case .dolphin:
+            return ["dolphinSad1", "dolphinSad2"]
         }
     }
     
@@ -46,6 +66,10 @@ enum TibbySpecie: String {
         switch self {
         case .shark:
             return ["sharkEat1", "sharkEat2"]
+        case .yellowShark:
+            return ["yellowSharkEat1", "yellowSharkEat2"]
+        case .dolphin:
+            return ["dolphinEat1", "dolphinEat2"]
         }
     }
 }

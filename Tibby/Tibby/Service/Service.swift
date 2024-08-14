@@ -50,6 +50,21 @@ class Service: ObservableObject, ServiceProtocol {
         return nil
     }
     
+    /// Retrieves a Tibby object by its species.
+    func getTibbyBySpecies(species: String) -> Tibby? {
+        do {
+            let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
+            for tibby in tibbies {
+                if tibby.species == species {
+                    return tibby
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        return nil
+    }
+    
     /// Retrieves all Tibbies associated with a given user ID.
     func getTibbiesByUserID(userID: UUID) -> [Tibby] {
         var userTibbies: [Tibby] = []
@@ -97,8 +112,8 @@ class Service: ObservableObject, ServiceProtocol {
     // MARK: - Accessory Operations
     
     /// Adds an Accessory object to the model context.
-    func createAccessory(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int) {
-        let newAccessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price)
+    func createAccessory(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int, category: String) {
+        let newAccessory = Accessory(id: id, tibbyId: tibbyId, name: name, image: image, price: price, category: category)
         do {
             let accessories = try modelContext.fetch(FetchDescriptor<Accessory>())
             for accessory in accessories {
@@ -506,12 +521,12 @@ class Service: ObservableObject, ServiceProtocol {
         self.createTibby(id: UUID(), ownerId: nil, name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Roger",rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
+//        self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
         
         //Accessories
-        self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "hat", price: 10)
-        self.createAccessory(id: UUID(), tibbyId: nil, name: "Heart Glasses", image: "heart-glasses", price: 10)
-        self.createAccessory(id: UUID(), tibbyId: nil, name: "Tie", image: "tie", price: 10)
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "hat", price: 10, category: "Head")
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Heart Glasses", image: "heart-glasses", price: 10, category: "Head")
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Tie", image: "tie", price: 10, category: "Body")
         
         //Food
         self.createFood(id: UUID(), name: "Niguiri", image: "niguiri", price: 10)
@@ -522,6 +537,11 @@ class Service: ObservableObject, ServiceProtocol {
         self.createActivity(id: UUID(), name: "Pet", effect: "{\"happiness\": 25}")
         self.createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 100}")
         
+        if self.getFoodsFromUser().isEmpty {
+            for food in self.getAllFoods() {
+                self.addFoodToUser(food: food)
+            }
+        }
         print("setup done")
     }
 }

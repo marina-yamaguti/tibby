@@ -79,6 +79,7 @@
 		FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2752C669BA30046DE49 /* StatusBar.swift */; };
 		FD45F2782C6BCB960046DE49 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2772C6BCB960046DE49 /* ActionButton.swift */; };
 		FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */; };
+		FD45F27C2C6C02360046DE49 /* AccessoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -251,6 +252,7 @@
 		FD45F2752C669BA30046DE49 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		FD45F2772C6BCB960046DE49 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomViewModel.swift; sourceTree = "<group>"; };
+		FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryCategory.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -692,6 +694,7 @@
 				FD45F25E2C6292320046DE49 /* Collections.swift */,
 				FD45F2602C629DED0046DE49 /* Roll.swift */,
 				FD45F2622C629E4A0046DE49 /* Rarity.swift */,
+				FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -973,6 +976,7 @@
 				A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */,
 				A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */,
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
+				FD45F27C2C6C02360046DE49 /* AccessoryCategory.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
