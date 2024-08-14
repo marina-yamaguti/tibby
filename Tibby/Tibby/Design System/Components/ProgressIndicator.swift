@@ -14,7 +14,7 @@ struct ProgressIndicator: View {
         HStack(spacing: 8) {
             ForEach(0..<progressIndicator.count, id: \.self) { index in
                 Capsule()
-                    .fill(page < index ? .black : progressIndicator[index])
+                    .fill(page < index ? .black.opacity(0.5) : progressIndicator[index])
                     .aspectRatio(6, contentMode: .fit)
             }
         }

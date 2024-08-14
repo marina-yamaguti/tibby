@@ -22,7 +22,7 @@ struct ButtonLabel: View {
             if type == .primary {
                 Text(text)
                     .font(.typography(.title))
-                    .padding(.leading, 32)
+                    .padding(.leading, 30)
             }
         }
         .foregroundStyle(foregroundColor)

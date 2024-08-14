@@ -46,11 +46,11 @@ enum OnboardingViews {
     var buttonSymbol: String {
         switch self {
         case .onboarding1:
-            return TibbySymbols.play.rawValue
+            return TibbySymbols.chevronRight.rawValue
         case .onboarding2:
-            return TibbySymbols.play.rawValue
+            return TibbySymbols.lock.rawValue
         case .onboarding3:
-            return TibbySymbols.play.rawValue
+            return TibbySymbols.checkmark.rawValue
         case .onboarding4:
             return TibbySymbols.play.rawValue
         }

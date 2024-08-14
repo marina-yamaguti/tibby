@@ -65,7 +65,7 @@ struct OnboardingTab: View {
                         vm.nextPage()
                     }
                 }, label: {
-                    ButtonLabel(type: .primary, image: constants.currentOnboarding.buttonSymbol, text: constants.currentOnboarding.buttonLabel)
+                    ButtonLabel(type: .primary, image: vm.currentOnboarding.buttonSymbol, text: vm.currentOnboarding.buttonLabel)
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
                 .padding(.bottom, 16)
