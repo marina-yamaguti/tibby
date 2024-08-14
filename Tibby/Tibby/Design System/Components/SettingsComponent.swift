@@ -24,7 +24,7 @@ struct SettingsComponent: View {
                     .fill(.tibbyBaseRed)
                     .frame(width: 20, height: 20)
                 Text(title)
-                    .font(.typography(.labelPixel))
+                    .font(.typography(.label))
                 Spacer()
             }
             HStack {
