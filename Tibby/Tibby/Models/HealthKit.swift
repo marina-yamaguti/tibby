@@ -99,19 +99,20 @@ class HealthManager: ObservableObject {
         UIApplication.shared.open(URL(string: "App-Prefs:")!)
     }
     
-    //fetch all the HealthKit informations that are used
-    func fetchAllInformation() {
-        getHealthInfo(startDate: .startOfWeek, sample: .workoutCalories, frequency: .week)
-        getHealthInfo(startDate: .startOfWeek, sample: .workoutTime, frequency: .week)
-        getHealthInfo(startDate: .startOfDay, sample: .workoutCalories, frequency: .day)
-        getHealthInfo(startDate: .startOfDay, sample: .workoutTime, frequency: .day)
-        getHealthInfo(startDate: .startOfWeek, sample: .steps, frequency: .week)
-        getHealthInfo(startDate: .startOfDay, sample: .steps, frequency: .day)
-        getHealthInfo(startDate: .startOfWeek, sample: .energyBurned, frequency: .week)
-        getHealthInfo(startDate: .startOfDay, sample: .energyBurned, frequency: .day)
+    func fetchInformation(informationList: [(dateInfo: Date, sampleInfo: SampleType, dataTypeInfo: DateType)]) {
+        for information in informationList {
+            getHealthInfo(startDate: information.dateInfo, sample: information.sampleInfo, frequency: information.dataTypeInfo)
+        }
     }
     
-    private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DataType) {
+    //fetch all the HealthKit informations that are used
+    func fetchAllInformation() {
+        let list: [(dateInfo: Date, sampleInfo: SampleType, dataTypeInfo: DateType)] = [(.startOfWeek, .workoutCalories, .week), (.startOfWeek, .workoutCalories, .week), (.startOfWeek, .workoutTime, .week), (.startOfDay, .workoutCalories, .day), (.startOfDay, .workoutTime, .day), (.startOfWeek, .steps, .week), (.startOfDay, .steps, .day), (.startOfWeek, .energyBurned, .week), (.startOfDay, .energyBurned, .day)]
+        
+        fetchInformation(informationList: list)
+    }
+    
+    private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DateType) {
         //Create the time interval
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
         

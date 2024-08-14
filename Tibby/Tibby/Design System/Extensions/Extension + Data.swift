@@ -21,6 +21,6 @@ extension Date {
     }
 }
 
-enum DataType {
+enum DateType {
     case day, week
 }
