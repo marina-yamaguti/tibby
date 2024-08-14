@@ -20,7 +20,8 @@ struct SplashScreen: View {
             }
             else {
                 //change this to initializa with the right tibby
-                HomeView(tibby: service.getAllTibbies().first!)
+                
+                HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
             }
         } else {
             VStack {

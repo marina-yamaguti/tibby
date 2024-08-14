@@ -171,6 +171,8 @@ struct KitchenView: View {
         }.background(.tibbyBaseWhite)
             .navigationBarBackButtonHidden(true)
             .onAppear {
+                print(service.getAllFoods().count)
+                print(service.getFoodsFromUser().count)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     showSprite = true
                 }

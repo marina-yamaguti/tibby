@@ -18,7 +18,7 @@ protocol ServiceProtocol {
     func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, level: Int?, xp: Int?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?)
 
     // Accessory Operations
-    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String, price: Int)
+    func createAccessory(id: UUID, tibbyId: UUID?, name: String, image: String, price: Int, category: String)
     func deleteAccessory(accessory: Accessory)
     func addAccessoryToTibby(tibbyId: UUID, accessory: Accessory)
     func removeAccessoryFromTibby(accessory: Accessory)
