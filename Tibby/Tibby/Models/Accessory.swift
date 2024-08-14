@@ -27,6 +27,9 @@ final class Accessory {
     /// The price for this Item
     var price: Int
     
+    /// The category this item belongs to
+    var category: String
+    
     /// Initializes a new accessory with the specified attributes.
     ///
     /// - Parameters:
@@ -35,12 +38,14 @@ final class Accessory {
     ///   - name: The name of the accessory.
     ///   - image: The image associated with the accessory.
     ///   - price: The price for this Item
-    init(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int) {
+    ///   - category: The
+    init(id: UUID, tibbyId: UUID? = nil, name: String, image: String, price: Int, category: String) {
         self.id = id
         self.tibbyId = tibbyId
         self.name = name
         self.image = image
         self.price = price
+        self.category = category
     }
 }
 
