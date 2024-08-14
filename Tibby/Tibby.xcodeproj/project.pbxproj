@@ -43,6 +43,7 @@
 		A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */; };
 		A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D12C6BDB6000762A11 /* TibbySelectedViewModel.swift */; };
 		A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */; };
+		A50E92D62C6CFE3300762A11 /* TestSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D52C6CFE3300762A11 /* TestSelected.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
@@ -217,6 +218,7 @@
 		A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyProfileIcon.swift; sourceTree = "<group>"; };
 		A50E92D12C6BDB6000762A11 /* TibbySelectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySelectedViewModel.swift; sourceTree = "<group>"; };
 		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
+		A50E92D52C6CFE3300762A11 /* TestSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelected.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
@@ -538,7 +540,6 @@
 				A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */,
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
-
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -579,6 +580,7 @@
 				FD45F2652C63F4070046DE49 /* TibbySelectionView.swift */,
 				A50E92C92C6BC92200762A11 /* TibbySelectedView.swift */,
 				A50E92D12C6BDB6000762A11 /* TibbySelectedViewModel.swift */,
+				A50E92D52C6CFE3300762A11 /* TestSelected.swift */,
 			);
 			path = TibbySelection;
 			sourceTree = "<group>";
@@ -1036,6 +1038,7 @@
 				A50E92CC2C6BC9E300762A11 /* TibbyRarityLabel.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
+				A50E92D62C6CFE3300762A11 /* TestSelected.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,
 				FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */,
 			);

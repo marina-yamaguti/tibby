@@ -62,11 +62,17 @@ struct TibbySelectionView: View {
                                 LazyVGrid(columns: columns, spacing: 8) {
                                     ForEach(collectionTibbies) { tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL))) {
+                                                ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
+                                                    .padding()
+                                                    .padding()
+                                            }
                                         } else {
-                                            ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL))) {
+                                                ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
+                                                    .padding()
+                                                    .padding()
+                                            }
                                         }
                                     }
                                 }.background(collection.color)
@@ -80,15 +86,15 @@ struct TibbySelectionView: View {
                 }
             }
         }
-            .background(Color.tibbyBaseWhite)
-            .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
-            .animation(.easeInOut, value: showSheet)
-            .navigationBarBackButtonHidden(true) 
+        .background(Color.tibbyBaseWhite)
+        .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
+        .animation(.easeInOut, value: showSheet)
+        .navigationBarBackButtonHidden(true)
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
-        var allTibbies = service.getAllTibbies()
+        let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked }
         return tibbies
     }

@@ -13,7 +13,13 @@
     "<" : {
 
     },
+    "Add %@" : {
+
+    },
     "Before you start" : {
+
+    },
+    "Click to equip" : {
 
     },
     "Daily Energy Goal" : {
@@ -23,6 +29,12 @@
 
     },
     "Daily Steps" : {
+
+    },
+    "description" : {
+
+    },
+    "Given Name" : {
 
     },
     "happy" : {
@@ -61,6 +73,15 @@
     "quantity: %lld" : {
 
     },
+    "rarity" : {
+
+    },
+    "Rarity: %@" : {
+
+    },
+    "Remove" : {
+
+    },
     "settings" : {
 
     },
@@ -73,6 +94,12 @@
     "So, to recap..." : {
 
     },
+    "species" : {
+
+    },
+    "Species: %@" : {
+
+    },
     "Start" : {
 
     },
@@ -83,7 +110,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
