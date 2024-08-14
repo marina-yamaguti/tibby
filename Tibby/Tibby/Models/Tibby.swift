@@ -76,9 +76,26 @@ enum TibbySpecie: String {
 
 ///enum to represent the types of nodes in the SpriteKit View
 enum NodeType {
-    case tibby
-    case accessory
+    case tibby, accessory
 }
+
+///enum to represent all the tibby styles
+enum TibbyStatus {
+    case hungry, sleep, happy
+    
+    ///TIME in SECONDS to decrease 1 point in the Tibby necessity
+    func timeDecrease() -> Double {
+        switch self {
+        case .hungry:
+            return 172
+        case .sleep:
+            return 432
+        case .happy:
+            return 172
+        }
+    }
+}
+
 
 /// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
 protocol TibbyProtocol {
