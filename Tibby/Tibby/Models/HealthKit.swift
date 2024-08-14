@@ -9,6 +9,36 @@ import Foundation
 import HealthKit
 import UIKit
 
+enum SampleType {
+    case workoutCalories, workoutTime, steps, energyBurned
+    
+    func getUnit() -> HKUnit? {
+        switch self {
+        case .workoutCalories:
+            return .kilocalorie()
+        case .workoutTime:
+            return nil
+        case .steps:
+            return .count()
+        case .energyBurned:
+            return .kilocalorie()
+        }
+    }
+    
+    func getSample() -> HKSampleType {
+        switch self {
+        case .workoutCalories:
+            return HKSampleType.workoutType()
+        case .workoutTime:
+            return HKSampleType.workoutType()
+        case .steps:
+            return HKQuantityType(.stepCount)
+        case .energyBurned:
+            return HKQuantityType(.activeEnergyBurned)
+        }
+    }
+}
+
 class HealthManager: ObservableObject {
     ///Storage of the health data
     var healthStore: HKHealthStore?
@@ -40,14 +70,22 @@ class HealthManager: ObservableObject {
     //Asking for permission to read health data
     func authorizationToWriteInHealthStore() {
         // Types of samples you want to use
-        let healthTypes: Set = [
+        let healthTypesWrite: Set = [
+            HKQuantityType(.stepCount),
+            HKQuantityType(.activeEnergyBurned),
+            HKSampleType.workoutType(),
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        ]
+        
+        let healthTypesRead: Set = [
             HKQuantityType(.stepCount),
             HKQuantityType(.activeEnergyBurned),
             HKSampleType.workoutType()
         ]
         
         //Request authorization for writing a certain type
-        healthStore?.requestAuthorization(toShare: [], read: healthTypes, completion: { success, error in
+        healthStore?.requestAuthorization(toShare: healthTypesWrite, read: healthTypesRead, completion: { success, error in
             if success {
                 //save sample here or call method that saves sample
             } else {
@@ -63,108 +101,136 @@ class HealthManager: ObservableObject {
     
     //fetch all the HealthKit informations that are used
     func fetchAllInformation() {
-        getHealthInfo(startDate: .startOfWeek, sample: HKSampleType.workoutType(), sampleUnit: .kilocalorie(), varName: "workoutCaloriesWeek")
-        getHealthInfo(startDate: .startOfWeek, sample: HKSampleType.workoutType(), varName: "workoutTimeWeek")
-        getHealthInfo(startDate: .startOfDay, sample: HKSampleType.workoutType(), sampleUnit: .kilocalorie(), varName: "workoutCaloriesDay")
-        getHealthInfo(startDate: .startOfDay, sample: HKSampleType.workoutType(), varName: "workoutTimeDay")
-        getHealthInfo(startDate: .startOfWeek, sample: HKQuantityType(.stepCount), sampleUnit: .count(), varName: "stepsWeek")
-        getHealthInfo(startDate: .startOfDay, sample: HKQuantityType(.stepCount), sampleUnit: .count(), varName: "stepsDay")
-        getHealthInfo(startDate: .startOfWeek, sample: HKQuantityType(.activeEnergyBurned), sampleUnit: .kilocalorie(), varName: "caloriesWeek")
-        getHealthInfo(startDate: .startOfDay, sample: HKQuantityType(.activeEnergyBurned), sampleUnit: .kilocalorie(), varName: "caloriesDay")
+        getHealthInfo(startDate: .startOfWeek, sample: .workoutCalories, frequency: .week)
+        getHealthInfo(startDate: .startOfWeek, sample: .workoutTime, frequency: .week)
+        getHealthInfo(startDate: .startOfDay, sample: .workoutCalories, frequency: .day)
+        getHealthInfo(startDate: .startOfDay, sample: .workoutTime, frequency: .day)
+        getHealthInfo(startDate: .startOfWeek, sample: .steps, frequency: .week)
+        getHealthInfo(startDate: .startOfDay, sample: .steps, frequency: .day)
+        getHealthInfo(startDate: .startOfWeek, sample: .energyBurned, frequency: .week)
+        getHealthInfo(startDate: .startOfDay, sample: .energyBurned, frequency: .day)
     }
     
-    private func getHealthInfo(startDate: Date, sample: HKSampleType, sampleUnit: HKUnit? = nil, varName: String) {
+    private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DataType) {
         //Create the time interval
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
         
         var query: HKQuery? = nil
         var count: Int = 0
         
-        if sample.isEqual(HKSampleType.workoutType()) {
+        switch sample {
+        case .workoutCalories:
             //Create the Query to handle with the information
-            query = HKSampleQuery(sampleType: sample, predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
+            query = HKSampleQuery(sampleType: sample.getSample(), predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
                 guard let workouts = sampleList as? [HKWorkout], error == nil else {
                     print("error fetching data")
-                    if varName == "workoutCaloriesWeek" {
-                        self.workoutCaloriesWeek = -1
-                    }
-                    else if varName == "workoutCaloriesDay" {
+                    if frequency == .day {
                         self.workoutCaloriesDay = -1
                     }
-                    else if varName == "workoutTimeWeek" {
+                    else if frequency == .week {
+                        self.workoutCaloriesWeek = -1
+                    }
+                    return
+                }
+                //Sum the workouts' information
+                for workout in workouts {
+                    count += Int(round((workout.totalEnergyBurned?.doubleValue(for: sample.getUnit()!)) ?? 0))
+                }
+                
+                print("Jorge", sample, count)
+                
+                //Save the workouts' information
+                DispatchQueue.main.async {
+                    if frequency == .day {
+                        self.workoutCaloriesDay = count
+                    }
+                    else if frequency == .week {
+                        self.workoutCaloriesWeek = count
+                    }
+                }
+                
+            })
+            
+        case .workoutTime:
+            //Create the Query to handle with the information
+            query = HKSampleQuery(sampleType: sample.getSample(), predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
+                guard let workouts = sampleList as? [HKWorkout], error == nil else {
+                    print("error fetching data")
+                    if frequency == .day {
                         self.workoutTimeWeek = -1
                     }
-                    else if varName == "workoutTimeDay" {
+                    else if frequency == .week {
                         self.workoutTimeDay = -1
                     }
                     return
                 }
                 //Sum the workouts' information
                 for workout in workouts {
-                    if sampleUnit == .kilocalorie() {
-                        count += Int(round((workout.totalEnergyBurned?.doubleValue(for: sampleUnit!)) ?? 0))
-                    }
-                    else if sampleUnit ==  nil {
-                        count += Int(workout.duration/60)
-                    }
+                    count += Int(workout.duration/60)
                 }
                 
-                print("Jorge", sample, sampleUnit, count)
+                print("Jorge", sample, count)
                 
                 //Save the workouts' information
                 DispatchQueue.main.async {
-                    if varName == "workoutCaloriesWeek" {
-                        self.workoutCaloriesWeek = count
-                    }
-                    else if varName == "workoutCaloriesDay" {
-                        self.workoutCaloriesDay = count
-                    }
-                    else if varName == "workoutTimeWeek" {
-                        self.workoutTimeWeek = count
-                    }
-                    else if varName == "workoutTimeDay" {
+                    if frequency == .day {
                         self.workoutTimeDay = count
+                    }
+                    else if frequency == .week {
+                        self.workoutTimeWeek = count
                     }
                 }
                 
             })
-        }
-        else {
+        case .steps:
             //Create the Query to handle with the information
-            query = HKStatisticsQuery(quantityType: sample as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
+            query = HKStatisticsQuery(quantityType: sample.getSample() as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
                 guard let quantity = result?.sumQuantity(), error == nil else {
                     print("error fetching data")
-                    if varName == "caloriesWeek" {
-                        self.caloriesWeek = -1
-                    }
-                    else if varName == "caloriesDay" {
-                        self.caloriesDay = -1
-                    }
-                    else if varName == "stepsWeek" {
-                        self.stepsWeek = -1
-                    }
-                    else if varName == "stepsDay" {
+                    if frequency == .day {
                         self.stepsDay = -1
+                    }
+                    else if frequency == .week {
+                        self.stepsWeek = -1
                     }
                     return
                 }
                 //Save the steps/calories' information
-                count = Int(quantity.doubleValue(for: sampleUnit!))
+                count = Int(quantity.doubleValue(for: sample.getUnit()!))
                 DispatchQueue.main.async {
-                    if varName == "caloriesWeek" {
-                        self.caloriesWeek = count
-                    }
-                    else if varName == "caloriesDay" {
-                        self.caloriesDay = count
-                    }
-                    else if varName == "stepsWeek" {
-                        self.stepsWeek = count
-                    }
-                    else if varName == "stepsDay" {
+                    if frequency == .day {
                         self.stepsDay = count
                     }
+                    else if frequency == .week {
+                        self.stepsWeek = count
+                    }
                 }
-                
+                print("Jorge", sample, count)
+            })
+            
+        case .energyBurned:
+            //Create the Query to handle with the information
+            query = HKStatisticsQuery(quantityType: sample.getSample() as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
+                guard let quantity = result?.sumQuantity(), error == nil else {
+                    print("error fetching data")
+                    if frequency == .day {
+                        self.caloriesDay = -1
+                    }
+                    else if frequency == .week {
+                        self.caloriesWeek = -1
+                    }
+                    return
+                }
+                //Save the steps/calories' information
+                count = Int(quantity.doubleValue(for: sample.getUnit()!))
+                DispatchQueue.main.async {
+                    if frequency == .day {
+                        self.caloriesDay = count
+                    }
+                    else if frequency == .week {
+                        self.caloriesWeek = count
+                    }
+                }
                 print("Jorge", sample, count)
             })
         }
