@@ -13,6 +13,7 @@ struct TibbySelectionView: View {
     @State var tibbies: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
+    
     var body: some View {
         let columns = [
             GridItem(.flexible()),

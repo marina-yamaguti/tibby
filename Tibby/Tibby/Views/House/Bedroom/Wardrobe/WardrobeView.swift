@@ -19,7 +19,7 @@ struct WardrobeView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    @State var category = "All"
+    @State var category: String = "All"
     let categories = ["All","Head", "Body"]
     @Binding var wardrobeIsOpen: Bool
     
@@ -32,15 +32,16 @@ struct WardrobeView: View {
             VStack {
                 
                 HStack(alignment: .top) {
-                    ActionButton(image: Symbols.xMark.rawValue, action: {})
+                    ActionButton(image: Symbols.xMark.rawValue, action: {}).hidden()
                     Spacer()
                     ActionButton(image: Symbols.xMark.rawValue, action: {wardrobeIsOpen.toggle()})
                 }.padding()
                 SegmentedPicker(selection: $category, categories: categories)
                     .padding(.horizontal)
+                
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(service.getAllAccessories()?.sorted(by: {$0.name < $1.name}) ?? []) { accessory in
+                        ForEach(getFilteredList()) { accessory in
                             Button {
                                 tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                             } label: {
@@ -65,6 +66,8 @@ struct WardrobeView: View {
                     }.padding()
                 }.scrollIndicators(.hidden)
                     .clipShape(RoundedRectangle(cornerRadius: 45))
+                
+                
             }.padding(.top, 100)
             VStack {
                 SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 200, height: 200)
@@ -92,42 +95,58 @@ struct WardrobeView: View {
                 }
             }
         })
+        //        .onChange(of: category, {
+        //            print(category)
+        //        })
         .padding(.top, 40)
     }
+    private func getFilteredList() -> [Accessory] {
+        var list: [Accessory] = []
+        if let filteredList = service.getAllAccessories() {
+            list = filteredList
+        }
+        if category == "All" {
+            return list
+        }
+        list = list.filter({$0.category == category})
+        return list
+    }
+    
+    
 }
 
 struct SegmentedPicker: UIViewRepresentable {
     @Binding var selection: String
     var categories: [String]
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-
+    
     func makeUIView(context: Context) -> UISegmentedControl {
         let segmentedControl = UISegmentedControl(items: categories)
         segmentedControl.addTarget(context.coordinator, action: #selector(Coordinator.updateSelection(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentTintColor = UIColor(Color.tibbyBaseWhite)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(Color.tibbyBaseBlack)], for: .selected)
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(Color.tibbyBaseWhite)], for: .normal)
-//        segmentedControl.setTitleTextAttributes([.font: UIFont.preferredFont(from: Font.typography(.headline)) ], for: .normal)
-//        segmentedControl.setTitleTextAttributes([.font: UIFont.preferredFont(from: Font.typography(.label))], for: .selected)
+        //        segmentedControl.setTitleTextAttributes([.font: UIFont.preferredFont(from: Font.typography(.headline)) ], for: .normal)
+        //        segmentedControl.setTitleTextAttributes([.font: UIFont.preferredFont(from: Font.typography(.label))], for: .selected)
         return segmentedControl
     }
-
+    
     func updateUIView(_ uiView: UISegmentedControl, context: Context) {
         if let index = categories.firstIndex(of: selection) {
             uiView.selectedSegmentIndex = index
         }
     }
-
+    
     class Coordinator: NSObject {
         var parent: SegmentedPicker
-
+        
         init(_ parent: SegmentedPicker) {
             self.parent = parent
         }
-
+        
         @objc func updateSelection(_ sender: UISegmentedControl) {
             let index = sender.selectedSegmentIndex
             parent.selection = parent.categories[index]
@@ -136,9 +155,9 @@ struct SegmentedPicker: UIViewRepresentable {
 }
 
 extension UIFont {
-  class func preferredFont(from font: Font) -> UIFont {
-      let style: UIFont.TextStyle =
-      switch font {
+    class func preferredFont(from font: Font) -> UIFont {
+        let style: UIFont.TextStyle =
+        switch font {
         case .largeTitle:   .largeTitle
         case .title:        .title1
         case .title2:       .title2
@@ -150,7 +169,7 @@ extension UIFont {
         case .caption2:     .caption2
         case .footnote:     .footnote
         default: /*.body */ .body
-      }
-      return  UIFont.preferredFont(forTextStyle: style)
+        }
+        return  UIFont.preferredFont(forTextStyle: style)
     }
- }
+}
