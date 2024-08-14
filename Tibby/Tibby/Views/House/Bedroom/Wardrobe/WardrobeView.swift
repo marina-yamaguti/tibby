@@ -32,9 +32,9 @@ struct WardrobeView: View {
             VStack {
                 
                 HStack(alignment: .top) {
-                    ActionButton(image: Symbols.xMark.rawValue, action: {})
+                    ActionButton(image: TibbySymbols.xMark.rawValue, action: {})
                     Spacer()
-                    ActionButton(image: Symbols.xMark.rawValue, action: {wardrobeIsOpen.toggle()})
+                    ActionButton(image: TibbySymbols.xMark.rawValue, action: {wardrobeIsOpen.toggle()})
                 }.padding()
                 SegmentedPicker(selection: $category, categories: categories)
                     .padding(.horizontal)

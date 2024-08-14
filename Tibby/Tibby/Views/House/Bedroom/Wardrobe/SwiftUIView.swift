@@ -20,7 +20,7 @@ struct SwiftUIView: View {
     var body: some View {
         ZStack {
             HStack(spacing: 30) {
-                Image(Symbols.play.rawValue)
+                Image(TibbySymbols.play.rawValue)
                 Text("Play")
                     .font(.typography(.title)).foregroundColor( alterState ? Color.tibbyBaseBlack : (tap ? Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)): Color(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))))
             }

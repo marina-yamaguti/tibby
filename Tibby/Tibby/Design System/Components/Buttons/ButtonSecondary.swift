@@ -2,24 +2,24 @@
 //  ButtonSecondary.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 17/07/24.
+//  Created by Natalia Dal Pizzol on 12/08/24.
 //
 
+import Foundation
 import SwiftUI
 
 struct ButtonSecondary: ButtonStyle {
-    /// Create the button body with the specified style
+    var bgColor: Color 
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .frame(width: 20, height: 20)
-            .foregroundColor(configuration.isPressed ? .tibbyBaseBlack : .tibbyBaseBlack)
-            .padding()
-            .background(.tibbyBaseBlue)
-            .cornerRadius(20)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color(configuration.isPressed ? .tibbyBaseBlue : .tibbyBaseBlack), lineWidth: 3)
+            .padding(8)
+            .background(
+                Circle()
+                    .fill(bgColor.opacity(0.5))
             )
+            .animation(.linear(duration: 0), value: configuration.isPressed)
+        
+        
     }
 }
