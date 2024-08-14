@@ -70,7 +70,7 @@ struct KitchenView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ActionButton(image: Symbols.carrot.rawValue, action: {openSelector.toggle()})
+                        ActionButton(image: TibbySymbols.carrot.rawValue, action: {openSelector.toggle()})
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
                 Image("plate")

@@ -63,7 +63,7 @@ struct GardenView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ActionButton(image: Symbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
+                        ActionButton(image: TibbySymbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
             }.padding().brightness(constants.brightness)

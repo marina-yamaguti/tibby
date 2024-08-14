@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Symbols: String {
+enum TibbySymbols: String {
     case play = "TibbySymbolPlay"
     case xMark = "TibbySymbolXMark"
     case sleepy = "TibbySymbolSleepy"
