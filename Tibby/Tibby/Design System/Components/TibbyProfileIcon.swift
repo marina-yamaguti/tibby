@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TibbyProfileIcon: View {
     @State var icon: String
-    @State var status: SelectionStatus
+    @Binding var status: SelectionStatus
     var action: () -> Void
     
     var body: some View {
@@ -66,6 +66,6 @@ struct TibbyProfileIcon: View {
     }
 }
 
-#Preview {
-    TibbyProfileIcon(icon: "shark1Icon", status: SelectionStatus.selected, action: { print("selected tibby")})
-}
+//#Preview {
+//    TibbyProfileIcon(icon: "shark1Icon", status: SelectionStatus.selected, action: { print("selected tibby")})
+//}

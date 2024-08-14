@@ -10,6 +10,15 @@
     "%lld" : {
 
     },
+    "<" : {
+
+    },
+    "Add %@" : {
+
+    },
+    "Before you start" : {
+
+    },
     "Click to equip" : {
 
     },
@@ -58,6 +67,9 @@
     "rarity" : {
 
     },
+    "Remove" : {
+
+    },
     "settings" : {
 
     },
@@ -71,7 +83,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

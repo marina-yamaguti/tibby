@@ -24,7 +24,7 @@ struct TibbySpeciesLabel: View {
                 Text(species)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.body))
+                    .font(.typography(FontStyle.label))
                     .foregroundStyle(Color.tibbyBaseBlack)
             }
             .padding()
