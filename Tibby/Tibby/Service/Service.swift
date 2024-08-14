@@ -50,6 +50,21 @@ class Service: ObservableObject, ServiceProtocol {
         return nil
     }
     
+    /// Retrieves a Tibby object by its species.
+    func getTibbyBySpecies(species: String) -> Tibby? {
+        do {
+            let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
+            for tibby in tibbies {
+                if tibby.species == species {
+                    return tibby
+                }
+            }
+        } catch {
+            print("Error getting Tibby: \(error)")
+        }
+        return nil
+    }
+    
     /// Retrieves all Tibbies associated with a given user ID.
     func getTibbiesByUserID(userID: UUID) -> [Tibby] {
         var userTibbies: [Tibby] = []
@@ -497,7 +512,7 @@ class Service: ObservableObject, ServiceProtocol {
         self.createTibby(id: UUID(), ownerId: nil, name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
         self.createTibby(id: UUID(), ownerId: nil, name: "Roger",rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
+//        self.createTibby(id: UUID(), ownerId: nil, name: "Nilse", rarity: "Common", details: "", personality: "", species: "dog", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "House Series")
         
         //Accessories
         self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "hat", price: 10, category: "Head")
