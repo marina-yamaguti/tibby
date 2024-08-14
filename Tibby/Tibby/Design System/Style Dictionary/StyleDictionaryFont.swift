@@ -14,6 +14,7 @@ public enum FontStyle {
     case headline
     case body
     case label
+    case labelPixel
     case title
     
     /// The font name associated with the font style.
@@ -23,6 +24,7 @@ public enum FontStyle {
         case .headline: return "Dogica Pixel"
         case .body: return "Biryani"
         case .label: return "Biryani"
+        case .labelPixel: return "Dogica Pixel"
         case .title: return "Dogica Pixel"
         }
     }
@@ -34,6 +36,7 @@ public enum FontStyle {
         case .headline: return 28
         case .body: return 17
         case .label: return 12
+        case .labelPixel: return 12
         case .title: return 20
         }
     }
@@ -45,6 +48,7 @@ public enum FontStyle {
         case .headline: return .title
         case .body: return .headline
         case .label: return .caption
+        case .labelPixel: return .caption
         case .title: return .title3
         }
     }

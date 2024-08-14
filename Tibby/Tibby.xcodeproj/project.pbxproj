@@ -65,6 +65,11 @@
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
+		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
+		D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED12C6D1B67009C208C /* SettingsView.swift */; };
+		D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED32C6D1BAC009C208C /* PageHeader.swift */; };
+		D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED52C6D21C5009C208C /* SettingsComponent.swift */; };
+		D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED72C6D25CC009C208C /* SettingsViewModel.swift */; };
 		D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
@@ -73,7 +78,6 @@
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
 		FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2622C629E4A0046DE49 /* Rarity.swift */; };
 		FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2652C63F4070046DE49 /* TibbySelectionView.swift */; };
-		FD45F26A2C6530740046DE49 /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2692C6530740046DE49 /* SheetWithCircle.swift */; };
 		FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F26C2C65716B0046DE49 /* TibbyBook.swift */; };
 		FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F26E2C667D900046DE49 /* CustomBackButton.swift */; };
 		FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */; };
@@ -238,6 +242,11 @@
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
+		D896AED12C6D1B67009C208C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D896AED32C6D1BAC009C208C /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
+		D896AED52C6D21C5009C208C /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
+		D896AED72C6D25CC009C208C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySymbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -246,7 +255,6 @@
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		FD45F2622C629E4A0046DE49 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
 		FD45F2652C63F4070046DE49 /* TibbySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySelectionView.swift; sourceTree = "<group>"; };
-		FD45F2692C6530740046DE49 /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		FD45F26C2C65716B0046DE49 /* TibbyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyBook.swift; sourceTree = "<group>"; };
 		FD45F26E2C667D900046DE49 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroNavigationBar.swift; sourceTree = "<group>"; };
@@ -352,6 +360,8 @@
 				FDFF4ABD2C3C842100831968 /* Interaction Example */,
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
+				D896AED12C6D1B67009C208C /* SettingsView.swift */,
+				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -525,6 +535,7 @@
 		A5126BDB2C4987D6008703E7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */,
 				D81284BE2C6BCC100088A7B9 /* CustomTextField.swift */,
 				D81284B42C6AE9CD0088A7B9 /* ProgressIndicator.swift */,
 				D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */,
@@ -539,9 +550,10 @@
 				A5126BE02C498A59008703E7 /* Money */,
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
-				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
+				D896AED32C6D1BAC009C208C /* PageHeader.swift */,
+				D896AED52C6D21C5009C208C /* SettingsComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -549,15 +561,11 @@
 		A5126BDC2C4987E2008703E7 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
 				D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */,
 				D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */,
-				D816945C2C49B0A50036BD03 /* TabBarButton.swift */,
 				FD45F26E2C667D900046DE49 /* CustomBackButton.swift */,
-				D8C53A972C482E2000CAB009 /* NeedsButtonView.swift */,
-				D8B7D1AA2C485B5800A1739E /* NeedsButtonViewModel.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
-				D816945C2C49B0A50036BD03 /* ButtonSecondary.swift */,
+				D816945C2C49B0A50036BD03 /* TabBarButton.swift */,
 				FD45F2772C6BCB960046DE49 /* ActionButton.swift */,
 			);
 			path = Buttons;
@@ -574,7 +582,6 @@
 		A5126BE02C498A59008703E7 /* Money */ = {
 			isa = PBXGroup;
 			children = (
-				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
 				A5126BDE2C498842008703E7 /* MoneyView.swift */,
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
@@ -1008,14 +1015,18 @@
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
+				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
+				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				FD45F2782C6BCB960046DE49 /* ActionButton.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */,
+				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
+				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				D816944F2C49A4720036BD03 /* AcessoryCard.swift in Sources */,
@@ -1023,7 +1034,6 @@
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81694492C49A3D20036BD03 /* StyledPicker.swift in Sources */,
 				D81284BB2C6BC9010088A7B9 /* OnboardingViewModel.swift in Sources */,
-				FD45F26A2C6530740046DE49 /* SheetWithCircle.swift in Sources */,
 				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,
@@ -1040,6 +1050,7 @@
 				D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */,
 				FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
+				D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
