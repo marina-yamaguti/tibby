@@ -11,7 +11,7 @@ struct SplashScreen: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
     @State var canProceed: Bool = false
-    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? false //true
     
     var body: some View {
         if canProceed {
@@ -20,8 +20,11 @@ struct SplashScreen: View {
             }
             else {
                 //change this to initializa with the right tibby
-                
-                HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
+                if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
+                    HomeView(tibby: currentTibby)
+                } else {
+                    HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
+                }
             }
         } else {
             VStack {

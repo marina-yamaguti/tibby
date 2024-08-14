@@ -48,12 +48,12 @@ struct HomeView: View {
                             navigate.toggle()
                         }) {
                             HStack {
-                                Image(Symbols.play.rawValue)
+                                Image(TibbySymbols.play.rawValue)
                                     .padding(.trailing, 26)
                                 Text("Play")
                             }
                         }
-                        .buttonPrimary()
+                        .buttonPrimary(bgColor: .tibbyBaseBlue)
                         .navigationDestination(isPresented: $navigate) {
                             NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                         }

@@ -59,9 +59,9 @@ struct BedroomView: View {
                 }.frame(width: 300, height: 300) //tibby
                 Spacer()
                 HStack {
-                    ActionButton(image: Symbols.lightBulb.rawValue, action: {vm.lightsOff(tibby: tibby)})
+                    ActionButton(image: TibbySymbols.lightBulb.rawValue, action: {vm.lightsOff(tibby: tibby)})
                     Spacer()
-                    ActionButton(image: Symbols.hanger.rawValue, action: {wardrobeIsOpen.toggle()})
+                    ActionButton(image: TibbySymbols.hanger.rawValue, action: {wardrobeIsOpen.toggle()})
                 }.padding(.bottom, 32).padding(.horizontal,20)
             }
             if wardrobeIsOpen {

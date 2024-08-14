@@ -32,30 +32,60 @@ struct WardrobeView: View {
             VStack {
                 
                 HStack(alignment: .top) {
-                    ActionButton(image: Symbols.xMark.rawValue, action: {}).hidden()
+                    ActionButton(image: TibbySymbols.xMark.rawValue, action: {}).hidden()
                     Spacer()
-                    ActionButton(image: Symbols.xMark.rawValue, action: {wardrobeIsOpen.toggle()})
+                    ActionButton(image: TibbySymbols.xMark.rawValue, action: {wardrobeIsOpen.toggle()})
                 }.padding()
                 SegmentedPicker(selection: $category, categories: categories)
                     .padding(.horizontal)
                 
                 ScrollView {
                     LazyVGrid(columns: columns) {
+                        
+                        if selectedAccessory == nil {
+                            Button(action: {
+                                removeAccessory()
+                            }, label: {
+                                ItemCard(name: "None", status:.selected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
+                                    .frame(width: 150, height: 150)
+                                    .padding(.bottom)
+                                    .onTapGesture {
+                                        removeAccessory()
+                                    }
+                                
+                            })
+                        } else {
+                            Button(action: {
+                                removeAccessory()
+                            }, label: {
+                                ItemCard(name: "None", status: .unselected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
+                                    .frame(width: 150, height: 150)
+                                    .padding(.bottom)
+                                    .onTapGesture {
+                                        removeAccessory()
+                                    }
+                                
+                            })
+                        }
                         ForEach(getFilteredList()) { accessory in
                             Button {
                                 tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                selectedAccessory = accessory
                             } label: {
                                 if tibby.id == accessory.tibbyId {
                                     ItemCard(name: accessory.name, status: .selected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
                                         .frame(width: 150, height: 150)
+                                        .padding(.bottom)
                                 }
                                 else {
                                     ItemCard(name: accessory.name, status: .unselected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
                                         .frame(width: 150, height: 150)
+                                        .padding(.bottom)
                                 }
                             }
                             .onChange(of: selectedAccessory, {
                                 // Observes changes in the selected Tibby to update accessory interactions.
+                                print(selectedAccessory)
                                 if tibby.id == accessory.tibbyId {
                                     tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                                 }
@@ -71,7 +101,6 @@ struct WardrobeView: View {
             }.padding(.top, 100)
             VStack {
                 SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 200, height: 200)
-                //                .offset(y: 100)
                 Spacer()
             }
         }
@@ -95,9 +124,6 @@ struct WardrobeView: View {
                 }
             }
         })
-        //        .onChange(of: category, {
-        //            print(category)
-        //        })
         .padding(.top, 40)
     }
     private func getFilteredList() -> [Accessory] {
@@ -106,10 +132,20 @@ struct WardrobeView: View {
             list = filteredList
         }
         if category == "All" {
-            return list
+            return list.sorted(by: {$0.name < $1.name})
         }
-        list = list.filter({$0.category == category})
+        list = list.filter({$0.category == category}).sorted(by: {$0.name < $1.name})
         return list
+    }
+    
+    private func removeAccessory() {
+        if let accessories = service.getAllAccessories() {
+            for accessory in accessories {
+                tibbyView.removeAccessory(service)
+                accessory.tibbyId = nil
+                selectedAccessory = nil
+            }
+        }
     }
     
     
