@@ -23,7 +23,7 @@ struct ButtonPrimary: ButtonStyle {
                 
             }
             .padding(.bottom, configuration.isPressed ? 0 : 12)
-            .animation(.linear(duration: 0), value: configuration.isPressed)
+            .animation(.linear(duration: 0.1), value: configuration.isPressed)
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
                     .fill(shadowColor)
@@ -31,6 +31,6 @@ struct ButtonPrimary: ButtonStyle {
             }
             .overlay(GradientBackgroundView(bgColor: bgColor, cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
-            .animation(.linear(duration: 0), value: configuration.isPressed)
+            .animation(.linear(duration: 0.1), value: configuration.isPressed)
     }
 }
