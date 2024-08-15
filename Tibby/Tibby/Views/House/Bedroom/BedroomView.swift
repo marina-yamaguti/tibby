@@ -34,7 +34,8 @@ struct BedroomView: View {
             
             
             VStack {
-                StatusBar().padding(.horizontal).padding(.top, 24)
+                StatusBar(tibby: tibby, necessityName: "sleep")
+                    .padding(.horizontal).padding(.top, 24)
                 Spacer()
                 ZStack {
                     SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
