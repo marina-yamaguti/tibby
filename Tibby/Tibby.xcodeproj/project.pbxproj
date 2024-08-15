@@ -14,7 +14,7 @@
 		7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59222C459E62004FFD4B /* Navigation.swift */; };
 		7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95859C2C405C7900780558 /* BedroomExemple.swift */; };
 		7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D3C2C45AD68002715F5 /* HomeView.swift */; };
-		7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D402C484FB5002715F5 /* Configurations.swift */; };
+		7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D402C484FB5002715F5 /* HapticManager.swift */; };
 		7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */; };
 		7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CC2C63F3D0001D7348 /* OnboardingView1.swift */; };
 		7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CF2C63F400001D7348 /* OnboardingView2.swift */; };
@@ -76,6 +76,8 @@
 		D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED32C6D1BAC009C208C /* PageHeader.swift */; };
 		D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED52C6D21C5009C208C /* SettingsComponent.swift */; };
 		D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED72C6D25CC009C208C /* SettingsViewModel.swift */; };
+		D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AEDB2C6D4655009C208C /* NotificationManager.swift */; };
+		D8B6D2E02C6E3125008A7702 /* TibbyHappyTheme.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */; };
 		D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */; };
 		D8B7D1A92C48588D00A1739E /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A82C48588D00A1739E /* CustomSheet.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
@@ -200,7 +202,7 @@
 		7C7B59222C459E62004FFD4B /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		7C95859C2C405C7900780558 /* BedroomExemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomExemple.swift; sourceTree = "<group>"; };
 		7CC14D3C2C45AD68002715F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		7CC14D402C484FB5002715F5 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		7CC14D402C484FB5002715F5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
 		7CE131CC2C63F3D0001D7348 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		7CE131CF2C63F400001D7348 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
@@ -260,6 +262,8 @@
 		D896AED32C6D1BAC009C208C /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
 		D896AED52C6D21C5009C208C /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
 		D896AED72C6D25CC009C208C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D896AEDB2C6D4655009C208C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibbyHappyTheme.wav; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySymbols.swift; sourceTree = "<group>"; };
 		D8B7D1A82C48588D00A1739E /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
 				D896AED12C6D1B67009C208C /* SettingsView.swift */,
+				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
 				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
 			);
 			path = Views;
@@ -567,11 +572,8 @@
 				D816944A2C49A3FE0036BD03 /* TibbyNameComponent.swift */,
 				A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */,
 				D816944E2C49A4720036BD03 /* AcessoryCard.swift */,
-				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
-				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
 				D896AED32C6D1BAC009C208C /* PageHeader.swift */,
 				D896AED52C6D21C5009C208C /* SettingsComponent.swift */,
-				FD45F2692C6530740046DE49 /* SheetWithCircle.swift */,
 				A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */,
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
@@ -691,7 +693,8 @@
 				FDCD3F502C34EEFE0075E0C7 /* Service.swift */,
 				FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */,
 				7CF056C92C3C774D006039A4 /* Constants.swift */,
-				7CC14D402C484FB5002715F5 /* Configurations.swift */,
+				7CC14D402C484FB5002715F5 /* HapticManager.swift */,
+				D896AEDB2C6D4655009C208C /* NotificationManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
 				A50E92C62C6535E300762A11 /* Biryani-Regular.ttf in Resources */,
 				A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */,
+				D8B6D2E02C6E3125008A7702 /* TibbyHappyTheme.wav in Resources */,
 				D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1032,7 @@
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
+				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
 				D82337D22C6AAA2E006BF8BD /* ButtonLabel.swift in Sources */,
@@ -1049,7 +1054,7 @@
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				FD45F2782C6BCB960046DE49 /* ActionButton.swift in Sources */,
-				7CC14D412C484FB5002715F5 /* Configurations.swift in Sources */,
+				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
@@ -1084,7 +1089,7 @@
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */,
 				A50E92CC2C6BC9E300762A11 /* TibbyRarityLabel.swift in Sources */,
-				D8B7D1A72C483A9E00A1739E /* Symbols.swift in Sources */,
+				D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
 				D81284B52C6AE9CD0088A7B9 /* ProgressIndicator.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,

@@ -19,11 +19,11 @@ struct OnboardingTab: View {
             VStack(alignment: .leading) {
                 HStack {
                     if vm.currentIndex == 0 {
-                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.play.rawValue, text: "")})
+                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black)
                             .hidden()
                     } else {
-                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.play.rawValue, text: "")})
+                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black)
                     }
                     Spacer()
@@ -59,9 +59,13 @@ struct OnboardingTab: View {
                 Button(action: {
                     //adjust here for any other functions that are necessary
                     if vm.currentIndex == 1 {
-                        healthManager.authorizationToWriteInHealthStore()
+                        //TODO: Update for next milestone
+//                        healthManager.authorizationToWriteInHealthStore()
                         vm.nextPage()
-                    } else {
+                    } else if vm.currentIndex == 3 {
+                        vm.navigateToGatcha = true
+                    }
+                    else {
                         vm.nextPage()
                     }
                 }, label: {

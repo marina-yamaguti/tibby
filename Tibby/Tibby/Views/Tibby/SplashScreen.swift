@@ -10,6 +10,7 @@ import SwiftUI
 struct SplashScreen: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
+    @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
@@ -43,6 +44,9 @@ struct SplashScreen: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true
                 })
+                if constants.music {
+                    constants.playAudio(audio: "TibbyHappyTheme")
+                }
             }
             .background(.tibbyBaseBlue)
         }
