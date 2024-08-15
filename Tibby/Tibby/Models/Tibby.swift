@@ -110,8 +110,8 @@ protocol TibbyProtocol {
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
     ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
-    func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)
-    func removeAccessory(_ service: Service)
+    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()-> Void)
+    func removeAccessory(completion: ()->Void)
     ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
 }
