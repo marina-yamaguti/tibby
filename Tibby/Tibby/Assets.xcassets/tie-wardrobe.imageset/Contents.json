@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "accessory1.png",
+      "filename" : "tie-wardrobe.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "accessory1@2x.png",
+      "filename" : "tie-wardrobe 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "accessory1@3x.png",
+      "filename" : "tie-wardrobe 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -10,7 +10,7 @@
     "%lld" : {
 
     },
-    "%lld/100" : {
+    "Add %@" : {
 
     },
     "Click to equip" : {
@@ -82,6 +82,9 @@
     "rarity" : {
 
     },
+    "Remove" : {
+
+    },
     "settings" : {
 
     },
@@ -98,7 +101,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -109,9 +111,6 @@
       }
     },
     "TIBBY" : {
-
-    },
-    "Tibby Book" : {
 
     },
     "uau quero comprar %@" : {

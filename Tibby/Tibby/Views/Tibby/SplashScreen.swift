@@ -12,7 +12,7 @@ struct SplashScreen: View {
     @EnvironmentObject var healthManager: HealthManager
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
-    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? false//true
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? false
     
     var body: some View {
         if canProceed {
