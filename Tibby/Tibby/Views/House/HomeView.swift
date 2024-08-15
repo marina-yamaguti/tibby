@@ -30,7 +30,7 @@ struct HomeView: View {
                     Spacer()
                     VStack {
                         Spacer()
-                        TibbyNameComponent(name: tibby.name)
+                        TibbyNameComponent(name: $tibby.name)
                             .padding(.bottom, -20)
                         ZStack {
                             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)

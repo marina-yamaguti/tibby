@@ -50,7 +50,7 @@ struct TibbySelectionView: View {
                             .resizable()
                             .frame(width:14, height: 14)
                     }.frame(width: 40, height: 40)
-                }).padding(.horizontal)
+                }).padding(.horizontal).hidden()
             }
             ScrollView {
                 VStack {

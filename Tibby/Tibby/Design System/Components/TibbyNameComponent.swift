@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TibbyNameComponent: View {
-    @State var name: String
+    @Binding var name: String
     var body: some View {
         HStack {
             Text(name)
@@ -21,6 +21,3 @@ struct TibbyNameComponent: View {
     }
 }
 
-#Preview {
-    TibbyNameComponent(name: "Everton")
-}

@@ -10,7 +10,7 @@
     "%lld" : {
 
     },
-    "Add %@" : {
+    "%lld/100" : {
 
     },
     "Click to equip" : {
@@ -58,9 +58,9 @@
     "Marina Geller Yamaguti" : {
 
     },
-    "Mateus Moura Godinho\nMarina Geller Yamaguti" : {
-	
-	},
+    "Mateus Moura Godinho" : {
+
+    },
     "minigames coming soon..." : {
 
     },
