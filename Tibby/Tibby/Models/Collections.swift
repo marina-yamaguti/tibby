@@ -12,17 +12,17 @@ enum Collection: String, CaseIterable {
     var description: String {
         switch self {
         case .seaSeries:
-            return "small description about the sea series"
+            return "Tibbies found in the deepest oceans"
         case .forestSeries:
-            return ""
+            return "Tibbies protected by Mother Nature herself"
         case .beachSeries:
-            return ""
+            return "Tibbies who love riding the waves and relaxing under the sun"
         case .houseSeries:
-            return ""
+            return "Cute Tibbies who love a good couch or bed"
         case .foodSeries:
-            return ""
+            return "Fresh Tibbies waiting for your attention"
         case .urbanSeries:
-            return ""
+            return "Tibbies who live in the vast concrete jungles"
         }
     }
     
