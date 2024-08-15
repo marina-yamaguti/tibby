@@ -29,16 +29,17 @@ struct TibbySelectedView: View {
                 VStack (alignment: .center, spacing: 16){
                     
                     // Tibby Name Edit
-                    TibbyNameEdit(name: viewModel.tibby.name)
+                    TibbyNameEdit(tibby: $viewModel.tibby)
                     // Tibby Profile Icon
-                    TibbyProfileIcon(icon: "shark1Icon", status: $viewModel.status, action: viewModel.changeTibby)
+                    TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status, action: viewModel.changeTibby)
                 }
                 .padding(.bottom, 40)
                 ScrollView {
                     VStack (alignment: .leading, spacing: 16) {
                         // Tibby Info Labels
-                        HStack(spacing: 32) {
+                        HStack() {
                             TibbySpeciesLabel(species: viewModel.species, color: viewModel.color)
+                            Spacer()
                             TibbyRarityLabel(rarity: viewModel.rarity, color:  viewModel.color)
                         }
                         
@@ -48,7 +49,6 @@ struct TibbySelectedView: View {
                 } .scrollIndicators(.hidden)
             }
             .padding()
-            .padding(.horizontal, 16)
         }
         .background(Color.tibbyBaseWhite)
         .navigationBarBackButtonHidden(true)

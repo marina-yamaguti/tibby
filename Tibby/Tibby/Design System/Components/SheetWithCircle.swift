@@ -19,6 +19,10 @@ struct SheetWithCircle: View {
                         .resizable()
                         .frame(width: 32, height: 32)
                         .padding()
+                    Text(goingUp ? "My Tibbies" : "Home")
+                        .foregroundStyle(.black)
+                        .font(.typography(.label))
+                        .rotationEffect(goingUp ? .zero : .degrees(180))
                     Spacer()
                 }
             }.rotationEffect(goingUp ? .zero : .degrees(180))

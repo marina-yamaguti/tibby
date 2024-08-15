@@ -10,7 +10,7 @@
     "%lld" : {
 
     },
-    "Add %@" : {
+    "%lld/100" : {
 
     },
     "Click to equip" : {
@@ -43,6 +43,9 @@
     "home" : {
 
     },
+    "Home" : {
+
+    },
     "important feature" : {
 
     },
@@ -55,10 +58,16 @@
     "Marina Geller Yamaguti" : {
 
     },
-    "Mateus Moura Godinho\nMarina Geller Yamaguti" : {
+    "Mateus Moura Godinho" : {
+
+    },
+    "minigames coming soon..." : {
 
     },
     "my food inventory: " : {
+
+    },
+    "My Tibbies" : {
 
     },
     "Name" : {
@@ -82,9 +91,6 @@
     "rarity" : {
 
     },
-    "Remove" : {
-
-    },
     "settings" : {
 
     },
@@ -101,6 +107,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

@@ -37,6 +37,7 @@ struct TibbyRarityLabel: View {
                     .padding(.vertical, 4)
                     .font(.typography(FontStyle.label))
                     .foregroundStyle(Color.tibbyBaseBlack)
+                    .lineLimit(1)
             }
             .padding()
             .background(

@@ -11,12 +11,12 @@ import SwiftData
 
 class TibbySelectedViewModel: ObservableObject {
     var service: Service
-    @Published var tibby: Tibby
+    @Binding var tibby: Tibby
     @Binding var currentTibby: Tibby
     @Published var status: SelectionStatus
     
-    init(tibby: Tibby, currentTibby: Binding<Tibby>, status: SelectionStatus, service: Service) {
-        self.tibby = tibby
+    init(tibby: Binding<Tibby>, currentTibby: Binding<Tibby>, status: SelectionStatus, service: Service) {
+        self._tibby = tibby
         self._currentTibby = currentTibby
         self.status = status
         self.service = service

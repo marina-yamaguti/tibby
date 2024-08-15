@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemCard: View {
-    @State var name: String = ""
+    @Binding var name: String
     @State var status: SelectionStatus
     var color: Color
     var image: String
@@ -66,13 +66,15 @@ struct ItemCard: View {
                 Spacer()
                 HStack {
                     Text(status == .locked ? "???" : name)
-                        .font(.typography(.label))
-                        .padding(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20))
+                        .font(.typography(.label2))
+                        .padding(EdgeInsets(top: 6, leading: 20, bottom: 6, trailing: 20))
                         .foregroundColor(Color.tibbyBaseBlack)
+                       
                 }
                 .background(color)
                 .cornerRadius(20)
                 .padding(.bottom)
+                .padding(.horizontal)
             }
         }
         .aspectRatio(1, contentMode: .fit)

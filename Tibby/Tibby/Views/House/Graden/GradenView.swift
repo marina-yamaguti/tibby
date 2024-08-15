@@ -58,6 +58,7 @@ struct GardenView: View {
                                 Image("\(tibby.species)1")
                                     .resizable()
                                     .frame(width: 300, height: 300)
+                                    .hidden()
                             }
                         }
                     }.frame(width: 300, height: 300) //tibby
@@ -66,6 +67,28 @@ struct GardenView: View {
                         Spacer()
                         ActionButton(image: TibbySymbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
                     }.padding(.bottom, 32).padding(.horizontal,20)
+                }
+                if exercisesSheetIsOpen {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 45)
+                            .foregroundStyle(.tibbyBaseBlack)
+                        VStack {
+                            HStack {
+                                Spacer()
+                                ActionButton(image: TibbySymbols.xMark.rawValue, action: {exercisesSheetIsOpen.toggle()})
+                            }.padding()
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("minigames coming soon...")
+                                    .font(.typography(.label))
+                                    .foregroundStyle(.tibbyBaseWhite)
+                                    .padding(.bottom)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }.padding(.top, 100)
                 }
             }.padding().brightness(constants.brightness)
         }.background(.tibbyBaseWhite)

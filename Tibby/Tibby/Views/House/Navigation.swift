@@ -69,7 +69,7 @@ struct NavigationTabbarView: View {
                         )
                         .buttonTabBar()
                     }
-                }
+                }.frame(height: 80)
             }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(edges: [.top])

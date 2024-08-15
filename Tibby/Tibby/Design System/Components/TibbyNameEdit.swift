@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TibbyNameEdit: View {
-    @State var name: String
+    @Binding var tibby: Tibby
     @State private var isEditing: Bool = false
     @State private var textWidth: CGFloat = 0
     
     var body: some View {
         HStack(spacing: 16) {
             ZStack {
-                Text(name)
+                Text(tibby.name)
                     .font(.typography(FontStyle.headline))
                     .background(GeometryReader { geometry in
                         Color.clear
                             .onAppear {
                                 textWidth = geometry.size.width
                             }
-                            .onChange(of: name) { _, _ in
+                            .onChange(of: tibby.name) { _, _ in
                                 textWidth = geometry.size.width
                             }
                     })
@@ -31,22 +31,22 @@ struct TibbyNameEdit: View {
                 if isEditing {
                     TextField(
                         "Given Name",
-                        text: $name
+                        text: $tibby.name
                     )
                     .disableAutocorrection(true)
                     .font(.typography(FontStyle.headline))
                     .foregroundStyle(Color.tibbyBaseBlack)
                     .frame(width: textWidth)
-                    .onChange(of: name) { _, newValue in
+                    .onChange(of: tibby.name) { _, newValue in
                         if newValue.count > 10 {
-                            name = String(newValue.prefix(10))
+                            tibby.name = String(newValue.prefix(10))
                         }
                     }
                     .onSubmit {
                         isEditing = false
                     }
                 } else {
-                    Text(name)
+                    Text(tibby.name)
                         .font(.typography(FontStyle.headline))
                         .foregroundStyle(Color.tibbyBaseBlack)
                         .frame(width: textWidth)
@@ -76,6 +76,3 @@ struct TibbyNameEdit: View {
     }
 }
 
-#Preview {
-    TibbyNameEdit(name: "Shark")
-}

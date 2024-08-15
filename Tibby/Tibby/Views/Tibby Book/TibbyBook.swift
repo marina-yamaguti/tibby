@@ -10,9 +10,10 @@ import SwiftUI
 struct TibbyBook: View {
     @EnvironmentObject var service: Service
     @Binding var tibby: Tibby
-    @State var tibbies: [Tibby] = []
     @State var showPopUp = false
     @State var collectionAlert: Collection = .seaSeries
+    @State var collectionTibbies: [Tibby] = []
+    @State var tibbies: [Collection:[Tibby]] = [:]
     var body: some View {
         let columns = [
             GridItem(.flexible()),
@@ -23,14 +24,17 @@ struct TibbyBook: View {
             ScrollView {
                 VStack {
                     Spacer()
-                    ForEach(Collection.allCases, id: \.self) { collection in
+                    ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
-                            let collectionTibbies = getTibbyList(collection: collection.rawValue, service: service)
-                            if !collectionTibbies.isEmpty {
+                            if !(tibbies[collection]?.isEmpty ?? false)  {
                                 HStack {
                                     Text(collection.rawValue)
                                         .font(.typography(.title))
                                         .padding(.leading)
+                                        .onAppear {
+                                            self.collectionTibbies = self.getTibbyList(collection: collection.rawValue, service: service)
+                                        }
+                                        
                                     Spacer()
                                     Button(action: {
                                         self.collectionAlert = collection
@@ -44,16 +48,16 @@ struct TibbyBook: View {
                                     }).padding(.trailing)
                                 }
                                 LazyVGrid(columns: columns, spacing: 8) {
-                                    ForEach(collectionTibbies) { tibbyL in
+                                    ForEach($collectionTibbies) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
+                                            ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
                                                 .padding()
                                                 
                                         } else if tibbyL.isUnlocked {
-                                            ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
+                                            ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                 .padding()
                                         } else {
-                                            ItemCard(name: tibbyL.name, status: .locked, color: collection.color, image: "\(tibbyL.species)1")
+                                            ItemCard(name: $tibbyL.name, status: .locked, color: collection.color, image: "\(tibbyL.species)1")
                                                 .padding()
                                         }
                                     }
@@ -62,6 +66,9 @@ struct TibbyBook: View {
                                     .padding()
                                     .padding(.bottom, 50)       
                             }
+                        }.onAppear {
+                            print(collection.rawValue)
+                            print(collectionTibbies.isEmpty)
                         }
                     }
                     Spacer()
@@ -76,12 +83,23 @@ struct TibbyBook: View {
             }, message: {
                 Text(collectionAlert.description)
             })
+            .onAppear {
+                self.tibbies = self.setupMap()
+            }
     }
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
-        var allTibbies = service.getAllTibbies()
+        let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection}
         return tibbies
+    }
+    func setupMap() -> [Collection : [Tibby]] {
+        var map: [Collection : [Tibby]] = [:]
+        for collection in Collection.allCases {
+            map[collection] = self.getTibbyList(collection: collection.rawValue, service: service)
+        }
+        
+        return map
     }
 }
 
