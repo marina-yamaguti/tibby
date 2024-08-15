@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFAudio
 
 //MARK: Singleton
 class Constants: ObservableObject {
@@ -28,11 +29,46 @@ class Constants: ObservableObject {
             return 0
         }
     }
+    // Haptics variable
+    @Published var vibration: Bool = UserDefaults.standard.value(forKey: "vibration") as? Bool ?? true {
+        didSet {
+            UserDefaults.standard.set(vibration, forKey: "vibration")
+        }
+    }
+    
+    //Audio manager
+    @Published var audioPlayer: AVAudioPlayer?
+    @Published var music: Bool = UserDefaults.standard.value(forKey: "music") as? Bool ?? true {
+            didSet {
+                UserDefaults.standard.set(music, forKey: "music")
+                if music {
+                    playAudio(audio: "TibbyHappyTheme")
+                }
+                else {
+                    audioPlayer?.stop()
+                }
+            }
+        }
+        
+    func playAudio(audio: String) {
+            if let audioURL = Bundle.main.url(forResource: audio, withExtension: "wav") {
+                do {
+                    try audioPlayer = AVAudioPlayer(contentsOf: audioURL) /// make the audio player
+                    audioPlayer?.play() /// start playing
+                    audioPlayer?.numberOfLoops = Int.max
+                    
+                } catch {
+                    print("Couldn't play audio. Error: \(error)")
+                }
+                
+            } else {
+                print("No audio file found")
+            }
+        }
+    
     ///defines where the user is
     @Published var currentEnviroment: Enviroment = .kitchen
-    @Published var currentOnboarding: OnboardingViews = .onboarding1
-    @Published var onboardingVisited: [Bool] = [true, false, false, false]
-    
+    @Published var currentOnboarding: OnboardingViews = .onboarding1    
     
     ///defines the timers of the pet
     func decreseTibby(tibby: Tibby, timeInterval: Double, statusList: [TibbyStatus], closure: () -> Void) {

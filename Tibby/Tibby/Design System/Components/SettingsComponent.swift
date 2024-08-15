@@ -12,7 +12,7 @@ enum TrailingType {
 }
 
 struct SettingsComponent: View {
-    @State var isOn: Bool
+    @Binding var isOn: Bool
     var trailingType: TrailingType
     var title: String
     var label: String
@@ -21,7 +21,7 @@ struct SettingsComponent: View {
         VStack(spacing: 16) {
             HStack {
                 Circle()
-                    .fill(.tibbyBaseRed)
+                    .fill(color)
                     .frame(width: 20, height: 20)
                 Text(title)
                     .font(.typography(.label))
@@ -59,8 +59,4 @@ struct SettingsComponent: View {
             }
         }
     }
-}
-
-#Preview {
-    SettingsComponent(isOn: true, trailingType: .details, title: "Notifications", label: "Enable notifications", color: .tibbyBaseRed)
 }

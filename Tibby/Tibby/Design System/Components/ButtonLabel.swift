@@ -28,7 +28,3 @@ struct ButtonLabel: View {
         .foregroundStyle(foregroundColor)
     }
 }
-
-#Preview {
-    ButtonLabel(type: .primary, image: TibbySymbols.play.rawValue, text: "Play")
-}
