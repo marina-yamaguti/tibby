@@ -525,7 +525,7 @@ class Service: ObservableObject, ServiceProtocol {
         
         //Accessories
         self.createAccessory(id: UUID(), tibbyId: nil, name: "Hat", image: "hat", price: 10, category: "Head")
-        self.createAccessory(id: UUID(), tibbyId: nil, name: "Heart Glasses", image: "heart-glasses", price: 10, category: "Head")
+        self.createAccessory(id: UUID(), tibbyId: nil, name: "Glasses", image: "heart-glasses", price: 10, category: "Head")
         self.createAccessory(id: UUID(), tibbyId: nil, name: "Tie", image: "tie", price: 10, category: "Body")
         
         //Food

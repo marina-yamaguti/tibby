@@ -66,6 +66,28 @@ struct GardenView: View {
                         ActionButton(image: TibbySymbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
+                if exercisesSheetIsOpen {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 45)
+                            .foregroundStyle(.tibbyBaseBlack)
+                        VStack {
+                            HStack {
+                                Spacer()
+                                ActionButton(image: TibbySymbols.xMark.rawValue, action: {exercisesSheetIsOpen.toggle()})
+                            }.padding()
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("minigames coming soon...")
+                                    .font(.typography(.label))
+                                    .foregroundStyle(.tibbyBaseWhite)
+                                    .padding(.bottom)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }.padding(.top, 100)
+                }
             }.padding().brightness(constants.brightness)
         }.background(.tibbyBaseWhite)
             .navigationBarBackButtonHidden(true)

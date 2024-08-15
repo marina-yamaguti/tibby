@@ -51,6 +51,7 @@ struct HomeView: View {
                                 Image(TibbySymbols.play.rawValue)
                                     .padding(.trailing, 26)
                                 Text("Play")
+                                    .font(.typography(.title))
                             }
                         }
                         .buttonPrimary(bgColor: .tibbyBaseBlue)

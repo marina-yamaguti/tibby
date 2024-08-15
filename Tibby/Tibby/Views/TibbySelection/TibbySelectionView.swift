@@ -10,7 +10,8 @@ import SwiftUI
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
     @Binding var tibby: Tibby
-    @State var tibbies: [Tibby] = []
+    @State var tibbies: [Collection:[Tibby]] = [:]
+    @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
     
@@ -53,23 +54,25 @@ struct TibbySelectionView: View {
             ScrollView {
                 VStack {
                     Spacer()
-                    ForEach(Collection.allCases, id: \.self) { collection in
+                    ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
-                            let collectionTibbies = getTibbyList(collection: collection.rawValue, service: service)
-                            if !collectionTibbies.isEmpty {
+                            if !(tibbies[collection]?.isEmpty ?? false)  {
                                 Text(collection.rawValue)
                                     .font(.typography(.title))
                                     .padding(.leading)
+                                    .onAppear {
+                                        self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                    }
                                 LazyVGrid(columns: columns, spacing: 8) {
-                                    ForEach(collectionTibbies) { tibbyL in
+                                    ForEach($tibbyCollection) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
-                                                ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
+                                                ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
                                             }
                                         } else {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
-                                                ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
+                                                ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
                                             }
                                         }
@@ -80,15 +83,21 @@ struct TibbySelectionView: View {
                                     .padding(.bottom, 50)
                             }
                         }
+                        
                     }
+
                     Spacer()
                 }
             }
         }
+        .onChange(of: tibbies, {print("algum tibby mudou")})
         .background(Color.tibbyBaseWhite)
         .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
         .animation(.easeInOut, value: showSheet)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.tibbies = self.setupMap()
+        }
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
@@ -96,6 +105,15 @@ struct TibbySelectionView: View {
         let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked }
         return tibbies
+    }
+    
+    func setupMap() -> [Collection : [Tibby]] {
+        var map: [Collection : [Tibby]] = [:]
+        for collection in Collection.allCases {
+            map[collection] = self.getTibbyList(collection: collection.rawValue, service: service)
+        }
+        
+        return map
     }
 }
 

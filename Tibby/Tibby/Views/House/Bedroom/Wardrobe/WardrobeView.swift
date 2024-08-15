@@ -14,6 +14,7 @@ struct WardrobeView: View {
     @EnvironmentObject var service: Service
     @State var selectedAccessory: Accessory?
     @State var status: SelectionStatus = .unselected
+    @State var accessories: [Accessory] = []
     var tibby: Tibby
     var columns = [
         GridItem(.flexible()),
@@ -46,7 +47,7 @@ struct WardrobeView: View {
                             Button(action: {
                                 removeAccessory()
                             }, label: {
-                                ItemCard(name: "None", status:.selected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
+                                ItemCard(name: .constant("None"), status:.selected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
                                     .frame(width: 150, height: 150)
                                     .padding(.bottom)
                                     .onTapGesture {
@@ -58,7 +59,7 @@ struct WardrobeView: View {
                             Button(action: {
                                 removeAccessory()
                             }, label: {
-                                ItemCard(name: "None", status: .unselected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
+                                ItemCard(name:.constant("None"), status: .unselected, color: .tibbyBaseBlue, image: "\(tibby.species)1")
                                     .frame(width: 150, height: 150)
                                     .padding(.bottom)
                                     .onTapGesture {
@@ -67,18 +68,18 @@ struct WardrobeView: View {
                                 
                             })
                         }
-                        ForEach(getFilteredList()) { accessory in
+                        ForEach($accessories) { $accessory in
                             Button {
                                 tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                                 selectedAccessory = accessory
                             } label: {
                                 if tibby.id == accessory.tibbyId {
-                                    ItemCard(name: accessory.name, status: .selected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
+                                    ItemCard(name: $accessory.name, status: .selected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
                                         .frame(width: 150, height: 150)
                                         .padding(.bottom)
                                 }
                                 else {
-                                    ItemCard(name: accessory.name, status: .unselected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
+                                    ItemCard(name: $accessory.name, status: .unselected, color: .tibbyBaseBlue, image: "\(accessory.image)-wardrobe")
                                         .frame(width: 150, height: 150)
                                         .padding(.bottom)
                                 }
@@ -105,6 +106,7 @@ struct WardrobeView: View {
             }
         }
         .onAppear {
+            self.accessories = getFilteredList()
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {
                     print("usando \(accessory.name)")
@@ -125,6 +127,9 @@ struct WardrobeView: View {
             }
         })
         .padding(.top, 40)
+        .onChange(of: category, {
+            accessories = getFilteredList()
+        })
     }
     private func getFilteredList() -> [Accessory] {
         var list: [Accessory] = []
