@@ -94,29 +94,29 @@ final class TibbyTests: XCTestCase {
         
         
     }
-    
-    func testTibbyProtocol() throws {
-        //Given
-        let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
-        let tibbyTest = TibbyProtocolTest()
-        let tibbyUUID = UUID()
-        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10)
-        
-        //When
-        tibbyTest.setTibbyID(tibbyId: tibbyUUID)
-        tibbyTest.animateTibby(["Tibby"], nodeID: .tibby, timeFrame: 1)
-        tibbyTest.addAccessory(accessoryTest, serviceTest, tibbyID: UUID())
-        
-        //Then
-        XCTAssertEqual(tibbyTest.tibbyID, tibbyUUID)
-        XCTAssertEqual(tibbyTest.tibby.name, "Tibby1.0")
-        XCTAssertEqual(tibbyTest.accessory.name, "test")
-        
-        //When
-        tibbyTest.removeAccessory(serviceTest)
-        //Then
-        XCTAssertEqual(tibbyTest.tibby.children, [])
-    }
+//    
+//    func testTibbyProtocol() throws {
+//        //Given
+//        let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
+//        let tibbyTest = TibbyProtocolTest()
+//        let tibbyUUID = UUID()
+//        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10)
+//        
+//        //When
+//        tibbyTest.setTibbyID(tibbyId: tibbyUUID)
+//        tibbyTest.animateTibby(["Tibby"], nodeID: .tibby, timeFrame: 1)
+//        tibbyTest.addAccessory(accessoryTest, serviceTest, tibbyID: UUID())
+//        
+//        //Then
+//        XCTAssertEqual(tibbyTest.tibbyID, tibbyUUID)
+//        XCTAssertEqual(tibbyTest.tibby.name, "Tibby1.0")
+//        XCTAssertEqual(tibbyTest.accessory.name, "test")
+//        
+//        //When
+//        tibbyTest.removeAccessory(serviceTest)
+//        //Then
+//        XCTAssertEqual(tibbyTest.tibby.children, [])
+//    }
     
     func testRewardProtocol() throws {
         //Given

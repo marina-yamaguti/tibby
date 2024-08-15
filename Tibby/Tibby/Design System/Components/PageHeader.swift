@@ -15,6 +15,8 @@ struct PageHeader: View {
             CustomBackButton()
                 .padding(.trailing, 16)
             Image(symbol)
+                .resizable()
+                .frame(width: 32, height: 32)
             Text(title)
                 .font(.typography(.title))
                 .foregroundStyle(.tibbyBaseWhite)
