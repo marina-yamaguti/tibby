@@ -40,7 +40,8 @@ struct KitchenView: View {
                 
                 
                 VStack {
-                    StatusBar().padding(.horizontal).padding(.top, 24)
+                    StatusBar(tibby: tibby, necessityName: "hunger")
+                        .padding(.horizontal).padding(.top, 24)
                     Spacer()
                     ZStack {
                         if constants.tibbySleeping {

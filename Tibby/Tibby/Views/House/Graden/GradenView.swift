@@ -33,7 +33,8 @@ struct GardenView: View {
                 
                 
                 VStack {
-                    StatusBar().padding(.horizontal).padding(.top, 24)
+                    StatusBar(tibby: tibby, necessityName: "happiness")
+                        .padding(.horizontal).padding(.top, 24)
                     Spacer()
                     ZStack {
                         if constants.tibbySleeping {

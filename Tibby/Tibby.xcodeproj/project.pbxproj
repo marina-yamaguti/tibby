@@ -371,6 +371,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C6CBA3F2C6E852300D77ED9 /* Settings */,
 				FD45F26B2C6571580046DE49 /* Tibby Book */,
 				FD45F2642C63F3E00046DE49 /* TibbySelection */,
 				7CE131C92C63F386001D7348 /* OnboardingViews */,
@@ -378,9 +379,6 @@
 				FDFF4ABD2C3C842100831968 /* Interaction Example */,
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
-				D896AED12C6D1B67009C208C /* SettingsView.swift */,
-				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
-				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +391,16 @@
 				D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */,
 			);
 			path = Tibby;
+			sourceTree = "<group>";
+		};
+		7C6CBA3F2C6E852300D77ED9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D896AED12C6D1B67009C208C /* SettingsView.swift */,
+				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
+				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		7C7B59172C459DB4004FFD4B /* House */ = {

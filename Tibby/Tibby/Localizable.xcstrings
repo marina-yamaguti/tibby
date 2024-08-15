@@ -10,6 +10,9 @@
     "%lld" : {
 
     },
+    "%lld/100" : {
+
+    },
     "Click to equip" : {
 
     },
@@ -32,9 +35,6 @@
 
     },
     "Given Name" : {
-
-    },
-    "happy" : {
 
     },
     "Hello, World!" : {
