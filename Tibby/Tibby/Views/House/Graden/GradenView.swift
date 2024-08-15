@@ -57,6 +57,7 @@ struct GardenView: View {
                                 Image("\(tibby.species)1")
                                     .resizable()
                                     .frame(width: 300, height: 300)
+                                    .hidden()
                             }
                         }
                     }.frame(width: 300, height: 300) //tibby
