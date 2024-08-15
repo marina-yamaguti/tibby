@@ -10,19 +10,31 @@
     "%lld" : {
 
     },
+    "Add %@" : {
+
+    },
     "Click to equip" : {
+
+    },
+    "Credits" : {
 
     },
     "description" : {
 
     },
+    "Design" : {
+
+    },
     "Detail" : {
 
     },
-    "Given Name" : {
+    "Development" : {
 
     },
-    "happy" : {
+    "Felipe Elsner da Silva" : {
+
+    },
+    "Given Name" : {
 
     },
     "Hello, World!" : {
@@ -40,6 +52,15 @@
     "Light" : {
 
     },
+    "Maria Eduarda Maciel" : {
+
+    },
+    "Marina Geller Yamaguti" : {
+
+    },
+    "Mateus Moura Godinho\nMarina Geller Yamaguti" : {
+	
+	},
     "minigames coming soon..." : {
 
     },
@@ -50,6 +71,9 @@
 
     },
     "Name" : {
+
+    },
+    "Natália Dal Pizzol" : {
 
     },
     "OK" : {
@@ -73,6 +97,9 @@
     "Small title" : {
 
     },
+    "Sofia Sartori" : {
+
+    },
     "species" : {
 
     },
@@ -91,9 +118,6 @@
       }
     },
     "TIBBY" : {
-
-    },
-    "Tibby Book" : {
 
     },
     "uau quero comprar %@" : {

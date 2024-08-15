@@ -20,19 +20,7 @@ struct TibbyBook: View {
             GridItem(.flexible())
         ]
         VStack {
-            ZStack {
-                HStack {
-                    Spacer()
-                    Text("Tibby Book")
-                        .font(.typography(.headline))
-                        .padding()
-                    Spacer()
-                }
-                HStack {
-                    CustomBackButton()
-                    Spacer()
-                }
-            }.padding()
+            PageHeader(title: "Tibby Book", symbol: "TibbySymbolBook")
             ScrollView {
                 VStack {
                     Spacer()
@@ -87,6 +75,7 @@ struct TibbyBook: View {
                 }.padding(.top, 40)
             }.scrollIndicators(.hidden)
         }
+            .ignoresSafeArea(.all, edges: .top)
             .background(Color.tibbyBaseWhite)
             .navigationBarBackButtonHidden(true)
             .alert(collectionAlert.rawValue, isPresented: $showPopUp, actions: {

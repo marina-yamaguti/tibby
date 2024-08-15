@@ -46,8 +46,9 @@ struct TibbySelectionView: View {
                 NavigationLink(destination: { TibbyBook(tibby: $tibby)}, label: {
                     ZStack {
                         Circle().foregroundStyle(.black.opacity(0.5))
-                        Rectangle().stroke(Color.tibbyBaseWhite, lineWidth: 3)
-                            .padding(14)
+                        Image("TibbySymbolBook")
+                            .resizable()
+                            .frame(width:14, height: 14)
                     }.frame(width: 40, height: 40)
                 }).padding(.horizontal)
             }
