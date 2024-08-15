@@ -1,0 +1,131 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "?" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld/100" : {
+
+    },
+    "Click to equip" : {
+
+    },
+    "Credits" : {
+
+    },
+    "description" : {
+
+    },
+    "Design" : {
+
+    },
+    "Detail" : {
+
+    },
+    "Development" : {
+
+    },
+    "Felipe Elsner da Silva" : {
+
+    },
+    "Given Name" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "home" : {
+
+    },
+    "Home" : {
+
+    },
+    "important feature" : {
+
+    },
+    "Light" : {
+
+    },
+    "Maria Eduarda Maciel" : {
+
+    },
+    "Marina Geller Yamaguti" : {
+
+    },
+    "Mateus Moura Godinho" : {
+
+    },
+    "minigames coming soon..." : {
+
+    },
+    "my food inventory: " : {
+
+    },
+    "My Tibbies" : {
+
+    },
+    "Name" : {
+
+    },
+    "Natália Dal Pizzol" : {
+
+    },
+    "OK" : {
+
+    },
+    "Play" : {
+
+    },
+    "price: %lld" : {
+
+    },
+    "quantity: %lld" : {
+
+    },
+    "rarity" : {
+
+    },
+    "settings" : {
+
+    },
+    "Small title" : {
+
+    },
+    "Sofia Sartori" : {
+
+    },
+    "species" : {
+
+    },
+    "tibby" : {
+
+    },
+    "Tibby" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tibby"
+          }
+        }
+      }
+    },
+    "TIBBY" : {
+
+    },
+    "uau quero comprar %@" : {
+
+    },
+    "uau quero devolver %@" : {
+
+    }
+  },
+  "version" : "1.0"
+}

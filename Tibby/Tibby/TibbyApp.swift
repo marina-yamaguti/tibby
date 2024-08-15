@@ -7,12 +7,48 @@
 
 import SwiftUI
 import SwiftData
+import UIKit
+
+//App Delegate
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//        print("JORGE App Did Launch!")
+        return true
+    }
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let sceneConfig: UISceneConfiguration = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        sceneConfig.delegateClass = SceneDelegate.self
+        return sceneConfig
+    }
+}
+
+//Scene Delegate
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    @EnvironmentObject var constants: Constants
+    
+    var window: UIWindow?
+    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
+//        print("JORGE SceneDelegate is connected!")
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        UserDefaults.standard.setValue(true, forKey: "enteredApp")
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        UserDefaults.standard.setValue(Date(), forKey: "exitDate")
+    }
+}
 
 @main
 struct TibbyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Tibby.self
+            Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,12 +58,16 @@ struct TibbyApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    
     var body: some Scene {
         WindowGroup {
-            //change screen
-            HomeView()
+            SplashScreen()
         }
         .modelContainer(sharedModelContainer)
+        .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
+        .environmentObject(Constants())
+        .environmentObject(HealthManager())
     }
 }

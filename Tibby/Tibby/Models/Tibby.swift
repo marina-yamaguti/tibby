@@ -7,6 +7,114 @@
 
 import Foundation
 import SwiftData
+import SpriteKit
+
+///enum to represent the types of tibbies
+enum TibbySpecie: String {
+    //Complete with all the species
+    case shark
+    case dolphin
+   // case dog
+    case yellowShark
+    
+    func baseAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["shark1", "shark2"]
+        case .yellowShark:
+            return ["yellowShark1", "yellowShark2"]
+        case .dolphin:
+            return ["dolphin1", "dolphin2"]
+        }
+    }
+    
+    func sleepAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkSleep1", "sharkSleep2", "sharkSleep3", "sharkSleep4"]
+        case .yellowShark:
+            return ["yellowSharkSleep1", "yellowSharkSleep2", "yellowSharkSleep3", "yellowSharkSleep4"]
+        case .dolphin:
+            return ["dolphinSleep1", "dolphinSleep2", "dolphinSleep3", "dolphinSleep4"]
+        }
+        
+    }
+    
+    func happyAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkHappy1", "sharkHappy2"]
+        case .yellowShark:
+            return ["yellowSharkHappy1", "yellowSharkHappy2"]
+        case .dolphin:
+            return ["dolphinHappy1", "dolphinHappy2"]
+        }
+    }
+    
+    func sadAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkSad1", "sharkSad2"]
+        case .yellowShark:
+            return ["yellowSharkSad1", "yellowSharkSad2"]
+        case .dolphin:
+            return ["dolphinSad1", "dolphinSad2"]
+        }
+    }
+    
+    func eatAnimation() -> [String] {
+        switch self {
+        case .shark:
+            return ["sharkEat1", "sharkEat2"]
+        case .yellowShark:
+            return ["yellowSharkEat1", "yellowSharkEat2"]
+        case .dolphin:
+            return ["dolphinEat1", "dolphinEat2"]
+        }
+    }
+}
+
+///enum to represent the types of nodes in the SpriteKit View
+enum NodeType {
+    case tibby, accessory
+}
+
+///enum to represent all the tibby styles
+enum TibbyStatus {
+    case hungry, sleep, happy
+    
+    ///TIME in SECONDS to decrease 1 point in the Tibby necessity
+    func timeDecrease() -> Double {
+        switch self {
+        case .hungry:
+            return 172
+        case .sleep:
+            return 432
+        case .happy:
+            return 172
+        }
+    }
+}
+
+
+/// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
+protocol TibbyProtocol {
+    
+    // MARK: Tibby and accessory Nodes instances
+    var tibby: SKSpriteNode { get set }
+    var accessory: SKSpriteNode { get set }
+    /// Tibby ID to operate in the view
+    var tibbyObject: Tibby? { get set }
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service)
+    var tibbySpecie: TibbySpecie? { get set }
+    func setTibbySpecie(tibbySpecie: TibbySpecie)
+    
+    ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
+    func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)
+    func removeAccessory(_ service: Service)
+    ///Pass the set of images for the animation and what is animating
+    func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
+}
 
 /// A model representing a Tibby, a virtual pet with various attributes and states.
 @Model
@@ -16,10 +124,13 @@ final class Tibby {
     var id: UUID
     
     /// The unique identifier of the owner of the Tibby.
-    var ownerId: UUID
+    var ownerId: UUID?
     
     /// The name of the Tibby.
-    var name: String?
+    var name: String
+    
+    /// The chance of getting this Tibby
+    var rarity: String
     
     /// Additional details about the Tibby.
     var details: String
@@ -51,12 +162,19 @@ final class Tibby {
     /// The date when the Tibby was last updated.
     var lastUpdated: Date
     
+    /// If this tibby is arealdy unlocked for the main User
+    var isUnlocked: Bool
+    
+    /// The collection this Tibby is a part of (this should be a name matching the Collections enum)
+    var collection: String
+    
     /// Initializes a new Tibby with the specified attributes.
     ///
     /// - Parameters:
     ///   - id: The unique identifier for the Tibby.
     ///   - ownerId: The unique identifier of the owner of the Tibby.
     ///   - name: The name of the Tibby.
+    ///   - rarity: The chance of getting this Tibby
     ///   - details: Additional details about the Tibby.
     ///   - personality: The personality traits of the Tibby.
     ///   - species: The species of the Tibby.
@@ -67,9 +185,13 @@ final class Tibby {
     ///   - sleep: The sleep level of the Tibby.
     ///   - friendship: The friendship level of the Tibby with its owner.
     ///   - lastUpdated: The date when the Tibby was last updated.
-    init(id: UUID, ownerId: UUID, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date) {
+    ///   - isUnlocked: If this Tibby is already unlocked for the User
+    ///   - collection: The collection this Tibby is a part of (this should be a name matching the Collections enum)
+    init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id
         self.ownerId = ownerId
+        self.name = name
+        self.rarity = rarity
         self.details = details
         self.personality = personality
         self.species = species
@@ -80,5 +202,13 @@ final class Tibby {
         self.sleep = sleep
         self.friendship = friendship
         self.lastUpdated = lastUpdated
+        self.isUnlocked = isUnlocked
+        self.collection = collection
     }
+}
+
+enum SelectionStatus {
+    case locked
+    case unselected
+    case selected
 }
