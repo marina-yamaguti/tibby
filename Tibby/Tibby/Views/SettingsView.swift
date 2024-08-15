@@ -12,12 +12,15 @@ struct SettingsView: View {
     @ObservedObject var vm = SettingsViewModel()
     var body: some View {
         VStack {
-            PageHeader(title: "Tibby Book", symbol: TibbySymbols.play.rawValue)
+            PageHeader(title: "Tibby Book", symbol: TibbySymbols.settings.rawValue)
             VStack(spacing: 16) {
                 //TODO add notifications when ready
                 SettingsComponent(isOn: $constants.vibration, trailingType: .toggleButton, title: "Haptics", label: "Phone Vibration", color: .tibbyBaseGreen)
-
+    
                 SettingsComponent(isOn: $constants.music, trailingType: .toggleButton, title: "Sounds", label: "Music", color: .tibbyBaseBlue)
+//                    .onTapGesture {
+//                        $constants.music.toggle
+//                    }
                 HStack {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Credits")
@@ -52,6 +55,7 @@ struct SettingsView: View {
         }
         .ignoresSafeArea(.all, edges: .top)
         .background(.tibbyBaseWhite)
+        .navigationBarBackButtonHidden()
     }
 }
 
