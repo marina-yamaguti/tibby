@@ -63,9 +63,6 @@ struct TibbyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //change screen
-            //KitchenExample()
-            //CRUDExample()
             SplashScreen()
         }
         .modelContainer(sharedModelContainer)
