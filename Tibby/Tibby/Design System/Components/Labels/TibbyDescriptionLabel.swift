@@ -15,6 +15,7 @@ struct TibbyDescriptionLabel: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("description")
                 .font(.typography(.body2))
+                .foregroundStyle(Color.tibbyBaseBlack)
             HStack(spacing: 4) {
                 Text(description)
                     .padding(.horizontal, 8)

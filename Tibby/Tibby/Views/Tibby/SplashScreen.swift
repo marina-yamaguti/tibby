@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+struct StartView: View {
+    @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
+    var body: some View {
+        //change this to initializa with the right tibby
+        if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
+            HomeView(tibby: currentTibby)
+        } else {
+            HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
+        }
+    }
+    
+}
+
 struct SplashScreen: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
@@ -20,12 +34,7 @@ struct SplashScreen: View {
                 OnboardingTab(firstTime: $firstTimeHere)
             }
             else {
-                //change this to initializa with the right tibby
-                if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
-                    HomeView(tibby: currentTibby)
-                } else {
-                    HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
-                }
+                StartView()
             }
         } else {
             VStack {
@@ -44,9 +53,6 @@ struct SplashScreen: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true
                 })
-                if constants.music {
-                    constants.playAudio(audio: "TibbyHappyTheme")
-                }
             }
             .background(.tibbyBaseBlue)
         }

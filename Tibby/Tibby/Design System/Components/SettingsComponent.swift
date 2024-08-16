@@ -12,7 +12,7 @@ enum TrailingType {
 }
 
 struct SettingsComponent: View {
-    @Binding var isOn: Bool
+    @EnvironmentObject var constants: Constants
     var trailingType: TrailingType
     var title: String
     var label: String
@@ -25,6 +25,7 @@ struct SettingsComponent: View {
                     .frame(width: 20, height: 20)
                 Text(title)
                     .font(.typography(.label))
+                    .foregroundStyle(Color.tibbyBaseBlack)
                 Spacer()
             }
             HStack {
@@ -47,10 +48,20 @@ struct SettingsComponent: View {
 
                     }
                 } else {
-                    Toggle(label, isOn: $isOn)
-                        .font(.typography(.body))
-                        .foregroundStyle(.tibbyBaseWhite)
-                        .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    switch label {
+                    case "Music":
+                        Toggle(label, isOn: $constants.music)
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseWhite)
+                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    case "Phone Vibration":
+                        Toggle(label, isOn: $constants.vibration)
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseWhite)
+                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    default:
+                        EmptyView()
+                    }
                 }
             }
             .background{
