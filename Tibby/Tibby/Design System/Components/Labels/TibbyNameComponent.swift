@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// TibbyNameComponent is a SwiftUI view component that displays the name of Tibby.
 struct TibbyNameComponent: View {
+    /// The name of Tibby, passed as a binding to allow two-way data flow
     @Binding var name: String
+    
     var body: some View {
         HStack {
             Text(name)

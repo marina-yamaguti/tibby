@@ -2,18 +2,20 @@
 //  HealthKit.swift
 //  Tibby
 //
-//  Created by Felipe  Elsner Silva on 07/08/24.
+//  Created by Felipe Elsner Silva on 07/08/24.
 //
 
 import Foundation
 import HealthKit
 import UIKit
 
+/// A class that manages interactions with the HealthKit framework, providing functionality for retrieving health-related data such as steps, calories burned, and workout time.
 class HealthManager: ObservableObject {
-    ///Storage of the health data
+    
+    /// The HealthKit store where health data is accessed.
     var healthStore: HKHealthStore?
     
-    ///Health Kit information variables
+    /// Health data variables representing weekly and daily metrics.
     var workoutCaloriesWeek: Int = 0
     var workoutCaloriesDay: Int = 0
     var workoutTimeWeek: Int = 0
@@ -23,45 +25,50 @@ class HealthManager: ObservableObject {
     var stepsWeek: Int = 0
     var stepsDay: Int = 0
     
+    /// Initializes the HealthManager and checks if HealthKit is available on the device.
     init() {
         isHealthDataAvailable()
     }
     
-    //Check if HealthKit is available in yout device
+    /// Checks if HealthKit is available on the device and initializes the `healthStore` if it is.
+    ///
+    /// If HealthKit is not available, the application should handle this scenario gracefully.
     func isHealthDataAvailable() {
         if HKHealthStore.isHealthDataAvailable() {
-            //Code using health data
             healthStore = HKHealthStore()
         } else {
-            //If not available, you can make a way to run your app without that data
+            // Handle the case where HealthKit is not available
         }
     }
     
-    //Asking for permission to read health data
+    /// Requests authorization to read health data from HealthKit.
+    ///
+    /// The app requests permission to access step count, active energy burned, and workout data.
     func authorizationToWriteInHealthStore() {
-        // Types of samples you want to use
         let healthTypes: Set = [
             HKQuantityType(.stepCount),
             HKQuantityType(.activeEnergyBurned),
             HKSampleType.workoutType()
         ]
         
-        //Request authorization for writing a certain type
         healthStore?.requestAuthorization(toShare: [], read: healthTypes, completion: { success, error in
             if success {
-                //save sample here or call method that saves sample
+                // Authorization was granted, proceed with data fetching
             } else {
-                //retry
+                // Handle authorization failure
             }
         })
     }
     
-    //Send user to the phone settings
+    /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
-        UIApplication.shared.open(URL(string: "App-Prefs:")!)
+        guard let url = URL(string: "App-Prefs:") else { return }
+        UIApplication.shared.open(url)
     }
     
-    //fetch all the HealthKit informations that are used
+    /// Fetches all health information required by the app.
+    ///
+    /// This function retrieves data such as workout calories, workout time, steps, and calories burned for both weekly and daily intervals.
     func fetchAllInformation() {
         getHealthInfo(startDate: .startOfWeek, sample: HKSampleType.workoutType(), sampleUnit: .kilocalorie(), varName: "workoutCaloriesWeek")
         getHealthInfo(startDate: .startOfWeek, sample: HKSampleType.workoutType(), varName: "workoutTimeWeek")
@@ -73,106 +80,88 @@ class HealthManager: ObservableObject {
         getHealthInfo(startDate: .startOfDay, sample: HKQuantityType(.activeEnergyBurned), sampleUnit: .kilocalorie(), varName: "caloriesDay")
     }
     
+    /// Retrieves specific health information based on the provided parameters.
+    ///
+    /// This method queries HealthKit for data such as workout calories, workout time, steps, and active energy burned,
+    /// and updates the corresponding variables with the fetched data.
+    ///
+    /// - Parameters:
+    ///   - startDate: The start date for the data query.
+    ///   - sample: The type of health data to query.
+    ///   - sampleUnit: The unit for the health data (optional).
+    ///   - varName: The name of the variable to store the fetched data.
     private func getHealthInfo(startDate: Date, sample: HKSampleType, sampleUnit: HKUnit? = nil, varName: String) {
-        //Create the time interval
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
-        
-        var query: HKQuery? = nil
+        var query: HKQuery?
         var count: Int = 0
         
         if sample.isEqual(HKSampleType.workoutType()) {
-            //Create the Query to handle with the information
             query = HKSampleQuery(sampleType: sample, predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
                 guard let workouts = sampleList as? [HKWorkout], error == nil else {
-                    print("error fetching data")
-                    if varName == "workoutCaloriesWeek" {
-                        self.workoutCaloriesWeek = -1
-                    }
-                    else if varName == "workoutCaloriesDay" {
-                        self.workoutCaloriesDay = -1
-                    }
-                    else if varName == "workoutTimeWeek" {
-                        self.workoutTimeWeek = -1
-                    }
-                    else if varName == "workoutTimeDay" {
-                        self.workoutTimeDay = -1
-                    }
+                    print("Error fetching data")
+                    self.updateVariable(varName, value: -1)
                     return
                 }
-                //Sum the workouts' information
+                
                 for workout in workouts {
                     if sampleUnit == .kilocalorie() {
                         count += Int(round((workout.totalEnergyBurned?.doubleValue(for: sampleUnit!)) ?? 0))
-                    }
-                    else if sampleUnit ==  nil {
-                        count += Int(workout.duration/60)
+                    } else if sampleUnit == nil {
+                        count += Int(workout.duration / 60)
                     }
                 }
                 
-                print("Jorge", sample, sampleUnit, count)
-                
-                //Save the workouts' information
                 DispatchQueue.main.async {
-                    if varName == "workoutCaloriesWeek" {
-                        self.workoutCaloriesWeek = count
-                    }
-                    else if varName == "workoutCaloriesDay" {
-                        self.workoutCaloriesDay = count
-                    }
-                    else if varName == "workoutTimeWeek" {
-                        self.workoutTimeWeek = count
-                    }
-                    else if varName == "workoutTimeDay" {
-                        self.workoutTimeDay = count
-                    }
+                    self.updateVariable(varName, value: count)
                 }
-                
             })
-        }
-        else {
-            //Create the Query to handle with the information
+        } else {
             query = HKStatisticsQuery(quantityType: sample as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
                 guard let quantity = result?.sumQuantity(), error == nil else {
-                    print("error fetching data")
-                    if varName == "caloriesWeek" {
-                        self.caloriesWeek = -1
-                    }
-                    else if varName == "caloriesDay" {
-                        self.caloriesDay = -1
-                    }
-                    else if varName == "stepsWeek" {
-                        self.stepsWeek = -1
-                    }
-                    else if varName == "stepsDay" {
-                        self.stepsDay = -1
-                    }
+                    print("Error fetching data")
+                    self.updateVariable(varName, value: -1)
                     return
                 }
-                //Save the steps/calories' information
+                
                 count = Int(quantity.doubleValue(for: sampleUnit!))
                 DispatchQueue.main.async {
-                    if varName == "caloriesWeek" {
-                        self.caloriesWeek = count
-                    }
-                    else if varName == "caloriesDay" {
-                        self.caloriesDay = count
-                    }
-                    else if varName == "stepsWeek" {
-                        self.stepsWeek = count
-                    }
-                    else if varName == "stepsDay" {
-                        self.stepsDay = count
-                    }
+                    self.updateVariable(varName, value: count)
                 }
-                
-                print("Jorge", sample, count)
             })
         }
         
         guard let query = query else {
-            fatalError("Query needed")
+            fatalError("Query creation failed")
         }
         
         healthStore?.execute(query)
+    }
+    
+    /// Updates the specified variable with the fetched data value.
+    ///
+    /// - Parameters:
+    ///   - varName: The name of the variable to update.
+    ///   - value: The value to set for the variable.
+    private func updateVariable(_ varName: String, value: Int) {
+        switch varName {
+        case "workoutCaloriesWeek":
+            self.workoutCaloriesWeek = value
+        case "workoutCaloriesDay":
+            self.workoutCaloriesDay = value
+        case "workoutTimeWeek":
+            self.workoutTimeWeek = value
+        case "workoutTimeDay":
+            self.workoutTimeDay = value
+        case "caloriesWeek":
+            self.caloriesWeek = value
+        case "caloriesDay":
+            self.caloriesDay = value
+        case "stepsWeek":
+            self.stepsWeek = value
+        case "stepsDay":
+            self.stepsDay = value
+        default:
+            break
+        }
     }
 }

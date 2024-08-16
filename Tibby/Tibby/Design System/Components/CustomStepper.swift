@@ -7,18 +7,34 @@
 
 import SwiftUI
 
+/// A custom stepper component for adjusting a numeric value within a defined range.
+/// 
+/// `CustomStepper` allows users to increment or decrement a value by a specified step size within a given range.
+/// It displays the current value along with a title and description, making it useful for setting and displaying numeric preferences or settings.
 struct CustomStepper: View {
-    @State var value: Int
+    /// The current value of the stepper.
+    @Binding var value: Int
+    
+    /// The amount by which the value should be incremented or decremented.
     var step: Int
+    
+    /// The range within which the value can be adjusted.
     var range: ClosedRange<Int>
+    
+    /// The title displayed above the stepper.
     var title: String
+    
+    /// A description displayed below the value, providing context for what the value represents.
     var description: String
     
     var body: some View {
         VStack {
+            // Title of the stepper
             Text(title)
                 .font(.typography(.body))
+            
             HStack {
+                // Decrement button
                 Button(action: {
                     if value > range.lowerBound {
                         value -= step
@@ -30,6 +46,8 @@ struct CustomStepper: View {
                 .disabled(value <= range.lowerBound)
                 
                 Spacer()
+                
+                // Display the current value and description
                 VStack {
                     Text("\(value)")
                         .font(.typography(.title))
@@ -40,6 +58,7 @@ struct CustomStepper: View {
                 
                 Spacer()
                 
+                // Increment button
                 Button(action: {
                     if value < range.upperBound {
                         value += step
@@ -50,7 +69,6 @@ struct CustomStepper: View {
                 .buttonSecondary(bgColor: value < range.upperBound ? .black : .black)
                 .disabled(value >= range.upperBound)
             }
-            
         }
         .padding(8)
         .overlay {
@@ -58,10 +76,4 @@ struct CustomStepper: View {
                 .stroke(.tibbyBaseBlack, lineWidth: 1)
         }
     }
-}
-
-
-
-#Preview {
-    CustomStepper(value: 5, step: 1, range: 0...10, title: "Daily Exercise", description: "calories/day")
 }

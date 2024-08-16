@@ -7,19 +7,21 @@
 
 import SwiftUI
 
+/// A view that displays a linear gradient background with rounded corners.
 struct GradientBackgroundView: View {
-    var bgColor: Color
+    /// The corner radius applied to the view's edges.
     var cornerRadius: CGFloat
+    
     var body: some View {
-            LinearGradient(
-                gradient: Gradient(stops: [
-                    .init(color: Color.white.opacity(0.3), location: 0.00),
-                    .init(color: Color(red: 0.53, green: 0.53, blue: 0.53).opacity(0), location: 0.50),
-                    .init(color: Color.black.opacity(0.3), location: 1.00)
-                ]),
-                startPoint: .init(x: 0, y: 0.5),
-                endPoint: .init(x: 1, y: 0.5)
-            )
-        .withBorderRadius(cornerRadius)
+        LinearGradient(
+            gradient: Gradient(colors: [
+                Color.white.opacity(0.3),  // Light at the start
+                Color.clear,               // Transparent in the middle
+                Color.black.opacity(0.3)   // Dark at the end
+            ]),
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        .cornerRadius(cornerRadius)  // Apply the specified corner radius
     }
 }

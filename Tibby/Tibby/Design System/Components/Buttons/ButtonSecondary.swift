@@ -8,12 +8,17 @@
 import Foundation
 import SwiftUI
 
+/// A custom button style used for secondary buttons in the Tibby app.
+/// This style applies a circular background with a semi-transparent color and includes a simple animation when the button is pressed.
 struct ButtonSecondary: ButtonStyle {
-    var bgColor: Color 
+    
+    /// The background color of the button.
+    var bgColor: Color
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .padding(8)
+            .frame(width: 20, height: 20)
+            .padding(10)
             .background(
                 Circle()
                     .fill(bgColor.opacity(0.5))
