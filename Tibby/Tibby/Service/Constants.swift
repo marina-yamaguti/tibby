@@ -128,18 +128,25 @@ class Constants: ObservableObject {
     ///   - statusList: A list of `TibbyStatus` items to create timers for.
     ///   - closure: A closure that will be executed after each decrease.
     func createTimer(tibby: Tibby, statusList: [TibbyStatus], closure: () -> Void) {
+        //create the timers for each necessity item and decrease the necessity
         for statusT in statusList {
             Timer.scheduledTimer(withTimeInterval: TimeInterval(statusT.timeDecrease()), repeats: true) { _ in
                 switch statusT {
                 case .hungry:
-                    tibby.hunger = max(tibby.hunger - 1, 0)
+                    if tibby.hunger != 0 {
+                        tibby.hunger -= 1
+                    }
                 case .sleep:
-                    tibby.sleep = max(tibby.sleep - 1, 0)
+                    if tibby.sleep != 0 {
+                        tibby.sleep -= 1
+                    }
                 case .happy:
-                    tibby.happiness = max(tibby.happiness - 1, 0)
+                    if tibby.happiness != 0 {
+                        tibby.happiness -= 1
+                    }
                 }
-                closure()
             }
+            closure()
         }
     }
 }

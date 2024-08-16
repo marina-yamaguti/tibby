@@ -70,7 +70,6 @@ struct TibbySelectionView: View {
                                             NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
                                                 ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
-                                                ItemCard(
                                             }
                                         } else {
                                             NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
@@ -118,4 +117,3 @@ struct TibbySelectionView: View {
         return map
     }
 }
-
