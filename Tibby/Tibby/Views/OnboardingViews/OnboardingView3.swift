@@ -17,9 +17,9 @@ struct OnboardingView3: View {
     var body: some View {
         VStack {
             CustomTextField(prompt: "How should we call you?", placeholder: "Name")
-            CustomStepper(value: exercise, step: 5, range: 10...1440, title: "Daily Exercise", description: "minutes/day")
-            CustomStepper(value: energy, step: 5, range: 10...1440, title: "Daily Energy Goal", description: "calories/day")
-            CustomStepper(value: steps, step: 5, range: 500...1440, title: "Daily Steps", description: "steps/day")
+            CustomStepper(value: $exercise, step: 5, range: 10...1440, title: "Daily Exercise", description: "minutes/day")
+            CustomStepper(value: $energy, step: 5, range: 10...1440, title: "Daily Energy Goal", description: "calories/day")
+            CustomStepper(value: $steps, step: 5, range: 500...1440, title: "Daily Steps", description: "steps/day")
         }
         .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
     }

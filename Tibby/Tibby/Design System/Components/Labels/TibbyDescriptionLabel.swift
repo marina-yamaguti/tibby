@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+/// TibbyDescriptionLabel is a SwiftUI view that displays a label with a description and a background color.
 struct TibbyDescriptionLabel: View {
+    /// The description text to be displayed, managed as a state variable
     @State var description: String
+    
+    /// The background color of the description label, managed as a state variable
     @State var color: Color
     
     var body: some View {
@@ -35,8 +39,4 @@ struct TibbyDescriptionLabel: View {
             )
         }
     }
-}
-
-#Preview {
-    TibbyDescriptionLabel(description: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", color: Color.tibbyBaseBlue)
 }

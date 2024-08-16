@@ -34,16 +34,6 @@ final class User {
     /// The identifier for the Tibby the User is currently using
     var currentTibbyID: UUID?
     
-    /// Initializes a new user with the specified attributes.
-    ///
-    /// - Parameters:
-    ///   - id: The unique identifier for the user.
-    ///   - username: The username of the user.
-    ///   - email: The email address of the user. Default is `nil`.
-    ///   - passwordHash: The hashed password of the user. Default is `nil`.
-    ///   - coins: The coins of the user. Always will start with `0`.
-    ///   - gems: The gems of the user. Always will start with `0`.
-    ///   - currentTibbyID: The identifier for the Tibby the User is currently using. Default is `nil`.
     init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, currentTibbyID: UUID? = nil) {
         self.id = id
         self.username = username

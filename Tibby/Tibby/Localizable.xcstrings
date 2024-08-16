@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "?" : {
 
     },
@@ -38,12 +35,6 @@
 
     },
     "Given Name" : {
-
-    },
-    "Hello, World!" : {
-
-    },
-    "home" : {
 
     },
     "Home" : {
@@ -88,6 +79,9 @@
     "price: %lld" : {
 
     },
+    "Profile icon" : {
+
+    },
     "quantity: %lld" : {
 
     },
@@ -100,16 +94,16 @@
     "settings" : {
 
     },
+    "Settings" : {
+
+    },
     "Small title" : {
 
     },
     "Sofia Sartori" : {
 
     },
-    "species" : {
-
-    },
-    "tibby" : {
+    "Species" : {
 
     },
     "Tibby" : {

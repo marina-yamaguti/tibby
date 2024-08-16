@@ -82,8 +82,10 @@ struct KitchenView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ActionButton(image: TibbySymbols.carrot.rawValue, action: {openSelector.toggle()})
-                    }.padding(.bottom, 32).padding(.horizontal,20)
+                        Button(action: {openSelector.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.carrot.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
+                    }
+                    .padding(.bottom, 32).padding(.horizontal,20)
                 }
                 Image("plate")
                     .resizable()

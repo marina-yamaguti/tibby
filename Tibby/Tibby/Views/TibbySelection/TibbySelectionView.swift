@@ -118,4 +118,3 @@ struct TibbySelectionView: View {
         return map
     }
 }
-
