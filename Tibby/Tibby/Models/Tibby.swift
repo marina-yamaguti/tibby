@@ -143,25 +143,10 @@ protocol TibbyProtocol {
     /// - Parameter tibbySpecie: The `TibbySpecie` to be set.
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
-    /// Adds an accessory to the SpriteKit view and updates the SwiftData model.
-    ///
-    /// - Parameters:
-    ///   - accessory: The `Accessory` to be added.
-    ///   - service: The `Service` used to update the model.
-    ///   - tibbyID: The `UUID` of the Tibby the accessory is associated with.
-    func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)
-    
-    /// Removes the accessory from the SpriteKit view and updates the SwiftData model.
-    ///
-    /// - Parameter service: The `Service` used to update the model.
-    func removeAccessory(_ service: Service)
-    
-    /// Animates the Tibby with a given set of images.
-    ///
-    /// - Parameters:
-    ///   - textureList: An array of strings representing the texture frames for the animation.
-    ///   - nodeID: The type of node being animated (Tibby or accessory).
-    ///   - timeFrame: The time interval between each frame of the animation.
+    ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
+    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()-> Void)
+    func removeAccessory(completion: ()->Void)
+    ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
 }
 

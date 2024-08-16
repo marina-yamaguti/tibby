@@ -32,13 +32,13 @@ struct ButtonTertiary: ButtonStyle {
                 
             }
             .padding(.bottom, configuration.isPressed ? 0 : 4)
-            .animation(.linear(duration: 0.2), value: configuration.isPressed)
+            .animation(.linear(duration: 0.1), value: configuration.isPressed)
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
                     .fill(shadowColor)
             }
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 4 : 0)
-            .animation(.linear(duration: 0.2), value: configuration.isPressed)
+            .animation(.linear(duration: 0.1), value: configuration.isPressed)
     }
 }

@@ -136,6 +136,21 @@ struct HomeView: View {
                     }
                     constants.objectWillChange.send()
             }
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory) {
+                        service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                    } remove: {
+                        tibbyView.removeAccessory {
+                            for accessory in service.getAllAccessories()! {
+                                if accessory.tibbyId == tibby.id {
+                                    service.removeAccessoryFromTibby(accessory: accessory)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         })
     }
 }
