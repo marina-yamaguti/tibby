@@ -100,7 +100,6 @@ struct WardrobeView: View {
                         // Displaying each accessory in the grid
                         ForEach($accessories) { $accessory in
                             Button {
-                                tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
                                 selectedAccessory = accessory
                             } label: {
                                 if tibby.id == accessory.tibbyId {
@@ -114,14 +113,6 @@ struct WardrobeView: View {
                                         .padding(.bottom)
                                 }
                             }
-                            .onChange(of: selectedAccessory, {
-                                // Observes changes in the selected accessory to update accessory interactions.
-                                print(selectedAccessory)
-                                if tibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
-                                }
-                                
-                            })
                             
                         }
                     }.padding()
@@ -144,7 +135,17 @@ struct WardrobeView: View {
             for accessory in service.getAllAccessories() ?? [] {
                 if tibby.id == accessory.tibbyId {
                     print("usando \(accessory.name)")
-                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                    tibbyView.addAccessory(accessory) {
+                        service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                    } remove: {
+                        tibbyView.removeAccessory {
+                            for accessory in service.getAllAccessories()! {
+                                if accessory.tibbyId == tibby.id {
+                                    service.removeAccessoryFromTibby(accessory: accessory)
+                                }
+                            }
+                        }
+                    }
                     selectedAccessory = accessory
                 }
             }
@@ -153,16 +154,24 @@ struct WardrobeView: View {
                 tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
             }
         }
-        .onChange(of: selectedAccessory, {
-            if let accessory = selectedAccessory {
-                if tibby.id == accessory.tibbyId {
-                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
-                }
-            }
-        })
         .padding(.top, 40)
         .onChange(of: category, {
             accessories = getFilteredList()
+        })
+        .onChange(of: selectedAccessory, {
+            if let accessory = selectedAccessory {
+                tibbyView.addAccessory(accessory) {
+                    service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                } remove: {
+                    tibbyView.removeAccessory {
+                        for accessory in service.getAllAccessories()! {
+                            if accessory.tibbyId == tibby.id {
+                                service.removeAccessoryFromTibby(accessory: accessory)
+                            }
+                        }
+                    }
+                }
+            }
         })
     }
     
@@ -183,7 +192,13 @@ struct WardrobeView: View {
     private func removeAccessory() {
         if let accessories = service.getAllAccessories() {
             for accessory in accessories {
-                tibbyView.removeAccessory(service)
+                tibbyView.removeAccessory {
+                    for accessory in service.getAllAccessories()! {
+                        if accessory.tibbyId == tibby.id {
+                            service.removeAccessoryFromTibby(accessory: accessory)
+                        }
+                    }
+                }
                 accessory.tibbyId = nil
                 selectedAccessory = nil
             }

@@ -44,7 +44,17 @@ struct BedroomView: View {
                             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                             for accessory in service.getAllAccessories() ?? [] {
                                 if tibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                    tibbyView.addAccessory(accessory) {
+                                        service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                                    } remove: {
+                                        tibbyView.removeAccessory {
+                                            for accessory in service.getAllAccessories()! {
+                                                if accessory.tibbyId == tibby.id {
+                                                    service.removeAccessoryFromTibby(accessory: accessory)
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             
@@ -91,7 +101,17 @@ struct BedroomView: View {
             .onChange(of: wardrobeIsOpen, {
                 for accessory in service.getAllAccessories() ?? [] {
                     if tibby.id == accessory.tibbyId {
-                        tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                        tibbyView.addAccessory(accessory) {
+                            service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                        } remove: {
+                            tibbyView.removeAccessory {
+                                for accessory in service.getAllAccessories()! {
+                                    if accessory.tibbyId == tibby.id {
+                                        service.removeAccessoryFromTibby(accessory: accessory)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             })
