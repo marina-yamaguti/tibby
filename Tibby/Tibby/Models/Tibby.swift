@@ -9,14 +9,17 @@ import Foundation
 import SwiftData
 import SpriteKit
 
-///enum to represent the types of tibbies
+// MARK: - TibbySpecie Enum
+
+/// An enum representing the different species of Tibbies.
+///
+/// Each species has associated animations for different states such as base, sleep, happy, sad, and eating.
 enum TibbySpecie: String {
-    //Complete with all the species
     case shark
     case dolphin
-   // case dog
     case yellowShark
     
+    /// Returns the base animation frames for the species.
     func baseAnimation() -> [String] {
         switch self {
         case .shark:
@@ -28,6 +31,7 @@ enum TibbySpecie: String {
         }
     }
     
+    /// Returns the sleep animation frames for the species.
     func sleepAnimation() -> [String] {
         switch self {
         case .shark:
@@ -37,9 +41,9 @@ enum TibbySpecie: String {
         case .dolphin:
             return ["dolphinSleep1", "dolphinSleep2", "dolphinSleep3", "dolphinSleep4"]
         }
-        
     }
     
+    /// Returns the happy animation frames for the species.
     func happyAnimation() -> [String] {
         switch self {
         case .shark:
@@ -51,6 +55,7 @@ enum TibbySpecie: String {
         }
     }
     
+    /// Returns the sad animation frames for the species.
     func sadAnimation() -> [String] {
         switch self {
         case .shark:
@@ -62,6 +67,7 @@ enum TibbySpecie: String {
         }
     }
     
+    /// Returns the eat animation frames for the species.
     func eatAnimation() -> [String] {
         switch self {
         case .shark:
@@ -74,16 +80,25 @@ enum TibbySpecie: String {
     }
 }
 
-///enum to represent the types of nodes in the SpriteKit View
+// MARK: - NodeType Enum
+
+/// An enum representing the types of nodes in the SpriteKit view.
 enum NodeType {
-    case tibby, accessory
+    case tibby
+    case accessory
 }
 
-///enum to represent all the tibby styles
+// MARK: - TibbyStatus Enum
+
+/// An enum representing the various states of a Tibby.
 enum TibbyStatus {
-    case hungry, sleep, happy
+    case hungry
+    case sleep
+    case happy
     
-    ///TIME in SECONDS to decrease 1 point in the Tibby necessity
+    /// The time in seconds required to decrease 1 point in the Tibby's necessity.
+    ///
+    /// - Returns: A `Double` representing the time in seconds.
     func timeDecrease() -> Double {
         switch self {
         case .hungry:
@@ -96,30 +111,65 @@ enum TibbyStatus {
     }
 }
 
+// MARK: - TibbyProtocol Protocol
 
-/// A protocol for the Tibby View in SpriteKit to be operated in a SwiftUI View
+/// A protocol defining the interface for interacting with Tibby views in SpriteKit within a SwiftUI view.
 protocol TibbyProtocol {
     
-    // MARK: Tibby and accessory Nodes instances
+    // MARK: - Tibby and Accessory Node Instances
+    
+    /// The Tibby node in the SpriteKit view.
     var tibby: SKSpriteNode { get set }
+    
+    /// The accessory node in the SpriteKit view.
     var accessory: SKSpriteNode { get set }
-    /// Tibby ID to operate in the view
+    
+    /// The Tibby object associated with the view.
     var tibbyObject: Tibby? { get set }
-    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service)
+    
+    /// The species of the Tibby.
     var tibbySpecie: TibbySpecie? { get set }
+    
+    /// Sets the Tibby object, constants, and service for the view.
+    ///
+    /// - Parameters:
+    ///   - tibbyObject: The `Tibby` object to be set.
+    ///   - constants: The `Constants` object used in the view.
+    ///   - service: The `Service` object used in the view.
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service)
+    
+    /// Sets the Tibby species for the view.
+    ///
+    /// - Parameter tibbySpecie: The `TibbySpecie` to be set.
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
-    ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
+    /// Adds an accessory to the SpriteKit view and updates the SwiftData model.
+    ///
+    /// - Parameters:
+    ///   - accessory: The `Accessory` to be added.
+    ///   - service: The `Service` used to update the model.
+    ///   - tibbyID: The `UUID` of the Tibby the accessory is associated with.
     func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?)
+    
+    /// Removes the accessory from the SpriteKit view and updates the SwiftData model.
+    ///
+    /// - Parameter service: The `Service` used to update the model.
     func removeAccessory(_ service: Service)
-    ///Pass the set of images for the animation and what is animating
+    
+    /// Animates the Tibby with a given set of images.
+    ///
+    /// - Parameters:
+    ///   - textureList: An array of strings representing the texture frames for the animation.
+    ///   - nodeID: The type of node being animated (Tibby or accessory).
+    ///   - timeFrame: The time interval between each frame of the animation.
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
 }
+
+// MARK: - Tibby Model
 
 /// A model representing a Tibby, a virtual pet with various attributes and states.
 @Model
 final class Tibby {
-    
     /// The unique identifier for the Tibby.
     var id: UUID
     
@@ -129,7 +179,7 @@ final class Tibby {
     /// The name of the Tibby.
     var name: String
     
-    /// The chance of getting this Tibby
+    /// The rarity of the Tibby.
     var rarity: String
     
     /// Additional details about the Tibby.
@@ -162,31 +212,12 @@ final class Tibby {
     /// The date when the Tibby was last updated.
     var lastUpdated: Date
     
-    /// If this tibby is arealdy unlocked for the main User
+    /// A Boolean value indicating whether the Tibby is unlocked for the main user.
     var isUnlocked: Bool
     
-    /// The collection this Tibby is a part of (this should be a name matching the Collections enum)
+    /// The collection this Tibby is a part of.
     var collection: String
     
-    /// Initializes a new Tibby with the specified attributes.
-    ///
-    /// - Parameters:
-    ///   - id: The unique identifier for the Tibby.
-    ///   - ownerId: The unique identifier of the owner of the Tibby.
-    ///   - name: The name of the Tibby.
-    ///   - rarity: The chance of getting this Tibby
-    ///   - details: Additional details about the Tibby.
-    ///   - personality: The personality traits of the Tibby.
-    ///   - species: The species of the Tibby.
-    ///   - level: The current level of the Tibby.
-    ///   - xp: The experience points of the Tibby.
-    ///   - happiness: The happiness level of the Tibby.
-    ///   - hunger: The hunger level of the Tibby.
-    ///   - sleep: The sleep level of the Tibby.
-    ///   - friendship: The friendship level of the Tibby with its owner.
-    ///   - lastUpdated: The date when the Tibby was last updated.
-    ///   - isUnlocked: If this Tibby is already unlocked for the User
-    ///   - collection: The collection this Tibby is a part of (this should be a name matching the Collections enum)
     init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id
         self.ownerId = ownerId
@@ -207,6 +238,9 @@ final class Tibby {
     }
 }
 
+// MARK: - SelectionStatus Enum
+
+/// An enum representing the selection status of a Tibby.
 enum SelectionStatus {
     case locked
     case unselected

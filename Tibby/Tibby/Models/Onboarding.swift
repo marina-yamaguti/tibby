@@ -7,10 +7,11 @@
 
 import Foundation
 
-
-enum OnboardingViews {
+/// Enum representing the different views in the onboarding process.
+enum OnboardingViews: CaseIterable {
     case onboarding1, onboarding2, onboarding3, onboarding4
     
+    /// The title for the onboarding view.
     var title: String {
         switch self {
         case .onboarding1: return "Hi, welcome!"
@@ -19,18 +20,22 @@ enum OnboardingViews {
         case .onboarding4: return "So, to recap..."
         }
     }
+    
+    /// The description for the onboarding view.
     var description: String {
         switch self {
         case .onboarding1:
-            return "small explanation about tibby, wellbeing app, promote good habits with a companion."
+            return "Small explanation about Tibby, a wellbeing app that promotes good habits with a companion."
         case .onboarding2:
-            return "small explanation about needing healthkit permission for the app to work. "
+            return "Small explanation about needing HealthKit permission for the app to work."
         case .onboarding3:
-            return ""
+            return "Tell us a little about yourself to help personalize your experience."
         case .onboarding4:
-            return ""
+            return "Let's recap the key points before we start!"
         }
-    } 
+    }
+    
+    /// The label for the button in the onboarding view.
     var buttonLabel: String {
         switch self {
         case .onboarding1:
@@ -43,17 +48,9 @@ enum OnboardingViews {
             return "Start"
         }
     }
+    
+    /// The symbol for the button in the onboarding view.
     var buttonSymbol: String {
-        switch self {
-        case .onboarding1:
-            return TibbySymbols.play.rawValue
-        case .onboarding2:
-            return TibbySymbols.play.rawValue
-        case .onboarding3:
-            return TibbySymbols.play.rawValue
-        case .onboarding4:
-            return TibbySymbols.play.rawValue
-        }
+        return TibbySymbols.play.rawValue
     }
 }
-

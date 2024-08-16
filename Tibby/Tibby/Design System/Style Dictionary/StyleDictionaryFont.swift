@@ -18,20 +18,19 @@ public enum FontStyle {
     case label2
     case title
     
-    /// The font name associated with the font style.
+    /// The font name associated with each font style.
+    /// This property returns the name of the font to be used for the respective style.
     var fontName: String {
         switch self {
-        case .display: return "Dogica Pixel"
-        case .headline: return "Dogica Pixel"
-        case .body: return "Dogica Pixel"
-        case .body2: return "Biryani"
-        case .label: return "Dogica Pixel"
-        case .label2: return "Biryani"
-        case .title: return "Dogica Pixel"
+        case .display, .headline, .body, .label, .title:
+            return "Dogica Pixel"  // Primary font used for key styles.
+        case .body2, .label2:
+            return "Biryani"       // Secondary font used for alternative styles.
         }
     }
     
     /// The size associated with the font style.
+    /// This property provides the specific size for the font based on the style.
     var size: CGFloat {
         switch self {
         case .display: return 45
@@ -44,7 +43,8 @@ public enum FontStyle {
         }
     }
     
-    /// The text style associated with the font style, used for dynamic scaling.
+    /// The text style associated with each font style, used for dynamic type scaling.
+    /// This property returns a `Font.TextStyle` value that determines how the font scales with the user's dynamic type settings, ensuring accessibility.
     var relativeTo: Font.TextStyle {
         switch self {
         case .display: return .largeTitle
