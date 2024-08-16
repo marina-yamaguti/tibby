@@ -23,6 +23,7 @@ struct ButtonPrimary: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
+            .foregroundStyle(Color.tibbyBaseBlack)
             .padding(EdgeInsets(top: 16, leading: 64, bottom: 16, trailing: 64))
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)

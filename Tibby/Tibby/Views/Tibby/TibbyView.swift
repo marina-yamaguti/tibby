@@ -113,7 +113,9 @@ class TibbyView: SKScene, TibbyProtocol {
 
                     petAnimation = false
                 }
-                HapticManager.instance.impact(style: .soft)
+                if ((constants?.vibration) != nil) {
+                    HapticManager.instance.impact(style: .soft)
+                }
             }
             else {
                 petAnimation = true

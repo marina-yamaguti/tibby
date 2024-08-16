@@ -64,21 +64,21 @@ class Constants: ObservableObject {
             UserDefaults.standard.set(music, forKey: "music")
             if music {
                 playAudio(audio: "TibbyHappyTheme")
-            } else {
+            }
+            else {
                 audioPlayer?.stop()
             }
         }
     }
     
-    /// Plays the specified audio file on a loop.
-    ///
-    /// - Parameter audio: The name of the audio file to play (without extension).
     func playAudio(audio: String) {
+        audioPlayer?.stop() // Stop any currently playing audio
+        
         if let audioURL = Bundle.main.url(forResource: audio, withExtension: "wav") {
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: audioURL)
-                audioPlayer?.play()
                 audioPlayer?.numberOfLoops = Int.max
+                audioPlayer?.play()
             } catch {
                 print("Couldn't play audio. Error: \(error)")
             }
@@ -86,13 +86,12 @@ class Constants: ObservableObject {
             print("No audio file found")
         }
     }
+ 
     
     // MARK: - Environment Variables
     
     /// A published property that defines the current environment where the user is located.
-    @Published var currentEnviroment: Enviroment = .kitchen
-    
-    /// A published property that tracks the current onboarding view being displayed.
+    @Published var currentEnviroment: Enviroment = .kitchen   
     @Published var currentOnboarding: OnboardingViews = .onboarding1
     
     // MARK: - Tibby Status Timers

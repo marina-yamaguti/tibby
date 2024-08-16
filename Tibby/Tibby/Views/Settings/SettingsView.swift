@@ -15,9 +15,9 @@ struct SettingsView: View {
             PageHeader(title: "Settings", symbol: "TibbySymbolSettings")
             VStack(spacing: 16) {
                 //TODO add notifications when ready
-                SettingsComponent(isOn: $constants.vibration, trailingType: .toggleButton, title: "Haptics", label: "Phone Vibration", color: .tibbyBaseGreen)
+                SettingsComponent(trailingType: .toggleButton, title: "Haptics", label: "Phone Vibration", color: .tibbyBaseGreen)
     
-                SettingsComponent(isOn: $constants.music, trailingType: .toggleButton, title: "Sounds", label: "Music", color: .tibbyBaseBlue)
+                SettingsComponent(trailingType: .toggleButton, title: "Sounds", label: "Music", color: .tibbyBaseBlue)
 
                 HStack {
                     VStack(alignment: .leading, spacing: 16) {
@@ -46,6 +46,7 @@ struct SettingsView: View {
                                 .font(.typography(.body2))
                         }
                     }
+                    .foregroundStyle(Color.tibbyBaseBlack)
                     Spacer()
                 }
                 .padding(.top, 16)

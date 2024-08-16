@@ -15,10 +15,7 @@ enum TrailingType {
 
 /// A reusable SwiftUI component for displaying a settings option with either a toggle button or details view.
 struct SettingsComponent: View {
-    /// Binding to the toggle state. Used when `trailingType` is `.toggleButton`.
-    @Binding var isOn: Bool
-    
-    /// Specifies the type of trailing content (`toggleButton` or `details`).
+    @EnvironmentObject var constants: Constants
     var trailingType: TrailingType
     
     /// The title displayed next to the circle.
@@ -39,6 +36,7 @@ struct SettingsComponent: View {
                     .frame(width: 20, height: 20)
                 Text(title)
                     .font(.typography(.label))
+                    .foregroundStyle(Color.tibbyBaseBlack)
                 Spacer()
             }
             
@@ -62,10 +60,20 @@ struct SettingsComponent: View {
                         .padding(.trailing, 32)
                     }
                 } else {
-                    Toggle(label, isOn: $isOn)
-                        .font(.typography(.body))
-                        .foregroundStyle(.tibbyBaseWhite)
-                        .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    switch label {
+                    case "Music":
+                        Toggle(label, isOn: $constants.music)
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseWhite)
+                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    case "Phone Vibration":
+                        Toggle(label, isOn: $constants.vibration)
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseWhite)
+                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    default:
+                        EmptyView()
+                    }
                 }
             }
             .background {
