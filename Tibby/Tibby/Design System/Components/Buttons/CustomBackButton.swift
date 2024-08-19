@@ -7,24 +7,19 @@
 
 import SwiftUI
 
+/// A custom back button view used to navigate back to the previous screen.
+/// This view uses the environment's `presentationMode` to dismiss the current view when tapped.
 struct CustomBackButton: View {
+    
+    /// The environment variable that controls the presentation mode of the current view.
     @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        Button {
+        Button(action: {
             presentationMode.wrappedValue.dismiss()
-        } label: {
-            ZStack {
-                Circle().foregroundStyle(.black.opacity(0.5))
-                Image(systemName: "chevron.left")
-                    .foregroundStyle(.tibbyBaseWhite)
-                    .font(.system(size: 14))
-                    .bold()
-                    .padding()
-            }.frame(width: 30, height: 30)
-        }
+        }, label: {
+            ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")
+        })
+        .buttonSecondary(bgColor: .black)
     }
-}
-
-#Preview {
-    CustomBackButton()
 }

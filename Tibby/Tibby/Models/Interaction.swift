@@ -24,13 +24,6 @@ final class Interaction {
     /// The timestamp of when the interaction occurred.
     var timestamp: Date
     
-    /// Initializes a new interaction with the specified attributes.
-    ///
-    /// - Parameters:
-    ///   - id: The unique identifier for the interaction.
-    ///   - tibbyId: The identifier for the Tibby involved in the interaction.
-    ///   - activityId: The identifier for the activity involved in the interaction.
-    ///   - timestamp: The timestamp of when the interaction occurred.
     init(id: UUID, tibbyId: UUID, activityId: UUID, timestamp: Date) {
         self.id = id
         self.tibbyId = tibbyId

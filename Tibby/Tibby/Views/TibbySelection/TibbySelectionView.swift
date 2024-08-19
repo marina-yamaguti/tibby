@@ -60,6 +60,7 @@ struct TibbySelectionView: View {
                             if !(tibbies[collection]?.isEmpty ?? false)  {
                                 Text(collection.rawValue)
                                     .font(.typography(.title))
+                                    .foregroundStyle(Color.tibbyBaseBlack)
                                     .padding(.leading)
                                     .onAppear {
                                         self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
@@ -117,4 +118,3 @@ struct TibbySelectionView: View {
         return map
     }
 }
-
