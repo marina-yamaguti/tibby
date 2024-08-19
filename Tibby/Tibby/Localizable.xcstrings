@@ -10,9 +10,6 @@
     "%lld/100" : {
 
     },
-    "Add %@" : {
-
-    },
     "Click to equip" : {
 
     },
@@ -85,13 +82,7 @@
     "quantity: %lld" : {
 
     },
-    "rarity" : {
-
-    },
-    "Remove" : {
-
-    },
-    "settings" : {
+    "Rarity" : {
 
     },
     "Settings" : {

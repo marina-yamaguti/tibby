@@ -11,6 +11,7 @@ import SwiftUI
 /// A custom button style used for secondary buttons in the Tibby app.
 /// This style applies a circular background with a semi-transparent color and includes a simple animation when the button is pressed.
 struct ButtonSecondary: ButtonStyle {
+    @EnvironmentObject var constants: Constants
     
     /// The background color of the button.
     var bgColor: Color
@@ -24,7 +25,11 @@ struct ButtonSecondary: ButtonStyle {
                     .fill(bgColor.opacity(0.5))
             )
             .animation(.linear(duration: 0), value: configuration.isPressed)
-        
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                if constants.vibration {
+                    HapticManager.instance.impact(style: .soft)
+                }
+            }
         
     }
 }

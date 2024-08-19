@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
     @State var tibbies: [Collection:[Tibby]] = [:]
     @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
+    @State var navigate: Bool = false
     
     var body: some View {
         let columns = [
@@ -73,7 +75,11 @@ struct TibbySelectionView: View {
                                                     .padding()
                                             }
                                         } else {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))
+                                                .onTapGesture {
+                                                    if constants.vibration {
+                                                        HapticManager.instance.impact(style: .soft)
+                                                    }}) {
                                                 ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
                                             }

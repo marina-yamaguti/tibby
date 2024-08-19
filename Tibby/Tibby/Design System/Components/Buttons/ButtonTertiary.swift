@@ -10,6 +10,7 @@ import SwiftUI
 /// A custom button style used for tertiary buttons in the Tibby app.
 /// This style includes a rounded rectangle background, a subtle shadow effect, and a gradient overlay, with a simple animation when the button is pressed to create a refined, minimalistic look.
 struct ButtonTertiary: ButtonStyle {
+    @EnvironmentObject var constants: Constants
     
     /// The color used for the button's foreground elements, such as text or icons.
     var foregroundColor: Color = .white
@@ -40,5 +41,10 @@ struct ButtonTertiary: ButtonStyle {
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 4 : 0)
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                if constants.vibration {
+                    HapticManager.instance.impact(style: .soft)
+                }
+            }
     }
 }

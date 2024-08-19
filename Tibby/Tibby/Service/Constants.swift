@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFAudio
+import SwiftUI
 
 // MARK: - Singleton
 
@@ -86,12 +87,12 @@ class Constants: ObservableObject {
             print("No audio file found")
         }
     }
- 
+    
     
     // MARK: - Environment Variables
     
     /// A published property that defines the current environment where the user is located.
-    @Published var currentEnviroment: Enviroment = .kitchen   
+    @Published var currentEnviroment: Enviroment = .kitchen
     @Published var currentOnboarding: OnboardingViews = .onboarding1
     
     // MARK: - Tibby Status Timers
