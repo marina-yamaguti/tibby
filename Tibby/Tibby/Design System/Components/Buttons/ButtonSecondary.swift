@@ -13,6 +13,7 @@ import SwiftUI
 struct ButtonSecondary: ButtonStyle {
     @EnvironmentObject var constants: Constants
     
+    
     /// The background color of the button.
     var bgColor: Color
     func makeBody(configuration: Configuration) -> some View {
@@ -28,6 +29,9 @@ struct ButtonSecondary: ButtonStyle {
             .onChange(of: configuration.isPressed) { oldValue, newValue in
                 if constants.vibration {
                     HapticManager.instance.impact(style: .soft)
+                }
+                if constants.sfx {
+                    constants.playSFX(audio: "SecondaryButton")
                 }
             }
         

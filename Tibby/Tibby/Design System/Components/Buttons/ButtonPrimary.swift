@@ -46,6 +46,9 @@ struct ButtonPrimary: ButtonStyle {
                 if constants.vibration {
                     HapticManager.instance.impact(style: .soft)
                 }
+                if constants.sfx {
+                    constants.playSFX(audio: "PrimaryButton")
+                }
             }
     }
 }

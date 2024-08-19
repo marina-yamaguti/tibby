@@ -66,6 +66,11 @@ struct SettingsComponent: View {
                             .font(.typography(.body))
                             .foregroundStyle(.tibbyBaseWhite)
                             .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
+                    case "Sound Effects":
+                        Toggle(label, isOn: $constants.sfx)
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseWhite)
+                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
                     case "Phone Vibration":
                         Toggle(label, isOn: $constants.vibration)
                             .font(.typography(.body))

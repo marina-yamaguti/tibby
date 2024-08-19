@@ -13,6 +13,9 @@
 		7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59202C459E4F004FFD4B /* GradenView.swift */; };
 		7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59222C459E62004FFD4B /* Navigation.swift */; };
 		7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95859C2C405C7900780558 /* BedroomExemple.swift */; };
+		7C9CDA3A2C73E9DA0044A8B3 /* TertiaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */; };
+		7C9CDA3B2C73E9DA0044A8B3 /* PrimaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */; };
+		7C9CDA3C2C73E9DA0044A8B3 /* SecondaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */; };
 		7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D3C2C45AD68002715F5 /* HomeView.swift */; };
 		7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D402C484FB5002715F5 /* HapticManager.swift */; };
 		7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */; };
@@ -197,6 +200,9 @@
 		7C7B59202C459E4F004FFD4B /* GradenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradenView.swift; sourceTree = "<group>"; };
 		7C7B59222C459E62004FFD4B /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		7C95859C2C405C7900780558 /* BedroomExemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomExemple.swift; sourceTree = "<group>"; };
+		7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TertiaryButton.wav; sourceTree = "<group>"; };
+		7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PrimaryButton.wav; sourceTree = "<group>"; };
+		7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SecondaryButton.wav; sourceTree = "<group>"; };
 		7CC14D3C2C45AD68002715F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7CC14D402C484FB5002715F5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
@@ -389,8 +395,11 @@
 			isa = PBXGroup;
 			children = (
 				D896AED12C6D1B67009C208C /* SettingsView.swift */,
-				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
 				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
+				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
+				7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */,
+				7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */,
+				7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -943,10 +952,13 @@
 				D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */,
 				92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */,
 				D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
+				7C9CDA3A2C73E9DA0044A8B3 /* TertiaryButton.wav in Resources */,
 				A50E92C62C6535E300762A11 /* Biryani-Regular.ttf in Resources */,
 				A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */,
 				D8B6D2E02C6E3125008A7702 /* TibbyHappyTheme.wav in Resources */,
 				D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
+				7C9CDA3C2C73E9DA0044A8B3 /* SecondaryButton.wav in Resources */,
+				7C9CDA3B2C73E9DA0044A8B3 /* PrimaryButton.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
