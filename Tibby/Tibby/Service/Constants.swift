@@ -74,11 +74,13 @@ class Constants: ObservableObject {
     ///
     /// - Parameter audio: The name of the audio file to play (without extension).
     func playAudio(audio: String) {
+        audioPlayer?.stop() // Stop any currently playing audio
+        
         if let audioURL = Bundle.main.url(forResource: audio, withExtension: "wav") {
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: audioURL)
-                audioPlayer?.play()
                 audioPlayer?.numberOfLoops = Int.max
+                audioPlayer?.play()
             } catch {
                 print("Couldn't play audio. Error: \(error)")
             }

@@ -20,7 +20,3 @@ struct MoneyView: View {
         }
     }
 }
-
-//#Preview {
-//    MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: Service()))
-//}

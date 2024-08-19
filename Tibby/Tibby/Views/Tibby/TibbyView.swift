@@ -19,6 +19,7 @@ class TibbyView: SKScene, TibbyProtocol {
     var petAnimation = false
     var constants: Constants?
     var service: Service?
+    var imageHandler: ImageHandler
     
     
     
@@ -58,7 +59,18 @@ class TibbyView: SKScene, TibbyProtocol {
         // Get the assets name list to create the textures to animate
         var textures: [SKTexture] = []
         for texture in textureList {
-            textures.append(SKTexture(imageNamed: texture))
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        let texture = SKTexture(image: image)
+                        textures.append(texture)
+                    } else {
+                        //TODO: Handle the case where the image could not be loaded here
+                        print("Failed to load image")
+                    }
+                }
+            }
+//            textures.append(SKTexture(imageNamed: texture))
         }
         // Create the animation from the textures list in the respective node
         let animation = SKAction.animate(with: textures, timePerFrame: timeFrame)

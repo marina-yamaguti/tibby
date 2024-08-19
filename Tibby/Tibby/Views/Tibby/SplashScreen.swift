@@ -44,9 +44,6 @@ struct SplashScreen: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                     canProceed = true
                 })
-                if constants.music {
-                    constants.playAudio(audio: "TibbyHappyTheme")
-                }
             }
             .background(.tibbyBaseBlue)
         }

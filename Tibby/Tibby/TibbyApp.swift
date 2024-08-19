@@ -63,7 +63,7 @@ struct TibbyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+            GatchaView()
         }
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))

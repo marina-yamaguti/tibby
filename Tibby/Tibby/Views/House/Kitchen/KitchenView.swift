@@ -193,7 +193,7 @@ struct KitchenView: View {
             }
             .onChange(of: constants.tibbySleeping, {
                 if constants.tibbySleeping {
-                    tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                    tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: tibby, timeFrame: 0.5)
                 } else {
                     let tibbySpecie = TibbySpecie(rawValue: tibby.species)
                     tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
