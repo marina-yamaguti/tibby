@@ -17,7 +17,9 @@ struct SettingsView: View {
                 //TODO add notifications when ready
                 SettingsComponent(trailingType: .toggleButton, title: "Haptics", label: "Phone Vibration", color: .tibbyBaseGreen)
     
-                SettingsComponent(trailingType: .toggleButton, title: "Sounds", label: "Music", color: .tibbyBaseBlue)
+                SettingsComponent(trailingType: .toggleButton, title: "Game Sounds", label: "Music", color: .tibbyBaseBlue)
+                
+                SettingsComponent(trailingType: .toggleButton, title: "Game Sounds", label: "Sound Effects", color: .tibbyBaseBlue)
 
                 HStack {
                     VStack(alignment: .leading, spacing: 16) {

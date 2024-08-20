@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 /// A singleton class responsible for managing haptic feedback in the application.
 class HapticManager {

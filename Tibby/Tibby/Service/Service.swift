@@ -568,9 +568,9 @@ class Service: ObservableObject, ServiceProtocol {
         }
         
         // Tibbies Setup
-        createTibby(id: UUID(), name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Shark", rarity: "Common", details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Thor", rarity: "Ultra", details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         
         // Accessories Setup
         createAccessory(id: UUID(), name: "Hat", image: "hat", price: 10, category: "Head")

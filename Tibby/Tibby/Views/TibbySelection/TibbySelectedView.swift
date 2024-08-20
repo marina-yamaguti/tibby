@@ -44,7 +44,7 @@ struct TibbySelectedView: View {
                         }
                         
                         // Tibby Description
-                        TibbyDescriptionLabel(description: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", color: viewModel.color)
+                        TibbyDescriptionLabel(description: viewModel.tibby.details, color: viewModel.color)
                     }
                 } .scrollIndicators(.hidden)
             }

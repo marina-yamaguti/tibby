@@ -105,7 +105,7 @@ struct HomeView: View {
         }
         .onAppear(perform: {
             if constants.music {
-                constants.playAudio(audio: "TibbyHappyTheme")
+                constants.playMusic(audio: "TibbyHappyTheme")
             }
             print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
