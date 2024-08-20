@@ -11,6 +11,8 @@ import SwiftUI
 ///
 /// The view displays the Tibby's name and provides an option to edit it. The name field supports editing with a character limit, and the editing state is visually indicated with an icon.
 struct TibbyNameEdit: View {
+    @EnvironmentObject var constants: Constants
+    
     /// The Tibby object whose name is being edited.
     @Binding var tibby: Tibby
     
@@ -86,6 +88,9 @@ struct TibbyNameEdit: View {
                 .foregroundStyle(Color.tibbyBaseWhite)
         }
         .onTapGesture {
+            if constants.vibration {
+                HapticManager.instance.impact(style: .soft)
+            }
             isEditing.toggle()
             isFocused.toggle()
         }

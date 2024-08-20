@@ -15,7 +15,7 @@ struct StartView: View {
         if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
             HomeView(tibby: currentTibby)
         } else {
-            HomeView(tibby: service.getTibbyBySpecies(species: "yellowShark")!)
+            HomeView(tibby: service.getTibbyBySpecies(species: "shark")!)
         }
     }
     

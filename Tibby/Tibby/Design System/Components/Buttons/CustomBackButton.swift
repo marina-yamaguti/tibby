@@ -13,9 +13,13 @@ struct CustomBackButton: View {
     
     /// The environment variable that controls the presentation mode of the current view.
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var constants: Constants
     
     var body: some View {
         Button(action: {
+            if constants.vibration {
+                HapticManager.instance.impact(style: .soft)
+            }
             presentationMode.wrappedValue.dismiss()
         }, label: {
             ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")
