@@ -2,24 +2,38 @@
 //  ButtonSecondary.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 17/07/24.
+//  Created by Natalia Dal Pizzol on 12/08/24.
 //
 
+import Foundation
 import SwiftUI
 
+/// A custom button style used for secondary buttons in the Tibby app.
+/// This style applies a circular background with a semi-transparent color and includes a simple animation when the button is pressed.
 struct ButtonSecondary: ButtonStyle {
-    /// Create the button body with the specified style
+    @EnvironmentObject var constants: Constants
+    
+    
+    /// The background color of the button.
+    var bgColor: Color
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
             .frame(width: 20, height: 20)
-            .foregroundColor(configuration.isPressed ? .tibbyBaseBlack : .tibbyBaseBlack)
-            .padding()
-            .background(.tibbyBaseBlue)
-            .cornerRadius(20)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color(configuration.isPressed ? .tibbyBaseBlue : .tibbyBaseBlack), lineWidth: 3)
+            .padding(10)
+            .background(
+                Circle()
+                    .fill(bgColor.opacity(0.5))
             )
+            .animation(.linear(duration: 0), value: configuration.isPressed)
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                if constants.vibration {
+                    HapticManager.instance.impact(style: .soft)
+                }
+                if constants.sfx {
+                    constants.playSFX(audio: "SecondaryButton")
+                }
+            }
+        
     }
 }

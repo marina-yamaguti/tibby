@@ -2,7 +2,7 @@
 //  HealthKit.swift
 //  Tibby
 //
-//  Created by Felipe  Elsner Silva on 07/08/24.
+//  Created by Felipe Elsner Silva on 07/08/24.
 //
 
 import Foundation
@@ -39,11 +39,13 @@ enum SampleType {
     }
 }
 
+/// A class that manages interactions with the HealthKit framework, providing functionality for retrieving health-related data such as steps, calories burned, and workout time.
 class HealthManager: ObservableObject {
-    ///Storage of the health data
+    
+    /// The HealthKit store where health data is accessed.
     var healthStore: HKHealthStore?
     
-    ///Health Kit information variables
+    /// Health data variables representing weekly and daily metrics.
     var workoutCaloriesWeek: Int = 0
     var workoutCaloriesDay: Int = 0
     var workoutTimeWeek: Int = 0
@@ -57,21 +59,25 @@ class HealthManager: ObservableObject {
         return WorkoutActivityType.allCases
     }
     
+    /// Initializes the HealthManager and checks if HealthKit is available on the device.
     init() {
         isHealthDataAvailable()
     }
     
-    //Check if HealthKit is available in yout device
+    /// Checks if HealthKit is available on the device and initializes the `healthStore` if it is.
+    ///
+    /// If HealthKit is not available, the application should handle this scenario gracefully.
     func isHealthDataAvailable() {
         if HKHealthStore.isHealthDataAvailable() {
-            //Code using health data
             healthStore = HKHealthStore()
         } else {
-            //If not available, you can make a way to run your app without that data
+            // Handle the case where HealthKit is not available
         }
     }
     
-    //Asking for permission to read health data
+    /// Requests authorization to read health data from HealthKit.
+    ///
+    /// The app requests permission to access step count, active energy burned, and workout data.
     func authorizationToWriteInHealthStore() {
         // Types of samples you want to use
         let healthTypesWrite: Set = [
@@ -91,16 +97,17 @@ class HealthManager: ObservableObject {
         //Request authorization for writing a certain type
         healthStore?.requestAuthorization(toShare: healthTypesWrite, read: healthTypesRead, completion: { success, error in
             if success {
-                //save sample here or call method that saves sample
+                // Authorization was granted, proceed with data fetching
             } else {
-                //retry
+                // Handle authorization failure
             }
         })
     }
     
-    //Send user to the phone settings
+    /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
-        UIApplication.shared.open(URL(string: "App-Prefs:")!)
+        guard let url = URL(string: "App-Prefs:") else { return }
+        UIApplication.shared.open(url)
     }
     
     //Fetch HealthKit informations that are used
@@ -125,8 +132,7 @@ class HealthManager: ObservableObject {
     private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DateType) {
         //Create the time interval
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
-        
-        var query: HKQuery? = nil
+        var query: HKQuery?
         var count: Int = 0
         
         switch sample {
@@ -175,7 +181,7 @@ class HealthManager: ObservableObject {
                     }
                     return
                 }
-                //Sum the workouts' information
+                
                 for workout in workouts {
                     count += Int(workout.duration/60)
                 }
@@ -191,7 +197,6 @@ class HealthManager: ObservableObject {
                         self.workoutTimeWeek = count
                     }
                 }
-                
             })
         case .steps:
             //Create the Query to handle with the information
@@ -247,10 +252,38 @@ class HealthManager: ObservableObject {
         }
         
         guard let query = query else {
-            fatalError("Query needed")
+            fatalError("Query creation failed")
         }
         
         healthStore?.execute(query)
+    }
+    
+    /// Updates the specified variable with the fetched data value.
+    ///
+    /// - Parameters:
+    ///   - varName: The name of the variable to update.
+    ///   - value: The value to set for the variable.
+    private func updateVariable(_ varName: String, value: Int) {
+        switch varName {
+        case "workoutCaloriesWeek":
+            self.workoutCaloriesWeek = value
+        case "workoutCaloriesDay":
+            self.workoutCaloriesDay = value
+        case "workoutTimeWeek":
+            self.workoutTimeWeek = value
+        case "workoutTimeDay":
+            self.workoutTimeDay = value
+        case "caloriesWeek":
+            self.caloriesWeek = value
+        case "caloriesDay":
+            self.caloriesDay = value
+        case "stepsWeek":
+            self.stepsWeek = value
+        case "stepsDay":
+            self.stepsDay = value
+        default:
+            break
+        }
     }
 }
 

@@ -7,24 +7,28 @@
 
 import SwiftUI
 
+/// TibbyRarityLabel is a SwiftUI view that displays the rarity of a Tibby character.
 struct TibbyRarityLabel: View {
-    @State var rarity: Rarity
-    @State var color: Color
-    //when we have capsule assets, change to image of capsules
+    /// The rarity level of Tibby
+    var rarity: Rarity
+    /// The background color for the label
+    var color: Color
+    
+    // Determines the color based on the rarity level
     private var rarityColor: Color {
         switch rarity {
         case .common:
             return Color.tibbyRarityCommon
         case .rare:
             return Color.tibbyRarityRare
-        case .epic:
-            return Color.tibbyRarityEpic
+        case .ultra:
+            return Color.tibbyRarityUltra
         }
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("rarity")
+            Text("Rarity")
                 .font(.typography(.body2))
                 .foregroundStyle(Color.tibbyBaseBlack)
             HStack(spacing: 4) {
@@ -35,8 +39,9 @@ struct TibbyRarityLabel: View {
                 Text(rarity.rawValue.lowercased())
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.body))
+                    .font(.typography(FontStyle.label))
                     .foregroundStyle(Color.tibbyBaseBlack)
+                    .lineLimit(1)
             }
             .padding()
             .background(
@@ -50,8 +55,4 @@ struct TibbyRarityLabel: View {
             )
         }
     }
-}
-
-#Preview {
-    TibbyRarityLabel(rarity: Rarity.common, color: Color.tibbyBaseBlue)
 }

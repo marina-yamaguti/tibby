@@ -7,8 +7,9 @@
 
 import Foundation
 
+/// An enumeration representing the rarity of an item.
 enum Rarity: String {
     case common = "Common"
     case rare = "Rare"
-    case epic = "Epic"
+    case ultra = "Ultra"
 }

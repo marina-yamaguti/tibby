@@ -30,6 +30,8 @@ struct HomeView: View {
                     Spacer()
                     VStack {
                         Spacer()
+                        TibbyNameComponent(name: $tibby.name)
+                            .padding(.bottom, -20)
                         ZStack {
                             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                                 .onAppear {
@@ -48,12 +50,13 @@ struct HomeView: View {
                             navigate.toggle()
                         }) {
                             HStack {
-                                Image(Symbols.play.rawValue)
+                                Image(TibbySymbols.play.rawValue)
                                     .padding(.trailing, 26)
                                 Text("Play")
+                                    .font(.typography(.title))
                             }
                         }
-                        .buttonPrimary()
+                        .buttonPrimary(bgColor: .tibbyBaseBlue)
                         .navigationDestination(isPresented: $navigate) {
                             NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                         }
@@ -101,6 +104,9 @@ struct HomeView: View {
             )
         }
         .onAppear(perform: {
+            if constants.music {
+                constants.playMusic(audio: "TibbyHappyTheme")
+            }
             print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 showSprite = true
@@ -132,6 +138,21 @@ struct HomeView: View {
                         print(error.localizedDescription)
                     }
                     constants.objectWillChange.send()
+            }
+            for accessory in service.getAllAccessories() ?? [] {
+                if tibby.id == accessory.tibbyId {
+                    tibbyView.addAccessory(accessory) {
+                        service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                    } remove: {
+                        tibbyView.removeAccessory {
+                            for accessory in service.getAllAccessories()! {
+                                if accessory.tibbyId == tibby.id {
+                                    service.removeAccessoryFromTibby(accessory: accessory)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         })
     }

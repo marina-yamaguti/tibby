@@ -1,19 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "?" : {
 
     },
     "%lld" : {
 
     },
-    "<" : {
+    "%lld/100" : {
 
     },
-    "Before you start" : {
+    "Click to equip" : {
 
     },
     "Click to equip" : {
@@ -22,10 +19,10 @@
     "Daily Energy Goal" : {
 
     },
-    "Daily Exercise" : {
+    "description" : {
 
     },
-    "Daily Steps" : {
+    "Design" : {
 
     },
     "description" : {
@@ -37,25 +34,46 @@
     "happy" : {
 
     },
-    "Hello, World!" : {
+    "Development" : {
 
     },
-    "Hi, welcome!" : {
+    "Felipe Elsner da Silva" : {
 
     },
-    "home" : {
+    "Given Name" : {
+
+    },
+    "Home" : {
+
+    },
+    "important feature" : {
 
     },
     "Light" : {
 
     },
+    "Maria Eduarda Maciel" : {
+
+    },
+    "Marina Geller Yamaguti" : {
+
+    },
+    "Mateus Moura Godinho" : {
+
+    },
+    "minigames coming soon..." : {
+
+    },
     "my food inventory: " : {
+
+    },
+    "My Tibbies" : {
 
     },
     "Name" : {
 
     },
-    "Next" : {
+    "Natália Dal Pizzol" : {
 
     },
     "OK" : {
@@ -67,25 +85,28 @@
     "price: %lld" : {
 
     },
+    "Profile icon" : {
+
+    },
     "quantity: %lld" : {
 
     },
-    "rarity" : {
+    "Rarity" : {
 
     },
     "settings" : {
 
     },
-    "small explanation about needing\nhealthkit permission for the app to\nwork." : {
+    "Settings" : {
 
     },
-    "small explanation about tibby,\nwellbeing app, promote good\nhabits with a companion." : {
+    "Small title" : {
 
     },
-    "So, to recap..." : {
+    "Sofia Sartori" : {
 
     },
-    "species" : {
+    "Species" : {
 
     },
     "Start" : {
@@ -98,7 +119,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -109,9 +129,6 @@
       }
     },
     "TIBBY" : {
-
-    },
-    "Tibby Book" : {
 
     },
     "uau quero comprar %@" : {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "accessory2.png",
+      "filename" : "glasses-wardrobe.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "accessory2@2x.png",
+      "filename" : "glasses-wardrobe 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "accessory2@3x.png",
+      "filename" : "glasses-wardrobe 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

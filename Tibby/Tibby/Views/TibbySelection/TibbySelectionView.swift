@@ -9,10 +9,14 @@ import SwiftUI
 
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
-    @State var tibbies: [Tibby] = []
+    @State var tibbies: [Collection:[Tibby]] = [:]
+    @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
+    @State var navigate: Bool = false
+    
     var body: some View {
         let columns = [
             GridItem(.flexible()),
@@ -44,29 +48,41 @@ struct TibbySelectionView: View {
                 NavigationLink(destination: { TibbyBook(tibby: $tibby)}, label: {
                     ZStack {
                         Circle().foregroundStyle(.black.opacity(0.5))
-                        Rectangle().stroke(Color.tibbyBaseWhite, lineWidth: 3)
-                            .padding(14)
+                        Image("TibbySymbolBook")
+                            .resizable()
+                            .frame(width:14, height: 14)
                     }.frame(width: 40, height: 40)
-                }).padding(.horizontal)
+                }).padding(.horizontal).hidden()
             }
             ScrollView {
                 VStack {
                     Spacer()
-                    ForEach(Collection.allCases, id: \.self) { collection in
+                    ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
-                            let collectionTibbies = getTibbyList(collection: collection.rawValue, service: service)
-                            if !collectionTibbies.isEmpty {
+                            if !(tibbies[collection]?.isEmpty ?? false)  {
                                 Text(collection.rawValue)
                                     .font(.typography(.title))
+                                    .foregroundStyle(Color.tibbyBaseBlack)
                                     .padding(.leading)
+                                    .onAppear {
+                                        self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                    }
                                 LazyVGrid(columns: columns, spacing: 8) {
-                                    ForEach(collectionTibbies) { tibbyL in
+                                    ForEach($tibbyCollection) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
+                                                ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
+                                                    .padding()
+                                            }
                                         } else {
-                                            ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))
+                                                .onTapGesture {
+                                                    if constants.vibration {
+                                                        HapticManager.instance.impact(style: .soft)
+                                                    }}) {
+                                                ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
+                                                    .padding()
+                                            }
                                         }
                                     }
                                 }.background(collection.color)
@@ -75,22 +91,36 @@ struct TibbySelectionView: View {
                                     .padding(.bottom, 50)
                             }
                         }
+                        
                     }
+
                     Spacer()
                 }
             }
         }
-            .background(Color.tibbyBaseWhite)
-            .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
-            .animation(.easeInOut, value: showSheet)
-            .navigationBarBackButtonHidden(true) 
+        .onChange(of: tibbies, {print("algum tibby mudou")})
+        .background(Color.tibbyBaseWhite)
+        .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
+        .animation(.easeInOut, value: showSheet)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.tibbies = self.setupMap()
+        }
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
-        var allTibbies = service.getAllTibbies()
+        let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked }
         return tibbies
     }
+    
+    func setupMap() -> [Collection : [Tibby]] {
+        var map: [Collection : [Tibby]] = [:]
+        for collection in Collection.allCases {
+            map[collection] = self.getTibbyList(collection: collection.rawValue, service: service)
+        }
+        
+        return map
+    }
 }
-

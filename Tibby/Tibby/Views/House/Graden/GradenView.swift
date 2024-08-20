@@ -33,7 +33,8 @@ struct GardenView: View {
                 
                 
                 VStack {
-                    StatusBar().padding(.horizontal).padding(.top, 24)
+                    StatusBar(tibby: tibby, necessityName: "happiness")
+                        .padding(.horizontal).padding(.top, 24)
                     Spacer()
                     ZStack {
                         if constants.tibbySleeping {
@@ -45,7 +46,17 @@ struct GardenView: View {
                                     tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                                     for accessory in service.getAllAccessories() ?? [] {
                                         if tibby.id == accessory.tibbyId {
-                                            tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                            tibbyView.addAccessory(accessory) {
+                                                service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                                            } remove: {
+                                                tibbyView.removeAccessory {
+                                                    for accessory in service.getAllAccessories()! {
+                                                        if accessory.tibbyId == tibby.id {
+                                                            service.removeAccessoryFromTibby(accessory: accessory)
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                     
@@ -57,14 +68,41 @@ struct GardenView: View {
                                 Image("\(tibby.species)1")
                                     .resizable()
                                     .frame(width: 300, height: 300)
+                                    .hidden()
                             }
                         }
                     }.frame(width: 300, height: 300) //tibby
                     Spacer()
                     HStack {
                         Spacer()
-                        ActionButton(image: Symbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
+                        Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.controller.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
                     }.padding(.bottom, 32).padding(.horizontal,20)
+                }
+                if exercisesSheetIsOpen {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 45)
+                            .foregroundStyle(.tibbyBaseBlack)
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
+                                    .buttonSecondary(bgColor: .black)
+
+                            }
+                            .padding()
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("minigames coming soon...")
+                                    .font(.typography(.label))
+                                    .foregroundStyle(.tibbyBaseWhite)
+                                    .padding(.bottom)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }.padding(.top, 100)
                 }
             }.padding().brightness(constants.brightness)
         }.background(.tibbyBaseWhite)
