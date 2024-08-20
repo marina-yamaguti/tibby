@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum AccessoryCategory {
-    case all 
+/// Enum representing different categories of accessories.
+enum AccessoryCategory: CaseIterable {
+    case all
     case head
     case body
 }

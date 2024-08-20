@@ -46,7 +46,17 @@ struct GardenView: View {
                                     tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                                     for accessory in service.getAllAccessories() ?? [] {
                                         if tibby.id == accessory.tibbyId {
-                                            tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                            tibbyView.addAccessory(accessory, species: tibby.species) {
+                                                service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                                            } remove: {
+                                                tibbyView.removeAccessory {
+                                                    for accessory in service.getAllAccessories()! {
+                                                        if accessory.tibbyId == tibby.id {
+                                                            service.removeAccessoryFromTibby(accessory: accessory)
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                     
@@ -65,7 +75,8 @@ struct GardenView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        ActionButton(image: TibbySymbols.controller.rawValue, action: {exercisesSheetIsOpen.toggle()})
+                        Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.controller.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
                 if exercisesSheetIsOpen {
@@ -75,8 +86,11 @@ struct GardenView: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                ActionButton(image: TibbySymbols.xMark.rawValue, action: {exercisesSheetIsOpen.toggle()})
-                            }.padding()
+                                Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
+                                    .buttonSecondary(bgColor: .black)
+
+                            }
+                            .padding()
                             Spacer()
                             HStack {
                                 Spacer()

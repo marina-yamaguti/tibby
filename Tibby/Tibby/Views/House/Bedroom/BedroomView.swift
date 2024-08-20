@@ -43,8 +43,18 @@ struct BedroomView: View {
                         .onAppear {
                             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                             for accessory in service.getAllAccessories() ?? [] {
-                                if tibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                                if accessory.id == tibby.currentAccessoryId {
+                                    tibbyView.addAccessory(accessory, species: tibby.species) {
+                                        service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                                    } remove: {
+                                        tibbyView.removeAccessory {
+                                            for accessory in service.getAllAccessories()! {
+                                                if accessory.id == tibby.currentAccessoryId {
+                                                    service.removeAccessoryFromTibby(accessory: accessory)
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             
@@ -61,10 +71,13 @@ struct BedroomView: View {
                 }.frame(width: 300, height: 300) //tibby
                 Spacer()
                 HStack {
-                    ActionButton(image: TibbySymbols.lightBulb.rawValue, action: {vm.lightsOff(tibby: tibby)})
+                    Button(action: {vm.lightsOff(tibby: tibby)}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.lightBulb.rawValue, text: "")})
+                        .buttonSecondary(bgColor: .black)
                     Spacer()
-                    ActionButton(image: TibbySymbols.hanger.rawValue, action: {wardrobeIsOpen.toggle()})
-                }.padding(.bottom, 32).padding(.horizontal,20)
+                    Button(action: {wardrobeIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hanger.rawValue, text: "")})
+                        .buttonSecondary(bgColor: .black)
+                }
+                .padding(.bottom, 32).padding(.horizontal,20)
             }
             if wardrobeIsOpen {
                 WardrobeView(tibby: tibby, wardrobeIsOpen: $wardrobeIsOpen)
@@ -87,8 +100,18 @@ struct BedroomView: View {
             })
             .onChange(of: wardrobeIsOpen, {
                 for accessory in service.getAllAccessories() ?? [] {
-                    if tibby.id == accessory.tibbyId {
-                        tibbyView.addAccessory(accessory, service, tibbyID: tibby.id)
+                    if accessory.id == tibby.currentAccessoryId {
+                        tibbyView.addAccessory(accessory, species: tibby.species) {
+                            service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                        } remove: {
+                            tibbyView.removeAccessory {
+                                for accessory in service.getAllAccessories()! {
+                                    if accessory.id == tibby.currentAccessoryId {
+                                        service.removeAccessoryFromTibby(accessory: accessory)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             })

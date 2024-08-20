@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "?" : {
 
     },
@@ -35,12 +32,6 @@
 
     },
     "Given Name" : {
-
-    },
-    "Hello, World!" : {
-
-    },
-    "home" : {
 
     },
     "Home" : {
@@ -85,13 +76,16 @@
     "price: %lld" : {
 
     },
+    "Profile icon" : {
+
+    },
     "quantity: %lld" : {
 
     },
-    "rarity" : {
+    "Rarity" : {
 
     },
-    "settings" : {
+    "Settings" : {
 
     },
     "Small title" : {
@@ -100,14 +94,10 @@
     "Sofia Sartori" : {
 
     },
-    "species" : {
-
-    },
-    "tibby" : {
+    "Species" : {
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -116,9 +106,6 @@
           }
         }
       }
-    },
-    "TIBBY" : {
-
     },
     "uau quero comprar %@" : {
 

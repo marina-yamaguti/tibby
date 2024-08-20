@@ -29,6 +29,14 @@ final class TibbyTests: XCTestCase {
     }
    
     class TibbyProtocolTest: TibbyProtocol {
+        func addAccessory(_ accessory: Accessory, completion: () -> Void, remove: () -> Void) {
+             
+        }
+        
+        func removeAccessory(completion: () -> Void) {
+             
+        }
+        
         var tibbyObject: Tibby?
         
         func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {

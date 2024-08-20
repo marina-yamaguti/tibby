@@ -38,18 +38,17 @@ class TibbyView: SKScene, TibbyProtocol {
         view.addGestureRecognizer(panGesture)
     }
     
-    func addAccessory(_ accessory: Accessory, _ service: Service, tibbyID: UUID?) {
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()->Void) {
         // Remove the former accessory from the tibby to add a new one (duplicate problem)
-        self.removeAccessory(service)
+        remove()
+
         // Instantiate the Accessory node in the view as a square as a Tibby's child
-        self.accessory = SKSpriteNode(imageNamed: accessory.image)
+        self.accessory = SKSpriteNode(imageNamed: "\(species)\(accessory.image)")
         self.accessory.size = CGSize(width: 1, height: 1)
         self.accessory.name = accessory.name
         tibby.addChild(self.accessory)
-        // Add the accessory to the tibby in SwiftData
-        if let tibbyID = tibbyID {
-            service.addAccessoryToTibby(tibbyId: tibbyID, accessory: accessory)
-        }
+        
+        completion()
     }
     
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval) {
@@ -68,18 +67,12 @@ class TibbyView: SKScene, TibbyProtocol {
         }
     }
     
-    func removeAccessory(_ service: Service) {
+    func removeAccessory(completion: ()->Void) {
         // Remove the current accessory from the tibby from node and SwiftData
-        var accessoryName = ""
-        if let child = self.accessory as? SKSpriteNode {
-            accessoryName = child.name ?? ""
-            child.removeFromParent()
-        }
-        for accessory in service.getAllAccessories()! {
-            if accessory.name == accessoryName {
-                service.removeAccessoryFromTibby(accessory: accessory)
-            }
-        }
+        let child = self.accessory as SKSpriteNode
+        child.removeFromParent()
+        
+        completion()
     }
     
     func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {
@@ -117,7 +110,9 @@ class TibbyView: SKScene, TibbyProtocol {
 
                     petAnimation = false
                 }
-                HapticManager.instance.impact(style: .soft)
+                if constants!.vibration {
+                    HapticManager.instance.impact(style: .soft)
+                }
             }
             else {
                 petAnimation = true

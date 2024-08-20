@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
+    @Environment(\.presentationMode) var presentationMode
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -104,8 +105,11 @@ struct HomeView: View {
             )
         }
         .onAppear(perform: {
+            if constants.music {
+                constants.playMusic(audio: "TibbyHappyTheme")
+            }
             print("home")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 showSprite = true
             }
             //Decrease the time spent out of the app
@@ -129,15 +133,49 @@ struct HomeView: View {
             //create the timers for each necessity item
             constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
                 //save the context of the changes
-                    do {
-                        try managedObjectContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                    constants.objectWillChange.send()
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+                constants.objectWillChange.send()
             }
+            self.dressUpAccessory()
+        })
+        .onChange(of: showSheet, {
+            print("abir a sheet para mudar de tibby")
+            self.dressUpAccessory()
+        })
+        .onChange(of: self.tibby.currentAccessoryId, {
+            print("mudou de acessorio")
+            self.dressUpAccessory()
         })
     }
+    
+    private func dressUpAccessory() {
+        for accessory in service.getAllAccessories() ?? [] {
+            if accessory.id == tibby.currentAccessoryId {
+                tibbyView.addAccessory(accessory, species: tibby.species) {
+                    service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                } remove: {
+                    tibbyView.removeAccessory {
+                        for accessory in service.getAllAccessories()! {
+                            if accessory.id == tibby.currentAccessoryId {
+                                service.removeAccessoryFromTibby(accessory: accessory)
+                            }
+                        }
+                    }
+                }
+                return
+            }
+        }
+        tibbyView.removeAccessory {
+            for accessory in service.getAllAccessories()! {
+                if accessory.tibbyId == tibby.id {
+                    service.removeAccessoryFromTibby(accessory: accessory)
+                }
+            }
+        }
+    }
 }
-
 
