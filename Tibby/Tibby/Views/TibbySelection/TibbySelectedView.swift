@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TibbySelectedView: View {
     @ObservedObject var viewModel: TibbySelectedViewModel
+    @EnvironmentObject var constants: Constants
     
     var body: some View {
         ZStack {
             ZStack (alignment: .top) {
                 Color.tibbyBaseWhite.ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(viewModel.color)
+                    .fill(.tibbyBasePearlBlue)
                     .frame(width: UIScreen.main.bounds.width, height: 300)
             } .ignoresSafeArea()
             VStack {
@@ -38,7 +39,7 @@ struct TibbySelectedView: View {
                     VStack (alignment: .leading, spacing: 16) {
                         // Tibby Info Labels
                         HStack() {
-                            TibbySpeciesLabel(species: viewModel.species, color: viewModel.color)
+                            TibbySpeciesLabel(species: viewModel.convertCamelCaseToSpaces(viewModel.species), color: viewModel.color)
                             Spacer()
                             TibbyRarityLabel(rarity: viewModel.rarity, color:  viewModel.color)
                         }
@@ -46,12 +47,13 @@ struct TibbySelectedView: View {
                         // Tibby Description
                         TibbyDescriptionLabel(description: viewModel.tibby.details, color: viewModel.color)
                     }
-                } .scrollIndicators(.hidden)
+                } .scrollIndicators(.hidden).ignoresSafeArea(.all, edges: Edge.Set(.bottom))
             }
             .padding()
         }
         .background(Color.tibbyBaseWhite)
         .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(.all, edges: Edge.Set(.bottom))
     }
 }
 
