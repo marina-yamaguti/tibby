@@ -52,13 +52,13 @@ struct KitchenView: View {
                                 .onAppear {
                                     tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                                     for accessory in service.getAllAccessories() ?? [] {
-                                        if tibby.id == accessory.tibbyId {
-                                            tibbyView.addAccessory(accessory) {
+                                        if accessory.id == tibby.currentAccessoryId {
+                                            tibbyView.addAccessory(accessory, species: tibby.species) {
                                                 service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                                             } remove: {
                                                 tibbyView.removeAccessory {
                                                     for accessory in service.getAllAccessories()! {
-                                                        if accessory.tibbyId == tibby.id {
+                                                        if accessory.id == tibby.currentAccessoryId {
                                                             service.removeAccessoryFromTibby(accessory: accessory)
                                                         }
                                                     }
@@ -131,7 +131,7 @@ struct KitchenView: View {
                                         })
                                         .onEnded({ state in
                                             let tibbySpecie = TibbySpecie(rawValue: tibby.species)
-                                            tibbyView.animateTibby((tibby.happiness > 33 || tibby.hunger > 33 || tibby.sleep > 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                                            tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                                             self.isEating = false
                                             withAnimation {
                                                 foodLocation = platePos

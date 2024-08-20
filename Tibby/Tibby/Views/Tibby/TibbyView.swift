@@ -38,35 +38,49 @@ class TibbyView: SKScene, TibbyProtocol {
         view.addGestureRecognizer(panGesture)
     }
     
-    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()->Void) {
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()->Void) {
         // Remove the former accessory from the tibby to add a new one (duplicate problem)
-        print("adding accessory")
         remove()
+
         // Instantiate the Accessory node in the view as a square as a Tibby's child
-        self.accessory = SKSpriteNode(imageNamed: accessory.image)
+        self.accessory = SKSpriteNode(imageNamed: "\(species)\(accessory.image)")
         self.accessory.size = CGSize(width: 1, height: 1)
         self.accessory.name = accessory.name
         tibby.addChild(self.accessory)
-//        // Add the accessory to the tibby in SwiftData
-//        if let tibbyID = tibbyID {
-//            service.addAccessoryToTibby(tibbyId: tibbyID, accessory: accessory)
-//        }
+        
         completion()
     }
     
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval) {
         // Get the assets name list to create the textures to animate
+        let group = DispatchGroup()
+        group.enter()
         var textures: [SKTexture] = []
         for texture in textureList {
-            textures.append(SKTexture(imageNamed: texture))
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = SKTexture(image: image)
+                    textures.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+            //            textures.append(SKTexture(imageNamed: texture))
         }
-        // Create the animation from the textures list in the respective node
-        let animation = SKAction.animate(with: textures, timePerFrame: timeFrame)
-        let repeatAnimation = SKAction.repeatForever(animation)
-        if nodeID == .tibby {
-            tibby.run(repeatAnimation)
-        } else if nodeID == .accessory {
-            accessory.run(repeatAnimation)
+        group.leave()
+        group.notify(queue: .main) {
+            // Create the animation from the textures list in the respective node
+            let animation = SKAction.animate(with: textures, timePerFrame: timeFrame)
+            let repeatAnimation = SKAction.repeatForever(animation)
+            if nodeID == .tibby {
+                self.tibby.run(repeatAnimation)
+            } else if nodeID == .accessory {
+                self.accessory.run(repeatAnimation)
+            }
         }
     }
     
@@ -110,7 +124,7 @@ class TibbyView: SKScene, TibbyProtocol {
                             print(tibby.happiness)
                         }
                     }
-
+                    
                     petAnimation = false
                 }
                 if constants!.vibration {
