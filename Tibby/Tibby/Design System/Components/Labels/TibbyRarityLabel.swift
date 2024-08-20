@@ -21,14 +21,14 @@ struct TibbyRarityLabel: View {
             return Color.tibbyRarityCommon
         case .rare:
             return Color.tibbyRarityRare
-        case .epic:
-            return Color.tibbyRarityEpic
+        case .ultra:
+            return Color.tibbyRarityUltra
         }
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("rarity")
+            Text("Rarity")
                 .font(.typography(.body2))
                 .foregroundStyle(Color.tibbyBaseBlack)
             HStack(spacing: 4) {

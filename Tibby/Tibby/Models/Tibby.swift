@@ -18,6 +18,7 @@ enum TibbySpecie: String {
     case shark
     case dolphin
     case yellowShark
+    case axolotl
     
     /// Returns the base animation frames for the species.
     func baseAnimation() -> [String] {
@@ -144,7 +145,7 @@ protocol TibbyProtocol {
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
     ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
-    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()-> Void)
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()-> Void)
     func removeAccessory(completion: ()->Void)
     ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
@@ -202,6 +203,9 @@ final class Tibby {
     
     /// The collection this Tibby is a part of.
     var collection: String
+    
+    /// The unique identifier of the current Accessory the Tibby is using.
+    var currentAccessoryId: UUID? = nil
     
     init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id

@@ -38,19 +38,16 @@ class TibbyView: SKScene, TibbyProtocol {
         view.addGestureRecognizer(panGesture)
     }
     
-    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()->Void) {
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()->Void) {
         // Remove the former accessory from the tibby to add a new one (duplicate problem)
-        print("adding accessory")
         remove()
+
         // Instantiate the Accessory node in the view as a square as a Tibby's child
-        self.accessory = SKSpriteNode(imageNamed: accessory.image)
+        self.accessory = SKSpriteNode(imageNamed: "\(species)\(accessory.image)")
         self.accessory.size = CGSize(width: 1, height: 1)
         self.accessory.name = accessory.name
         tibby.addChild(self.accessory)
-        //        // Add the accessory to the tibby in SwiftData
-        //        if let tibbyID = tibbyID {
-        //            service.addAccessoryToTibby(tibbyId: tibbyID, accessory: accessory)
-        //        }
+        
         completion()
     }
     
@@ -130,7 +127,7 @@ class TibbyView: SKScene, TibbyProtocol {
                     
                     petAnimation = false
                 }
-                if ((constants?.vibration) != nil) {
+                if constants!.vibration {
                     HapticManager.instance.impact(style: .soft)
                 }
             }

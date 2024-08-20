@@ -49,7 +49,7 @@ class Roll: RollProtocol {
         let probabilities: [Rarity: Double] = [
             .common: 0.7,
             .rare: 0.25,
-            .epic: 0.05
+            .ultra: 0.05
         ]
         
         func getRandomTibby() -> Tibby {

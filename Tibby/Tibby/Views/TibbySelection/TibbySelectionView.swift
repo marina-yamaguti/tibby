@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
     @State var tibbies: [Collection:[Tibby]] = [:]
     @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
+    @State var navigate: Bool = false
     
     var body: some View {
         let columns = [
@@ -58,13 +60,14 @@ struct TibbySelectionView: View {
                     ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
                             if !(tibbies[collection]?.isEmpty ?? false)  {
-                                Text(collection.rawValue)
-                                    .font(.typography(.title))
-                                    .foregroundStyle(Color.tibbyBaseBlack)
-                                    .padding(.leading)
-                                    .onAppear {
-                                        self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
-                                    }
+                                HStack(alignment: .center) {
+                                    CollectionNameComponent(name: collection.rawValue, color: collection.color)
+                                        .onAppear {
+                                            self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                        }
+                                    Spacer()
+                                }.padding(.horizontal)
+                                
                                 LazyVGrid(columns: columns, spacing: 8) {
                                     ForEach($tibbyCollection) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
@@ -73,13 +76,17 @@ struct TibbySelectionView: View {
                                                     .padding()
                                             }
                                         } else {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))
+                                                .onTapGesture {
+                                                    if constants.vibration {
+                                                        HapticManager.instance.impact(style: .soft)
+                                                    }}) {
                                                 ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
                                             }
                                         }
                                     }
-                                }.background(collection.color)
+                                }.background(.tibbyBasePearlBlue)
                                     .cornerRadius(20)
                                     .padding()
                                     .padding(.bottom, 50)
@@ -87,7 +94,7 @@ struct TibbySelectionView: View {
                         }
                         
                     }
-
+                    
                     Spacer()
                 }
             }

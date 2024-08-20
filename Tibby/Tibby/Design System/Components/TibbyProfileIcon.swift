@@ -58,7 +58,7 @@ struct TibbyProfileIcon: View {
     private var profileBorder: some View {
         RoundedRectangle(cornerRadius: cornerRadius)
             .inset(by: 0.5)
-            .stroke(borderColor, lineWidth: 2)
+            .stroke(borderColor, lineWidth: status == .selected ? 4 : 2)
     }
     
     /// The overlay view that contains the selection checkmark, displayed when the icon is selected.

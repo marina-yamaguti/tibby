@@ -58,6 +58,24 @@ class TibbySelectedViewModel: ObservableObject {
         currentTibby = tibby
         service.getUser()?.currentTibbyID = currentTibby.id
         status = .selected
-        //change selected tibby
+//        DispatchQueue.main.async {
+//            constants.tibbySleeping = false
+//        }
+    }
+    
+    func convertCamelCaseToSpaces(_ input: String) -> String {
+        // Transforma o primeiro caractere em minúscula
+        let lowercaseInput = input.prefix(1).lowercased() + input.dropFirst()
+        
+        // Substitui as letras maiúsculas por um espaço seguido da letra minúscula correspondente
+        let spacedString = lowercaseInput.reduce("") { result, character in
+            if character.isUppercase {
+                return result + " " + character.lowercased()
+            } else {
+                return result + String(character)
+            }
+        }
+        
+        return spacedString
     }
 }

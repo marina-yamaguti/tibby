@@ -11,6 +11,7 @@ import SwiftUI
 /// A custom button style used for tab bar buttons in the Tibby app.
 /// The button style includes custom padding, background colors, shadows, and animations to provide a distinctive look and feel.
 struct TabBarButton: ButtonStyle {
+    @EnvironmentObject var constants: Constants
     
     /// The color used for the foreground elements of the button, such as the text or icon.
     var foregroundColor: Color = .tibbyBaseBlack
@@ -43,5 +44,13 @@ struct TabBarButton: ButtonStyle {
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                if constants.vibration {
+                    HapticManager.instance.impact(style: .soft)
+                }
+                if constants.sfx {
+                    constants.playSFX(audio: "PrimaryButton")
+                }
+            }
     }
 }

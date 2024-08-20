@@ -46,7 +46,7 @@ struct GardenView: View {
                                     tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                                     for accessory in service.getAllAccessories() ?? [] {
                                         if tibby.id == accessory.tibbyId {
-                                            tibbyView.addAccessory(accessory) {
+                                            tibbyView.addAccessory(accessory, species: tibby.species) {
                                                 service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                                             } remove: {
                                                 tibbyView.removeAccessory {

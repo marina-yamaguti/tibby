@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFAudio
+import SwiftUI
 
 // MARK: - Singleton
 
@@ -55,6 +56,7 @@ class Constants: ObservableObject {
     
     /// A published property for managing the audio player instance.
     @Published var audioPlayer: AVAudioPlayer?
+    @Published var sfxPlayer: AVAudioPlayer?
     
     /// A published property that controls whether background music is enabled.
     /// The value is stored in `UserDefaults`.
@@ -63,7 +65,7 @@ class Constants: ObservableObject {
         didSet {
             UserDefaults.standard.set(music, forKey: "music")
             if music {
-                playAudio(audio: "TibbyHappyTheme")
+                playMusic(audio: "TibbyHappyTheme")
             }
             else {
                 audioPlayer?.stop()
@@ -71,7 +73,16 @@ class Constants: ObservableObject {
         }
     }
     
-    func playAudio(audio: String) {
+    /// A published property that controls whether sound effects is enabled.
+    /// The value is stored in `UserDefaults`.
+    /// When set to `true`, the background music is played; otherwise, it is stopped.
+    @Published var sfx: Bool = UserDefaults.standard.value(forKey: "sfx") as? Bool ?? true {
+        didSet {
+            UserDefaults.standard.set(sfx, forKey: "sfx")
+        }
+    }
+    
+    func playMusic(audio: String) {
         audioPlayer?.stop() // Stop any currently playing audio
         
         if let audioURL = Bundle.main.url(forResource: audio, withExtension: "wav") {
@@ -86,12 +97,27 @@ class Constants: ObservableObject {
             print("No audio file found")
         }
     }
- 
+    
+    func playSFX(audio: String) {
+        sfxPlayer?.stop() // Stop any currently playing audio
+        
+        if let audioURL = Bundle.main.url(forResource: audio, withExtension: "wav") {
+            do {
+                try sfxPlayer = AVAudioPlayer(contentsOf: audioURL)
+                sfxPlayer?.play()
+            } catch {
+                print("Couldn't play audio. Error: \(error)")
+            }
+        } else {
+            print("No audio file found")
+        }
+    }
+    
     
     // MARK: - Environment Variables
     
     /// A published property that defines the current environment where the user is located.
-    @Published var currentEnviroment: Enviroment = .kitchen   
+    @Published var currentEnviroment: Enviroment = .kitchen
     @Published var currentOnboarding: OnboardingViews = .onboarding1
     
     // MARK: - Tibby Status Timers
