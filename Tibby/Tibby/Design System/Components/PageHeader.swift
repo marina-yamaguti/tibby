@@ -28,7 +28,7 @@ struct PageHeader: View {
             
             Text(title)
                 .font(.typography(.title))
-                .foregroundStyle(.tibbyBaseWhite)
+                .foregroundStyle(.tibbyBaseBlack)
             
             Spacer()
         }
@@ -41,7 +41,7 @@ struct PageHeader: View {
                 topTrailingRadius: 0,
                 style: .continuous
             )
-            .fill(.tibbyBaseBlack)
+            .fill(.tibbyBasePearlBlue)
         }
     }
 }

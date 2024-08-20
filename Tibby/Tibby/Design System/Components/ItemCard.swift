@@ -30,7 +30,7 @@ struct ItemCard: View {
                 .cornerRadius(15)
                 .overlay {
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(borderColor(for: status), lineWidth: 1)
+                        .stroke(borderColor(for: status), lineWidth: status == .unselected ? 2 : 4)
                 }
             
             VStack(alignment: .center) {

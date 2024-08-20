@@ -131,14 +131,14 @@ struct WardrobeView: View {
         .onAppear {
             self.accessories = getFilteredList()
             for accessory in service.getAllAccessories() ?? [] {
-                if tibby.id == accessory.tibbyId {
+                if accessory.id == tibby.currentAccessoryId {
                     print("usando \(accessory.name)")
-                    tibbyView.addAccessory(accessory) {
+                    tibbyView.addAccessory(accessory, species: tibby.species) {
                         service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                     } remove: {
                         tibbyView.removeAccessory {
                             for accessory in service.getAllAccessories()! {
-                                if accessory.tibbyId == tibby.id {
+                                if accessory.id == tibby.currentAccessoryId {
                                     service.removeAccessoryFromTibby(accessory: accessory)
                                 }
                             }
@@ -158,12 +158,12 @@ struct WardrobeView: View {
         })
         .onChange(of: selectedAccessory, {
             if let accessory = selectedAccessory {
-                tibbyView.addAccessory(accessory) {
+                tibbyView.addAccessory(accessory, species: tibby.species) {
                     service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                 } remove: {
                     tibbyView.removeAccessory {
                         for accessory in service.getAllAccessories()! {
-                            if accessory.tibbyId == tibby.id {
+                            if accessory.id == tibby.currentAccessoryId {
                                 service.removeAccessoryFromTibby(accessory: accessory)
                             }
                         }
@@ -192,7 +192,7 @@ struct WardrobeView: View {
             for accessory in accessories {
                 tibbyView.removeAccessory {
                     for accessory in service.getAllAccessories()! {
-                        if accessory.tibbyId == tibby.id {
+                        if accessory.id == tibby.currentAccessoryId {
                             service.removeAccessoryFromTibby(accessory: accessory)
                         }
                     }

@@ -15,7 +15,7 @@ struct TibbySelectedView: View {
             ZStack (alignment: .top) {
                 Color.tibbyBaseWhite.ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(viewModel.color)
+                    .fill(.tibbyBasePearlBlue)
                     .frame(width: UIScreen.main.bounds.width, height: 300)
             } .ignoresSafeArea()
             VStack {

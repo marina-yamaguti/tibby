@@ -43,13 +43,13 @@ struct BedroomView: View {
                         .onAppear {
                             tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                             for accessory in service.getAllAccessories() ?? [] {
-                                if tibby.id == accessory.tibbyId {
-                                    tibbyView.addAccessory(accessory) {
+                                if accessory.id == tibby.currentAccessoryId {
+                                    tibbyView.addAccessory(accessory, species: tibby.species) {
                                         service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                                     } remove: {
                                         tibbyView.removeAccessory {
                                             for accessory in service.getAllAccessories()! {
-                                                if accessory.tibbyId == tibby.id {
+                                                if accessory.id == tibby.currentAccessoryId {
                                                     service.removeAccessoryFromTibby(accessory: accessory)
                                                 }
                                             }
@@ -100,13 +100,13 @@ struct BedroomView: View {
             })
             .onChange(of: wardrobeIsOpen, {
                 for accessory in service.getAllAccessories() ?? [] {
-                    if tibby.id == accessory.tibbyId {
-                        tibbyView.addAccessory(accessory) {
+                    if accessory.id == tibby.currentAccessoryId {
+                        tibbyView.addAccessory(accessory, species: tibby.species) {
                             service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                         } remove: {
                             tibbyView.removeAccessory {
                                 for accessory in service.getAllAccessories()! {
-                                    if accessory.tibbyId == tibby.id {
+                                    if accessory.id == tibby.currentAccessoryId {
                                         service.removeAccessoryFromTibby(accessory: accessory)
                                     }
                                 }

@@ -58,13 +58,14 @@ struct TibbySelectionView: View {
                     ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
                             if !(tibbies[collection]?.isEmpty ?? false)  {
-                                Text(collection.rawValue)
-                                    .font(.typography(.title))
-                                    .foregroundStyle(Color.tibbyBaseBlack)
-                                    .padding(.leading)
-                                    .onAppear {
-                                        self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
-                                    }
+                                HStack(alignment: .center) {
+                                    CollectionNameComponent(name: collection.rawValue, color: collection.color)
+                                        .onAppear {
+                                            self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                        }
+                                    Spacer()
+                                }.padding(.horizontal)
+                                
                                 LazyVGrid(columns: columns, spacing: 8) {
                                     ForEach($tibbyCollection) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
@@ -79,7 +80,7 @@ struct TibbySelectionView: View {
                                             }
                                         }
                                     }
-                                }.background(collection.color)
+                                }.background(.tibbyBasePearlBlue)
                                     .cornerRadius(20)
                                     .padding()
                                     .padding(.bottom, 50)
@@ -87,7 +88,7 @@ struct TibbySelectionView: View {
                         }
                         
                     }
-
+                    
                     Spacer()
                 }
             }

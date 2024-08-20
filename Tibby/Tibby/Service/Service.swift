@@ -168,13 +168,22 @@ class Service: ObservableObject, ServiceProtocol {
     ///   - accessory: The Accessory object to add.
     func addAccessoryToTibby(tibbyId: UUID, accessory: Accessory) {
         accessory.tibbyId = tibbyId
+        if let tibby = self.getTibbyByID(id: tibbyId) {
+            tibby.currentAccessoryId = accessory.id
+        }
     }
     
     /// Removes an Accessory from a Tibby.
     ///
     /// - Parameter accessory: The Accessory object to remove.
     func removeAccessoryFromTibby(accessory: Accessory) {
-        accessory.tibbyId = nil
+        if let id = accessory.tibbyId {
+            if let tibby = self.getTibbyByID(id: id) {
+                tibby.currentAccessoryId = nil
+            }
+            accessory.tibbyId = nil
+        }
+        
     }
     
     /// Retrieves all Accessories in the model context.
@@ -569,13 +578,14 @@ class Service: ObservableObject, ServiceProtocol {
         
         // Tibbies Setup
         createTibby(id: UUID(), name: "Shark", rarity: "Common", details: "", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Thor", rarity: "Common", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Thor", rarity: "Epic", details: "", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Charlotte", rarity: "Rare", details: "The Axolot is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolot brings a sense of wonder and ancient magic to those who see it.", personality: "", species: "axolotl", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: true, collection: "Sea Series")
         
         // Accessories Setup
-        createAccessory(id: UUID(), name: "Hat", image: "hat", price: 10, category: "Head")
-        createAccessory(id: UUID(), name: "Glasses", image: "heart-glasses", price: 10, category: "Head")
-        createAccessory(id: UUID(), name: "Tie", image: "tie", price: 10, category: "Body")
+        createAccessory(id: UUID(), name: "Hat", image: "Hat", price: 10, category: "Head")
+        createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
+        createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
         
         // Food Setup
         createFood(id: UUID(), name: "Niguiri", image: "niguiri", price: 10)

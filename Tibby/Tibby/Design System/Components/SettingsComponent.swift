@@ -46,7 +46,7 @@ struct SettingsComponent: View {
                     HStack {
                         Text(label)
                             .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseWhite)
+                            .foregroundStyle(.tibbyBaseBlack)
                             .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
                         Spacer()
                         HStack(alignment: .firstTextBaseline) {
@@ -63,13 +63,13 @@ struct SettingsComponent: View {
                     switch label {
                     case "Music":
                         Toggle(label, isOn: $constants.music)
-                            .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseWhite)
+                            .font(.typography(.body2))
+                            .foregroundStyle(.tibbyBaseBlack)
                             .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
                     case "Phone Vibration":
                         Toggle(label, isOn: $constants.vibration)
-                            .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseWhite)
+                            .font(.typography(.body2))
+                            .foregroundStyle(.tibbyBaseBlack)
                             .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
                     default:
                         EmptyView()
@@ -78,7 +78,7 @@ struct SettingsComponent: View {
             }
             .background {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(.tibbyBaseBlack)
+                    .fill(.tibbyBasePearlBlue)
             }
         }
     }

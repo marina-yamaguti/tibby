@@ -39,11 +39,10 @@ struct SplashScreen: View {
         } else {
             VStack {
                 Spacer()
-                Image("shark1")
+                Image("TibbyLogoFull")
                     .resizable()
                     .scaledToFit()
-                Text("TIBBY")
-                    .font(.typography(.title))
+                    .padding(.horizontal)
                 Spacer()
             }.onAppear {
                 if !firstTimeHere {

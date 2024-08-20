@@ -18,6 +18,7 @@ enum TibbySpecie: String {
     case shark
     case dolphin
     case yellowShark
+    case axolotl
     
     /// Returns the base animation frames for the species.
     func baseAnimation() -> [String] {
@@ -28,6 +29,8 @@ enum TibbySpecie: String {
             return ["yellowShark1", "yellowShark2"]
         case .dolphin:
             return ["dolphin1", "dolphin2"]
+        case .axolotl:
+            return ["axolotl1", "axolotl2"]
         }
     }
     
@@ -40,6 +43,8 @@ enum TibbySpecie: String {
             return ["yellowSharkSleep1", "yellowSharkSleep2", "yellowSharkSleep3", "yellowSharkSleep4"]
         case .dolphin:
             return ["dolphinSleep1", "dolphinSleep2", "dolphinSleep3", "dolphinSleep4"]
+        case .axolotl:
+            return ["axolotlSleep1", "axolotlSleep2", "axolotlSleep3", "axolotlSleep4"]
         }
     }
     
@@ -52,6 +57,8 @@ enum TibbySpecie: String {
             return ["yellowSharkHappy1", "yellowSharkHappy2"]
         case .dolphin:
             return ["dolphinHappy1", "dolphinHappy2"]
+        case .axolotl:
+            return ["axolotlHappy1", "axolotlHappy2"]
         }
     }
     
@@ -64,6 +71,8 @@ enum TibbySpecie: String {
             return ["yellowSharkSad1", "yellowSharkSad2"]
         case .dolphin:
             return ["dolphinSad1", "dolphinSad2"]
+        case .axolotl:
+            return ["axolotlSad1", "axolotlSad2"]
         }
     }
     
@@ -76,6 +85,8 @@ enum TibbySpecie: String {
             return ["yellowSharkEat1", "yellowSharkEat2"]
         case .dolphin:
             return ["dolphinEat1", "dolphinEat2"]
+        case .axolotl:
+            return ["axolotlEat1", "axolotlEat2"]
         }
     }
 }
@@ -144,7 +155,7 @@ protocol TibbyProtocol {
     func setTibbySpecie(tibbySpecie: TibbySpecie)
     
     ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
-    func addAccessory(_ accessory: Accessory, completion: ()->Void, remove: ()-> Void)
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()-> Void)
     func removeAccessory(completion: ()->Void)
     ///Pass the set of images for the animation and what is animating
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
@@ -202,6 +213,9 @@ final class Tibby {
     
     /// The collection this Tibby is a part of.
     var collection: String
+    
+    /// The unique identifier of the current Accessory the Tibby is using.
+    var currentAccessoryId: UUID? = nil
     
     init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id

@@ -115,6 +115,7 @@
 		FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F502C34EEFE0075E0C7 /* Service.swift */; };
 		FDCD3F702C3744970075E0C7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */; };
 		FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */; };
+		FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */; };
 		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
 		FDFF4ABC2C3C739500831968 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABB2C3C739500831968 /* Food.swift */; };
 		FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */; };
@@ -300,6 +301,7 @@
 		FDCD3F502C34EEFE0075E0C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNameComponent.swift; sourceTree = "<group>"; };
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
 		FDFF4ABB2C3C739500831968 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenExample.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */,
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
+				FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
+				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
