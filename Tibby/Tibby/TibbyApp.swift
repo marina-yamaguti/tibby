@@ -64,6 +64,7 @@ struct TibbyApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreen()
+            //ImageView(urlString: "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinEating2.png")
         }
         .modelContainer(sharedModelContainer)
         .environmentObject(Service(modelContext: sharedModelContainer.mainContext))
