@@ -53,17 +53,34 @@ class TibbyView: SKScene, TibbyProtocol {
     
     func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval) {
         // Get the assets name list to create the textures to animate
+        let group = DispatchGroup()
+        group.enter()
         var textures: [SKTexture] = []
         for texture in textureList {
-            textures.append(SKTexture(imageNamed: texture))
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = SKTexture(image: image)
+                    textures.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+            //            textures.append(SKTexture(imageNamed: texture))
         }
-        // Create the animation from the textures list in the respective node
-        let animation = SKAction.animate(with: textures, timePerFrame: timeFrame)
-        let repeatAnimation = SKAction.repeatForever(animation)
-        if nodeID == .tibby {
-            tibby.run(repeatAnimation)
-        } else if nodeID == .accessory {
-            accessory.run(repeatAnimation)
+        group.leave()
+        group.notify(queue: .main) {
+            // Create the animation from the textures list in the respective node
+            let animation = SKAction.animate(with: textures, timePerFrame: timeFrame)
+            let repeatAnimation = SKAction.repeatForever(animation)
+            if nodeID == .tibby {
+                self.tibby.run(repeatAnimation)
+            } else if nodeID == .accessory {
+                self.accessory.run(repeatAnimation)
+            }
         }
     }
     
@@ -107,7 +124,7 @@ class TibbyView: SKScene, TibbyProtocol {
                             print(tibby.happiness)
                         }
                     }
-
+                    
                     petAnimation = false
                 }
                 if constants!.vibration {

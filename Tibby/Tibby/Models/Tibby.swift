@@ -24,13 +24,13 @@ enum TibbySpecie: String {
     func baseAnimation() -> [String] {
         switch self {
         case .shark:
-            return ["shark1", "shark2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkBase1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkBase2.png"]
         case .yellowShark:
-            return ["yellowShark1", "yellowShark2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow2.png"]
         case .dolphin:
-            return ["dolphin1", "dolphin2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinBase1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinBase2.png"]
         case .axolotl:
-            return ["axolotl1", "axolotl2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotl1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Axolotl2.png"]
         }
     }
     
@@ -38,13 +38,13 @@ enum TibbySpecie: String {
     func sleepAnimation() -> [String] {
         switch self {
         case .shark:
-            return ["sharkSleep1", "sharkSleep2", "sharkSleep3", "sharkSleep4"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep2.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep3.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep4.png"]
         case .yellowShark:
-            return ["yellowSharkSleep1", "yellowSharkSleep2", "yellowSharkSleep3", "yellowSharkSleep4"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep2.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep3.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep4.png"]
         case .dolphin:
-            return ["dolphinSleep1", "dolphinSleep2", "dolphinSleep3", "dolphinSleep4"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSleep1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSleep2.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSleep3.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSleep4.png"]
         case .axolotl:
-            return ["axolotlSleep1", "axolotlSleep2", "axolotlSleep3", "axolotlSleep4"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSleep1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSleep2.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSleep3.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSleep4.png"]
         }
     }
     
@@ -52,13 +52,13 @@ enum TibbySpecie: String {
     func happyAnimation() -> [String] {
         switch self {
         case .shark:
-            return ["sharkHappy1", "sharkHappy2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png"]
         case .yellowShark:
-            return ["yellowSharkHappy1", "yellowSharkHappy2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"]
         case .dolphin:
-            return ["dolphinHappy1", "dolphinHappy2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinHappy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinHappy2.png"]
         case .axolotl:
-            return ["axolotlHappy1", "axolotlHappy2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotHappyl1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotHappyl2.png"]
         }
     }
     
@@ -66,13 +66,13 @@ enum TibbySpecie: String {
     func sadAnimation() -> [String] {
         switch self {
         case .shark:
-            return ["sharkSad1", "sharkSad2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad2.png"]
         case .yellowShark:
-            return ["yellowSharkSad1", "yellowSharkSad2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"]
         case .dolphin:
-            return ["dolphinSad1", "dolphinSad2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSad2.png"]
         case .axolotl:
-            return ["axolotlSad1", "axolotlSad2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyAxolotlSad2.png"]
         }
     }
     
@@ -80,13 +80,14 @@ enum TibbySpecie: String {
     func eatAnimation() -> [String] {
         switch self {
         case .shark:
-            return ["sharkEat1", "sharkEat2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating2.png"]
         case .yellowShark:
-            return ["yellowSharkEat1", "yellowSharkEat2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"]
         case .dolphin:
-            return ["dolphinEat1", "dolphinEat2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphin1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinEating2.png"]
         case .axolotl:
-            return ["axolotlEat1", "axolotlEat2"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/AxolotlEating1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinEating2.png"]
+           
         }
     }
 }
