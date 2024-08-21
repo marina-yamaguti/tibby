@@ -18,7 +18,7 @@ enum TibbySpecie: String {
     case shark
     case dolphin
     case yellowShark
-    case axolotl
+    //case axolotl
     
     /// Returns the base animation frames for the species.
     func baseAnimation() -> [String] {

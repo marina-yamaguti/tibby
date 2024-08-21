@@ -38,6 +38,36 @@ enum SampleType {
         }
     }
 }
+#warning("Document")
+struct StartedWorkout {
+    var start: Date
+    var activity: WorkoutActivityType
+    
+    init(start: Date, activity: WorkoutActivityType) {
+        self.start = start
+        self.activity = activity
+    }
+    
+    func createWorkoutDone(end: Date) -> WorkoutPratic {
+        return WorkoutPratic(start: self.start, end: end, activity: self.activity)
+    }
+}
+#warning("Document")
+struct WorkoutPratic {
+    var start: Date
+    var end: Date
+    var activity: WorkoutActivityType
+    
+    init(start: Date, end: Date, activity: WorkoutActivityType) {
+        self.start = start
+        self.end = end
+        self.activity = activity
+    }
+    
+    var duration: TimeInterval {
+        return end.timeIntervalSince(start)
+    }
+}
 
 /// A class that manages interactions with the HealthKit framework, providing functionality for retrieving health-related data such as steps, calories burned, and workout time.
 class HealthManager: ObservableObject {
@@ -54,6 +84,9 @@ class HealthManager: ObservableObject {
     var caloriesDay: Int = 0
     var stepsWeek: Int = 0
     var stepsDay: Int = 0
+    var height: Double = 1
+    var bodyMass: Double = 1
+    var birth: DateComponents?
     
     var getAllWorkout: [WorkoutActivityType] {
         return WorkoutActivityType.allCases
@@ -83,15 +116,16 @@ class HealthManager: ObservableObject {
         let healthTypesWrite: Set = [
             HKQuantityType(.stepCount),
             HKQuantityType(.activeEnergyBurned),
-            HKSampleType.workoutType(),
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+            HKSampleType.workoutType()
         ]
         
         let healthTypesRead: Set = [
             HKQuantityType(.stepCount),
             HKQuantityType(.activeEnergyBurned),
-            HKSampleType.workoutType()
+            HKSampleType.workoutType(),
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
+            HKCharacteristicType(.dateOfBirth)
         ]
         
         //Request authorization for writing a certain type
@@ -103,6 +137,8 @@ class HealthManager: ObservableObject {
             }
         })
     }
+    
+    
     
     /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
@@ -117,16 +153,112 @@ class HealthManager: ObservableObject {
         }
     }
     
+    //Fetch height and body mass and birth
+    func fetchCharacteristics() {
+        do {
+            birth = try self.healthStore?.dateOfBirthComponents()
+            
+            var heightSample: HKSampleType = HKQuantityType(.height)
+            let heightQuery = HKSampleQuery(sampleType: heightSample, predicate: nil, limit: 1, sortDescriptors: nil, resultsHandler: {(query, result, error)in
+                if let samples = result {
+                    for sample in samples {
+                        let quantitySample = sample as! HKQuantitySample
+                        self.height = quantitySample.quantity.doubleValue(for: .meterUnit(with:.centi))
+                        print("\(self.height)")
+                    }
+                }
+                else {
+                    self.height = -1
+                }
+            })
+            self.healthStore?.execute(heightQuery)
+            
+            var massSample: HKSampleType = HKQuantityType(.bodyMass)
+            let massQuery = HKSampleQuery(sampleType: massSample, predicate: nil, limit: 1, sortDescriptors: nil, resultsHandler: {(query, result, error)in
+                if let samples = result {
+                    for sample in samples {
+                        let quantitySample = sample as! HKQuantitySample
+                        self.bodyMass = quantitySample.quantity.doubleValue(for: .gram())
+                        print("\(self.bodyMass)")
+                    }
+                }
+                else {
+                    self.bodyMass = -1
+                }
+            })
+            self.healthStore?.execute(massQuery)
+        }
+        catch (let error) {
+            debugPrint(error)
+        }
+    }
+    
     //Fetch all the HealthKit informations that are used
     func fetchAllInformation() {
+        
+        fetchCharacteristics()
+        
         let list: [(dateInfo: Date, sampleInfo: SampleType, dataTypeInfo: DateType)] = [(.startOfWeek, .workoutCalories, .week), (.startOfWeek, .workoutCalories, .week), (.startOfWeek, .workoutTime, .week), (.startOfDay, .workoutCalories, .day), (.startOfDay, .workoutTime, .day), (.startOfWeek, .steps, .week), (.startOfDay, .steps, .day), (.startOfWeek, .energyBurned, .week), (.startOfDay, .energyBurned, .day)]
         
         fetchInformation(informationList: list)
     }
     
-    //Save Healthkit informations from the app
-    func saveHealthInformation() {
+    //Save Workout in Healthkit from the app
+    func saveWorkout(workout: WorkoutPratic) {
+#warning("Document")
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = workout.activity.workoutType
+        let builder = HKWorkoutBuilder(healthStore: healthStore!, configuration: workoutConfiguration, device: .local())
         
+        builder.beginCollection(withStart: workout.start) { success, error in
+            guard success else {
+                print("error to begin collection")
+                return
+            }
+        }
+        
+        var caloreisBurned: Double {
+            if self.bodyMass == -1 {
+                let hours: Double = workout.duration/3600
+                return hours * 450
+            }
+            else {
+                let minutes: Double = workout.duration/60
+                let caloriesBurned: Double = (5 * 3.5 * self.bodyMass)/200
+                return minutes * caloriesBurned
+            }
+        }
+        
+        guard let quantityType = HKQuantityType.quantityType(
+            forIdentifier: .activeEnergyBurned) else {
+            print("quantity type does not exists")
+            return
+        }
+        let unit = HKUnit.kilocalorie()
+        let totalEnergyBurned = caloreisBurned
+        let quantity = HKQuantity(unit: unit, doubleValue: totalEnergyBurned)
+        
+        
+        let sample = HKCumulativeQuantitySample(type: quantityType, quantity: quantity, start: workout.start, end: workout.end)
+        
+        builder.add([sample]) { (success, error) in
+            guard success else {
+                print("add sample error")
+                return
+            }
+            
+            builder.endCollection(withEnd: workout.end) { (success, error) in
+                guard success else {
+                    print("end collection error")
+                    return
+                }
+                
+                builder.finishWorkout { (_, error) in
+                    let success = error == nil
+                    print("finish workout error")
+                }
+            }
+        }
     }
     
     private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DateType) {
@@ -288,11 +420,11 @@ class HealthManager: ObservableObject {
 }
 
 enum WorkoutActivityType: CaseIterable {
-    case americanFootball, archery, australianFootball, badminton, baseball, basketball, bowling, boxing, climbing, crossTraining, curling, cycling, elliptical, equestrianSports, fencing, fishing, functionalStrengthTraining, golf, gymnastics, handball, hiking, hockey, hunting, lacrosse, martialArts, mindAndBody, mixedMetabolicCardioTraining, paddleSports, play, preparationAndRecovery, racquetball, rowing, rugby, running, sailing, skatingSports, snowSports, soccer, softball, squash, stairClimbing, surfingSports, swimming, tableTennis, tennis, trackAndField, traditionalStrengthTraining, volleyball, walking, waterFitness, waterPolo, waterSports, wrestling, yoga, barre, coreTraining, crossCountrySkiing, downhillSkiing, flexibility, highIntensityIntervalTraining, jumpRope, kickboxing, pilates, snowboarding, stairs, stepTraining, wheelchairWalkPace, wheelchairRunPace, taiChi, mixedCardio, handCycling, discSports, fitnessGaming
-
+    case americanFootball, archery, australianFootball, badminton, baseball, basketball, bowling, boxing, climbing, crossTraining, curling, cycling, elliptical, equestrianSports, fencing, fishing, functionalStrengthTraining, golf, gymnastics, handball, hiking, hockey, hunting, lacrosse, martialArts, mindAndBody, paddleSports, play, preparationAndRecovery, racquetball, rowing, rugby, running, sailing, skatingSports, snowSports, soccer, softball, squash, stairClimbing, surfingSports, swimming, tableTennis, tennis, trackAndField, traditionalStrengthTraining, volleyball, walking, waterFitness, waterPolo, waterSports, wrestling, yoga, barre, coreTraining, crossCountrySkiing, downhillSkiing, flexibility, highIntensityIntervalTraining, jumpRope, kickboxing, pilates, snowboarding, stairs, stepTraining, wheelchairWalkPace, wheelchairRunPace, taiChi, mixedCardio, handCycling, discSports, fitnessGaming
+    
     /*
-    Simple mapping of available workout types to a human readable name.
-    */
+     Simple mapping of available workout types to a human readable name.
+     */
     var name: String {
         switch self {
         case .americanFootball:             return "American Football"
@@ -321,7 +453,6 @@ enum WorkoutActivityType: CaseIterable {
         case .lacrosse:                     return "Lacrosse"
         case .martialArts:                  return "Martial Arts"
         case .mindAndBody:                  return "Mind and Body"
-        case .mixedMetabolicCardioTraining: return "Mixed Metabolic Cardio Training"
         case .paddleSports:                 return "Paddle Sports"
         case .play:                         return "Play"
         case .preparationAndRecovery:       return "Preparation and Recovery"
@@ -368,6 +499,155 @@ enum WorkoutActivityType: CaseIterable {
         case .handCycling:                  return "Hand Cycling"
         case .discSports:                   return "Disc Sports"
         case .fitnessGaming:                return "Fitness Gaming"
+        }
+    }
+    
+    var workoutType: HKWorkoutActivityType {
+        switch self {
+        case .americanFootball:
+            return HKWorkoutActivityType.americanFootball
+        case .archery:
+            return HKWorkoutActivityType.archery
+        case .australianFootball:
+            return HKWorkoutActivityType.australianFootball
+        case .badminton:
+            return HKWorkoutActivityType.badminton
+        case .baseball:
+            return HKWorkoutActivityType.baseball
+        case .basketball:
+            return HKWorkoutActivityType.basketball
+        case .bowling:
+            return HKWorkoutActivityType.bowling
+        case .boxing:
+            return HKWorkoutActivityType.boxing
+        case .climbing:
+            return HKWorkoutActivityType.climbing
+        case .crossTraining:
+            return HKWorkoutActivityType.crossTraining
+        case .curling:
+            return HKWorkoutActivityType.curling
+        case .cycling:
+            return HKWorkoutActivityType.cycling
+        case .elliptical:
+            return HKWorkoutActivityType.elliptical
+        case .equestrianSports:
+            return HKWorkoutActivityType.equestrianSports
+        case .fencing:
+            return HKWorkoutActivityType.fencing
+        case .fishing:
+            return HKWorkoutActivityType.fishing
+        case .functionalStrengthTraining:
+            return HKWorkoutActivityType.functionalStrengthTraining
+        case .golf:
+            return HKWorkoutActivityType.golf
+        case .gymnastics:
+            return HKWorkoutActivityType.gymnastics
+        case .handball:
+            return HKWorkoutActivityType.handball
+        case .hiking:
+            return HKWorkoutActivityType.hiking
+        case .hockey:
+            return HKWorkoutActivityType.hockey
+        case .hunting:
+            return HKWorkoutActivityType.hunting
+        case .lacrosse:
+            return HKWorkoutActivityType.lacrosse
+        case .martialArts:
+            return HKWorkoutActivityType.martialArts
+        case .mindAndBody:
+            return HKWorkoutActivityType.mindAndBody
+        case .paddleSports:
+            return HKWorkoutActivityType.paddleSports
+        case .play:
+            return HKWorkoutActivityType.play
+        case .preparationAndRecovery:
+            return HKWorkoutActivityType.preparationAndRecovery
+        case .racquetball:
+            return HKWorkoutActivityType.racquetball
+        case .rowing:
+            return HKWorkoutActivityType.rowing
+        case .rugby:
+            return HKWorkoutActivityType.rugby
+        case .running:
+            return HKWorkoutActivityType.running
+        case .sailing:
+            return HKWorkoutActivityType.sailing
+        case .skatingSports:
+            return HKWorkoutActivityType.skatingSports
+        case .snowSports:
+            return HKWorkoutActivityType.snowSports
+        case .soccer:
+            return HKWorkoutActivityType.soccer
+        case .softball:
+            return HKWorkoutActivityType.softball
+        case .squash:
+            return HKWorkoutActivityType.squash
+        case .stairClimbing:
+            return HKWorkoutActivityType.stairClimbing
+        case .surfingSports:
+            return HKWorkoutActivityType.surfingSports
+        case .swimming:
+            return HKWorkoutActivityType.swimming
+        case .tableTennis:
+            return HKWorkoutActivityType.tableTennis
+        case .tennis:
+            return HKWorkoutActivityType.tennis
+        case .trackAndField:
+            return HKWorkoutActivityType.trackAndField
+        case .traditionalStrengthTraining:
+            return HKWorkoutActivityType.traditionalStrengthTraining
+        case .volleyball:
+            return HKWorkoutActivityType.volleyball
+        case .walking:
+            return HKWorkoutActivityType.walking
+        case .waterFitness:
+            return HKWorkoutActivityType.waterFitness
+        case .waterPolo:
+            return HKWorkoutActivityType.waterPolo
+        case .waterSports:
+            return HKWorkoutActivityType.waterSports
+        case .wrestling:
+            return HKWorkoutActivityType.wrestling
+        case .yoga:
+            return HKWorkoutActivityType.yoga
+        case .barre:
+            return HKWorkoutActivityType.barre
+        case .coreTraining:
+            return HKWorkoutActivityType.coreTraining
+        case .crossCountrySkiing:
+            return HKWorkoutActivityType.crossCountrySkiing
+        case .downhillSkiing:
+            return HKWorkoutActivityType.downhillSkiing
+        case .flexibility:
+            return HKWorkoutActivityType.flexibility
+        case .highIntensityIntervalTraining:
+            return HKWorkoutActivityType.highIntensityIntervalTraining
+        case .jumpRope:
+            return HKWorkoutActivityType.jumpRope
+        case .kickboxing:
+            return HKWorkoutActivityType.kickboxing
+        case .pilates:
+            return HKWorkoutActivityType.pilates
+        case .snowboarding:
+            return HKWorkoutActivityType.snowboarding
+        case .stairs:
+            return HKWorkoutActivityType.stairs
+        case .stepTraining:
+            return HKWorkoutActivityType.stepTraining
+        case .wheelchairWalkPace:
+            return HKWorkoutActivityType.wheelchairWalkPace
+        case .wheelchairRunPace:
+            return HKWorkoutActivityType.wheelchairRunPace
+        case .taiChi:
+            return HKWorkoutActivityType.taiChi
+        case .mixedCardio:
+            return HKWorkoutActivityType.mixedCardio
+        case .handCycling:
+            return HKWorkoutActivityType.handCycling
+        case .discSports:
+            return HKWorkoutActivityType.discSports
+        case .fitnessGaming:
+            return HKWorkoutActivityType.fitnessGaming
         }
     }
 }
