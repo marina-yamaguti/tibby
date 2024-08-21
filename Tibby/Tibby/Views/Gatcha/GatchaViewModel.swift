@@ -39,4 +39,15 @@ final class GatchaViewModel: ObservableObject {
         completion()
         return newTibby
     }
+    
+    func updateCollectionBasedOnWeek() {
+        let currentDate = Date()
+    
+        let calendar = Calendar.current
+        let currentWeek = calendar.component(.weekOfYear, from: currentDate)
+        
+        let collectionIndex = currentWeek % Collection.allCases.count
+        
+        currentSeries = Collection.allCases[collectionIndex]
+    }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GatchaView: View {
-    //@EnvironmentObject var service: Service
+    @EnvironmentObject var service: Service
     @ObservedObject var vm = GatchaViewModel()
     @State var user: User? = nil
     @State var newTibby: Tibby? = nil
@@ -22,8 +22,8 @@ struct GatchaView: View {
             HStack {
                 CustomBackButton()
                 Spacer()
-                //                MoneyView(viewModel: MoneyViewModel(moneyType: .gem, service: service)).padding(.horizontal)
-                //                MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: service))
+                MoneyView(viewModel: MoneyViewModel(moneyType: .gem, service: service)).padding(.horizontal)
+                MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: service))
                 
             }.padding()
             Text("Gacha")
@@ -82,13 +82,11 @@ struct GatchaView: View {
                             }
                         }
                 )
-//                Image(TibbySymbols.play.rawValue)
-//                    .resizable()
             }
             Button(action: {
-                //                newTibby = vm.checkForRoll(service: service, isCoins: true, price: 100) {
-                //                    isAnimating = true
-                //                }
+                newTibby = vm.checkForRoll(service: service, isCoins: true, price: 100) {
+                    isAnimating = true
+                }
                 isAnimating = true
                 //print(newTibby?.name)
             }, label: {
@@ -118,16 +116,14 @@ struct GatchaView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.black.opacity(0.5)))
         }.onAppear {
-            //            if let user = service.getUser() {
-            //                user.coins = 1000
-            //                self.user = user
-            //
-            //            }
+            if let user = service.getUser() {
+                user.coins = 1000
+                self.user = user
+                
+            }
+            vm.updateCollectionBasedOnWeek()
         }.navigationBarBackButtonHidden(true)
-            .background(isBaseOnFocus ? .tibbyBaseWhite : .tibbyBaseBlue)
+            .background(isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color)
     }
 }
 
-#Preview {
-    GatchaView()
-}
