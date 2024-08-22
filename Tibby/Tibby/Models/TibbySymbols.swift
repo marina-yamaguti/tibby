@@ -23,4 +23,11 @@ enum TibbySymbols: String {
     case home = "TibbySymbolHome"
     case chevronLeft = "TibbySymbolChevronLeft"
     case settings = "TibbySymbolSettings"
+    case profile = "TibbySymbolProfile"
+    case arrowDiagonalUp = "TibbySymbolArrowDiagonalUp"
+    case starList = "TibbySymbolStarList"
+    case star = "TibbySymbolStar"
+    case dumbbell = "TibbySymbolDumbbell"
+    case at = "TibbySymbolAt"
+    case envelope = "TibbySymbolEnvelope"
 }
