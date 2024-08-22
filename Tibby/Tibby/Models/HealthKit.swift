@@ -38,7 +38,8 @@ enum SampleType {
         }
     }
 }
-#warning("Document")
+
+///get the informations of the start of the activity
 struct StartedWorkout {
     var start: Date
     var activity: WorkoutActivityType
@@ -52,7 +53,7 @@ struct StartedWorkout {
         return WorkoutPratic(start: self.start, end: end, activity: self.activity)
     }
 }
-#warning("Document")
+///create a complete workout in the system to compute the data
 struct WorkoutPratic {
     var start: Date
     var end: Date
@@ -227,11 +228,12 @@ class HealthManager: ObservableObject {
     
     //Save Workout in Healthkit from the app
     func saveWorkout(workout: WorkoutPratic) {
-#warning("Document")
+        ///Configure the workout
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = workout.activity.workoutType
         let builder = HKWorkoutBuilder(healthStore: healthStore!, configuration: workoutConfiguration, device: .local())
         
+        ///Start the collection with all the workouts to save
         builder.beginCollection(withStart: workout.start) { success, error in
             guard success else {
                 print("error to begin collection")
@@ -239,6 +241,7 @@ class HealthManager: ObservableObject {
             }
         }
         
+        ///Calculate the calories burned in the activity
         var caloreisBurned: Double {
             if self.bodyMass == 0 {
                 let hours: Double = workout.duration/3600
@@ -260,7 +263,7 @@ class HealthManager: ObservableObject {
         let totalEnergyBurned = caloreisBurned
         let quantity = HKQuantity(unit: unit, doubleValue: totalEnergyBurned)
         
-        
+        ///Create and add to the collection the samples of activity
         let sample = HKCumulativeQuantitySample(type: quantityType, quantity: quantity, start: workout.start, end: workout.end)
         
         builder.add([sample]) { (success, error) in
@@ -269,6 +272,7 @@ class HealthManager: ObservableObject {
                 return
             }
             
+            ///Finish and add the workout in the health app
             builder.endCollection(withEnd: workout.end) { (success, error) in
                 guard success else {
                     print("end collection error")
