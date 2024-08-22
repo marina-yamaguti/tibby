@@ -26,3 +26,7 @@ extension Date {
         return calendar.date(from: components)!
     }
 }
+
+enum DateType {
+    case day, week
+}
