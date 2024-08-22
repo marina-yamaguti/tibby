@@ -16,6 +16,7 @@ struct KitchenView: View {
     @State var isEating = false
     @State var tibbyView = TibbyView()
     @State var selectedFood: Food?
+    @State var currentFood: Food?
     @State var openSelector = false
     @State var mouth = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/3.5)
     @GestureState var plate = CGPoint(x: UIScreen.main.bounds.width/2 - UIScreen.main.bounds.width/20, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height/2.5)
@@ -111,16 +112,21 @@ struct KitchenView: View {
                                             if (foodLocation.x >= mouth.x - 100 && foodLocation.x <= mouth.x + 100 && foodLocation.y >= mouth.y - 50 && foodLocation.y <= mouth.y + 50) {
                                                 tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                                                 
-                                                toEat = false
+
                                                 isEating = false
-                                                selectedFood = nil
                                                 foodLocation = platePos
+                                                #warning("QUANDO TIVER A QUANTIDADE DE COMIDAS MUDAR ESSA LÓGICA PARA NÃO TIRAR A COMIDA DO PRATO SE AINDA PUDER ALIMENTAR")
+                                                selectedFood = nil
+                                                toEat = false
                                                 
                                                 //delete food from inventory
                                                 print(tibby.hunger)
                                                 
                                                 //update tibby hunger atribute
                                                 if let activity = service.getActivityByName(name: "Eat") {
+                                                    if constants.vibration {
+                                                        HapticManager.instance.impact(style: .soft)
+                                                    }
                                                     let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
                                                     service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
                                                     print(tibby.hunger)
@@ -147,6 +153,12 @@ struct KitchenView: View {
                         HStack {
                             Spacer()
                             Button(action: {
+                                if constants.vibration {
+                                    HapticManager.instance.impact(style: .soft)
+                                }
+                                if constants.sfx {
+                                    constants.playSFX(audio: "SecondaryButton")
+                                }
                                 openSelector = false
                             }, label: {
                                 ZStack {

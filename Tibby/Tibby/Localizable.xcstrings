@@ -7,9 +7,6 @@
     "%lld" : {
 
     },
-    "%lld/100" : {
-
-    },
     "Click to equip" : {
 
     },
@@ -32,6 +29,9 @@
 
     },
     "Given Name" : {
+
+    },
+    "home" : {
 
     },
     "Home" : {
@@ -82,10 +82,10 @@
     "quantity: %lld" : {
 
     },
-    "Rarity" : {
+    "rarity" : {
 
     },
-    "Settings" : {
+    "settings" : {
 
     },
     "Small title" : {
@@ -94,10 +94,14 @@
     "Sofia Sartori" : {
 
     },
-    "Species" : {
+    "species" : {
+
+    },
+    "tibby" : {
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

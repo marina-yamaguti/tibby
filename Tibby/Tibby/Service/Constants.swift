@@ -174,4 +174,18 @@ class Constants: ObservableObject {
             closure()
         }
     }
+    
+    ///Compare two rarities and sends wich is first
+    func sortRarity(rarity1: String, rarity2: String) -> Bool{
+        if rarity1.lowercased() == "common" {
+            return true
+        }
+        else if rarity1.lowercased() == "rare" && (rarity2.lowercased() == "epic" || rarity2.lowercased() == "rare") {
+            return true
+        }
+        else if rarity1.lowercased() == "epic" && rarity2.lowercased() == "epic" {
+            return true
+        }
+        return false
+    }
 }
