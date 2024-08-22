@@ -138,7 +138,29 @@ class HealthManager: ObservableObject {
         })
     }
     
+    ///App check if the user authorize the write workout in Health Data
+    func checkWorkoutAuthorization() -> Bool {
+        if healthStore!.authorizationStatus(for: HKSampleType.workoutType()).rawValue == 2 {
+            return true
+        }
+        return false
+    }
     
+    ///App check if the user authorize the write workout in Health Data
+    func checkEnergyAuthorization() -> Bool {
+        if healthStore!.authorizationStatus(for: HKQuantityType(.activeEnergyBurned)).rawValue == 2 {
+            return true
+        }
+        return false
+    }
+    
+    ///App check if the user authorize the write workout in Health Data
+    func checkStepsAuthorization() -> Bool {
+        if healthStore!.authorizationStatus(for: HKQuantityType(.stepCount)).rawValue == 2 {
+            return true
+        }
+        return false
+    }
     
     /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
@@ -158,7 +180,7 @@ class HealthManager: ObservableObject {
         do {
             birth = try self.healthStore?.dateOfBirthComponents()
             
-            var heightSample: HKSampleType = HKQuantityType(.height)
+            let heightSample: HKSampleType = HKQuantityType(.height)
             let heightQuery = HKSampleQuery(sampleType: heightSample, predicate: nil, limit: 1, sortDescriptors: nil, resultsHandler: {(query, result, error)in
                 if let samples = result {
                     for sample in samples {
@@ -168,12 +190,12 @@ class HealthManager: ObservableObject {
                     }
                 }
                 else {
-                    self.height = -1
+                    self.height = 0
                 }
             })
             self.healthStore?.execute(heightQuery)
             
-            var massSample: HKSampleType = HKQuantityType(.bodyMass)
+            let massSample: HKSampleType = HKQuantityType(.bodyMass)
             let massQuery = HKSampleQuery(sampleType: massSample, predicate: nil, limit: 1, sortDescriptors: nil, resultsHandler: {(query, result, error)in
                 if let samples = result {
                     for sample in samples {
@@ -183,7 +205,7 @@ class HealthManager: ObservableObject {
                     }
                 }
                 else {
-                    self.bodyMass = -1
+                    self.bodyMass = 0
                 }
             })
             self.healthStore?.execute(massQuery)
@@ -218,7 +240,7 @@ class HealthManager: ObservableObject {
         }
         
         var caloreisBurned: Double {
-            if self.bodyMass == -1 {
+            if self.bodyMass == 0 {
                 let hours: Double = workout.duration/3600
                 return hours * 450
             }
@@ -255,7 +277,7 @@ class HealthManager: ObservableObject {
                 
                 builder.finishWorkout { (_, error) in
                     let success = error == nil
-                    print("finish workout error")
+                    print("finished workout")
                 }
             }
         }
