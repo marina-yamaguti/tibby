@@ -32,7 +32,10 @@ struct TibbySelectedView: View {
                     // Tibby Name Edit
                     TibbyNameEdit(tibby: $viewModel.tibby)
                     // Tibby Profile Icon
-                    TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status, action: viewModel.changeTibby)
+                    TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status) {
+                        viewModel.changeTibby(vibration: constants.vibration)
+                    }
+                    //TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status, action: viewModel.changeTibby)
                 }
                 .padding(.bottom, 40)
                 ScrollView {

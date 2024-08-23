@@ -64,6 +64,7 @@ struct TibbySelectionView: View {
                                     CollectionNameComponent(name: collection.rawValue, color: collection.color)
                                         .onAppear {
                                             self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                            self.tibbyCollection = self.tibbyCollection.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
                                         }
                                     Spacer()
                                 }.padding(.horizontal)
@@ -76,11 +77,7 @@ struct TibbySelectionView: View {
                                                     .padding()
                                             }
                                         } else {
-                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))
-                                                .onTapGesture {
-                                                    if constants.vibration {
-                                                        HapticManager.instance.impact(style: .soft)
-                                                    }}) {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
                                                 ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
                                                     .padding()
                                             }

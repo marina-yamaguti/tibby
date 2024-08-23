@@ -24,7 +24,7 @@ struct TibbyDescriptionLabel: View {
                 Text(description)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .font(.typography(FontStyle.body2))
+                    .font(.typography(FontStyle.body2))//.font(.typography(FontStyle.label))
                     .multilineTextAlignment(.center)
                     .foregroundStyle(Color.tibbyBaseBlack)
             }
