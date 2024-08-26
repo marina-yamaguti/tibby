@@ -73,6 +73,9 @@
 		D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */; };
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
+		D88F32552C79324A0071597E /* OnboardingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F32542C79324A0071597E /* OnboardingAnimation.swift */; };
+		D88F32572C7CF5ED0071597E /* ResourcesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F32562C7CF5ED0071597E /* ResourcesComponent.swift */; };
+		D88F32592C7D0EED0071597E /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F32582C7D0EED0071597E /* CreditsComponent.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
 		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
 		D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED12C6D1B67009C208C /* SettingsView.swift */; };
@@ -262,6 +265,9 @@
 		D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		D88F32542C79324A0071597E /* OnboardingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAnimation.swift; sourceTree = "<group>"; };
+		D88F32562C7CF5ED0071597E /* ResourcesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesComponent.swift; sourceTree = "<group>"; };
+		D88F32582C7D0EED0071597E /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AED12C6D1B67009C208C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -469,6 +475,7 @@
 				7CE131CF2C63F400001D7348 /* OnboardingView2.swift */,
 				7CE131D12C63F408001D7348 /* OnboardingView3.swift */,
 				7CE131D32C63F413001D7348 /* OnboardingView4.swift */,
+				D88F32542C79324A0071597E /* OnboardingAnimation.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -591,8 +598,8 @@
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
 				D896AECB2C6BD35D009C208C /* CustomStepper.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
-				7C3563692C77C75100D8389C /* ProgressBar */,
 				A50E92BE2C6534F900762A11 /* Labels */,
+				7C3563692C77C75100D8389C /* ProgressBar */,
 				A5126BDC2C4987E2008703E7 /* Buttons */,
 				A5126BE02C498A59008703E7 /* Money */,
 				A50E92CF2C6BCFC600762A11 /* TibbyProfileIcon.swift */,
@@ -602,6 +609,8 @@
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
 				FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */,
+				D88F32562C7CF5ED0071597E /* ResourcesComponent.swift */,
+				D88F32582C7D0EED0071597E /* CreditsComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1053,11 +1062,14 @@
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
 				A50E92C02C65351E00762A11 /* TibbySpeciesLabel.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
+				D88F32572C7CF5ED0071597E /* ResourcesComponent.swift in Sources */,
 				D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */,
+				D88F32592C7D0EED0071597E /* CreditsComponent.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
+				D88F32552C79324A0071597E /* OnboardingAnimation.swift in Sources */,
 				7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,

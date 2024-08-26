@@ -21,8 +21,8 @@ struct SettingsComponent: View {
     /// The title displayed next to the circle.
     var title: String
     
-    /// The label for the toggle or details section.
-    var label: String
+    /// The labels for the toggle or details section.
+    var labels: [String]
     
     /// The color of the circle next to the title.
     var color: Color
@@ -39,45 +39,48 @@ struct SettingsComponent: View {
                     .foregroundStyle(Color.tibbyBaseBlack)
                 Spacer()
             }
-            
-            // Trailing content: either a toggle or details view
-            HStack {
-                if trailingType == .details {
+            VStack(spacing: 0) {
+                // Trailing content: iterate over labels and display the appropriate content
+                ForEach(labels, id: \.self) { label in
                     HStack {
-                        Text(label)
-                            .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseBlack)
-                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
-                        Spacer()
-                        HStack(alignment: .firstTextBaseline) {
-                            Text("Detail")
-                                .font(.typography(.label))
-                            Image(systemName: "chevron.right")
-                                .font(.caption2)
-                                .fontWeight(.bold)
+                        if trailingType == .details {
+                            HStack {
+                                Text(label)
+                                    .font(.typography(.body2))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                    .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 0))
+                                Spacer()
+                                HStack(alignment: .firstTextBaseline) {
+                                    Text("Detail")
+                                        .font(.body)
+                                    Image(systemName: "chevron.right")
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                }
+                                .foregroundStyle(.tibbyBaseGrey)
+                                .padding(.trailing, 24)
+                            }
+                        } else {
+                            switch label {
+                            case "Music":
+                                Toggle(label, isOn: $constants.music)
+                                    .font(.typography(.body2))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                    .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
+                            case "Sound Effects":
+                                Toggle(label, isOn: $constants.sfx)
+                                    .font(.typography(.body2))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                    .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
+                            case "Phone Vibrations":
+                                Toggle(label, isOn: $constants.vibration)
+                                    .font(.typography(.body2))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                    .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
+                            default:
+                                EmptyView()
+                            }
                         }
-                        .foregroundStyle(.tibbyBaseGrey)
-                        .padding(.trailing, 32)
-                    }
-                } else {
-                    switch label {
-                    case "Music":
-                        Toggle(label, isOn: $constants.music)
-                            .font(.typography(.body2))
-                            .foregroundStyle(.tibbyBaseBlack)
-                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
-                    case "Sound Effects":
-                        Toggle(label, isOn: $constants.sfx)
-                            .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseBlack)
-                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
-                    case "Phone Vibration":
-                        Toggle(label, isOn: $constants.vibration)
-                            .font(.typography(.body2))
-                            .foregroundStyle(.tibbyBaseBlack)
-                            .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 24))
-                    default:
-                        EmptyView()
                     }
                 }
             }
@@ -88,3 +91,4 @@ struct SettingsComponent: View {
         }
     }
 }
+

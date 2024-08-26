@@ -13,18 +13,22 @@ import SwiftUI
 /// The indicator changes color based on the current page, making it easy to see which steps are complete and which are pending.
 struct ProgressIndicator: View {
     /// An array of colors representing the progress indicator's stages.
-    let progressIndicator: [Color] = [.tibbyBaseRed, .tibbyBaseYellow, .tibbyBaseGreen, .tibbyBaseBlue]
+    let progressIndicatorColor: Color = .tibbyBaseGreen
     
     /// The current page or step that the user is on. This value determines which capsules are filled with color and which remain black.
     var page: Int
     
     var body: some View {
         HStack(spacing: 8) {
-            ForEach(0..<progressIndicator.count, id: \.self) { index in
+            ForEach(0...3, id: \.self) { index in
                 Capsule()
-                    .fill(page < index ? .black : progressIndicator[index])
+                    .fill(page < index ? Color.black.opacity(0.5) : progressIndicatorColor)
                     .aspectRatio(6, contentMode: .fit)
             }
         }
     }
+}
+
+#Preview {
+    ProgressIndicator(page: 2)
 }

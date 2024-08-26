@@ -1,18 +1,18 @@
 //
-//  OnboardingViewModel.swift
+//  OnboardingAnimation.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 13/08/24.
+//  Created by Natalia Dal Pizzol on 23/08/24.
 //
 
-import SwiftUI
+import Foundation
 import SpriteKit
+import UIKit
+import SwiftUI
 
-class OnboardingTabViewModel: SKScene, ObservableObject {
-    @Published var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4]
-    @Published var currentIndex: Int = 0
-    @Published var navigateToGatcha: Bool = false
+class OnboardingAnimation: SKScene {
     var animation: SKSpriteNode = SKSpriteNode()
+    
     
     override func didMove(to view: SKView) {
         // Clear the Scene background
@@ -51,38 +51,6 @@ class OnboardingTabViewModel: SKScene, ObservableObject {
             let animation = SKAction.animate(with: textures, timePerFrame: 0.5)
             let repeatAnimation = SKAction.repeatForever(animation)
             sprites.run(repeatAnimation)
-        }
-    }
-
-    var currentOnboarding: OnboardingViews {
-        return onboardingViews[currentIndex]
-    }
-    
-    func nextPage() {
-        if currentIndex == 3 {
-            UserDefaults.standard.set(false, forKey: "firstTime")
-            navigateToGatcha = true
-        } else {
-            currentIndex += 1
-        }
-    }
-    
-    func previousPage() {
-            currentIndex -= 1
-    }
-    
-    func bodyContent(page: OnboardingViews) -> any View {
-        switch currentIndex {
-        case 0:
-            OnboardingView1()
-        case 1:
-            OnboardingView2()
-        case 2:
-            OnboardingView3()
-        case 3:
-            OnboardingView4()
-        default:
-            OnboardingView1()
         }
     }
 }

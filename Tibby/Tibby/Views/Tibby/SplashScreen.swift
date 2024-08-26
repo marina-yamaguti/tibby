@@ -31,7 +31,7 @@ struct SplashScreen: View {
     var body: some View {
         if canProceed {
             if firstTimeHere {
-                OnboardingTab(firstTime: $firstTimeHere)
+//                OnboardingTab(firstTime: $firstTimeHere)
             }
             else {
                 StartView()
