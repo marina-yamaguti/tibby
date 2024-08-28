@@ -54,10 +54,13 @@ class TibbySelectedViewModel: ObservableObject {
     }
 
     
-    func changeTibby() {
+    func changeTibby(vibration: Bool) {
         currentTibby = tibby
         service.getUser()?.currentTibbyID = currentTibby.id
         status = .selected
+        if vibration {
+            HapticManager.instance.impact(style: .soft)
+        }
 //        DispatchQueue.main.async {
 //            constants.tibbySleeping = false
 //        }

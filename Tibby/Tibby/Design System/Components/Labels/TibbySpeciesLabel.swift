@@ -27,7 +27,7 @@ struct TibbySpeciesLabel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Label for the species category
-            Text("Species")
+            Text("species")
                 .font(.typography(.body2))
                 .foregroundStyle(Color.tibbyBaseBlack)
             

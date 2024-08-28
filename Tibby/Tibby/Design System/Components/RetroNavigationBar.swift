@@ -43,7 +43,7 @@ struct RetroNavigationBar: View {
             Button(action: {presentationMode.wrappedValue.dismiss()},
                    label: {ButtonLabel(type: .tertiary, image: "", text: "")})
                 .buttonTertiary()
-            Text("Home")
+            Text("home")
                 .foregroundStyle(.tibbyBaseBlack)
                 .font(.typography(.label))
                 .padding(.top, 4)
@@ -69,7 +69,7 @@ struct RetroNavigationBar: View {
                     }
                 }
             }
-            Text("Tibby")
+            Text("tibby")
                 .foregroundStyle(.tibbyBaseBlack)
                 .font(.typography(.headline))
                 .padding(.vertical)
@@ -82,7 +82,7 @@ struct RetroNavigationBar: View {
             Button(action: {goToSettings = true},
                    label: {ButtonLabel(type: .tertiary, image: "", text: "")})
                 .buttonTertiary()
-            Text("Settings")
+            Text("settings")
                 .foregroundStyle(.tibbyBaseBlack)
                 .font(.typography(.label))
                 .padding(.top, 4)

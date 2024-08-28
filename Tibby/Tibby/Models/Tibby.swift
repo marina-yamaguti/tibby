@@ -68,7 +68,7 @@ enum TibbySpecie: String {
         case .shark:
             return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad2.png"]
         case .yellowShark:
-            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad4.png"]
         case .dolphin:
             return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSad1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinSad2.png"]
         case .axolotl:
@@ -82,11 +82,11 @@ enum TibbySpecie: String {
         case .shark:
             return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating2.png"]
         case .yellowShark:
-            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad2.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow2.png"]
         case .dolphin:
             return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphin1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinEating2.png"]
         case .axolotl:
-            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/AxolotlEating1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbyPinkDolphinEating2.png"]
+            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/AxolotlEating1.png", "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Axolotl2.png"]
            
         }
     }

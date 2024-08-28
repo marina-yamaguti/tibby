@@ -22,21 +22,15 @@ struct StatusBar: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            VStack {
-                // Display the value of the specified necessity
-                necessityValueText
-                    .foregroundStyle(.tibbyBaseBlack)
-                    .font(.typography(.title))
-                    .padding(.top, 4)
-                
-                // Display the name of the necessity
-                Text(necessityName.capitalized)
-                    .foregroundStyle(.tibbyBaseBlack)
-                    .font(.typography(.label))
-            }
-            // Additional components like MoneyView can be added here if needed
+            // Display the value of the specified necessity
+            necessityValueText
+                .foregroundStyle(.tibbyBaseBlack)
+                .font(.typography(.title))
+            MoneyView(viewModel: MoneyViewModel(moneyType: .gem, service: service))
+                .padding(.horizontal)
+            MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: service))
+                .padding(.trailing)
         }
-        .padding(.top, 16)
     }
     
     /// A computed property that returns the corresponding value text for the necessity.
@@ -46,11 +40,14 @@ struct StatusBar: View {
     private var necessityValueText: some View {
         switch necessityName.lowercased() {
         case "sleep":
-            Text("\(tibby.sleep)/100")
+            ProgressView(value: Float(tibby.sleep)/100)
+                .progressViewStyle(CustomProgressBar(barType: .sleep))
         case "happiness":
-            Text("\(tibby.happiness)/100")
+            ProgressView(value: Float(tibby.happiness)/100)
+                .progressViewStyle(CustomProgressBar(barType: .emotion))
         case "hunger":
-            Text("\(tibby.hunger)/100")
+            ProgressView(value: Float(tibby.hunger)/100)
+                .progressViewStyle(CustomProgressBar(barType: .eat))
         default:
             EmptyView()
         }

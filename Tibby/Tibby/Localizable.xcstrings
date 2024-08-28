@@ -46,7 +46,7 @@
     "Given Name" : {
 
     },
-    "Hello, World!" : {
+    "home" : {
 
     },
     "Home" : {
@@ -97,7 +97,7 @@
     "quantity: %lld" : {
 
     },
-    "Rarity" : {
+    "rarity" : {
 
     },
     "Roll" : {
@@ -112,10 +112,14 @@
     "Sofia Sartori" : {
 
     },
-    "Species" : {
+    "species" : {
+
+    },
+    "tibby" : {
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

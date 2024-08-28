@@ -11,5 +11,5 @@ import Foundation
 enum Rarity: String {
     case common = "Common"
     case rare = "Rare"
-    case ultra = "Ultra"
+    case epic = "Epic"
 }

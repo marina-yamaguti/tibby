@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tie-wardrobe.png",
+      "filename" : "Type=Dumbbell.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tie-wardrobe 1.png",
+      "filename" : "Type=Dumbbell@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tie-wardrobe 2.png",
+      "filename" : "Type=Dumbbell@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
