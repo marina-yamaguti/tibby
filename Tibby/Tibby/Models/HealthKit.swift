@@ -39,7 +39,7 @@ enum SampleType {
     }
 }
 
-///get the informations of the start of the activity
+/// Get the informations of the start of the activity
 class WorkoutSession {
     var start: Date
     var activity: WorkoutActivityType
@@ -55,17 +55,17 @@ class WorkoutSession {
         intervals.append(newInterval)
     }
     
-    func startWorkout() {
-        start = Date()
+    func startWorkout(teste: Date) {
+        start = teste//Date()
     }
     
-    func pauseWorkout() {
-        var endDate = Date()
+    func pauseWorkout(teste: Date) {
+        let endDate = teste//Date()
         addNewInterval(end: endDate)
     }
     
     func endWorkout() -> WorkoutPratic {
-        pauseWorkout()
+        pauseWorkout(teste: Date(timeIntervalSince1970: 500))
         let workoutPractic = WorkoutPratic(intervals: intervals)
         intervals.removeAll()
         
@@ -73,7 +73,7 @@ class WorkoutSession {
     }
 }
 
-///create a workout in the system to compute the data
+/// Create a workout in the system to compute the data
 struct WorkoutPraticInterval {
     var start: Date
     var end: Date
@@ -90,7 +90,7 @@ struct WorkoutPraticInterval {
     }
 }
 
-///create a complete workout in the system to compute the data
+/// Create a complete workout in the system to compute the data
 struct WorkoutPratic {
     var start: Date
     var end: Date
@@ -205,6 +205,7 @@ class HealthManager: ObservableObject {
         return false
     }
     
+    #warning("SE A APP STORE NÃO ACEITAR POR LINK DAS CONFIGURAÇÕES, REVER ESSA PARTE DO CÓDIGO")
     /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
         guard let url = URL(string: "App-Prefs:") else { return }
@@ -337,7 +338,7 @@ class HealthManager: ObservableObject {
                 
                 builder.finishWorkout { (workout, error) in
                     let success = error == nil
-                    print("finished workout")
+                    print("\(success) finished workout")
                 }
             }
         }
@@ -501,6 +502,7 @@ class HealthManager: ObservableObject {
     }
 }
 
+/// List all the Workout activities of healthkit
 enum WorkoutActivityType: CaseIterable {
     case americanFootball, archery, australianFootball, badminton, baseball, basketball, bowling, boxing, climbing, crossTraining, curling, cycling, elliptical, equestrianSports, fencing, fishing, functionalStrengthTraining, golf, gymnastics, handball, hiking, hockey, hunting, lacrosse, martialArts, mindAndBody, paddleSports, play, preparationAndRecovery, racquetball, rowing, rugby, running, sailing, skatingSports, snowSports, soccer, softball, squash, stairClimbing, surfingSports, swimming, tableTennis, tennis, trackAndField, traditionalStrengthTraining, volleyball, walking, waterFitness, waterPolo, waterSports, wrestling, yoga, barre, coreTraining, crossCountrySkiing, downhillSkiing, flexibility, highIntensityIntervalTraining, jumpRope, kickboxing, pilates, snowboarding, stairs, stepTraining, wheelchairWalkPace, wheelchairRunPace, taiChi, mixedCardio, handCycling, discSports, fitnessGaming, other
     
@@ -734,5 +736,15 @@ enum WorkoutActivityType: CaseIterable {
         case .other:
             return HKWorkoutActivityType.other
         }
+    }
+    
+    var icon: String {
+        if self == .other {
+            return "figure.stand"
+        }
+        var name = self.name.lowercased()
+        name = name.replacingOccurrences(of: " ", with: ".")
+        
+        return "figure."+name
     }
 }
