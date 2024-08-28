@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-import SwiftUI
-
 
 enum SettingsSections: Hashable {
     case notifications, haptics, sound, health
@@ -16,16 +14,17 @@ enum SettingsSections: Hashable {
     var title: String {
         switch self {
         case .notifications: return "App Notifications"
-        case .haptics: return "Haptics Feedback"
-        case .sound: return "Game Sounds"
+        case .haptics: return "Haptics"
+        case .sound: return "Sound"
         case .health: return "Health Information"
         }
     }
     var labels: [String] {
         switch self {
         case .notifications: return ["Notifications"]
-        case .haptics: return ["Phone Vibrations"]
-        case .sound: return ["Sound Effects", "Music"]
+        case .haptics: return ["Haptics"]
+            // TODO: add sound effects when ready
+        case .sound: return ["Music"]
         case .health: return ["Health"]
         }
     }
@@ -36,15 +35,6 @@ enum SettingsSections: Hashable {
         case .sound: return .toggleButton
         case .health: return .details
         }
-    }
-    var color: Color {
-        switch self {
-        case .notifications: .tibbyBaseRed
-        case .haptics: .tibbyBaseGreen
-        case .sound: .tibbyBaseBlue
-        case .health: .tibbyBasePink
-        }
-        
     }
 }
 
@@ -60,4 +50,4 @@ class SettingsViewModel: ObservableObject {
         }
     }
 }
-
+    
