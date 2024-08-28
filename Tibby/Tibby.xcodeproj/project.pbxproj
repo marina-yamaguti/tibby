@@ -122,6 +122,7 @@
 		FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */; };
 		FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */; };
 		FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */; };
+		FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */; };
 		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
 		FDFF4ABC2C3C739500831968 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABB2C3C739500831968 /* Food.swift */; };
 		FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */; };
@@ -314,6 +315,7 @@
 		FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNameComponent.swift; sourceTree = "<group>"; };
 		FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatchaView.swift; sourceTree = "<group>"; };
 		FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatchaViewModel.swift; sourceTree = "<group>"; };
+		FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
 		FDFF4ABB2C3C739500831968 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenExample.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 			children = (
 				FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */,
 				FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */,
+				FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */,
 			);
 			path = Gatcha;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
+				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,

@@ -44,7 +44,7 @@ struct GatchaView: View {
                         .brightness(isBaseOnFocus ? -0.3 : 0)
                         .zIndex(isBaseOnFocus ? 0 : 1)
                     
-                    Image(vm.gatchBaseAnimation[0])
+                    Image(vm.currentGatchaImage)
                         .resizable()
                         .frame(width: 377, height: 420)
                         .offset(x: isBaseOnFocus ? 0 + xOffset : -470)
@@ -85,10 +85,8 @@ struct GatchaView: View {
             }
             Button(action: {
                 newTibby = vm.checkForRoll(service: service, isCoins: true, price: 100) {
-                    isAnimating = true
+                    vm.animateRoll(isBase: isBaseOnFocus)
                 }
-                isAnimating = true
-                //print(newTibby?.name)
             }, label: {
                 HStack {
                     Image(TibbySymbols.roll.rawValue)
