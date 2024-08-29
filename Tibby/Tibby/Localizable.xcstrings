@@ -7,10 +7,7 @@
     "%lld" : {
 
     },
-    "20" : {
-
-    },
-    "100" : {
+    "Cancel" : {
 
     },
     "Click to equip" : {
@@ -52,19 +49,13 @@
     "Home" : {
 
     },
+    "How to allow?" : {
+
+    },
     "important feature" : {
 
     },
     "Light" : {
-
-    },
-    "Maria Eduarda Maciel" : {
-
-    },
-    "Marina Geller Yamaguti" : {
-
-    },
-    "Mateus Moura Godinho" : {
 
     },
     "minigames coming soon..." : {
@@ -79,13 +70,16 @@
     "Name" : {
 
     },
-    "Natália Dal Pizzol" : {
-
-    },
     "OK" : {
 
     },
+    "Open Settings" : {
+
+    },
     "Play" : {
+
+    },
+    "Please go to Settings and allow the necessary permissions." : {
 
     },
     "price: %lld" : {
@@ -100,16 +94,13 @@
     "rarity" : {
 
     },
-    "Roll" : {
+    "Resources" : {
 
     },
     "settings" : {
 
     },
     "Small title" : {
-
-    },
-    "Sofia Sartori" : {
 
     },
     "species" : {
@@ -133,6 +124,9 @@
 
     },
     "uau quero devolver %@" : {
+
+    },
+    "v.%@" : {
 
     }
   },
