@@ -85,6 +85,9 @@
 		D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
 		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
+		D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520712C7FC00800A37057 /* ResourcesComponent.swift */; };
+		D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */; };
+		D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520752C80E85900A37057 /* LevelComponent.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
@@ -96,6 +99,8 @@
 		FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2752C669BA30046DE49 /* StatusBar.swift */; };
 		FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */; };
 		FD45F27C2C6C02360046DE49 /* AccessoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */; };
+		FD5154D62C7FB53D00B9684A /* ButtonGacha.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */; };
+		FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -123,6 +128,9 @@
 		FDCD3F702C3744970075E0C7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */; };
 		FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */; };
 		FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */; };
+		FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */; };
+		FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */; };
+		FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */; };
 		FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4F8282C2CA7C900490F38 /* Tibby.swift */; };
 		FDFF4ABC2C3C739500831968 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABB2C3C739500831968 /* Food.swift */; };
 		FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */; };
@@ -275,6 +283,9 @@
 		D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySymbols.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D8D520712C7FC00800A37057 /* ResourcesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesComponent.swift; sourceTree = "<group>"; };
+		D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
+		D8D520752C80E85900A37057 /* LevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelComponent.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
@@ -286,6 +297,8 @@
 		FD45F2752C669BA30046DE49 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomViewModel.swift; sourceTree = "<group>"; };
 		FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryCategory.swift; sourceTree = "<group>"; };
+		FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGacha.swift; sourceTree = "<group>"; };
+		FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaArrowAnimation.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -316,6 +329,9 @@
 		FDCD3F6F2C3744970075E0C7 /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNameComponent.swift; sourceTree = "<group>"; };
+		FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatchaView.swift; sourceTree = "<group>"; };
+		FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatchaViewModel.swift; sourceTree = "<group>"; };
+		FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
 		FDFF4ABB2C3C739500831968 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenExample.swift; sourceTree = "<group>"; };
@@ -379,6 +395,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FDDCE79E2C7515E600FEC8F2 /* Gatcha */,
 				7C6CBA3F2C6E852300D77ED9 /* Settings */,
 				FD45F26B2C6571580046DE49 /* Tibby Book */,
 				FD45F2642C63F3E00046DE49 /* TibbySelection */,
@@ -604,6 +621,9 @@
 				FD45F2732C66821E0046DE49 /* RetroNavigationBar.swift */,
 				FD45F2752C669BA30046DE49 /* StatusBar.swift */,
 				FDDCE79C2C73B3DF00FEC8F2 /* CollectionNameComponent.swift */,
+				D8D520712C7FC00800A37057 /* ResourcesComponent.swift */,
+				D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */,
+				D8D520752C80E85900A37057 /* LevelComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -741,6 +761,18 @@
 				D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */,
 			);
 			path = Wardrobe;
+			sourceTree = "<group>";
+		};
+		FDDCE79E2C7515E600FEC8F2 /* Gatcha */ = {
+			isa = PBXGroup;
+			children = (
+				FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */,
+				FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */,
+				FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */,
+				FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */,
+				FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */,
+			);
+			path = Gatcha;
 			sourceTree = "<group>";
 		};
 		FDE4F8272C2CA7B200490F38 /* Models */ = {
@@ -1075,13 +1107,16 @@
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
+				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
 				FD45F2612C629DED0046DE49 /* Roll.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
+				FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */,
 				FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
+				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
@@ -1092,7 +1127,9 @@
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
+				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
+				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
@@ -1106,17 +1143,20 @@
 				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
 				7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
+				D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */,
 				D81284B72C6AFC4D0088A7B9 /* Onboarding.swift in Sources */,
 				D816945D2C49B0A50036BD03 /* TabBarButton.swift in Sources */,
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
 				FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
+				FD5154D62C7FB53D00B9684A /* ButtonGacha.swift in Sources */,
 				A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
 				D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */,
 				FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */,
+				D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */,
 				A50E92CC2C6BC9E300762A11 /* TibbyRarityLabel.swift in Sources */,
