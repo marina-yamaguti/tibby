@@ -30,11 +30,6 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        HStack {
-                        NavigationLink(destination: GatchaView(), label: {
-                            Text("Gatcha")
-                        })
-                        }
                         Spacer()
                         TibbyNameComponent(name: $tibby.name)
                             .padding(.bottom, -20)
