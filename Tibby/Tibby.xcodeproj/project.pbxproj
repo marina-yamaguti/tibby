@@ -95,6 +95,8 @@
 		FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2752C669BA30046DE49 /* StatusBar.swift */; };
 		FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */; };
 		FD45F27C2C6C02360046DE49 /* AccessoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */; };
+		FD5154D62C7FB53D00B9684A /* ButtonGacha.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */; };
+		FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -287,6 +289,8 @@
 		FD45F2752C669BA30046DE49 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		FD45F2792C6BCD930046DE49 /* BedroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomViewModel.swift; sourceTree = "<group>"; };
 		FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryCategory.swift; sourceTree = "<group>"; };
+		FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGacha.swift; sourceTree = "<group>"; };
+		FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaArrowAnimation.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -754,6 +758,8 @@
 				FDDCE79F2C7515F800FEC8F2 /* GatchaView.swift */,
 				FDDCE7A12C751AC500FEC8F2 /* GatchaViewModel.swift */,
 				FDDCE7A52C76728100FEC8F2 /* CapsuleView.swift */,
+				FD5154D52C7FB53D00B9684A /* ButtonGacha.swift */,
+				FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */,
 			);
 			path = Gatcha;
 			sourceTree = "<group>";
@@ -1091,6 +1097,7 @@
 				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
 				FD45F2612C629DED0046DE49 /* Roll.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
+				FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */,
 				FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
@@ -1127,6 +1134,7 @@
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
 				FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
+				FD5154D62C7FB53D00B9684A /* ButtonGacha.swift in Sources */,
 				A50E92D02C6BCFC600762A11 /* TibbyProfileIcon.swift in Sources */,
 				7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */,
 				D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */,

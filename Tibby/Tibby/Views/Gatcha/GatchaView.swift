@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GatchaView: View {
+    @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @ObservedObject var vm = GatchaViewModel()
     @State var user: User? = nil
@@ -17,6 +18,10 @@ struct GatchaView: View {
     @State private var draggingItem = 0.0
     @State private var xOffset: CGFloat = 0
     @State private var isBaseOnFocus = true
+    @State private var pressedButton = false
+    @State private var backgroundcolor = Color.tibbyBaseWhite
+    @State private var disableButton = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -37,20 +42,30 @@ struct GatchaView: View {
             Spacer()
             ZStack {
                 ZStack {
-                    Image(vm.gatchSeaSeriesAnimation[0])
-                        .resizable()
-                        .offset(x: isBaseOnFocus ? 470 : 0 + xOffset)
-                        .scaleEffect(isBaseOnFocus ? 0.5 : 1)
-                        .brightness(isBaseOnFocus ? -0.3 : 0)
-                        .zIndex(isBaseOnFocus ? 0 : 1)
+                    if vm.currentGatchaSecondaryImage != nil {
+                        vm.currentGatchaSecondaryImage!
+                            .resizable()
+                            .offset(x: isBaseOnFocus ? UIScreen.main.bounds.width + UIScreen.main.bounds.width/5: 0 + xOffset)
+                            .scaleEffect(isBaseOnFocus ? 0.5 : 1)
+                            .brightness(isBaseOnFocus ? -0.3 : 0)
+                            .zIndex(isBaseOnFocus ? 0 : 1)
+                            .animation(.smooth, value: isBaseOnFocus)
+                    }
                     
-                    Image(vm.currentGatchaImage)
-                        .resizable()
-                        .frame(width: 377, height: 420)
-                        .offset(x: isBaseOnFocus ? 0 + xOffset : -470)
-                        .scaleEffect(isBaseOnFocus ? 1 : 0.5)
-                        .brightness(isBaseOnFocus ? 0 : -0.3)
-                        .zIndex(isBaseOnFocus ? 1 : 0)
+                    if vm.currentGatchaImage != nil {
+                        vm.currentGatchaImage!
+                            .resizable()
+                            .frame(width: 377, height: 420)
+                            .offset(x: isBaseOnFocus ? 0 + xOffset : -(UIScreen.main.bounds.width + UIScreen.main.bounds.width/5))
+                            .scaleEffect(isBaseOnFocus ? 1 : 0.5)
+                            .brightness(isBaseOnFocus ? 0 : -0.3)
+                            .zIndex(isBaseOnFocus ? 1 : 0)
+                            .animation(.smooth, value: isBaseOnFocus)
+                    } else {
+                        Rectangle()
+                            .frame(width: 377, height: 420)
+                            .hidden()
+                    }
                     
                 }.gesture(
                     DragGesture()
@@ -58,9 +73,11 @@ struct GatchaView: View {
                             if value.translation.width < 0 && isBaseOnFocus {
                                 self.xOffset = value.translation.width
                                 if xOffset <= -40 {
-                                    withAnimation(.easeOut) {
-                                        xOffset = 0
-                                        isBaseOnFocus.toggle()
+                                    xOffset = 0
+                                    isBaseOnFocus.toggle()
+                                    
+                                    withAnimation(.smooth) {
+                                        backgroundcolor =  vm.currentSeries.color
                                     }
                                 }
                             }
@@ -68,10 +85,11 @@ struct GatchaView: View {
                             if value.translation.width > 0 && !isBaseOnFocus {
                                 self.xOffset = value.translation.width
                                 if xOffset >= 40 {
-                                    withAnimation(.easeOut) {
-                                        xOffset = 0
-                                        isBaseOnFocus.toggle()
+                                    withAnimation(.smooth) {
+                                        backgroundcolor = .tibbyBaseWhite
                                     }
+                                    xOffset = 0
+                                    isBaseOnFocus.toggle()
                                 }
                             }
                             
@@ -83,21 +101,24 @@ struct GatchaView: View {
                         }
                 )
             }
-            Button(action: {
-                newTibby = vm.checkForRoll(service: service, isCoins: true, price: 100) {
+            HStack {
+                Spacer()
+                if isBaseOnFocus {
+                    GachaArrowAnimation()
+                } else {
+                    GachaArrowAnimation()
+                        .rotationEffect(isBaseOnFocus ? .zero : .degrees(180))
+                }
+                Spacer()
+            }.padding(.bottom)
+            
+            ButtonGacha(color: isBaseOnFocus ? .tibbyBaseYellow : vm.currentSeries.color, disableButton: $disableButton) {
+                if vm.checkForRoll(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20) {
+                    //self.disableButton = true
                     vm.animateRoll(isBase: isBaseOnFocus)
+                    newTibby = vm.getNewTibby(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20)
                 }
-            }, label: {
-                HStack {
-                    Image(TibbySymbols.roll.rawValue)
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                    Text("Roll")
-                        .font(.typography(.title))
-                        .foregroundStyle(.tibbyBaseBlack)
-                        .padding(.horizontal)
-                }
-            }).buttonPrimary(bgColor: isBaseOnFocus ? .tibbyBaseYellow : vm.currentSeries.color).padding()
+            }
             
             HStack {
                 Image(isBaseOnFocus ? "TibbyImageCoin" : "TibbyImageGem")
@@ -106,13 +127,13 @@ struct GatchaView: View {
                     .padding(.trailing, 8)
                 Text(isBaseOnFocus ? "100" : "20")
                     .font(.typography(.title))
-                    .foregroundStyle(.tibbyBaseWhite)
+                    .foregroundStyle(.black)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundStyle(.black.opacity(0.5)))
+                    .foregroundStyle(.tibbyBaseWhite.opacity(0.5)))
         }.onAppear {
             if let user = service.getUser() {
                 user.coins = 1000
@@ -120,8 +141,13 @@ struct GatchaView: View {
                 
             }
             vm.updateCollectionBasedOnWeek()
+            vm.loadImages()
+            
         }.navigationBarBackButtonHidden(true)
-            .background(isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color)
+            .background(self.backgroundcolor)
+            .onChange(of: self.pressedButton, {
+                
+            })
     }
 }
 

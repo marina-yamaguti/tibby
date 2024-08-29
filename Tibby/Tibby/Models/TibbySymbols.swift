@@ -31,4 +31,5 @@ enum TibbySymbols: String {
     case dumbbell = "TibbySymbolDumbbell"
     case at = "TibbySymbolAt"
     case envelope = "TibbySymbolEnvelope"
+    case chevronLeftBlack = "TibbySymbolChevronLeftBlack"
 }
