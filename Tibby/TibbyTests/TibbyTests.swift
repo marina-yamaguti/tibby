@@ -29,7 +29,7 @@ final class TibbyTests: XCTestCase {
     }
    
     class TibbyProtocolTest: TibbyProtocol {
-        func addAccessory(_ accessory: Accessory, completion: () -> Void, remove: () -> Void) {
+        func addAccessory(_ accessory: Accessory, species: String, completion: () -> Void, remove: () -> Void) {
              
         }
         

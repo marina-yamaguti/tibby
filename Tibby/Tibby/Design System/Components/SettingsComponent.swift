@@ -27,6 +27,7 @@ struct SettingsComponent: View {
     
     /// The color of the circle next to the title.
     var color: Color
+
     
     var body: some View {
         VStack(spacing: 16) {
