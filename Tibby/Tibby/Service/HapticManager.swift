@@ -13,6 +13,7 @@ import SwiftUI
 class HapticManager {
     /// The shared instance of `HapticManager` for centralized access to haptic feedback functionality.
     static let instance = HapticManager()
+    var vibration = true
     
     private init() {} // Private initializer to enforce singleton pattern
     
