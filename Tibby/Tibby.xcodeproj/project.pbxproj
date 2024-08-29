@@ -10,6 +10,7 @@
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
 		7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636A2C77C77300D8389C /* ProgressBarType.swift */; };
 		7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */; };
+		7C35636F2C80E7E000D8389C /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636E2C80E7E000D8389C /* Mission.swift */; };
 		7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591C2C459E2A004FFD4B /* BedroomView.swift */; };
 		7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591E2C459E39004FFD4B /* KitchenView.swift */; };
 		7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59202C459E4F004FFD4B /* GradenView.swift */; };
@@ -201,6 +202,7 @@
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
 		7C35636A2C77C77300D8389C /* ProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarType.swift; sourceTree = "<group>"; };
 		7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarViewModel.swift; sourceTree = "<group>"; };
+		7C35636E2C80E7E000D8389C /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		7C7B591C2C459E2A004FFD4B /* BedroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
 		7C7B591E2C459E39004FFD4B /* KitchenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenView.swift; sourceTree = "<group>"; };
 		7C7B59202C459E4F004FFD4B /* GradenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradenView.swift; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 				FD45F2622C629E4A0046DE49 /* Rarity.swift */,
 				D81284B62C6AFC4D0088A7B9 /* Onboarding.swift */,
 				FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */,
+				7C35636E2C80E7E000D8389C /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
 				FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
+				7C35636F2C80E7E000D8389C /* Mission.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
 				A50E92C02C65351E00762A11 /* TibbySpeciesLabel.swift in Sources */,
@@ -1353,9 +1357,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1402,9 +1406,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
