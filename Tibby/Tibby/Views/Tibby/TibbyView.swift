@@ -47,6 +47,7 @@ class TibbyView: SKScene, TibbyProtocol {
         self.accessory.size = CGSize(width: 1, height: 1)
         self.accessory.name = accessory.name
         tibby.addChild(self.accessory)
+        print(self.accessory)
         
         completion()
     }
