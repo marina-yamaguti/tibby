@@ -88,6 +88,7 @@
 		D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520712C7FC00800A37057 /* ResourcesComponent.swift */; };
 		D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */; };
 		D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520752C80E85900A37057 /* LevelComponent.swift */; };
+		D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520772C80FADC00A37057 /* TibbyCard.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
@@ -286,6 +287,7 @@
 		D8D520712C7FC00800A37057 /* ResourcesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesComponent.swift; sourceTree = "<group>"; };
 		D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
 		D8D520752C80E85900A37057 /* LevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelComponent.swift; sourceTree = "<group>"; };
+		D8D520772C80FADC00A37057 /* TibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyCard.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				D81284B42C6AE9CD0088A7B9 /* ProgressIndicator.swift */,
 				D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */,
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
+				D8D520772C80FADC00A37057 /* TibbyCard.swift */,
 				D896AECB2C6BD35D009C208C /* CustomStepper.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				7C3563692C77C75100D8389C /* ProgressBar */,
@@ -1109,6 +1112,7 @@
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
 				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
 				FD45F2612C629DED0046DE49 /* Roll.swift in Sources */,
+				D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
 				FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */,
 				FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */,
