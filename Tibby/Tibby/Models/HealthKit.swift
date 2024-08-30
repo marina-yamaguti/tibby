@@ -39,22 +39,42 @@ enum SampleType {
     }
 }
 
-///get the informations of the start of the activity
-struct StartedWorkout {
+/// Get the informations of the start of the activity
+class WorkoutSession {
     var start: Date
     var activity: WorkoutActivityType
+    var intervals: [WorkoutPraticInterval] = []
     
     init(start: Date, activity: WorkoutActivityType) {
         self.start = start
         self.activity = activity
     }
     
-    func createWorkoutDone(end: Date) -> WorkoutPratic {
-        return WorkoutPratic(start: self.start, end: end, activity: self.activity)
+    private func addNewInterval(end: Date) {
+        let newInterval = WorkoutPraticInterval(start: self.start, end: end, activity: self.activity)
+        intervals.append(newInterval)
+    }
+    
+    func startWorkout(teste: Date) {
+        start = teste//Date()
+    }
+    
+    func pauseWorkout(teste: Date) {
+        let endDate = teste//Date()
+        addNewInterval(end: endDate)
+    }
+    
+    func endWorkout() -> WorkoutPratic {
+        pauseWorkout(teste: Date(timeIntervalSince1970: 500))
+        let workoutPractic = WorkoutPratic(intervals: intervals)
+        intervals.removeAll()
+        
+        return workoutPractic
     }
 }
-///create a complete workout in the system to compute the data
-struct WorkoutPratic {
+
+/// Create a workout in the system to compute the data
+struct WorkoutPraticInterval {
     var start: Date
     var end: Date
     var activity: WorkoutActivityType
@@ -68,6 +88,28 @@ struct WorkoutPratic {
     var duration: TimeInterval {
         return end.timeIntervalSince(start)
     }
+}
+
+/// Create a complete workout in the system to compute the data
+struct WorkoutPratic {
+    var start: Date
+    var end: Date
+    var intervals: [WorkoutPraticInterval]
+    var activity: WorkoutActivityType
+    
+    init(intervals: [WorkoutPraticInterval]) {
+        self.start = intervals.first!.start
+        self.end = intervals.last!.end
+        self.activity = intervals.first!.activity
+        self.intervals = intervals
+    }
+    
+    var duration: TimeInterval {
+      return intervals.reduce(0) { (result, interval) in
+        result + interval.duration
+      }
+    }
+    
 }
 
 /// A class that manages interactions with the HealthKit framework, providing functionality for retrieving health-related data such as steps, calories burned, and workout time.
@@ -163,6 +205,7 @@ class HealthManager: ObservableObject {
         return false
     }
     
+    #warning("SE A APP STORE NÃO ACEITAR POR LINK DAS CONFIGURAÇÕES, REVER ESSA PARTE DO CÓDIGO")
     /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
         guard let url = URL(string: "App-Prefs:") else { return }
@@ -226,7 +269,44 @@ class HealthManager: ObservableObject {
         fetchInformation(informationList: list)
     }
     
-    //Save Workout in Healthkit from the app
+    //Create a Sample list of all workouts done in a session
+    private func samples(for workout: WorkoutPratic) -> [HKSample] {
+        ///Verify that the energy quantity type is still available to HealthKit.
+        guard let energyQuantityType = HKSampleType.quantityType(
+            forIdentifier: .activeEnergyBurned) else {
+            fatalError("*** Energy Burned Type Not Available ***")
+        }
+        
+        ///Create a sample for each WorkoutPraticInterval
+        let samples: [HKSample] = workout.intervals.map { interval in
+            
+            ///Calculate the calories burned in the activity
+            var caloreisBurned: Double {
+                if self.bodyMass == 0 {
+                    let hours: Double = interval.duration/3600
+                    return hours * 450
+                }
+                else {
+                    let minutes: Double = interval.duration/60
+                    let caloriesBurned: Double = (5 * 3.5 * self.bodyMass)/200
+                    return minutes * caloriesBurned
+                }
+            }
+            
+            let calorieQuantity = HKQuantity(unit: .kilocalorie(),
+                                             doubleValue: caloreisBurned)
+            
+            return HKCumulativeQuantitySample(type: energyQuantityType,
+                                              quantity: calorieQuantity,
+                                              start: interval.start,
+                                              end: interval.end)
+        }
+        
+        return samples
+    }
+    
+    
+    //Save Workout Session in Healthkit from the app
     func saveWorkout(workout: WorkoutPratic) {
         ///Configure the workout
         let workoutConfiguration = HKWorkoutConfiguration()
@@ -241,47 +321,24 @@ class HealthManager: ObservableObject {
             }
         }
         
-        ///Calculate the calories burned in the activity
-        var caloreisBurned: Double {
-            if self.bodyMass == 0 {
-                let hours: Double = workout.duration/3600
-                return hours * 450
-            }
-            else {
-                let minutes: Double = workout.duration/60
-                let caloriesBurned: Double = (5 * 3.5 * self.bodyMass)/200
-                return minutes * caloriesBurned
-            }
-        }
+        ///Create a list of samples of the activity
+        let samples = self.samples(for: workout)
         
-        guard let quantityType = HKQuantityType.quantityType(
-            forIdentifier: .activeEnergyBurned) else {
-            print("quantity type does not exists")
-            return
-        }
-        let unit = HKUnit.kilocalorie()
-        let totalEnergyBurned = caloreisBurned
-        let quantity = HKQuantity(unit: unit, doubleValue: totalEnergyBurned)
-        
-        ///Create and add to the collection the samples of activity
-        let sample = HKCumulativeQuantitySample(type: quantityType, quantity: quantity, start: workout.start, end: workout.end)
-        
-        builder.add([sample]) { (success, error) in
+        builder.add(samples) { (success, error) in
             guard success else {
                 print("add sample error")
                 return
             }
             
-            ///Finish and add the workout in the health app
             builder.endCollection(withEnd: workout.end) { (success, error) in
                 guard success else {
                     print("end collection error")
                     return
                 }
                 
-                builder.finishWorkout { (_, error) in
+                builder.finishWorkout { (workout, error) in
                     let success = error == nil
-                    print("finished workout")
+                    print("\(success) finished workout")
                 }
             }
         }
@@ -445,8 +502,9 @@ class HealthManager: ObservableObject {
     }
 }
 
+/// List all the Workout activities of healthkit
 enum WorkoutActivityType: CaseIterable {
-    case americanFootball, archery, australianFootball, badminton, baseball, basketball, bowling, boxing, climbing, crossTraining, curling, cycling, elliptical, equestrianSports, fencing, fishing, functionalStrengthTraining, golf, gymnastics, handball, hiking, hockey, hunting, lacrosse, martialArts, mindAndBody, paddleSports, play, preparationAndRecovery, racquetball, rowing, rugby, running, sailing, skatingSports, snowSports, soccer, softball, squash, stairClimbing, surfingSports, swimming, tableTennis, tennis, trackAndField, traditionalStrengthTraining, volleyball, walking, waterFitness, waterPolo, waterSports, wrestling, yoga, barre, coreTraining, crossCountrySkiing, downhillSkiing, flexibility, highIntensityIntervalTraining, jumpRope, kickboxing, pilates, snowboarding, stairs, stepTraining, wheelchairWalkPace, wheelchairRunPace, taiChi, mixedCardio, handCycling, discSports, fitnessGaming
+    case americanFootball, archery, australianFootball, badminton, baseball, basketball, bowling, boxing, climbing, crossTraining, curling, cycling, elliptical, equestrianSports, fencing, fishing, functionalStrengthTraining, golf, gymnastics, handball, hiking, hockey, hunting, lacrosse, martialArts, mindAndBody, paddleSports, play, preparationAndRecovery, racquetball, rowing, rugby, running, sailing, skatingSports, snowSports, soccer, softball, squash, stairClimbing, surfingSports, swimming, tableTennis, tennis, trackAndField, traditionalStrengthTraining, volleyball, walking, waterFitness, waterPolo, waterSports, wrestling, yoga, barre, coreTraining, crossCountrySkiing, downhillSkiing, flexibility, highIntensityIntervalTraining, jumpRope, kickboxing, pilates, snowboarding, stairs, stepTraining, wheelchairWalkPace, wheelchairRunPace, taiChi, mixedCardio, handCycling, discSports, fitnessGaming, other
     
     /*
      Simple mapping of available workout types to a human readable name.
@@ -525,6 +583,7 @@ enum WorkoutActivityType: CaseIterable {
         case .handCycling:                  return "Hand Cycling"
         case .discSports:                   return "Disc Sports"
         case .fitnessGaming:                return "Fitness Gaming"
+        case .other:                        return "Other"
         }
     }
     
@@ -674,6 +733,18 @@ enum WorkoutActivityType: CaseIterable {
             return HKWorkoutActivityType.discSports
         case .fitnessGaming:
             return HKWorkoutActivityType.fitnessGaming
+        case .other:
+            return HKWorkoutActivityType.other
         }
+    }
+    
+    var icon: String {
+        if self == .other {
+            return "figure.stand"
+        }
+        var name = self.name.lowercased()
+        name = name.replacingOccurrences(of: " ", with: ".")
+        
+        return "figure."+name
     }
 }
