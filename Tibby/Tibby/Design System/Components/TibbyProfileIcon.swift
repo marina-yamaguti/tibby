@@ -27,21 +27,16 @@ struct TibbyProfileIcon: View {
     private let checkmarkBackgroundSize: CGSize = CGSize(width: 40, height: 30)
     
     var body: some View {
-        Button(action: action) {
-            VStack {
-                ZStack {
-                    profileImage
-                    statusOverlay
-                }
-                .frame(width: imageSize, height: imageSize)
-                
-                if status != .selected {
-                    statusText
-                }
+        VStack {
+            ZStack {
+                profileImage
             }
+            .frame(width: imageSize, height: imageSize)
+        }
+        .overlay{
+            profileBorder
         }
         .accessibilityLabel(Text("Profile icon"))
-        .accessibilityAddTraits(status == .selected ? .isSelected : .isButton)
     }
     
     /// The profile image view with a resizable image and shadow.
@@ -57,52 +52,7 @@ struct TibbyProfileIcon: View {
     /// The border around the profile image, which changes color based on the selection status.
     private var profileBorder: some View {
         RoundedRectangle(cornerRadius: cornerRadius)
-            .inset(by: 0.5)
-            .stroke(borderColor, lineWidth: status == .selected ? 4 : 2)
-    }
-    
-    /// The overlay view that contains the selection checkmark, displayed when the icon is selected.
-    private var statusOverlay: some View {
-        VStack {
-            HStack {
-                Spacer()
-                if status == .selected {
-                    checkmarkBackground
-                }
-            }
-            Spacer()
-        }
-    }
-    
-    /// The background view for the checkmark, with an uneven rounded rectangle shape.
-    private var checkmarkBackground: some View {
-        ZStack {
-            UnevenRoundedRectangle(cornerRadii: .init(topLeading: 0, bottomLeading: 14, bottomTrailing: 0, topTrailing: 15))
-                .foregroundStyle(Color.tibbyBaseGreen)
-                .frame(width: checkmarkBackgroundSize.width, height: checkmarkBackgroundSize.height)
-            
-            Image("TibbySymbolCheckmark")
-                .resizable()
-                .frame(width: checkmarkSize, height: checkmarkSize)
-        }
-    }
-    
-    /// The text displayed under the icon when it is not selected.
-    private var statusText: some View {
-        Text("Click to equip")
-            .font(.typography(.label))
-            .foregroundStyle(Color.tibbyBaseGrey)
-            .padding()
-    }
-    
-    /// The border color for the profile image, determined by the selection status.
-    private var borderColor: Color {
-        switch status {
-        case .selected:
-            return Color.tibbyBaseGreen
-        case .locked, .unselected:
-            return Color.tibbyBaseBlack
-        }
+            .stroke(.tibbyBaseBlack, lineWidth: status == .selected ? 1 : 0)
     }
 }
 

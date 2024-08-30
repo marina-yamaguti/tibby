@@ -32,8 +32,7 @@ struct TibbyDescriptionLabel: View {
             .background(
                 GeometryReader { geometry in
                     Rectangle()
-                        .foregroundColor(color)
-                        .opacity(0.5)
+                        .fill(color)
                         .cornerRadius(20)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                 }

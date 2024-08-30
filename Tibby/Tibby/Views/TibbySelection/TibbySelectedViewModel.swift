@@ -61,9 +61,6 @@ class TibbySelectedViewModel: ObservableObject {
         if vibration {
             HapticManager.instance.impact(style: .soft)
         }
-//        DispatchQueue.main.async {
-//            constants.tibbySleeping = false
-//        }
     }
     
     func convertCamelCaseToSpaces(_ input: String) -> String {
