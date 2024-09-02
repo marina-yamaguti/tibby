@@ -23,7 +23,7 @@ struct ButtonSecondary: ButtonStyle {
             .padding(10)
             .background(
                 Circle()
-                    .fill(bgColor.opacity(0.5))
+                    .fill(bgColor)
             )
             .animation(.linear(duration: 0), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { oldValue, newValue in

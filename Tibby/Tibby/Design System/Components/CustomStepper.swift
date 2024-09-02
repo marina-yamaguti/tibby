@@ -42,7 +42,7 @@ struct CustomStepper: View {
                 }) {
                     Image(TibbySymbols.play.rawValue)
                 }
-                .buttonSecondary(bgColor: value > range.lowerBound ? .black : .black)
+                .buttonSecondary(bgColor: value > range.lowerBound ? .black.opacity(0.5) : .black.opacity(0.5))
                 .disabled(value <= range.lowerBound)
                 
                 Spacer()
@@ -66,7 +66,7 @@ struct CustomStepper: View {
                 }) {
                     Image(TibbySymbols.play.rawValue)
                 }
-                .buttonSecondary(bgColor: value < range.upperBound ? .black : .black)
+                .buttonSecondary(bgColor: value < range.upperBound ? .black.opacity(0.5) : .black.opacity(0.5))
                 .disabled(value >= range.upperBound)
             }
         }

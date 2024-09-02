@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "?" : {
-
-    },
     "%lld" : {
 
     },
@@ -74,9 +71,6 @@
 
     },
     "Name" : {
-
-    },
-    "OK" : {
 
     },
     "Open Settings" : {

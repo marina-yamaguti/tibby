@@ -13,7 +13,7 @@ enum Enviroment {
     func getIconAsset() -> TibbySymbols {
         switch self {
         case .garden:
-            return TibbySymbols.ball
+            return TibbySymbols.dumbbellBlack
         case .kitchen:
             return TibbySymbols.food
         case .bedroom:
@@ -65,7 +65,9 @@ struct NavigationTabbarView: View {
                 HStack(spacing: 30){
                     ForEach(0..<enviroments.count) { ind in
                         Button(action: {constants.currentEnviroment = enviroments[ind]},
-                               label: {ButtonLabel(type: .tabBar, image: enviroments[ind].getIconAsset().rawValue, text: "")}
+                               label: {
+                            ButtonLabel(type: .tabBar, image: enviroments[ind].getIconAsset().rawValue, text: "")
+                        }
                         )
                         .buttonTabBar()
                     }

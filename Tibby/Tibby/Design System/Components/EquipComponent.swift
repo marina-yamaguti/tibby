@@ -17,8 +17,7 @@ struct EquipComponent: View {
                 .foregroundStyle(isSelected == .selected ? .tibbyBaseGrey : .tibbyBaseBlack)
             if isSelected == .unselected {
                 Image(TibbySymbols.checkmarkWhite.rawValue)
-                    .frame(width: 14, height: 14)
-                    .padding(12)
+                    .padding(14)
                     .background {
                         Circle()
                             .fill(.black.opacity(0.5))

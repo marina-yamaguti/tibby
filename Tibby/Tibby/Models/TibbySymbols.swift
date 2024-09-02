@@ -33,7 +33,10 @@ enum TibbySymbols: String {
     case star = "TibbySymbolStar"
     case starBlack = "TibbySymbolStarBlack"
     case dumbbell = "TibbySymbolDumbbell"
+    case dumbbellBlack = "TibbySymbolDumbbellBlack"
     case at = "TibbySymbolAt"
+    case book = "TibbySymbolBook"
+    case bookBlack = "TibbySymbolBookBlack"
     case atBlack = "TibbySymbolAtBlack"
     case envelope = "TibbySymbolEnvelope"
     case envelopeBlack = "TibbySymbolEnvelopeBlack"
@@ -43,4 +46,10 @@ enum TibbySymbols: String {
     case checkmark = "TibbySymbolCheckmark"
     case checkmarkWhite = "TibbySymbolCheckmarkWhite"
     case pen = "TibbySymbolPen"
+    case heart = "TibbySymbolHeart"
+    case heartFill = "TibbySymbolHeartFill"
+    case lock = "TibbySymbolLock"
+
+
+
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct TibbySelectedView: View {
     @ObservedObject var viewModel: TibbySelectedViewModel
     @EnvironmentObject var constants: Constants
+#warning("Aqui deve ser um binding assim que a lógica estiver pronta")
+    @State var isFavorite: Bool = false
     
     var body: some View {
         ZStack {
@@ -26,6 +28,8 @@ struct TibbySelectedView: View {
                     CustomBackButton()
                     Spacer()
                     EquipComponent(isSelected: $viewModel.status)
+                    Button(action: {isFavorite.toggle()}, label: {ButtonLabel(type: .secondary, image: isFavorite ? TibbySymbols.heartFill.rawValue : TibbySymbols.heart.rawValue , text: "")})
+                        .buttonSecondary(bgColor: isFavorite ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                 }
                 .padding(.bottom, 24)
                 VStack (alignment: .center, spacing: 16){

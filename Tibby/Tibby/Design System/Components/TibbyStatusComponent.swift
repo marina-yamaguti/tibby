@@ -30,7 +30,7 @@ struct TibbyStatusComponent: View {
                 .frame(width: 17, height: 17)
 
             Spacer()
-            Image(TibbySymbols.play.rawValue)
+            Image(TibbySymbols.dumbbell.rawValue)
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: play))

@@ -20,11 +20,11 @@ struct OnboardingTab: View {
                 HStack {
                     if vm.currentIndex == 0 {
                         Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                             .hidden()
                     } else {
                         Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                     }
                     Spacer()
                 }
