@@ -96,3 +96,43 @@ protocol MissionsCollectionProtocol {
     /// Creates the missions included in the collection.
     func createMissions()
 }
+
+struct WeekMissions: MissionsCollectionProtocol {
+    var frequencyTime: DateType = .week
+    
+    var title: String = ""
+    
+    var missions: [MissionProtocol] = []
+    
+    var timeRemaning: (timeValue: Int, timeMesure: TimeMesure)
+    
+    func setTimeRemaning() {
+        //
+    }
+    
+    func createMissions() {
+        //
+    }
+    
+    
+}
+
+struct DayMissions: MissionsCollectionProtocol {
+    var frequencyTime: DateType = .day
+    
+    var title: String = ""
+    
+    var missions: [MissionProtocol] = []
+    
+    var timeRemaning: (timeValue: Int, timeMesure: TimeMesure)
+    
+    func setTimeRemaning() {
+        //
+    }
+    
+    func createMissions() {
+        //
+    }
+    
+    
+}
