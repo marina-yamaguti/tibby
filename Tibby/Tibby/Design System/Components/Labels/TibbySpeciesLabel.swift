@@ -37,6 +37,7 @@ struct TibbySpeciesLabel: View {
                     .frame(width: 27, height: 27)
                     .foregroundColor(color)
                     .saturation(2.0)
+                    .brightness(-0.1)
                 
                 // Species name
                 Text(species)
@@ -48,8 +49,7 @@ struct TibbySpeciesLabel: View {
             .padding()
             .background(
                 Rectangle()
-                    .foregroundColor(color)
-                    .opacity(0.5)
+                    .fill(color)
                     .cornerRadius(20)
             )
         }

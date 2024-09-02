@@ -7,10 +7,13 @@
     "%lld" : {
 
     },
-    "Cancel" : {
+    "20" : {
 
     },
-    "Click to equip" : {
+    "100" : {
+
+    },
+    "Cancel" : {
 
     },
     "Credits" : {
@@ -28,13 +31,13 @@
     "Development" : {
 
     },
-    "Felipe Elsner da Silva" : {
+    "Equip" : {
+
+    },
+    "Equipped" : {
 
     },
     "Gacha" : {
-
-    },
-    "Gatcha" : {
 
     },
     "Given Name" : {
@@ -98,6 +101,9 @@
 
     },
     "Resources" : {
+
+    },
+    "Roll" : {
 
     },
     "settings" : {

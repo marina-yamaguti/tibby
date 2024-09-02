@@ -83,8 +83,8 @@ struct TibbyNameEdit: View {
     private var editIcon: some View {
         ZStack {
             Circle()
-                .foregroundStyle(.black.opacity(0.5))
-            Image(systemName: isEditing ? "checkmark" : "pencil")
+                .foregroundStyle(isEditing ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
+            Image(isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.pen.rawValue)
                 .foregroundStyle(Color.tibbyBaseWhite)
         }
         .onTapGesture {
