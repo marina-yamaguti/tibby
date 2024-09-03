@@ -7,16 +7,67 @@
     "?" : {
 
     },
+    "%@" : {
+
+    },
+    "%@!" : {
+
+    },
     "%lld" : {
 
     },
-    "happy" : {
+    "20" : {
 
     },
-    "Hello, World!" : {
+    "100" : {
 
     },
-    "home" : {
+    "again..." : {
+
+    },
+    "Cancel" : {
+
+    },
+    "100" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Credits" : {
+
+    },
+    "description" : {
+
+    },
+    "Design" : {
+
+    },
+    "Detail" : {
+
+    },
+    "Development" : {
+
+    },
+    "Equip" : {
+
+    },
+    "Equipped" : {
+
+    },
+    "Gacha" : {
+
+    },
+    "Given Name" : {
+
+    },
+    "important feature" : {
+
+    },
+    "Home" : {
+
+    },
+    "How to allow?" : {
 
     },
     "important feature" : {
@@ -25,7 +76,16 @@
     "Light" : {
 
     },
+    "Lv. %lld" : {
+
+    },
+    "minigames coming soon..." : {
+
+    },
     "my food inventory: " : {
+
+    },
+    "My Tibbies" : {
 
     },
     "Name" : {
@@ -34,19 +94,46 @@
     "OK" : {
 
     },
+    "Okay" : {
+
+    },
+    "Open Settings" : {
+
+    },
     "Play" : {
+
+    },
+    "Please go to Settings and allow the necessary permissions." : {
 
     },
     "price: %lld" : {
 
     },
+    "Profile icon" : {
+
+    },
     "quantity: %lld" : {
+
+    },
+    "rarity" : {
+
+    },
+    "rarity Tibby" : {
+
+    },
+    "Resources" : {
+
+    },
+    "Roll" : {
 
     },
     "settings" : {
 
     },
     "Small title" : {
+
+    },
+    "species" : {
 
     },
     "tibby" : {
@@ -63,16 +150,16 @@
         }
       }
     },
-    "TIBBY" : {
-
-    },
-    "Tibby Book" : {
-
-    },
     "uau quero comprar %@" : {
 
     },
     "uau quero devolver %@" : {
+
+    },
+    "v.%@" : {
+
+    },
+    "You Won" : {
 
     }
   },

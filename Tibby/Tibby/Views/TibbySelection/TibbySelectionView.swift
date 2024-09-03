@@ -9,14 +9,19 @@ import SwiftUI
 
 struct TibbySelectionView: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
-    @State var tibbies: [Tibby] = []
+    @State var tibbies: [Collection:[Tibby]] = [:]
+    @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
+    @State var navigate: Bool = false
+    @State private var showTibbyBook = false
+    
     var body: some View {
         let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible())
+            GridItem(.flexible(), spacing: 16),
+            GridItem(.flexible(), spacing: 16)
         ]
         VStack {
             SheetWithCircle(goingUp: false)
@@ -41,56 +46,79 @@ struct TibbySelectionView: View {
                 )
             HStack {
                 Spacer()
-                NavigationLink(destination: { TibbyBook(tibby: $tibby)}, label: {
-                    ZStack {
-                        Circle().foregroundStyle(.black.opacity(0.5))
-                        Rectangle().stroke(Color.tibbyBaseWhite, lineWidth: 3)
-                            .padding(14)
-                    }.frame(width: 40, height: 40)
-                }).padding(.horizontal)
+                Button(action: {}, label: {ButtonLabel(type: .secondary, image: "TibbySymbolBook", text: "")})
+                    .buttonSecondary(bgColor: .black)
+                    .navigationDestination(isPresented: $showTibbyBook) {
+                        TibbyBook(tibby: $tibby)
+                    }
             }
+            .padding(.horizontal)
             ScrollView {
                 VStack {
                     Spacer()
-                    ForEach(Collection.allCases, id: \.self) { collection in
+                    ForEach(Array(tibbies.keys), id: \.self) { collection in
                         VStack(alignment: .leading) {
-                            let collectionTibbies = getTibbyList(collection: collection.rawValue, service: service)
-                            if !collectionTibbies.isEmpty {
-                                Text(collection.rawValue)
-                                    .font(.typography(.title))
-                                    .padding(.leading)
-                                LazyVGrid(columns: columns, spacing: 8) {
-                                    ForEach(collectionTibbies) { tibbyL in
-                                        if  tibbyL.id == tibby.id {
-                                            ItemCard(name: tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                            if !(tibbies[collection]?.isEmpty ?? false)  {
+                                HStack(alignment: .center) {
+                                    CollectionNameComponent(name: collection.rawValue, color: collection.color)
+                                        .padding(.bottom, 16)
+                                        .onAppear {
+                                            self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
+                                            self.tibbyCollection = self.tibbyCollection.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
+                                        }
+                                    Spacer()
+                                }
+                                
+                                LazyVGrid(columns: columns, spacing: 16) {
+                                    ForEach($tibbyCollection) { $tibbyL in
+                                        if tibbyL.id == tibby.id {
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
+                                                TibbyCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
+                                            }
                                         } else {
-                                            ItemCard(name: tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
+                                                TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
+                                            }
                                         }
                                     }
-                                }.background(collection.color)
+                                }
+                                .padding()
+                                .background(.tibbyBasePearlBlue)
                                     .cornerRadius(20)
-                                    .padding()
                                     .padding(.bottom, 50)
                             }
                         }
+                        
                     }
+                    
                     Spacer()
                 }
+                .padding()
             }
         }
-            .background(Color.tibbyBaseWhite)
-            .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
-            .animation(.easeInOut, value: showSheet)
-            .navigationBarBackButtonHidden(true) 
+        .onChange(of: tibbies, {print("algum tibby mudou")})
+        .background(Color.tibbyBaseWhite)
+        .offset(y: showSheet ? 0 : UIScreen.main.bounds.height)
+        .animation(.easeInOut, value: showSheet)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.tibbies = self.setupMap()
+        }
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
-        var allTibbies = service.getAllTibbies()
+        let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked }
         return tibbies
     }
+    
+    func setupMap() -> [Collection : [Tibby]] {
+        var map: [Collection : [Tibby]] = [:]
+        for collection in Collection.allCases {
+            map[collection] = self.getTibbyList(collection: collection.rawValue, service: service)
+        }
+        
+        return map
+    }
 }
-

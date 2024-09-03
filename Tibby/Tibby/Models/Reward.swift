@@ -2,54 +2,82 @@
 //  Reward.swift
 //  Tibby
 //
-//  Created by Felipe  Elsner Silva on 08/07/24.
+//  Created by Felipe Elsner Silva on 08/07/24.
 //
 
 import Foundation
 
-//MARK: Types of Reward that the player can get
+/// An enumeration representing the different types of rewards a player can receive.
 enum RewardType {
     case xp
     case coin
     case gem
 }
 
-/// A protocol for the rewards, the functions increase the reward for one of the types and operates it
+/// A protocol defining the structure for reward management.
+///
+/// This protocol outlines methods for granting rewards to users or Tibbies and for leveling up Tibbies.
 protocol RewardProtocol {
-    func reward(quantity: Int, rewardType: RewardType, user: User?, tibby: Tibby?)
-    func levelUp(_ tibby: Tibby)
+    /// Parameters that all Reward needs to have
+    var rewardValue: Int { get }
+    var rewardType: RewardType { get }
+    
+    /// Grants a reward of the specified type and quantity to a user or Tibby.
+    ///
+    /// - Parameters:
+    ///   - user: An optional `User` object to receive the reward (for coins or gems).
+    ///   - tibby: An optional `Tibby` object to receive the reward (for XP).
+    func reward(user: User?, tibby: Tibby?)
 }
 
-
+/// A class that implements the `RewardProtocol`, providing functionality to manage rewards and Tibby leveling.
 class Reward: RewardProtocol {
-    //Select the reward type and increases it
-    func reward(quantity: Int, rewardType: RewardType, user: User? = nil, tibby: Tibby? = nil) {
-        //Select the reward type
+    /// Parameters of the value of the reward that the user will claim and the type of it
+    var rewardValue: Int
+    var rewardType: RewardType
+    
+    init(rewardValue: Int, rewardType: RewardType) {
+        self.rewardValue = rewardValue
+        self.rewardType = rewardType
+    }
+    
+    /// Grants a reward of the specified type and quantity to a user or Tibby.
+    ///
+    /// Depending on the `rewardType`, this method will either increase the Tibby's XP, the user's coins, or the user's gems.
+    ///
+    /// - Parameters:
+    ///   - user: An optional `User` object to receive the reward (for coins or gems).
+    ///   - tibby: An optional `Tibby` object to receive the reward (for XP).
+    func reward(user: User? = nil, tibby: Tibby? = nil) {
         switch rewardType {
         case .xp:
-            //increase the tibby's xp and level up the tibby
+            // Increase the Tibby's XP and check for level up
             if let tibby = tibby {
-                tibby.xp += quantity
+                tibby.xp += rewardValue
                 levelUp(tibby)
             }
         case .coin:
-            //increase the user's coins
+            // Increase the user's coins
             if let user = user {
-                user.coins += quantity
+                user.coins += rewardValue
             }
         case .gem:
-            //increase the user's gems
+            // Increase the user's gems
             if let user = user {
-                user.gems += quantity
+                user.gems += rewardValue
             }
         }
     }
     
-    //level up the player's tibby
-    internal func levelUp(_ tibby: Tibby) {
-        //if the tibby's xp conforms with the following conditions, level it up
+    /// Levels up the specified Tibby if its XP meets the criteria.
+    ///
+    /// The Tibby will level up if its XP exceeds the required amount, with any excess XP carried over to the next level.
+    ///
+    /// - Parameter tibby: The `Tibby` to be leveled up.
+    private func levelUp(_ tibby: Tibby) {
+        // Check if the Tibby's XP meets the threshold for leveling up
         if Constants.singleton.maxLevel == -1 || tibby.level < Constants.singleton.maxLevel {
-            let xpToEvolve = (tibby.level * Constants.singleton.xpPerLevel)
+            let xpToEvolve = tibby.level * Constants.singleton.xpPerLevel
             if tibby.xp >= xpToEvolve {
                 let auxXp = tibby.xp - xpToEvolve
                 tibby.level += 1

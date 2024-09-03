@@ -29,6 +29,14 @@ final class TibbyTests: XCTestCase {
     }
    
     class TibbyProtocolTest: TibbyProtocol {
+        func addAccessory(_ accessory: Accessory, species: String, completion: () -> Void, remove: () -> Void) {
+             
+        }
+        
+        func removeAccessory(completion: () -> Void) {
+             
+        }
+        
         var tibbyObject: Tibby?
         
         func setTibby(tibbyObject: Tibby, constants: Constants, service: Service) {
@@ -100,7 +108,7 @@ final class TibbyTests: XCTestCase {
         let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
         let tibbyTest = TibbyProtocolTest()
         let tibbyUUID = UUID()
-        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10)
+        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10, category: "All")
         
         //When
         tibbyTest.setTibbyID(tibbyId: tibbyUUID)

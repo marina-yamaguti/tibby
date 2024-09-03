@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The `TibbySymbols` enum defines a collection of symbol names used throughout the Tibby application.
 enum TibbySymbols: String {
     case play = "TibbySymbolPlay"
     case xMark = "TibbySymbolXMark"
@@ -22,10 +23,24 @@ enum TibbySymbols: String {
     case home = "TibbySymbolHome"
     case chevronLeft = "TibbySymbolChevronLeft"
     case chevronRight = "TibbySymbolChevronRight"
-    case lock = "TibbySymbolLock"
-    case checkmark = "TibbySymbolCheckmark"
-
-
-
-
+    case checkMark = "TibbySymbolCheckmark"
+    case settings = "TibbySymbolSettings"
+    case roll = "TibbySymbolRoll"
+    case settingsWhite = "TibbySymbolSettingsWhite"
+    case profile = "TibbySymbolProfile"
+    case arrowDiagonalUp = "TibbySymbolArrowDiagonalUp"
+    case starList = "TibbySymbolStarList"
+    case starListBlack = "TibbySymbolStarListBlack"
+    case star = "TibbySymbolStar"
+    case starBlack = "TibbySymbolStarBlack"
+    case dumbbell = "TibbySymbolDumbbell"
+    case at = "TibbySymbolAt"
+    case atBlack = "TibbySymbolAtBlack"
+    case envelope = "TibbySymbolEnvelope"
+    case envelopeBlack = "TibbySymbolEnvelopeBlack"
+    case chevronLeftBlack = "TibbySymbolChevronLeftBlack"
+    case cart = "TibbySymbolCart"
+    case list = "TibbySymbolList"
+    case checkmarkWhite = "TibbySymbolCheckmarkWhite"
+    case pen = "TibbySymbolPen"
 }

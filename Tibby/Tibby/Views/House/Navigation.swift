@@ -58,10 +58,8 @@ struct NavigationTabbarView: View {
                     BedroomView(tibby: vm.tibby, vm: BedroomViewModel(constants: constants, service: service))
                 case .garden:
                     GardenView(tibby: vm.tibby)
-                        .brightness(constants.brightness)
                 case .kitchen:
                     KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
-                        .brightness(constants.brightness)
                 }
                 //Custom Tabbar
                 HStack(spacing: 30){
@@ -71,7 +69,7 @@ struct NavigationTabbarView: View {
                         )
                         .buttonTabBar()
                     }
-                }
+                }.frame(height: 80)
             }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(edges: [.top])

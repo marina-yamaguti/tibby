@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
+    @Environment(\.presentationMode) var presentationMode
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -22,6 +23,10 @@ struct HomeView: View {
     @State var sheetHeight: CGFloat = 100
     @State var arrowUp = true
     @State var showSheet = false
+    @State private var showShop = false
+    @State private var showMissions = false
+    @State private var showSettings = false
+
     
     var body: some View {
         NavigationStack {
@@ -29,7 +34,19 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     VStack {
+                        HStack(alignment: .center) {
+                            LevelComponent(level: 32)
+                            Spacer()
+                            Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
+                                .buttonSecondary(bgColor: .black)
+                                .navigationDestination(isPresented: $showSettings) {
+                                    SettingsView()
+                                }
+                        }
+                        .padding(16)
                         Spacer()
+                        TibbyNameComponent(name: $tibby.name)
+                            .padding(.bottom, -20)
                         ZStack {
                             SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                                 .onAppear {
@@ -51,6 +68,7 @@ struct HomeView: View {
                                 Image(TibbySymbols.play.rawValue)
                                     .padding(.trailing, 26)
                                 Text("Play")
+                                    .font(.typography(.title))
                             }
                         }
                         .buttonPrimary(bgColor: .tibbyBaseBlue)
@@ -58,6 +76,21 @@ struct HomeView: View {
                             NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                         }
                         
+                        HStack(alignment: .center) {
+                            Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
+                                .buttonSecondary(bgColor: .black)
+                                .navigationDestination(isPresented: $showShop) {
+                                    //
+                                    GatchaView()
+                                }
+                            Spacer()
+                            Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                                .buttonSecondary(bgColor: .black)
+                                .navigationDestination(isPresented: $showMissions) {
+                                    //
+                                }
+                        }
+                        .padding(16)
                         Spacer()
                     }
                     Spacer()
@@ -101,8 +134,11 @@ struct HomeView: View {
             )
         }
         .onAppear(perform: {
+            if constants.music {
+                constants.playMusic(audio: "TibbyHappyTheme")
+            }
             print("home")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 showSprite = true
             }
             //Decrease the time spent out of the app
@@ -126,15 +162,49 @@ struct HomeView: View {
             //create the timers for each necessity item
             constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
                 //save the context of the changes
-                    do {
-                        try managedObjectContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                    constants.objectWillChange.send()
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+                constants.objectWillChange.send()
             }
+            self.dressUpAccessory()
+        })
+        .onChange(of: showSheet, {
+            print("abir a sheet para mudar de tibby")
+            self.dressUpAccessory()
+        })
+        .onChange(of: self.tibby.currentAccessoryId, {
+            print("mudou de acessorio")
+            self.dressUpAccessory()
         })
     }
+    
+    private func dressUpAccessory() {
+        for accessory in service.getAllAccessories() ?? [] {
+            if accessory.id == tibby.currentAccessoryId {
+                tibbyView.addAccessory(accessory, species: tibby.species) {
+                    service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
+                } remove: {
+                    tibbyView.removeAccessory {
+                        for accessory in service.getAllAccessories()! {
+                            if accessory.id == tibby.currentAccessoryId {
+                                service.removeAccessoryFromTibby(accessory: accessory)
+                            }
+                        }
+                    }
+                }
+                return
+            }
+        }
+        tibbyView.removeAccessory {
+            for accessory in service.getAllAccessories()! {
+                if accessory.tibbyId == tibby.id {
+                    service.removeAccessoryFromTibby(accessory: accessory)
+                }
+            }
+        }
+    }
 }
-
 
