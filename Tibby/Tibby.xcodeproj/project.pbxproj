@@ -10,6 +10,7 @@
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
 		7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636A2C77C77300D8389C /* ProgressBarType.swift */; };
 		7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */; };
+		7C35636F2C80E7E000D8389C /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636E2C80E7E000D8389C /* Mission.swift */; };
 		7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591C2C459E2A004FFD4B /* BedroomView.swift */; };
 		7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591E2C459E39004FFD4B /* KitchenView.swift */; };
 		7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59202C459E4F004FFD4B /* GradenView.swift */; };
@@ -72,6 +73,7 @@
 		D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */; };
 		D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */; };
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
+		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
 		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
@@ -87,7 +89,9 @@
 		D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520712C7FC00800A37057 /* ResourcesComponent.swift */; };
 		D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */; };
 		D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520752C80E85900A37057 /* LevelComponent.swift */; };
+		D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520772C80FADC00A37057 /* TibbyCard.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
+		D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
 		FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2622C629E4A0046DE49 /* Rarity.swift */; };
@@ -209,6 +213,7 @@
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
 		7C35636A2C77C77300D8389C /* ProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarType.swift; sourceTree = "<group>"; };
 		7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarViewModel.swift; sourceTree = "<group>"; };
+		7C35636E2C80E7E000D8389C /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		7C7B591C2C459E2A004FFD4B /* BedroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
 		7C7B591E2C459E39004FFD4B /* KitchenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenView.swift; sourceTree = "<group>"; };
 		7C7B59202C459E4F004FFD4B /* GradenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradenView.swift; sourceTree = "<group>"; };
@@ -269,6 +274,7 @@
 		D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
+		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
@@ -284,7 +290,9 @@
 		D8D520712C7FC00800A37057 /* ResourcesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesComponent.swift; sourceTree = "<group>"; };
 		D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsComponent.swift; sourceTree = "<group>"; };
 		D8D520752C80E85900A37057 /* LevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelComponent.swift; sourceTree = "<group>"; };
+		D8D520772C80FADC00A37057 /* TibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyCard.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
+		D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyStatusComponent.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		FD45F2622C629E4A0046DE49 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
@@ -606,6 +614,7 @@
 				D81284B42C6AE9CD0088A7B9 /* ProgressIndicator.swift */,
 				D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */,
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
+				D8D520772C80FADC00A37057 /* TibbyCard.swift */,
 				D896AECB2C6BD35D009C208C /* CustomStepper.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				7C3563692C77C75100D8389C /* ProgressBar */,
@@ -622,6 +631,8 @@
 				D8D520712C7FC00800A37057 /* ResourcesComponent.swift */,
 				D8D520732C7FC0CA00A37057 /* CreditsComponent.swift */,
 				D8D520752C80E85900A37057 /* LevelComponent.swift */,
+				D84055132C82501000292BDC /* EquipComponent.swift */,
+				D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -790,6 +801,7 @@
 				FD45F2622C629E4A0046DE49 /* Rarity.swift */,
 				D81284B62C6AFC4D0088A7B9 /* Onboarding.swift */,
 				FD45F27B2C6C02360046DE49 /* AccessoryCategory.swift */,
+				7C35636E2C80E7E000D8389C /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1080,7 +1092,9 @@
 				A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
 				FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */,
+				D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
+				7C35636F2C80E7E000D8389C /* Mission.swift in Sources */,
 				FD9846B02C4988350047575F /* WardrobeView.swift in Sources */,
 				FDCD3F512C34EEFE0075E0C7 /* Service.swift in Sources */,
 				A50E92C02C65351E00762A11 /* TibbySpeciesLabel.swift in Sources */,
@@ -1105,6 +1119,7 @@
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
 				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
 				FD45F2612C629DED0046DE49 /* Roll.swift in Sources */,
+				D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */,
 				D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */,
 				FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */,
 				FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */,
@@ -1127,6 +1142,7 @@
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
 				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
+				D84055142C82501000292BDC /* EquipComponent.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
@@ -1393,9 +1409,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1442,9 +1458,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use info of Health App";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use info of Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

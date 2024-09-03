@@ -12,4 +12,17 @@ enum Rarity: String {
     case common = "Common"
     case rare = "Rare"
     case epic = "Epic"
+    
+    var capsuleImage: String {
+        switch self {
+        case .common:
+            return "CapsuleCommon"
+        case .rare:
+            return "CapsuleRare"
+        case .epic:
+            return "CapsuleEpic"
+        }
+    }
 }
+
+

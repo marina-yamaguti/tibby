@@ -16,11 +16,12 @@ struct TibbySelectionView: View {
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
     @State var navigate: Bool = false
+    @State private var showTibbyBook = false
     
     var body: some View {
         let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible())
+            GridItem(.flexible(), spacing: 16),
+            GridItem(.flexible(), spacing: 16)
         ]
         VStack {
             SheetWithCircle(goingUp: false)
@@ -45,15 +46,13 @@ struct TibbySelectionView: View {
                 )
             HStack {
                 Spacer()
-                NavigationLink(destination: { TibbyBook(tibby: $tibby)}, label: {
-                    ZStack {
-                        Circle().foregroundStyle(.black.opacity(0.5))
-                        Image("TibbySymbolBook")
-                            .resizable()
-                            .frame(width:14, height: 14)
-                    }.frame(width: 40, height: 40)
-                }).padding(.horizontal).hidden()
+                Button(action: {}, label: {ButtonLabel(type: .secondary, image: "TibbySymbolBook", text: "")})
+                    .buttonSecondary(bgColor: .black)
+                    .navigationDestination(isPresented: $showTibbyBook) {
+                        TibbyBook(tibby: $tibby)
+                    }
             }
+            .padding(.horizontal)
             ScrollView {
                 VStack {
                     Spacer()
@@ -62,30 +61,30 @@ struct TibbySelectionView: View {
                             if !(tibbies[collection]?.isEmpty ?? false)  {
                                 HStack(alignment: .center) {
                                     CollectionNameComponent(name: collection.rawValue, color: collection.color)
+                                        .padding(.bottom, 16)
                                         .onAppear {
                                             self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
                                             self.tibbyCollection = self.tibbyCollection.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
                                         }
                                     Spacer()
-                                }.padding(.horizontal)
+                                }
                                 
-                                LazyVGrid(columns: columns, spacing: 8) {
+                                LazyVGrid(columns: columns, spacing: 16) {
                                     ForEach($tibbyCollection) { $tibbyL in
-                                        if  tibbyL.id == tibby.id {
+                                        if tibbyL.id == tibby.id {
                                             NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
-                                                ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                    .padding()
+                                                TibbyCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                             }
                                         } else {
                                             NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .unselected, service: service))) {
-                                                ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                    .padding()
+                                                TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                             }
                                         }
                                     }
-                                }.background(.tibbyBasePearlBlue)
+                                }
+                                .padding()
+                                .background(.tibbyBasePearlBlue)
                                     .cornerRadius(20)
-                                    .padding()
                                     .padding(.bottom, 50)
                             }
                         }
@@ -94,6 +93,7 @@ struct TibbySelectionView: View {
                     
                     Spacer()
                 }
+                .padding()
             }
         }
         .onChange(of: tibbies, {print("algum tibby mudou")})

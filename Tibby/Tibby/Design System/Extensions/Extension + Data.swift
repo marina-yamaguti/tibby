@@ -27,6 +27,13 @@ extension Date {
     }
 }
 
+// Dates that represent the frequency of some activity
 enum DateType {
     case day, week
+}
+
+// Mesure of time of the missions
+enum TimeMesure: String {
+    case day = "day(s)"
+    case hour = "hour(s)"
 }

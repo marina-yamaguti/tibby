@@ -16,38 +16,41 @@ struct TibbySelectedView: View {
             ZStack (alignment: .top) {
                 Color.tibbyBaseWhite.ignoresSafeArea()
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(.tibbyBasePearlBlue)
+                    .fill(viewModel.color)
                     .frame(width: UIScreen.main.bounds.width, height: 300)
-            } .ignoresSafeArea()
+            } 
+            .ignoresSafeArea()
             VStack {
-                
                 //Back Button
                 HStack {
                     CustomBackButton()
                     Spacer()
+                    EquipComponent(isSelected: $viewModel.status)
                 }
-               
+                .padding(.bottom, 24)
                 VStack (alignment: .center, spacing: 16){
                     
-                    // Tibby Name Edit
+                    // MARK: - Tibby Name Edit
                     TibbyNameEdit(tibby: $viewModel.tibby)
-                    // Tibby Profile Icon
+                    TibbyStatusComponent(hunger: viewModel.tibby.hunger, sleep: viewModel.tibby.sleep, play: viewModel.tibby.happiness)
+                        .frame(width: 145, alignment: .center)
+                    
+                    // MARK: - Tibby Profile Icon
                     TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status) {
                         viewModel.changeTibby(vibration: constants.vibration)
                     }
-                    //TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status, action: viewModel.changeTibby)
                 }
                 .padding(.bottom, 40)
                 ScrollView {
                     VStack (alignment: .leading, spacing: 16) {
-                        // Tibby Info Labels
+                        // MARK: - Tibby info labels
                         HStack() {
                             TibbySpeciesLabel(species: viewModel.convertCamelCaseToSpaces(viewModel.species), color: viewModel.color)
                             Spacer()
                             TibbyRarityLabel(rarity: viewModel.rarity, color:  viewModel.color)
                         }
                         
-                        // Tibby Description
+                        // MARK: - Tibby description
                         TibbyDescriptionLabel(description: viewModel.tibby.details, color: viewModel.color)
                     }
                 } .scrollIndicators(.hidden).ignoresSafeArea(.all, edges: Edge.Set(.bottom))
@@ -59,7 +62,3 @@ struct TibbySelectedView: View {
         .ignoresSafeArea(.all, edges: Edge.Set(.bottom))
     }
 }
-
-//#Preview {
-//    TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: Tibby(id: UUID(), name: "Shark", species: "shark", collection: "seaSeries", rarity: "common", description: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", isUnlocked: true, isSelected: true)))
-//}
