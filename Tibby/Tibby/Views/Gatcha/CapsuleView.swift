@@ -79,7 +79,7 @@ struct CapsuleView: View {
                     
                 }
                 .onChange(of: currentIndex, {
-                    if currentIndex == 15 {
+                    if currentIndex == images.count - 1 {
                         changeBackground = true
                         withAnimation(.snappy(duration: 0.2)) {
                             circleHeight = 1000

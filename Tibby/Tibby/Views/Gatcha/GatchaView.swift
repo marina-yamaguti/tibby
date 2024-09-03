@@ -27,7 +27,7 @@ struct GatchaView: View {
     var body: some View {
         if showCapsuleAnimation {
             if vm.newTibbyImage != nil  {
-                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.capsuleImages, tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked)
+                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked)
                     .navigationBarBackButtonHidden(true)
             }
         } else {
@@ -132,7 +132,6 @@ struct GatchaView: View {
                         })
                         
                         self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
-                        
                         newTibby?.isUnlocked = true
                     }
                 }
@@ -159,10 +158,8 @@ struct GatchaView: View {
                     
                 }
                 vm.updateCollectionBasedOnWeek()
-            
-                vm.loadImages()
                 vm.loadCapsuleAnimation()
-                
+                vm.loadImages()
             }.navigationBarBackButtonHidden(true)
                 .background(self.backgroundcolor)
                 .onChange(of: self.pressedButton, {

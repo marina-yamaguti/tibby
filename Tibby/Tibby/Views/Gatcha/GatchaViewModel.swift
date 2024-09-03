@@ -17,13 +17,15 @@ final class GatchaViewModel: ObservableObject {
     @Published var newTibbyImage: Image?
     @Published var baseImages: [Image] = []
     @Published var seriesImages: [Image] = []
-    @Published var capsuleImages: [Image] = []
+    @Published var commomCapsuleImages: [Image] = []
+    @Published var epicCapsuleImages: [Image] = []
+    @Published var rareCapsuleImages: [Image] = []
     
     
     private var animationIndex = 0
     
     // sprites gacha animations - all series
-    var gachaBaseAnimation = [
+    let gachaBaseAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/base-gacha-animation/GachaBase1.png",
         "https://tibbyappstorage.blob.core.windows.net/base-gacha-animation/GachaBase2.png",
         "https://tibbyappstorage.blob.core.windows.net/base-gacha-animation/GachaBase3.png",
@@ -32,7 +34,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/base-gacha-animation/GachaBase6.png"
     ]
     
-    var gachaSeaSeriesAnimation = [
+    let gachaSeaSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/sea-series-gacha-animation/GachaSea1.png",
         "https://tibbyappstorage.blob.core.windows.net/sea-series-gacha-animation/GachaSea2.png",
         "https://tibbyappstorage.blob.core.windows.net/sea-series-gacha-animation/GachaSea2.png",
@@ -42,7 +44,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/sea-series-gacha-animation/GachaSea6.png"
     ]
     
-    var gachaHouseSeriesAnimation = [
+    let gachaHouseSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/house-searies-gacha-animation/GachaHouse1.png",
         "https://tibbyappstorage.blob.core.windows.net/house-searies-gacha-animation/GachaHouse2.png",
         "https://tibbyappstorage.blob.core.windows.net/house-searies-gacha-animation/GachaHouse3.png",
@@ -51,7 +53,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/house-searies-gacha-animation/GachaHouse6.png"
     ]
     
-    var gachaForestSeriesAnimation = [
+    let gachaForestSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/forest-series-gacha-animation/GachaForest1.png",
         "https://tibbyappstorage.blob.core.windows.net/forest-series-gacha-animation/GachaForest2.png",
         "https://tibbyappstorage.blob.core.windows.net/forest-series-gacha-animation/GachaForest3.png",
@@ -60,7 +62,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/forest-series-gacha-animation/GachaForest6.png"
     ]
     
-    var gachaBeachSeriesAnimation = [
+    let gachaBeachSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/beach-series-gacha-animation/GachaBeach1.png",
         "https://tibbyappstorage.blob.core.windows.net/beach-series-gacha-animation/GachaBeach2.png",
         "https://tibbyappstorage.blob.core.windows.net/beach-series-gacha-animation/GachaBeach3.png",
@@ -69,7 +71,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/beach-series-gacha-animation/GachaBeach6.png"
     ]
     
-    var gachaFoodSeriesAnimation = [
+    let gachaFoodSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/food-series-gacha-animation/GachaFood1.png",
         "https://tibbyappstorage.blob.core.windows.net/food-series-gacha-animation/GachaFood2.png",
         "https://tibbyappstorage.blob.core.windows.net/food-series-gacha-animation/GachaFood3.png",
@@ -78,7 +80,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/food-series-gacha-animation/GachaFood6.png"
     ]
     
-    var gachaUrbanSeriesAnimation = [
+    let gachaUrbanSeriesAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban1.png",
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban2.png",
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban3.png",
@@ -87,7 +89,7 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban6.png"
     ]
     
-    var commonCapsuleAnimation = [
+    let commonCapsuleAnimation = [
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation1.png",
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation2.png",
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation3.png",
@@ -104,6 +106,44 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation14.png",
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation15.png",
         "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation16.png"
+    ]
+    
+    let rareCapsuleAnimation = [
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation1.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation2.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation3.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation4.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation5.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation6.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation7.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation8.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation9.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation10.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation11.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation12.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation13.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation14.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation15.png",
+        "https://tibbyappstorage.blob.core.windows.net/rare-capsule-animation/RareAnimation16.png"
+    ]
+    
+    let epicCapsuleAnimation = [
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation1.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation2.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation3.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation4.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation5.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation6.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation7.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation8.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation9.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation10.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation11.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation12.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation13.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation14.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation15.png",
+        "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation16.png"
     ]
     
     init(roll: Roll = Roll()) {
@@ -211,19 +251,68 @@ final class GatchaViewModel: ObservableObject {
         })
     }
     
+    func getCapsuleAnimation(rarity: String?) -> [Image] {
+        if let rarity = rarity {
+            if rarity.lowercased() == "epic" {
+                return self.epicCapsuleImages
+            }
+            if rarity.lowercased() == "rare" {
+                return self.rareCapsuleImages
+            }
+            else {
+                return self.commomCapsuleImages
+            }
+        } else {
+            return self.commomCapsuleImages
+        }
+    }
+    
     func loadCapsuleAnimation() {
+        
         let group = DispatchGroup()
         group.enter()
         
-        var tempCapsuleImages: [Image] = []
+        var tempCommonCapsuleImages: [Image] = []
+        var tempEpicCapsuleImages: [Image] = []
+        var tempRareCapsuleImages: [Image] = []
         
         //load base animation
-        for texture in commonCapsuleAnimation {
+        for texture in commonCapsuleAnimation{
             group.enter()
             ImageHandler.shared.loadImage(urlString: texture) { image in
                 if let image = image {
                     let texture = Image(uiImage: image)
-                    tempCapsuleImages.append(texture)
+                    tempCommonCapsuleImages.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+        }
+        
+        for texture in rareCapsuleAnimation{
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = Image(uiImage: image)
+                    tempRareCapsuleImages.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+        }
+        
+        for texture in epicCapsuleAnimation{
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = Image(uiImage: image)
+                    tempEpicCapsuleImages.append(texture)
                     group.leave()
                 } else {
                     //TODO: Handle the case where the image could not be loaded here
@@ -236,9 +325,12 @@ final class GatchaViewModel: ObservableObject {
         group.leave()
         group.notify(queue: .main, execute: {
             //storing values
-            self.capsuleImages = tempCapsuleImages
+            self.commomCapsuleImages = tempCommonCapsuleImages
+            self.rareCapsuleImages = tempRareCapsuleImages
+            self.epicCapsuleImages = tempEpicCapsuleImages
             
         })
+        
     }
     
     func loadImages() {
