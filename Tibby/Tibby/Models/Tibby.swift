@@ -14,11 +14,11 @@ import SpriteKit
 /// An enum representing the different species of Tibbies.
 ///
 /// Each species has associated animations for different states such as base, sleep, happy, sad, and eating.
-enum TibbySpecie: String {
-    case shark
-    case dolphin
-    case yellowShark
-    case axolotl
+enum TibbySpecie: String, CaseIterable {
+    case shark = "shark"
+    case dolphin = "dolphin"
+    case yellowShark = "yellowShark"
+    case axolotl = "axolotl"
     
     /// Returns the base animation frames for the species.
     func baseAnimation() -> [String] {

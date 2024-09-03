@@ -1,7 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "?" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@!" : {
 
     },
     "%lld" : {
@@ -13,10 +22,16 @@
     "100" : {
 
     },
+    "again..." : {
+
+    },
     "Cancel" : {
 
     },
-    "Click to equip" : {
+    "100" : {
+
+    },
+    "Cancel" : {
 
     },
     "Credits" : {
@@ -34,13 +49,16 @@
     "Development" : {
 
     },
+    "Equip" : {
+
+    },
+    "Equipped" : {
+
+    },
     "Gacha" : {
 
     },
     "Given Name" : {
-
-    },
-    "Hello, World!" : {
 
     },
     "home" : {
@@ -76,6 +94,9 @@
     "OK" : {
 
     },
+    "Okay" : {
+
+    },
     "Open Settings" : {
 
     },
@@ -95,6 +116,9 @@
 
     },
     "rarity" : {
+
+    },
+    "rarity Tibby" : {
 
     },
     "Resources" : {
@@ -133,6 +157,9 @@
 
     },
     "v.%@" : {
+
+    },
+    "You Won" : {
 
     }
   },

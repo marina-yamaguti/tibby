@@ -68,7 +68,7 @@ class Roll: RollProtocol {
             }
             return filteredTibbies.randomElement() ?? allTibbies.randomElement()!
         }
-        
+
         return getRandomTibby()
     }
 }

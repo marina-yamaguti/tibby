@@ -13,29 +13,16 @@ struct TibbyRarityLabel: View {
     var rarity: Rarity
     /// The background color for the label
     var color: Color
-    
-    // Determines the color based on the rarity level
-    private var rarityColor: Color {
-        switch rarity {
-        case .common:
-            return Color.tibbyRarityCommon
-        case .rare:
-            return Color.tibbyRarityRare
-        case .epic:
-            return Color.tibbyRarityEpic
-        }
-    }
-    
+        
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("rarity")
                 .font(.typography(.body2))
                 .foregroundStyle(Color.tibbyBaseBlack)
             HStack(spacing: 4) {
-                Circle()
+                Image(rarity.capsuleImage)
+                    .resizable()
                     .frame(width: 27, height: 27)
-                    .foregroundColor(rarityColor)
-                    .saturation(2.0)
                 Text(rarity.rawValue.lowercased())
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -47,8 +34,7 @@ struct TibbyRarityLabel: View {
             .background(
                 GeometryReader { geometry in
                     Rectangle()
-                        .foregroundColor(color)
-                        .opacity(0.5)
+                        .fill(color)
                         .cornerRadius(20)
                         .frame(width: geometry.size.width, height: geometry.size.height)
                 }
