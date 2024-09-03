@@ -16,7 +16,7 @@ enum MissionProgress: Comparable {
     case claim, inProgress, done
 }
 
-/// Represents different types of missions that can be assigned.
+/// Represents the different types of missions that can be assigned to the user.
 ///
 /// - workout: A mission related to physical exercise.
 /// - feed: A mission related to feeding.
@@ -39,6 +39,12 @@ enum MissionType: CaseIterable {
         }
     }
     
+    /// Provides a description of the mission based on its type, value, and frequency.
+    ///
+    /// - Parameters:
+    ///   - value: The value associated with the mission.
+    ///   - frequency: The frequency of the mission (e.g., daily, weekly).
+    /// - Returns: A string description of the mission.
     func missionDescription(value: Int, frequency: DateType) -> String {
         switch self {
         case .workout:
@@ -52,21 +58,29 @@ enum MissionType: CaseIterable {
         }
     }
     
+    /// Calculates the mission's target value based on its type and difficulty.
+    ///
+    /// - Parameter difficulty: The difficulty level of the mission.
+    /// - Returns: The target value for the mission.
     func missionValue(difficulty: Int) -> Int {
         switch self {
         case .workout:
             switch difficulty {
             case 1:
-                return 5
+#warning("UserDefaults.standard.value(forKey: workout)")
+                return 30
                 
             case 2:
-                return 15
+#warning("UserDefaults.standard.value(forKey: workout) * 1.5")
+                return 60
                 
             case 5:
-                return 20
+#warning("Int((UserDefaults.standard.value(forKey: workout) * 5)/60)")
+                return 5
                 
             case 6:
-                return 35
+#warning("Int((UserDefaults.standard.value(forKey: workout) * 7)/60)")
+                return 10
                 
             default:
                 return 0
@@ -74,16 +88,16 @@ enum MissionType: CaseIterable {
         case .feed:
             switch difficulty {
             case 1:
-                return 5
+                return 2
                 
             case 2:
-                return 15
+                return 3
                 
             case 5:
-                return 20
+                return 15
                 
             case 6:
-                return 35
+                return 18
                 
             default:
                 return 0
@@ -91,16 +105,20 @@ enum MissionType: CaseIterable {
         case .sleep:
             switch difficulty {
             case 1:
-                return 5
+#warning("Int(UserDefaults.standard.value(forKey: sleep) * 0.8)")
+                return 6
                 
             case 2:
-                return 15
+#warning("UserDefaults.standard.value(forKey: sleep)")
+                return 8
                 
             case 5:
-                return 20
+#warning("UserDefaults.standard.value(forKey: sleep) * 5")
+                return 15
                 
             case 6:
-                return 35
+#warning("Int((UserDefaults.standard.value(forKey: sleep) * 7)/60)")
+                return 20
                 
             default:
                 return 0
@@ -108,16 +126,20 @@ enum MissionType: CaseIterable {
         case .steps:
             switch difficulty {
             case 1:
-                return 5
+#warning("UserDefaults.standard.value(forKey: steps)")
+                return 1000
                 
             case 2:
-                return 15
+#warning("UserDefaults.standard.value(forKey: steps) * 2")
+                return 2000
                 
             case 5:
-                return 20
+#warning("UserDefaults.standard.value(forKey: steps) * 10")
+                return 10000
                 
             case 6:
-                return 35
+#warning("UserDefaults.standard.value(forKey: steps) * 20")
+                return 20000
                 
             default:
                 return 0
@@ -139,6 +161,8 @@ protocol MissionProtocol {
     
     /// The reward given upon completion of the mission.
     var reward: Reward { get }
+    
+    /// The experience points (XP) reward given upon completion of the mission.
     var xp: Reward { get }
     
     /// The frequency or timing for the mission.
@@ -171,6 +195,9 @@ protocol MissionsCollectionProtocol {
     /// The title of the mission collection.
     var title: String { get }
     
+    /// The list of missions included in the collection.
+    var missions: [MissionProtocol] { get set }
+    
     /// The remaining time for the collection of missions.
     var timeRemaning: (timeValue: Int, timeMesure: TimeMesure) { get set }
     
@@ -180,10 +207,13 @@ protocol MissionsCollectionProtocol {
     /// Creates the missions included in the collection.
     mutating func createMissions()
     
-    /// Return the missions in the correct order to show in screen
+    /// Returns the missions in the correct order to display on the screen.
+    ///
+    /// - Returns: An array of missions sorted by their progress.
     func getMissions() -> [MissionProtocol]
 }
 
+/// A structure representing a weekly collection of missions.
 struct WeekMissionsCollection: MissionsCollectionProtocol {
     var frequencyTime: DateType = .week
     
@@ -195,6 +225,7 @@ struct WeekMissionsCollection: MissionsCollectionProtocol {
     
     var missionManager = MissionManager()
     
+    /// Sets the remaining time for the missions in the weekly collection.
     mutating func setTimeRemaning() {
         if timeRemaning.timeValue != 1 && timeRemaning.timeMesure == .day {
             timeRemaning = (timeValue: Calendar.current.component(.day, from: Date.startOfWeek), timeMesure: .day)
@@ -204,12 +235,16 @@ struct WeekMissionsCollection: MissionsCollectionProtocol {
         }
     }
     
+    /// Creates the missions for the weekly collection.
     mutating func createMissions() {
         for mt in MissionType.allCases {
             missions.append(missionManager.createMission(dateType: frequencyTime, missionType: mt))
         }
     }
     
+    /// Returns the missions in the weekly collection sorted by progress.
+    ///
+    /// - Returns: An array of missions sorted by their progress.
     func getMissions() -> [any MissionProtocol] {
         return missions.sorted { mission1, mission2 in
             mission1.progress < mission2.progress
@@ -217,6 +252,7 @@ struct WeekMissionsCollection: MissionsCollectionProtocol {
     }
 }
 
+/// A structure representing a daily collection of missions.
 struct DayMissionsCollection: MissionsCollectionProtocol {
     var frequencyTime: DateType = .day
     
@@ -228,16 +264,21 @@ struct DayMissionsCollection: MissionsCollectionProtocol {
     
     var missionManager = MissionManager()
     
+    /// Sets the remaining time for the missions in the daily collection.
     mutating func setTimeRemaning() {
         timeRemaning = (timeValue: Calendar.current.component(.hour, from: Date.startOfDay), timeMesure: .hour)
     }
     
+    /// Creates the missions for the daily collection.
     mutating func createMissions() {
         for mt in MissionType.allCases {
             missions.append(missionManager.createMission(dateType: frequencyTime, missionType: mt))
         }
     }
     
+    /// Returns the missions in the daily collection sorted by progress.
+    ///
+    /// - Returns: An array of missions sorted by their progress.
     func getMissions() -> [any MissionProtocol] {
         return missions.sorted { mission1, mission2 in
             mission1.progress < mission2.progress
@@ -245,6 +286,7 @@ struct DayMissionsCollection: MissionsCollectionProtocol {
     }
 }
 
+/// A structure representing a mission that is part of a daily collection.
 struct MissionDay: MissionProtocol {
     var description: String
     
@@ -262,6 +304,11 @@ struct MissionDay: MissionProtocol {
     
     var progress: MissionProgress = .inProgress
     
+    /// Claims the reward for the mission if it's ready to be claimed.
+    ///
+    /// - Parameters:
+    ///   - user: The user claiming the reward.
+    ///   - tibby: The Tibby associated with the mission.
     mutating func claimReward(user: User?, tibby: Tibby?) {
         if progress == .claim {
             progress = .done
@@ -270,6 +317,9 @@ struct MissionDay: MissionProtocol {
         }
     }
     
+    /// Updates the progress of the mission based on the value provided.
+    ///
+    /// - Parameter value: The amount of progress to add to the mission.
     mutating func updateProgress(value: Int) {
         valueDone += value
         if valueDone >= valueTotal {
@@ -278,6 +328,7 @@ struct MissionDay: MissionProtocol {
     }
 }
 
+/// A structure representing a mission that is part of a weekly collection.
 struct MissionWeek: MissionProtocol {
     var description: String
     
@@ -294,6 +345,11 @@ struct MissionWeek: MissionProtocol {
     
     var progress: MissionProgress = .inProgress
     
+    /// Claims the reward for the mission if it's ready to be claimed.
+    ///
+    /// - Parameters:
+    ///   - user: The user claiming the reward.
+    ///   - tibby: The Tibby associated with the mission.
     mutating func claimReward(user: User?, tibby: Tibby?) {
         if progress == .claim {
             progress = .done
@@ -301,7 +357,9 @@ struct MissionWeek: MissionProtocol {
             xp.reward(tibby: tibby)
         }
     }
-    
+    /// Updates the progress of the mission based on the value provided.
+    ///
+    /// - Parameter value: The amount of progress to add to the mission.
     mutating func updateProgress(value: Int) {
         valueDone += value
         if valueDone >= valueTotal {
