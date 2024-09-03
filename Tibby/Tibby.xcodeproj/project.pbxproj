@@ -73,6 +73,9 @@
 		D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */; };
 		D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */; };
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
+		D83B398D2C863EE100043BC7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398C2C863EE100043BC7 /* ProfileView.swift */; };
+		D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398E2C86577400043BC7 /* GoalsComponent.swift */; };
+		D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B39902C865A6000043BC7 /* StreakComponent.swift */; };
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
@@ -274,6 +277,9 @@
 		D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		D82337D52C6AB590006BF8BD /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
+		D83B398C2C863EE100043BC7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D83B398E2C86577400043BC7 /* GoalsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsComponent.swift; sourceTree = "<group>"; };
+		D83B39902C865A6000043BC7 /* StreakComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakComponent.swift; sourceTree = "<group>"; };
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
@@ -410,6 +416,7 @@
 				FDFF4ABD2C3C842100831968 /* Interaction Example */,
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
+				D83B398C2C863EE100043BC7 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -616,6 +623,7 @@
 				D816944C2C49A4630036BD03 /* ItemCard.swift */,
 				D8D520772C80FADC00A37057 /* TibbyCard.swift */,
 				D896AECB2C6BD35D009C208C /* CustomStepper.swift */,
+				D83B398E2C86577400043BC7 /* GoalsComponent.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
 				7C3563692C77C75100D8389C /* ProgressBar */,
 				A50E92BE2C6534F900762A11 /* Labels */,
@@ -633,6 +641,7 @@
 				D8D520752C80E85900A37057 /* LevelComponent.swift */,
 				D84055132C82501000292BDC /* EquipComponent.swift */,
 				D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */,
+				D83B39902C865A6000043BC7 /* StreakComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1133,6 +1142,7 @@
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
+				D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
@@ -1140,6 +1150,7 @@
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
+				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,
 				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				D84055142C82501000292BDC /* EquipComponent.swift in Sources */,
@@ -1176,6 +1187,7 @@
 				7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */,
 				FDFF4ABC2C3C739500831968 /* Food.swift in Sources */,
 				D81284B52C6AE9CD0088A7B9 /* ProgressIndicator.swift in Sources */,
+				D83B398D2C863EE100043BC7 /* ProfileView.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,
 				FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */,
 			);

@@ -21,6 +21,7 @@ struct LevelComponent: View {
                 }
             Text("Lv. \(level)")
                 .font(.typography(.body))
+                .foregroundStyle(.tibbyBaseBlack)
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         .background {

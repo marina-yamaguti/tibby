@@ -27,6 +27,7 @@ enum TibbySymbols: String {
     case roll = "TibbySymbolRoll"
     case settingsWhite = "TibbySymbolSettingsWhite"
     case profile = "TibbySymbolProfile"
+    case profileBlack = "TibbySymbolProfileBlack"
     case arrowDiagonalUp = "TibbySymbolArrowDiagonalUp"
     case starList = "TibbySymbolStarList"
     case starListBlack = "TibbySymbolStarListBlack"

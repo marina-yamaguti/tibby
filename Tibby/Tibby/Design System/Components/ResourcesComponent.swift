@@ -80,6 +80,7 @@ struct ResourcesComponent: View {
                         .font(.typography(.body2))
                     Spacer()
                     Image(category.trailingType.rawValue)
+                        .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
                 }
                 .foregroundStyle(.tibbyBaseBlack)
                 .onTapGesture {
@@ -94,11 +95,7 @@ struct ResourcesComponent: View {
                     .font(.typography(.label))
             }
         }
-        .sheet(isPresented: $showCredits) {
-            CreditsComponent()
-                .padding(16)
-            Spacer()
-        }
+        .navigationDestination(isPresented: $showCredits, destination: {CreditsComponent()})
     }
     
     private func handleTap(for category: ResourceCategory) {

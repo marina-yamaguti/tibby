@@ -26,6 +26,8 @@ struct HomeView: View {
     @State private var showShop = false
     @State private var showMissions = false
     @State private var showSettings = false
+    @State private var showProfile = false
+
 
     
     var body: some View {
@@ -35,7 +37,11 @@ struct HomeView: View {
                     Spacer()
                     VStack {
                         HStack(alignment: .center) {
-                            LevelComponent(level: 32)
+                            NavigationLink(destination: {ProfileView(currentTibby: $tibby)}) {
+                                LevelComponent(level: 32)
+
+                            }
+                               
                             Spacer()
                             Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                                 .buttonSecondary(bgColor: .black.opacity(0.5))

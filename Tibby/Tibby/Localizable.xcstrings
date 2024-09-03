@@ -4,16 +4,26 @@
     "%lld" : {
 
     },
+    "%lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
+          }
+        }
+      }
+    },
     "20" : {
 
     },
     "100" : {
 
     },
-    "Cancel" : {
+    "Brought to you by:" : {
 
     },
-    "Credits" : {
+    "Cancel" : {
 
     },
     "description" : {
@@ -67,6 +77,9 @@
     "my food inventory: " : {
 
     },
+    "My Goals" : {
+
+    },
     "My Tibbies" : {
 
     },
@@ -103,6 +116,9 @@
     "settings" : {
 
     },
+    "Showcase" : {
+
+    },
     "Small title" : {
 
     },
@@ -122,6 +138,9 @@
           }
         }
       }
+    },
+    "Tibby:" : {
+
     },
     "uau quero comprar %@" : {
 
