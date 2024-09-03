@@ -8,10 +8,66 @@
 import Foundation
 
 /// An enumeration representing the different types of rewards a player can receive.
-enum RewardType {
-    case xp
-    case coin
-    case gem
+enum RewardType: Int {
+    case xp = 0
+    case coin = 1
+    case gem = 2
+    
+    func rewardQuantity(difficulty: Int) -> Int {
+        switch self {
+        case .xp:
+            switch difficulty {
+            case 1:
+                return 5
+                
+            case 2:
+                return 15
+                
+            case 5:
+                return 20
+                
+            case 6:
+                return 35
+                
+            default:
+                return 0
+            }
+        case .coin:
+            switch difficulty {
+            case 1:
+                return 5
+                
+            case 2:
+                return 10
+                
+            case 5:
+                return 20
+                
+            case 6:
+                return 30
+                
+            default:
+                return 0
+            }
+        case .gem:
+            switch difficulty {
+            case 1:
+                return 2
+                
+            case 2:
+                return 5
+                
+            case 5:
+                return 10
+                
+            case 6:
+                return 15
+                
+            default:
+                return 0
+            }
+        }
+    }
 }
 
 /// A protocol defining the structure for reward management.
