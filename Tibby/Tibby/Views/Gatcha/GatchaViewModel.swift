@@ -14,8 +14,10 @@ final class GatchaViewModel: ObservableObject {
     @Published var currentGatchaSecondaryImage: Image?
     @Published var currentGatchaImage: Image?
     @Published var isAnimating = false
+    @Published var newTibbyImage: Image?
     @Published var baseImages: [Image] = []
     @Published var seriesImages: [Image] = []
+    @Published var capsuleImages: [Image] = []
     
     
     private var animationIndex = 0
@@ -83,6 +85,25 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban4.png",
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban5.png",
         "https://tibbyappstorage.blob.core.windows.net/urban-series-gacha-animation/GachaUrban6.png"
+    ]
+    
+    var commonCapsuleAnimation = [
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation1.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation2.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation3.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation4.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation5.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation6.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation7.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation8.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation9.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation10.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation11.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation12.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation13.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation14.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation15.png",
+        "https://tibbyappstorage.blob.core.windows.net/common-capsule-animation/CommonAnimation16.png"
     ]
     
     init(roll: Roll = Roll()) {
@@ -154,6 +175,70 @@ final class GatchaViewModel: ObservableObject {
         }
         
         
+    }
+    
+    func getBaseSprite(species: String) -> String {
+        print("parametro:\(species)")
+        for tibbyCase in TibbySpecie.allCases {
+            print("caso:\(tibbyCase.rawValue.lowercased())")
+            if tibbyCase.rawValue.lowercased() == species.lowercased() {
+                print(tibbyCase.baseAnimation()[0])
+                return tibbyCase.baseAnimation()[0]
+            }
+        }
+        return ""
+    }
+    
+    func getTibbyImage(species: String) {
+        var tempImage: Image?
+        let group = DispatchGroup()
+        group.enter()
+        ImageHandler.shared.loadImage(urlString: self.getBaseSprite(species: species)) { baseTibby in
+            
+            print("baseTIbby: \(baseTibby)")
+            if let uiimage = baseTibby {
+                tempImage = Image(uiImage: uiimage)
+                group.leave()
+            } else {
+                print("error: image dind load")
+                group.leave()
+            }
+        }
+        group.notify(queue: .main, execute: {
+            //storing values
+            self.newTibbyImage = tempImage
+            
+        })
+    }
+    
+    func loadCapsuleAnimation() {
+        let group = DispatchGroup()
+        group.enter()
+        
+        var tempCapsuleImages: [Image] = []
+        
+        //load base animation
+        for texture in commonCapsuleAnimation {
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = Image(uiImage: image)
+                    tempCapsuleImages.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+        }
+        
+        group.leave()
+        group.notify(queue: .main, execute: {
+            //storing values
+            self.capsuleImages = tempCapsuleImages
+            
+        })
     }
     
     func loadImages() {

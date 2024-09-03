@@ -36,8 +36,9 @@ struct ButtonPrimary: ButtonStyle {
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
-                    .fill(shadowColor)
+                    .fill(bgColor)
                     .strokeBorder(foregroundColor, lineWidth: 2)
+                    .brightness(-0.6)
             }
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
