@@ -22,6 +22,7 @@ struct OnboardingView2: View {
                     Image("Onboarding2")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.5)
                         .frame(width: 200, height: 200)
                         .animation(.linear(duration: 0.5), value: showFirstImage)
 
@@ -29,6 +30,7 @@ struct OnboardingView2: View {
                     Image("Onboarding2-2")
                         .resizable()
                         .scaledToFit()
+                        .scaleEffect(1.5)
                         .frame(width: 200, height: 200)
                         .animation(.linear(duration: 0.5), value: showFirstImage)
 

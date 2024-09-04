@@ -19,31 +19,37 @@ struct OnboardingTab: View {
             VStack(alignment: .leading) {
                 HStack {
                     if vm.currentIndex == 0 {
-                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
+                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black)
                             .hidden()
                     } else {
-                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")})
+                        Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black)
                     }
                     Spacer()
                 }
                 Spacer()
             }
-            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
+            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 24))
+            
             VStack {
-                VStack {
+                VStack(spacing: 32) {
                     ProgressIndicator(page: vm.currentIndex)
-                        .padding(.bottom, 16)
+                        .padding(.horizontal, 16)
                     Text(vm.currentOnboarding.title)
-                        .font(.typography(.title))
+                        .font(.typography(.headline))
+                        .foregroundStyle(.tibbyBaseBlack)
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                     Text(vm.currentOnboarding.description)
-                        .font(.typography(.label2))
+                        .font(.typography(.body2))
+                        .foregroundStyle(.tibbyBaseBlack)
                         .multilineTextAlignment(.center)
                 }
                 .foregroundStyle(.black)
+                if vm.currentOnboarding.description != "" {
+                    Spacer()
+                }
                 
                 switch vm.currentOnboarding {
                 case .onboarding1:
@@ -68,11 +74,12 @@ struct OnboardingTab: View {
                     }
                 }, label: {
                     ButtonLabel(type: .primary, image: vm.currentOnboarding.buttonSymbol, text: vm.currentOnboarding.buttonLabel)
+
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
-                .padding(.bottom, 16)
+                .padding(32)
             }
-            .padding(EdgeInsets(top: 90, leading: 30, bottom: 30, trailing: 30))
+            .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
         .background(.tibbyBaseWhite)
         .navigationDestination(isPresented: $vm.navigateToGatcha, destination: {HomeView(tibby: service.getAllTibbies().first!)})

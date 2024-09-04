@@ -11,8 +11,6 @@ import SwiftUI
 /// A custom button style used for primary buttons in the Tibby app.
 /// This style includes custom padding, background colors, shadows, and animations to create a prominent button design.
 struct ButtonPrimary: ButtonStyle {
-    @EnvironmentObject var constants: Constants
-    
     /// The color used for the foreground elements of the button, such as the text or icon.
     var foregroundColor: Color = .tibbyBaseDarkBlue
     
@@ -24,8 +22,9 @@ struct ButtonPrimary: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .foregroundStyle(Color.tibbyBaseBlack)
-            .padding(EdgeInsets(top: 16, leading: 64, bottom: 16, trailing: 64))
+            .foregroundStyle(Color.tibbyBaseDarkBlue)
+            .frame(minWidth: 175)
+            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
                     .fill(bgColor)
@@ -43,13 +42,5 @@ struct ButtonPrimary: ButtonStyle {
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
-            .onChange(of: configuration.isPressed) { oldValue, newValue in
-                if constants.vibration {
-                    HapticManager.instance.impact(style: .soft)
-                }
-                if constants.sfx {
-                    constants.playSFX(audio: "PrimaryButton")
-                }
-            }
     }
 }

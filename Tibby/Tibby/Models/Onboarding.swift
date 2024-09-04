@@ -29,7 +29,7 @@ enum OnboardingViews: CaseIterable {
         case .onboarding2:
             return "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking."
         case .onboarding3:
-            return "How should we call you?"
+            return ""
         case .onboarding4:
             return ""
         }
@@ -51,6 +51,15 @@ enum OnboardingViews: CaseIterable {
     
     /// The symbol for the button in the onboarding view.
     var buttonSymbol: String {
-        return TibbySymbols.play.rawValue
+        switch self {
+        case .onboarding1:
+            TibbySymbols.chevronRight.rawValue
+        case .onboarding2:
+            TibbySymbols.lock.rawValue
+        case .onboarding3:
+            TibbySymbols.checkMark.rawValue
+        case .onboarding4:
+            TibbySymbols.play.rawValue
+        }
     }
 }

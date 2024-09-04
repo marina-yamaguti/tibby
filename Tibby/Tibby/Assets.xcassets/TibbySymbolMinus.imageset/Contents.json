@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Type=Minus.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Type=Minus@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Type=Minus@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
