@@ -11,7 +11,6 @@ struct GatchaView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @ObservedObject var vm = GatchaViewModel()
-    @State var user: User? = nil
     @State var newTibby: Tibby? = nil
     @State var isAnimating = false
     @State private var snappedItem = 0.0
@@ -151,12 +150,6 @@ struct GatchaView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundStyle(.tibbyBaseWhite.opacity(0.5)))
             }.onAppear {
-                if let user = service.getUser() {
-                    user.coins = 1000
-                    user.gems = 1000
-                    self.user = user
-                    
-                }
                 vm.updateCollectionBasedOnWeek()
                 vm.loadCapsuleAnimation()
                 vm.loadImages()
