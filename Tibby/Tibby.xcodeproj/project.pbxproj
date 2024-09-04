@@ -32,6 +32,21 @@
 		7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D72C652EEA001D7348 /* Extension + Data.swift */; };
 		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
 		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
+		7CF9CA6E2C88E7B100A2AA2A /* StreakUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */; };
+		7CF9CA792C88E7B800A2AA2A /* CapsuleOpen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */; };
+		7CF9CA7A2C88E7B800A2AA2A /* CoinInsert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */; };
+		7CF9CA7B2C88E7B800A2AA2A /* CoinInsert2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA712C88E7B800A2AA2A /* CoinInsert2.mp3 */; };
+		7CF9CA7C2C88E7B800A2AA2A /* CommonPull.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA722C88E7B800A2AA2A /* CommonPull.wav */; };
+		7CF9CA7D2C88E7B800A2AA2A /* EpicPull.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA732C88E7B800A2AA2A /* EpicPull.wav */; };
+		7CF9CA7F2C88E7B800A2AA2A /* GachaMachineTwist.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA752C88E7B800A2AA2A /* GachaMachineTwist.mp3 */; };
+		7CF9CA802C88E7B800A2AA2A /* RarePull.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA762C88E7B800A2AA2A /* RarePull.mp3 */; };
+		7CF9CA812C88E7B800A2AA2A /* SuspenseGachaPull.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA772C88E7B800A2AA2A /* SuspenseGachaPull.mp3 */; };
+		7CF9CA842C88E7D000A2AA2A /* Popup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA822C88E7D000A2AA2A /* Popup.mp3 */; };
+		7CF9CA852C88E7D000A2AA2A /* Notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA832C88E7D000A2AA2A /* Notification.mp3 */; };
+		7CF9CA8A2C88E7DC00A2AA2A /* TibbyHappyTheme.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA862C88E7DC00A2AA2A /* TibbyHappyTheme.wav */; };
+		7CF9CA8B2C88E7DC00A2AA2A /* IntricateSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */; };
+		7CF9CA8C2C88E7DC00A2AA2A /* CasualSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */; };
+		7CF9CA8D2C88E7DC00A2AA2A /* MysteriousSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
 		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
 		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
@@ -84,7 +99,6 @@
 		D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED52C6D21C5009C208C /* SettingsComponent.swift */; };
 		D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED72C6D25CC009C208C /* SettingsViewModel.swift */; };
 		D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AEDB2C6D4655009C208C /* NotificationManager.swift */; };
-		D8B6D2E02C6E3125008A7702 /* TibbyHappyTheme.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */; };
 		D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */; };
 		D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */; };
 		D8C53A922C3C7A8000CAB009 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */; };
@@ -237,6 +251,21 @@
 		7CE131D72C652EEA001D7348 /* Extension + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Data.swift"; sourceTree = "<group>"; };
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = StreakUp.wav; sourceTree = "<group>"; };
+		7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapsuleOpen.mp3; sourceTree = "<group>"; };
+		7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinInsert1.mp3; sourceTree = "<group>"; };
+		7CF9CA712C88E7B800A2AA2A /* CoinInsert2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinInsert2.mp3; sourceTree = "<group>"; };
+		7CF9CA722C88E7B800A2AA2A /* CommonPull.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CommonPull.wav; sourceTree = "<group>"; };
+		7CF9CA732C88E7B800A2AA2A /* EpicPull.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EpicPull.wav; sourceTree = "<group>"; };
+		7CF9CA752C88E7B800A2AA2A /* GachaMachineTwist.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GachaMachineTwist.mp3; sourceTree = "<group>"; };
+		7CF9CA762C88E7B800A2AA2A /* RarePull.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RarePull.mp3; sourceTree = "<group>"; };
+		7CF9CA772C88E7B800A2AA2A /* SuspenseGachaPull.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SuspenseGachaPull.mp3; sourceTree = "<group>"; };
+		7CF9CA822C88E7D000A2AA2A /* Popup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Popup.mp3; sourceTree = "<group>"; };
+		7CF9CA832C88E7D000A2AA2A /* Notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Notification.mp3; sourceTree = "<group>"; };
+		7CF9CA862C88E7DC00A2AA2A /* TibbyHappyTheme.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibbyHappyTheme.wav; sourceTree = "<group>"; };
+		7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IntricateSong.wav; sourceTree = "<group>"; };
+		7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CasualSong.wav; sourceTree = "<group>"; };
+		7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MysteriousSong.wav; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
 		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -287,7 +316,6 @@
 		D896AED52C6D21C5009C208C /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
 		D896AED72C6D25CC009C208C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D896AEDB2C6D4655009C208C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TibbyHappyTheme.wav; sourceTree = "<group>"; };
 		D8B7D1A62C483A9E00A1739E /* TibbySymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbySymbols.swift; sourceTree = "<group>"; };
 		D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -440,9 +468,9 @@
 		7C6CBA3F2C6E852300D77ED9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7CF9CA662C88CF7A00A2AA2A /* Audios */,
 				D896AED12C6D1B67009C208C /* SettingsView.swift */,
 				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
-				D8B6D2DF2C6E3125008A7702 /* TibbyHappyTheme.wav */,
 				7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */,
 				7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */,
 				7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */,
@@ -509,6 +537,68 @@
 				7CE131D32C63F413001D7348 /* OnboardingView4.swift */,
 			);
 			path = OnboardingViews;
+			sourceTree = "<group>";
+		};
+		7CF9CA662C88CF7A00A2AA2A /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA6A2C88E13800A2AA2A /* SFX */,
+				7CF9CA692C88E12900A2AA2A /* Music */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		7CF9CA692C88E12900A2AA2A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */,
+				7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */,
+				7CF9CA862C88E7DC00A2AA2A /* TibbyHappyTheme.wav */,
+				7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		7CF9CA6A2C88E13800A2AA2A /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA782C88E7B800A2AA2A /* Gacha */,
+				7CF9CA6D2C88E7B100A2AA2A /* Streak */,
+				7CF9CA6B2C88E1BB00A2AA2A /* UI */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
+		7CF9CA6B2C88E1BB00A2AA2A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA832C88E7D000A2AA2A /* Notification.mp3 */,
+				7CF9CA822C88E7D000A2AA2A /* Popup.mp3 */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7CF9CA6D2C88E7B100A2AA2A /* Streak */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */,
+			);
+			path = Streak;
+			sourceTree = "<group>";
+		};
+		7CF9CA782C88E7B800A2AA2A /* Gacha */ = {
+			isa = PBXGroup;
+			children = (
+				7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */,
+				7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */,
+				7CF9CA712C88E7B800A2AA2A /* CoinInsert2.mp3 */,
+				7CF9CA722C88E7B800A2AA2A /* CommonPull.wav */,
+				7CF9CA732C88E7B800A2AA2A /* EpicPull.wav */,
+				7CF9CA752C88E7B800A2AA2A /* GachaMachineTwist.mp3 */,
+				7CF9CA762C88E7B800A2AA2A /* RarePull.mp3 */,
+				7CF9CA772C88E7B800A2AA2A /* SuspenseGachaPull.mp3 */,
+			);
+			path = Gacha;
 			sourceTree = "<group>";
 		};
 		92B647682C2C97EB0068E98E = {
@@ -1027,15 +1117,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */,
+				7CF9CA812C88E7B800A2AA2A /* SuspenseGachaPull.mp3 in Resources */,
+				7CF9CA8A2C88E7DC00A2AA2A /* TibbyHappyTheme.wav in Resources */,
+				7CF9CA7C2C88E7B800A2AA2A /* CommonPull.wav in Resources */,
+				7CF9CA7F2C88E7B800A2AA2A /* GachaMachineTwist.mp3 in Resources */,
+				7CF9CA7A2C88E7B800A2AA2A /* CoinInsert1.mp3 in Resources */,
 				D80755CF2C3C6800000CA029 /* Localizable.xcstrings in Resources */,
 				92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */,
+				7CF9CA842C88E7D000A2AA2A /* Popup.mp3 in Resources */,
+				7CF9CA8C2C88E7DC00A2AA2A /* CasualSong.wav in Resources */,
 				D80755CA2C3C57D9000CA029 /* dogicapixel.ttf in Resources */,
 				7C9CDA3A2C73E9DA0044A8B3 /* TertiaryButton.wav in Resources */,
+				7CF9CA792C88E7B800A2AA2A /* CapsuleOpen.mp3 in Resources */,
 				A50E92C62C6535E300762A11 /* Biryani-Regular.ttf in Resources */,
+				7CF9CA8B2C88E7DC00A2AA2A /* IntricateSong.wav in Resources */,
+				7CF9CA7B2C88E7B800A2AA2A /* CoinInsert2.mp3 in Resources */,
 				A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */,
-				D8B6D2E02C6E3125008A7702 /* TibbyHappyTheme.wav in Resources */,
+				7CF9CA7D2C88E7B800A2AA2A /* EpicPull.wav in Resources */,
+				7CF9CA6E2C88E7B100A2AA2A /* StreakUp.wav in Resources */,
 				D80755CB2C3C57D9000CA029 /* dogicapixelbold.ttf in Resources */,
 				7C9CDA3C2C73E9DA0044A8B3 /* SecondaryButton.wav in Resources */,
+				7CF9CA802C88E7B800A2AA2A /* RarePull.mp3 in Resources */,
+				7CF9CA8D2C88E7DC00A2AA2A /* MysteriousSong.wav in Resources */,
+				7CF9CA852C88E7D000A2AA2A /* Notification.mp3 in Resources */,
 				7C9CDA3B2C73E9DA0044A8B3 /* PrimaryButton.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

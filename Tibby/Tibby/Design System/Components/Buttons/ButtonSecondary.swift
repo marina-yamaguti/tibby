@@ -27,12 +27,8 @@ struct ButtonSecondary: ButtonStyle {
             )
             .animation(.linear(duration: 0), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { oldValue, newValue in
-                if constants.vibration {
-                    HapticManager.instance.impact(style: .soft)
-                }
-                if constants.sfx {
-                    constants.playSFX(audio: "SecondaryButton")
-                }
+                HapticManager.instance.impact(style: .soft)
+                AudioManager.instance.playSFX(audio: .secondaryButton)
             }
         
     }

@@ -36,6 +36,9 @@ struct SplashScreen: View {
                 }
                 else {
                     StartView()
+                        .onAppear {
+                            AudioManager.instance.playMusic(audio: .happy)
+                        }
                 }
             } else {
                 VStack {

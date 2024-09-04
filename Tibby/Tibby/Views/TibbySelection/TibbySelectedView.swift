@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TibbySelectedView: View {
     @ObservedObject var viewModel: TibbySelectedViewModel
-    @EnvironmentObject var constants: Constants
     
     var body: some View {
         ZStack {
@@ -37,7 +36,7 @@ struct TibbySelectedView: View {
                     
                     // MARK: - Tibby Profile Icon
                     TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status) {
-                        viewModel.changeTibby(vibration: constants.vibration)
+                        viewModel.changeTibby()
                     }
                 }
                 .padding(.bottom, 40)
