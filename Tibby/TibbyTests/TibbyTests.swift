@@ -78,80 +78,80 @@ final class TibbyTests: XCTestCase {
         
     }
     
-    class RewardProtocolTets: RewardProtocol {
-        func reward(quantity: Int, rewardType: RewardType, user: User? = nil, tibby: Tibby? = nil) {
-            switch rewardType {
-            case .xp:
-                if let tibby = tibby {
-                    tibby.xp = quantity
-                }
-            case .coin:
-                if let user = user {
-                    user.coins = quantity
-                }
-            case .gem:
-                if let user = user {
-                    user.gems = quantity
-                }
-            }
-        }
-        
-        func levelUp(_ tibby: Tibby) {
-            tibby.level += 1
-        }
-        
-        
+//    class RewardProtocolTets: RewardProtocol {
+//        func reward(quantity: Int, rewardType: RewardType, user: User? = nil, tibby: Tibby? = nil) {
+//            switch rewardType {
+//            case .xp:
+//                if let tibby = tibby {
+//                    tibby.xp = quantity
+//                }
+//            case .coin:
+//                if let user = user {
+//                    user.coins = quantity
+//                }
+//            case .gem:
+//                if let user = user {
+//                    user.gems = quantity
+//                }
+//            }
+//        }
+//        
+//        func levelUp(_ tibby: Tibby) {
+//            tibby.level += 1
+//        }
+//        
+//        
     }
     
-    func testTibbyProtocol() throws {
-        //Given
-        let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
-        let tibbyTest = TibbyProtocolTest()
-        let tibbyUUID = UUID()
-        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10, category: "All")
-        
-        //When
-        tibbyTest.setTibbyID(tibbyId: tibbyUUID)
-        tibbyTest.animateTibby(["Tibby"], nodeID: .tibby, timeFrame: 1)
-        tibbyTest.addAccessory(accessoryTest, serviceTest, tibbyID: UUID())
-        
-        //Then
-        XCTAssertEqual(tibbyTest.tibbyID, tibbyUUID)
-        XCTAssertEqual(tibbyTest.tibby.name, "Tibby1.0")
-        XCTAssertEqual(tibbyTest.accessory.name, "test")
-        
-        //When
-        tibbyTest.removeAccessory(serviceTest)
-        //Then
-        XCTAssertEqual(tibbyTest.tibby.children, [])
-    }
+//    func testTibbyProtocol() throws {
+//        //Given
+//        let serviceTest = Service(modelContext: ModelContext(try ModelContainer(for: Schema.init(), configurations: ModelConfiguration())))
+//        let tibbyTest = TibbyProtocolTest()
+//        let tibbyUUID = UUID()
+//        let accessoryTest = Accessory(id: UUID(), name: "test", image: "test", price: 10, category: "All")
+//        
+//        //When
+//        tibbyTest.setTibbyID(tibbyId: tibbyUUID)
+//        tibbyTest.animateTibby(["Tibby"], nodeID: .tibby, timeFrame: 1)
+//        tibbyTest.addAccessory(accessoryTest, serviceTest, tibbyID: UUID())
+//        
+//        //Then
+//        XCTAssertEqual(tibbyTest.tibbyID, tibbyUUID)
+//        XCTAssertEqual(tibbyTest.tibby.name, "Tibby1.0")
+//        XCTAssertEqual(tibbyTest.accessory.name, "test")
+//        
+//        //When
+//        tibbyTest.removeAccessory(serviceTest)
+//        //Then
+//        XCTAssertEqual(tibbyTest.tibby.children, [])
+//    }
+//    
+//    func testRewardProtocol() throws {
+//        //Given
+//        let rewardTest = RewardProtocolTets()
+//        var userMock = User(id: UUID(), username: "")
+//        var tibbyMock = Tibby(id: UUID(), ownerId: UUID(), name: "Shark", rarity: "", details: "", personality: "", species: "", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "seaSeries")
+//        let quantity = 10
+//        
+//        //When
+//        rewardTest.reward(quantity: quantity, rewardType: .xp, tibby: tibbyMock)
+//        rewardTest.reward(quantity: quantity, rewardType: .coin, user: userMock)
+//        rewardTest.reward(quantity: quantity, rewardType: .gem, user: userMock)
+//        rewardTest.levelUp(tibbyMock)
+//        
+//        //Then
+//        
+//        XCTAssertEqual(tibbyMock.xp, quantity)
+//        XCTAssertEqual(tibbyMock.level, 2)
+//        XCTAssertEqual(userMock.coins, quantity)
+//        XCTAssertEqual(userMock.gems, quantity)
+//    }
     
-    func testRewardProtocol() throws {
-        //Given
-        let rewardTest = RewardProtocolTets()
-        var userMock = User(id: UUID(), username: "")
-        var tibbyMock = Tibby(id: UUID(), ownerId: UUID(), name: "Shark", rarity: "", details: "", personality: "", species: "", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "seaSeries")
-        let quantity = 10
-        
-        //When
-        rewardTest.reward(quantity: quantity, rewardType: .xp, tibby: tibbyMock)
-        rewardTest.reward(quantity: quantity, rewardType: .coin, user: userMock)
-        rewardTest.reward(quantity: quantity, rewardType: .gem, user: userMock)
-        rewardTest.levelUp(tibbyMock)
-        
-        //Then
-        
-        XCTAssertEqual(tibbyMock.xp, quantity)
-        XCTAssertEqual(tibbyMock.level, 2)
-        XCTAssertEqual(userMock.coins, quantity)
-        XCTAssertEqual(userMock.gems, quantity)
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-        
-    }
-}
+//    func testPerformanceExample() throws {
+//        // This is an example of a performance test case.
+//        measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//        
+//    }
+

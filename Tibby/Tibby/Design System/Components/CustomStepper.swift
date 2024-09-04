@@ -28,11 +28,11 @@ struct CustomStepper: View {
     var description: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             // Title of the stepper
             Text(title)
-                .font(.typography(.body))
-            
+                .font(.typography(.body2))
+                .foregroundStyle(.tibbyBaseBlack)
             HStack {
                 // Decrement button
                 Button(action: {
@@ -40,7 +40,10 @@ struct CustomStepper: View {
                         value -= step
                     }
                 }) {
-                    Image(TibbySymbols.play.rawValue)
+                    Image(TibbySymbols.minus.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 14)
                 }
                 .buttonSecondary(bgColor: value > range.lowerBound ? .black : .black)
                 .disabled(value <= range.lowerBound)
@@ -48,11 +51,11 @@ struct CustomStepper: View {
                 Spacer()
                 
                 // Display the current value and description
-                VStack {
+                VStack(spacing: 8) {
                     Text("\(value)")
                         .font(.typography(.title))
                     Text(description)
-                        .font(.typography(.body))
+                        .font(.typography(.label2))
                         .foregroundStyle(.tibbyBaseGrey)
                 }
                 
@@ -64,7 +67,10 @@ struct CustomStepper: View {
                         value += step
                     }
                 }) {
-                    Image(TibbySymbols.play.rawValue)
+                    Image(TibbySymbols.plus.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 14)
                 }
                 .buttonSecondary(bgColor: value < range.upperBound ? .black : .black)
                 .disabled(value >= range.upperBound)
