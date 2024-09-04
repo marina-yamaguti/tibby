@@ -7,13 +7,37 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct OnboardingView1: View {
-        
+    @State private var showFirstImage = true
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+
     var body: some View {
         VStack {
-            //TODO: change image placeholder
-            Rectangle()
-                .frame(width: 300, height: 300)
+            
+            ZStack {
+                if showFirstImage {
+                    Image("Onboarding1")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.5)
+                        .frame(width: 200, height: 200)
+                        .animation(.linear(duration: 0.5), value: showFirstImage)
+
+                } else {
+                    Image("Onboarding1-2")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.5)
+                        .frame(width: 200, height: 200)
+                        .animation(.linear(duration: 0.5), value: showFirstImage)
+
+                }
+            }
+        }
+        .onReceive(timer) { _ in
+            showFirstImage.toggle()
         }
     }
 }
@@ -21,3 +45,5 @@ struct OnboardingView1: View {
 #Preview {
     OnboardingView1()
 }
+
+

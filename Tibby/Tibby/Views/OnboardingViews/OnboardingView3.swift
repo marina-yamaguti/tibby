@@ -15,13 +15,18 @@ struct OnboardingView3: View {
     @State var steps: Int = 500
     
     var body: some View {
-        VStack {
-            CustomTextField(prompt: "How should we call you?", placeholder: "Name")
-            CustomStepper(value: $exercise, step: 5, range: 10...1440, title: "Daily Exercise", description: "minutes/day")
-            CustomStepper(value: $energy, step: 5, range: 10...1440, title: "Daily Energy Goal", description: "calories/day")
-            CustomStepper(value: $steps, step: 5, range: 500...1440, title: "Daily Steps", description: "steps/day")
+        ScrollView {
+            VStack {
+                CustomTextField(prompt: "How should we call you?", placeholder: "Name")
+                    .padding(.bottom, 16)
+                CustomStepper(value: $exercise, step: 5, range: 30...1440, title: "Daily Exercise", description: "minutes/day")
+                CustomStepper(value: $energy, step: 10, range: 110...1440, title: "Daily Energy Goal", description: "calories/day")
+                CustomStepper(value: $steps, step: 500, range: 500...1440, title: "Daily Steps", description: "steps/day")
+                CustomStepper(value: $steps, step: 1, range: 6...12, title: "Daily Sleep Time", description: "hours/day")
+
+            }
+            .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
         }
-        .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
     }
 }
 

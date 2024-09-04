@@ -23,9 +23,11 @@ struct CustomTextField: View {
     
     var body: some View {
         VStack {
-            Text("Name")
+            Text("How should we call you?")
                 .foregroundStyle(.tibbyBaseBlack)
+                .font(.typography(.body2))
             TextField(placeholder, text: $input)
+                .font(.typography(.body2))
             Divider()
         }
         .font(.typography(.label))
