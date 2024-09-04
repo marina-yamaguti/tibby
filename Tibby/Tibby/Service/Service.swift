@@ -101,6 +101,30 @@ class Service: ObservableObject, ServiceProtocol {
         return []
     }
     
+    /// Adds a tibby to the list of favorite tibbies (only if the list doesnt alreay have 3 tibbies)
+    func addFavoriteTibby(tibby: Tibby) -> Bool {
+        if let user = self.getUser() {
+            if user.favoriteTibbies.count <= 3 {
+                user.favoriteTibbies.append(tibby.id)
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getFavoriteTibbies() -> [Tibby] {
+        var favoriteTibbies: [Tibby] = []
+        if let user = self.getUser() {
+            for id in user.favoriteTibbies {
+                if let tibby = self.getTibbyByID(id: id) {
+                    favoriteTibbies.append(tibby)
+                }
+            }
+        }
+        
+        return favoriteTibbies
+    }
+    
     /// Retrieves all Tibbies in the model context.
     ///
     /// - Returns: An array of all Tibbies.

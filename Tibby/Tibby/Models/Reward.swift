@@ -7,11 +7,67 @@
 
 import Foundation
 
-/// An enumeration representing the different types of rewards a player can receive.
-enum RewardType {
-    case xp
-    case coin
-    case gem
+/// Represents the different types of rewards that can be earned in the Tibby app.
+///
+/// - xp: Experience points that help level up the user's progress.
+/// - coin: In-game currency used for purchasing items or upgrades.
+/// - gem: A premium currency used for special purchases or unlocking content.
+enum RewardType: Int {
+    case xp = 0
+    case coin = 1
+    case gem = 2
+    
+    /// Determines the quantity of the reward based on the difficulty level.
+    ///
+    /// - Parameter difficulty: The difficulty level of the mission, which influences the amount of the reward.
+    /// - Returns: The quantity of the reward corresponding to the difficulty level.
+    ///
+    /// The quantity of the reward varies depending on the type of reward and the difficulty level.
+    /// For example, a higher difficulty yields a greater reward quantity. This function handles
+    /// the logic for all reward types (`xp`, `coin`, and `gem`) across different difficulty levels.
+    func rewardQuantity(difficulty: Int) -> Int {
+        switch self {
+        case .xp:
+            switch difficulty {
+            case 1:
+                return 5
+            case 2:
+                return 15
+            case 5:
+                return 20
+            case 6:
+                return 35
+            default:
+                return 0
+            }
+        case .coin:
+            switch difficulty {
+            case 1:
+                return 5
+            case 2:
+                return 10
+            case 5:
+                return 20
+            case 6:
+                return 30
+            default:
+                return 0
+            }
+        case .gem:
+            switch difficulty {
+            case 1:
+                return 2
+            case 2:
+                return 5
+            case 5:
+                return 10
+            case 6:
+                return 15
+            default:
+                return 0
+            }
+        }
+    }
 }
 
 /// A protocol defining the structure for reward management.

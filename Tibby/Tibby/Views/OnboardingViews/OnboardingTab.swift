@@ -60,6 +60,7 @@ struct OnboardingTab: View {
                     OnboardingView3()
                 case .onboarding4:
                     OnboardingView4()
+                
                 }
                 Spacer()
                 Button(action: {
@@ -72,6 +73,9 @@ struct OnboardingTab: View {
                     else {
                         vm.nextPage()
                     }
+
+                    print(vm.currentIndex)
+                    print(vm.currentOnboarding)
                 }, label: {
                     ButtonLabel(type: .primary, image: vm.currentOnboarding.buttonSymbol, text: vm.currentOnboarding.buttonLabel)
 
@@ -82,6 +86,12 @@ struct OnboardingTab: View {
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
         .background(.tibbyBaseWhite)
-        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: {HomeView(tibby: service.getAllTibbies().first!)})
+        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView() })
+        .onAppear {
+            if let user = service.getUser() {
+                user.coins = 100
+                user.gems = 0
+            }
+        }
     }
 }
