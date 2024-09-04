@@ -26,34 +26,36 @@ struct SplashScreen: View {
     @EnvironmentObject var healthManager: HealthManager
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
-    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? false
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
     var body: some View {
-        if canProceed {
-            if firstTimeHere {
-                OnboardingTab(firstTime: $firstTimeHere)
-            }
-            else {
-                StartView()
-            }
-        } else {
-            VStack {
-                Spacer()
-                Image("TibbyLogoFull")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.horizontal)
-                Spacer()
-            }.onAppear {
-                if !firstTimeHere {
-                    healthManager.fetchAllInformation()
+        NavigationStack {
+            if canProceed {
+                if firstTimeHere {
+                    OnboardingTab(firstTime: $firstTimeHere)
                 }
-                service.setupData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-                    canProceed = true
-                })
+                else {
+                    StartView()
+                }
+            } else {
+                VStack {
+                    Spacer()
+                    Image("TibbyLogoFull")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                    Spacer()
+                }.onAppear {
+                    if !firstTimeHere {
+                        healthManager.fetchAllInformation()
+                    }
+                    service.setupData()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                        canProceed = true
+                    })
+                }
+                .background(.tibbyBaseBlue)
             }
-            .background(.tibbyBaseBlue)
         }
     }
 }

@@ -54,9 +54,11 @@ struct OnboardingTab: View {
                     OnboardingView3()
                 case .onboarding4:
                     OnboardingView4()
+                
                 }
                 Spacer()
                 Button(action: {
+                    
                     //adjust here for any other functions that are necessary
                     if vm.currentIndex == 1 {
                         //TODO: Update for next milestone
@@ -68,6 +70,9 @@ struct OnboardingTab: View {
                     else {
                         vm.nextPage()
                     }
+
+                    print(vm.currentIndex)
+                    print(vm.currentOnboarding)
                 }, label: {
                     ButtonLabel(type: .primary, image: constants.currentOnboarding.buttonSymbol, text: constants.currentOnboarding.buttonLabel)
                 })
@@ -77,6 +82,12 @@ struct OnboardingTab: View {
             .padding(EdgeInsets(top: 90, leading: 30, bottom: 30, trailing: 30))
         }
         .background(.tibbyBaseWhite)
-        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: {HomeView(tibby: service.getAllTibbies().first!)})
+        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView() })
+        .onAppear {
+            if let user = service.getUser() {
+                user.coins = 100
+                user.gems = 0
+            }
+        }
     }
 }

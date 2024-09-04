@@ -51,19 +51,10 @@ struct HomeView: View {
                         }
                         .padding(16)
                         Spacer()
-                        TibbyNameComponent(name: $tibby.name)
-                            .padding(.bottom, -20)
-                        ZStack {
-                            SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
-                                .onAppear {
-                                    tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
-                                }
-                                .opacity(showSprite ? 1 : 0)
-                            
-                            if !showSprite {
-                                Image("\(tibby.species)1")
-                                    .resizable()
-                                    .frame(width: 300, height: 300)
+                        Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
+                            .navigationDestination(isPresented: $showSettings) {
+                                SettingsView()
                             }
                         }.frame(width: 300, height: 300)
                         
@@ -99,46 +90,96 @@ struct HomeView: View {
                         .padding(16)
                         Spacer()
                     }
+                    .padding(16)
+                    Spacer()
+                    TibbyNameComponent(name: $tibby.name)
+                        .padding(.bottom, -20)
+                    ZStack {
+                        SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
+                            .onAppear {
+                                tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                            }
+                            .opacity(showSprite ? 1 : 0)
+                        
+                        if !showSprite {
+                            Image("\(tibby.species)1")
+                                .resizable()
+                                .frame(width: 300, height: 300)
+                        }
+                    }.frame(width: 300, height: 300)
+                    
+                    Button(action: {
+                        navigate.toggle()
+                    }) {
+                        HStack {
+                            Image(TibbySymbols.play.rawValue)
+                                .padding(.trailing, 26)
+                            Text("Play")
+                                .font(.typography(.title))
+                        }
+                    }
+                    .buttonPrimary(bgColor: .tibbyBaseBlue)
+                    .navigationDestination(isPresented: $navigate) {
+                        NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
+                    }
+                    
+                    HStack(alignment: .center) {
+                        Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
+                            .navigationDestination(isPresented: $showShop) {
+                                //
+                                GatchaView()
+                            }
+                        Spacer()
+                        Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                            .buttonSecondary(bgColor: .black)
+                            .navigationDestination(isPresented: $showMissions) {
+                                //
+                            }
+                    }
+                    .padding(16)
                     Spacer()
                 }
-                VStack {
-                    if !showSheet {
-                        Spacer()
-                        SheetWithCircle(goingUp: arrowUp)
-                            .ignoresSafeArea(.all)
-                            .frame(height: sheetHeight)
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { value in
-                                        if !showSheet {
-                                            let newHeight = sheetHeight - value.translation.height
-                                            sheetHeight = max(100, newHeight)
-                                            if sheetHeight > 250 {
-                                                withAnimation {
-                                                    showSheet.toggle()
-                                                    sheetHeight = 100
-                                                }
+                Spacer()
+            }
+            VStack {
+                if !showSheet {
+                    Spacer()
+                    SheetWithCircle(goingUp: arrowUp)
+                        .ignoresSafeArea(.all)
+                        .frame(height: sheetHeight)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    if !showSheet {
+                                        let newHeight = sheetHeight - value.translation.height
+                                        sheetHeight = max(100, newHeight)
+                                        if sheetHeight > 250 {
+                                            withAnimation {
+                                                showSheet.toggle()
+                                                sheetHeight = 100
                                             }
                                         }
                                     }
-                                    .onEnded { state in
-                                        withAnimation {
-                                            sheetHeight = 100
-                                        }
+                                }
+                                .onEnded { state in
+                                    withAnimation {
+                                        sheetHeight = 100
                                     }
-                            )
-                    }
-                    if showSheet {
-                        TibbySelectionView(tibby: $tibby, showSheet: $showSheet)
-                            .transition(.move(edge: .bottom))
-                            .animation(.bouncy, value: showSheet)
-                    }
+                                }
+                        )
+                }
+                if showSheet {
+                    TibbySelectionView(tibby: $tibby, showSheet: $showSheet)
+                        .transition(.move(edge: .bottom))
+                        .animation(.bouncy, value: showSheet)
                 }
             }
-            .background(
-                .tibbyBaseBlue
-            )
         }
+        .background(
+            .tibbyBaseBlue
+        )
+        
         .onAppear(perform: {
             if constants.music {
                 constants.playMusic(audio: "TibbyHappyTheme")
