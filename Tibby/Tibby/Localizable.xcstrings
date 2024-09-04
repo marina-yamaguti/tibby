@@ -45,7 +45,6 @@
 
     },
     "Cancel" : {
->>>>>>> dev
 
     },
     "Cancel" : {
@@ -63,6 +62,9 @@
     "Development" : {
 
     },
+    "Earn Rewards" : {
+
+    },
     "Equip" : {
 
     },
@@ -72,7 +74,13 @@
     "Gacha" : {
 
     },
+    "Gatcha Fun" : {
+
+    },
     "Given Name" : {
+
+    },
+    "Hello, World!" : {
 
     },
     "home" : {
@@ -81,10 +89,10 @@
     "Home" : {
 
     },
-    "How to allow?" : {
+    "How should we call you?" : {
 
     },
-    "important feature" : {
+    "How to allow?" : {
 
     },
     "Light" : {
@@ -103,9 +111,6 @@
 
     },
     "My Tibbies" : {
-
-    },
-    "Name" : {
 
     },
 <<<<<<< HEAD
@@ -150,13 +155,13 @@
     "settings" : {
 
     },
-    "Showcase" : {
-
-    },
     "Small title" : {
 
     },
     "species" : {
+
+    },
+    "Stay Healthy" : {
 
     },
     "tibby" : {
@@ -173,13 +178,13 @@
         }
       }
     },
-    "Tibby:" : {
-
-    },
     "uau quero comprar %@" : {
 
     },
     "uau quero devolver %@" : {
+
+    },
+    "Unlock new Tibbies through our exciting gacha system" : {
 
     },
     "v.%@" : {
