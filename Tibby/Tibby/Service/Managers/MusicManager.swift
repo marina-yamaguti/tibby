@@ -23,6 +23,9 @@ class AudioManager {
     /// The audio player instance used for the secondary sound effects (SFX).
     @Published private var sfxPlayerSecondary: AVAudioPlayer?
     
+    /// The audio player instance used for tibby sounds.
+    @Published private var tibbySoundPlayer: AVAudioPlayer?
+    
     /// A boolean property that controls whether background music is enabled.
     ///
     /// The value is stored in `UserDefaults`. When set to `true`, the background music is played;
@@ -53,9 +56,8 @@ class AudioManager {
     
     /// Plays background music using the provided audio file name.
     ///
-    /// - Parameter audio: The name of the audio file (without the extension) to be played as background music.
+    /// - Parameter audio: The name of the audio file without extension to be played as background music.
     ///
-    /// The audio file is expected to be in the app bundle with a `.wav` extension.
     /// If an audio file is already playing, it will be stopped before the new one begins.
     func playMusic(audio: Music) {
         audioPlayer?.stop() // Stop any currently playing audio
@@ -79,9 +81,8 @@ class AudioManager {
     
     /// Plays a sound effect (SFX) using the provided audio file name.
     ///
-    /// - Parameter audio: The name of the audio file (without the extension) to be played as a sound effect.
+    /// - Parameter audio: The name of the audio file without extension to be played as background music.
     ///
-    /// The audio file is expected to be in the app bundle with a `.wav` extension.
     /// If an SFX is already playing, it will be stopped before the new one begins.
     func playSFXSecondary(audio: SFX) {
         sfxPlayerSecondary?.stop() // Stop any currently playing audio
@@ -104,9 +105,8 @@ class AudioManager {
     
     /// Plays a sound effect (SFX) using the provided audio file name.
     ///
-    /// - Parameter audio: The name of the audio file (without the extension) to be played as a sound effect.
+    /// - Parameter audio: The name of the audio file without extension to be played as background music.
     ///
-    /// The audio file is expected to be in the app bundle with a `.wav` extension.
     /// If an SFX is already playing, it will be stopped before the new one begins.
     func playSFX(audio: SFX) {
         sfxPlayer?.stop() // Stop any currently playing audio
@@ -126,6 +126,31 @@ class AudioManager {
             sfxPlayer?.stop() // Stop any currently playing audio
         }
     }
+
+#warning("QUANDO SONS DOS TIBBIES FOREM DECIDIDOS IMPLEMENTAR")
+    /// Plays a tibby sound using the provided audio file name.
+    ///
+    /// - Parameter audio: The name of the audio file without extension to be played as background music.
+    ///
+    /// If an SFX is already playing, it will be stopped before the new one begins.
+//    func playTibbySound(audio: TibbySound) {
+//        tibbySoundPlayer?.stop() // Stop any currently playing audio
+//        if sfx {
+//            if let audioURL = Bundle.main.url(forResource: audio.rawValue, withExtension: audio.soundExtension) {
+//                do {
+//                    try tibbySoundPlayer = AVAudioPlayer(contentsOf: audioURL)
+//                    tibbySoundPlayer?.play()
+//                } catch {
+//                    print("Couldn't play audio. Error: \(error)")
+//                }
+//            } else {
+//                print("No audio file found")
+//            }
+//        }
+//        else {
+//            tibbySoundPlayer?.stop() // Stop any currently playing audio
+//        }
+//    }
 }
 
 
@@ -168,3 +193,8 @@ enum Music: String {
         }
     }
 }
+
+#warning("QUANDO SONS DOS TIBBIES FOREM DECIDIDOS IMPLEMENTAR")
+//enum TibbySounds: String {
+//    
+//}
