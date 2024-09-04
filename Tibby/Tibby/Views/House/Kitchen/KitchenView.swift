@@ -148,12 +148,8 @@ struct KitchenView: View {
                             Spacer()
                             Button(action: {
                                 openSelector = false
-                                if constants.vibration {
-                                    HapticManager.instance.impact(style: .soft)
-                                }
-                                if constants.sfx {
-                                    constants.playSFX(audio: "SecondaryButton")
-                                }
+                                HapticManager.instance.impact(style: .soft)
+                                AudioManager.instance.playSFX(audio: .secondaryButton)
                             }, label: {
                                 ZStack {
                                     Circle()

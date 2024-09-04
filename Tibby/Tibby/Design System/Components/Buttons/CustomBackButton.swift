@@ -17,9 +17,7 @@ struct CustomBackButton: View {
     
     var body: some View {
         Button(action: {
-            if constants.vibration {
-                HapticManager.instance.impact(style: .soft)
-            }
+            HapticManager.instance.impact(style: .soft)
             presentationMode.wrappedValue.dismiss()
         }, label: {
             ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")

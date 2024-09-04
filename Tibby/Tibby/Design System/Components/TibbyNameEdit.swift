@@ -88,9 +88,7 @@ struct TibbyNameEdit: View {
                 .foregroundStyle(Color.tibbyBaseWhite)
         }
         .onTapGesture {
-            if constants.vibration {
-                HapticManager.instance.impact(style: .soft)
-            }
+            HapticManager.instance.impact(style: .soft)
             isEditing.toggle()
             isFocused.toggle()
         }

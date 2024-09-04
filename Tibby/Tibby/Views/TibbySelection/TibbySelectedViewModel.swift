@@ -54,13 +54,11 @@ class TibbySelectedViewModel: ObservableObject {
     }
 
     
-    func changeTibby(vibration: Bool) {
+    func changeTibby() {
         currentTibby = tibby
         service.getUser()?.currentTibbyID = currentTibby.id
         status = .selected
-        if vibration {
-            HapticManager.instance.impact(style: .soft)
-        }
+        HapticManager.instance.impact(style: .soft)
     }
     
     func convertCamelCaseToSpaces(_ input: String) -> String {

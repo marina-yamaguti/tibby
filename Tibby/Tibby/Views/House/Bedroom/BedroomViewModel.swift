@@ -16,6 +16,12 @@ class BedroomViewModel: ObservableObject {
     }
     func lightsOff(tibby: Tibby) {
         constants.tibbySleeping.toggle()
+        if constants.tibbySleeping {
+            AudioManager.instance.playMusic(audio: .casual)
+        }
+        else {
+            AudioManager.instance.playMusic(audio: .happy)
+        }
         if let activity = service.getActivityByName(name: "Sleep") {
             let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
             service.applyInteractionToTibby(interaction: interaction, tibby: tibby)

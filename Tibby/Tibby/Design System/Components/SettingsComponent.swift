@@ -15,8 +15,10 @@ enum TrailingType {
 
 /// A reusable SwiftUI component for displaying a settings option with either a toggle button or details view.
 struct SettingsComponent: View {
-    @EnvironmentObject var constants: Constants
     @State private var showHealthAlert = false
+    @State var hapticManager = HapticManager.instance
+    @State var audioManager = AudioManager.instance
+    
     var trailingType: TrailingType
     
     /// The title displayed next to the circle.
@@ -65,17 +67,17 @@ struct SettingsComponent: View {
                         } else {
                             switch label {
                             case "Music":
-                                Toggle(label, isOn: $constants.music)
+                                Toggle(label, isOn: $audioManager.music)
                                     .font(.typography(.body2))
                                     .foregroundStyle(.tibbyBaseBlack)
                                     .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
                             case "Sound Effects":
-                                Toggle(label, isOn: $constants.sfx)
+                                Toggle(label, isOn: $audioManager.sfx)
                                     .font(.typography(.body2))
                                     .foregroundStyle(.tibbyBaseBlack)
                                     .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
                             case "Phone Vibrations":
-                                Toggle(label, isOn: $constants.vibration)
+                                Toggle(label, isOn: $hapticManager.vibration)
                                     .font(.typography(.body2))
                                     .foregroundStyle(.tibbyBaseBlack)
                                     .padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
