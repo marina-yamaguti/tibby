@@ -22,11 +22,12 @@ struct GatchaView: View {
     @State private var disableButton = false
     @State private var showCapsuleAnimation = false
     @State var wasAlreadyUnlocked = false
+    @State var firtTimeHere: Bool
     
     var body: some View {
         if showCapsuleAnimation {
             if vm.newTibbyImage != nil  {
-                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked)
+                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked, firtTimeHere: firtTimeHere)
                     .navigationBarBackButtonHidden(true)
             }
         } else {
@@ -50,13 +51,15 @@ struct GatchaView: View {
                 ZStack {
                     ZStack {
                         if vm.currentGatchaSecondaryImage != nil {
-                            vm.currentGatchaSecondaryImage!
-                                .resizable()
-                                .offset(x: isBaseOnFocus ? UIScreen.main.bounds.width + UIScreen.main.bounds.width/5: 0 + xOffset)
-                                .scaleEffect(isBaseOnFocus ? 0.5 : 1)
-                                .brightness(isBaseOnFocus ? -0.3 : 0)
-                                .zIndex(isBaseOnFocus ? 0 : 1)
-                                .animation(.smooth, value: isBaseOnFocus)
+                            if !firtTimeHere {
+                                vm.currentGatchaSecondaryImage!
+                                    .resizable()
+                                    .offset(x: isBaseOnFocus ? UIScreen.main.bounds.width + UIScreen.main.bounds.width/5: 0 + xOffset)
+                                    .scaleEffect(isBaseOnFocus ? 0.5 : 1)
+                                    .brightness(isBaseOnFocus ? -0.3 : 0)
+                                    .zIndex(isBaseOnFocus ? 0 : 1)
+                                    .animation(.smooth, value: isBaseOnFocus)
+                            }
                         }
                         
                         if vm.currentGatchaImage != nil {
@@ -77,26 +80,28 @@ struct GatchaView: View {
                     }.gesture(
                         DragGesture()
                             .onChanged { value in
-                                if value.translation.width < 0 && isBaseOnFocus {
-                                    self.xOffset = value.translation.width
-                                    if xOffset <= -40 {
-                                        xOffset = 0
-                                        isBaseOnFocus.toggle()
-                                        
-                                        withAnimation(.smooth) {
-                                            backgroundcolor =  vm.currentSeries.color
+                                if !firtTimeHere {
+                                    if value.translation.width < 0 && isBaseOnFocus {
+                                        self.xOffset = value.translation.width
+                                        if xOffset <= -40 {
+                                            xOffset = 0
+                                            isBaseOnFocus.toggle()
+                                            
+                                            withAnimation(.smooth) {
+                                                backgroundcolor =  vm.currentSeries.color
+                                            }
                                         }
                                     }
-                                }
-                                
-                                if value.translation.width > 0 && !isBaseOnFocus {
-                                    self.xOffset = value.translation.width
-                                    if xOffset >= 40 {
-                                        withAnimation(.smooth) {
-                                            backgroundcolor = .tibbyBaseWhite
+                                    
+                                    if value.translation.width > 0 && !isBaseOnFocus {
+                                        self.xOffset = value.translation.width
+                                        if xOffset >= 40 {
+                                            withAnimation(.smooth) {
+                                                backgroundcolor = .tibbyBaseWhite
+                                            }
+                                            xOffset = 0
+                                            isBaseOnFocus.toggle()
                                         }
-                                        xOffset = 0
-                                        isBaseOnFocus.toggle()
                                     }
                                 }
                                 

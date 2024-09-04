@@ -15,6 +15,8 @@
 		7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591E2C459E39004FFD4B /* KitchenView.swift */; };
 		7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59202C459E4F004FFD4B /* GradenView.swift */; };
 		7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59222C459E62004FFD4B /* Navigation.swift */; };
+		7C8AEC912C87852B00DF0B8E /* MissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AEC902C87852B00DF0B8E /* MissionManager.swift */; };
+		7C8AEC932C87853B00DF0B8E /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AEC922C87853B00DF0B8E /* MusicManager.swift */; };
 		7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95859C2C405C7900780558 /* BedroomExemple.swift */; };
 		7C9CDA3A2C73E9DA0044A8B3 /* TertiaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */; };
 		7C9CDA3B2C73E9DA0044A8B3 /* PrimaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */; };
@@ -51,6 +53,7 @@
 		A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
+		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -76,6 +79,7 @@
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
+		D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECD2C6C0293009C208C /* SheetWithCircle.swift */; };
 		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
 		D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED12C6D1B67009C208C /* SettingsView.swift */; };
 		D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED32C6D1BAC009C208C /* PageHeader.swift */; };
@@ -220,6 +224,8 @@
 		7C7B591E2C459E39004FFD4B /* KitchenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenView.swift; sourceTree = "<group>"; };
 		7C7B59202C459E4F004FFD4B /* GradenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradenView.swift; sourceTree = "<group>"; };
 		7C7B59222C459E62004FFD4B /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		7C8AEC902C87852B00DF0B8E /* MissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionManager.swift; sourceTree = "<group>"; };
+		7C8AEC922C87853B00DF0B8E /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		7C95859C2C405C7900780558 /* BedroomExemple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomExemple.swift; sourceTree = "<group>"; };
 		7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TertiaryButton.wav; sourceTree = "<group>"; };
 		7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PrimaryButton.wav; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
+		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -279,6 +286,7 @@
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		D896AECD2C6C0293009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AED12C6D1B67009C208C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D896AED32C6D1BAC009C208C /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
@@ -490,6 +498,15 @@
 			path = Bedroom;
 			sourceTree = "<group>";
 		};
+		7C8AEC8F2C87851500DF0B8E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7C8AEC902C87852B00DF0B8E /* MissionManager.swift */,
+				7C8AEC922C87853B00DF0B8E /* MusicManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		7CE131C92C63F386001D7348 /* OnboardingViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +655,8 @@
 				D8D520752C80E85900A37057 /* LevelComponent.swift */,
 				D84055132C82501000292BDC /* EquipComponent.swift */,
 				D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */,
+				D896AECD2C6C0293009C208C /* SheetWithCircle.swift */,
+				BC537F152C87D16400463E59 /* BackgroundView.swift */,
 				FD51552E2C88D1EA00B9684A /* CustomSearchBar.swift */,
 			);
 			path = Components;
@@ -759,6 +778,7 @@
 		FD9075F72C34A2AB000E5F24 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7C8AEC8F2C87851500DF0B8E /* Managers */,
 				FDCD3F502C34EEFE0075E0C7 /* Service.swift */,
 				FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */,
 				7CF056C92C3C774D006039A4 /* Constants.swift */,
@@ -1103,6 +1123,7 @@
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				FD45F27C2C6C02360046DE49 /* AccessoryCategory.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
+				7C8AEC932C87853B00DF0B8E /* MusicManager.swift in Sources */,
 				A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
 				FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */,
@@ -1114,6 +1135,7 @@
 				A50E92C02C65351E00762A11 /* TibbySpeciesLabel.swift in Sources */,
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */,
+				7C8AEC912C87852B00DF0B8E /* MissionManager.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */,
@@ -1140,8 +1162,10 @@
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
+				BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
 				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
+				D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
@@ -1445,7 +1469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1494,7 +1518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

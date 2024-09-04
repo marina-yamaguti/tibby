@@ -18,7 +18,6 @@ class OnboardingTabViewModel: ObservableObject {
     
     func nextPage() {
         if currentIndex == 3 {
-            UserDefaults.standard.set(false, forKey: "firstTime")
             navigateToGatcha = true
         } else {
             currentIndex += 1
