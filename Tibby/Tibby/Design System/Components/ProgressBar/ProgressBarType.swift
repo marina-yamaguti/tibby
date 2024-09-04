@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum ProgressBarType {
-    case eat, sleep, emotion
+    case eat, sleep, emotion, xp
 }
 
 struct CustomProgressBar: ProgressViewStyle {
@@ -34,8 +34,7 @@ struct CustomProgressBar: ProgressViewStyle {
                             .frame(width: geometry.size.width * CGFloat(fractionCompleted), height: CGFloat(height))
                     }
                     .aspectRatio(6, contentMode: .fit)
-                }
-                else {
+                } else if barType == .eat {
                     HStack(spacing: 8) {
                         ForEach(0..<3) { segment in
                             Capsule()
@@ -44,6 +43,16 @@ struct CustomProgressBar: ProgressViewStyle {
                         }
                     }
                     .aspectRatio(3, contentMode: .fit)
+                } else {
+                    ZStack(alignment: .leading) {
+                        Capsule()
+                            .fill(.tibbyBasePearlBlue)
+                            .frame(height: CGFloat(height))
+                        
+                        Capsule()
+                            .fill(.tibbyBaseSaturatedGreen)
+                            .frame(width: geometry.size.width * CGFloat(fractionCompleted), height: CGFloat(height))
+                    }
                 }
                 HStack {
                     Text(vm.getText(value: fractionCompleted, barType: barType))

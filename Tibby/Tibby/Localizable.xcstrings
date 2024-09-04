@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "?" : {
-
-    },
     "%@" : {
 
     },
@@ -15,6 +12,16 @@
     },
     "%lld" : {
 
+    },
+    "%lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
+          }
+        }
+      }
     },
     "20" : {
 
@@ -25,13 +32,13 @@
     "again..." : {
 
     },
+    "Brought to you by:" : {
+
+    },
     "Cancel" : {
 
     },
     "Complete missions and earn rewards like coins and items" : {
-
-    },
-    "Credits" : {
 
     },
     "description" : {
@@ -91,13 +98,13 @@
     "my food inventory: " : {
 
     },
+    "My Goals" : {
+
+    },
     "My Tibbies" : {
 
     },
     "New Workout" : {
-
-    },
-    "OK" : {
 
     },
     "Okay" : {
@@ -139,6 +146,9 @@
     "settings" : {
 
     },
+    "Showcase" : {
+
+    },
     "species" : {
 
     },
@@ -158,6 +168,9 @@
           }
         }
       }
+    },
+    "Tibby:" : {
+
     },
     "Track your workouts, steps, and more to keep both you and your Tibby in top shape!" : {
 

@@ -113,16 +113,18 @@ struct GatchaView: View {
                             }
                     )
                 }
-                HStack {
-                    Spacer()
-                    if isBaseOnFocus {
-                        GachaArrowAnimation()
-                    } else {
-                        GachaArrowAnimation()
-                            .rotationEffect(isBaseOnFocus ? .zero : .degrees(180))
-                    }
-                    Spacer()
-                }.padding(.bottom)
+                if !firtTimeHere {
+                    HStack {
+                        Spacer()
+                        if isBaseOnFocus {
+                            GachaArrowAnimation()
+                        } else {
+                            GachaArrowAnimation()
+                                .rotationEffect(isBaseOnFocus ? .zero : .degrees(180))
+                        }
+                        Spacer()
+                    }.padding(.bottom)
+                }
                 
                 ButtonGacha(color: isBaseOnFocus ? .tibbyBaseYellow : vm.currentSeries.color, disableButton: $disableButton) {
                     if vm.checkForRoll(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20) {

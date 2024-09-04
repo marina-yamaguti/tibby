@@ -72,6 +72,9 @@ final class CustomBarViewModel: ObservableObject {
             default:
                 return ""
             }
+        case .xp:
+            return ""
+            
         }
     }
 }
