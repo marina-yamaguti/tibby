@@ -25,13 +25,13 @@ enum OnboardingViews: CaseIterable {
     var description: String {
         switch self {
         case .onboarding1:
-            return "Small explanation about Tibby, a wellbeing app that promotes good habits with a companion."
+            return "Tibby will be your next best partner on keeping your habits up to date."
         case .onboarding2:
-            return "Small explanation about needing HealthKit permission for the app to work."
+            return "Allow Health access to let Tibby help you achieve a healthier lifestyle with personalized care and activity tracking."
         case .onboarding3:
-            return "Tell us a little about yourself to help personalize your experience."
+            return "How should we call you?"
         case .onboarding4:
-            return "Let's recap the key points before we start!"
+            return ""
         }
     }
     

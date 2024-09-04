@@ -40,8 +40,8 @@ struct OnboardingTab: View {
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                     Text(vm.currentOnboarding.description)
-                        .font(.typography(.label))
-
+                        .font(.typography(.label2))
+                        .multilineTextAlignment(.center)
                 }
                 .foregroundStyle(.black)
                 
@@ -57,10 +57,8 @@ struct OnboardingTab: View {
                 }
                 Spacer()
                 Button(action: {
-                    //adjust here for any other functions that are necessary
                     if vm.currentIndex == 1 {
-                        //TODO: Update for next milestone
-//                        healthManager.authorizationToWriteInHealthStore()
+                        healthManager.authorizationToWriteInHealthStore()
                         vm.nextPage()
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
