@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct TibbyBook: View {
+    @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @Binding var tibby: Tibby
-    @State var showPopUp = false
-    @State var collectionAlert: Collection = .seaSeries
     @State var collectionTibbies: [Tibby] = []
     @State var tibbies: [Collection:[Tibby]] = [:]
     var body: some View {
         let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible())
+            GridItem(.flexible(), spacing: 16),
+            GridItem(.flexible(), spacing: 16)
         ]
         VStack {
-            PageHeader(title: "Tibby Book", symbol: "TibbySymbolBook")
+            PageHeader(title: "Tibby Book", symbol: TibbySymbols.bookBlack.rawValue)
             ScrollView {
                 VStack {
                     Spacer()
@@ -30,43 +29,44 @@ struct TibbyBook: View {
                                 HStack {
                                     Text(collection.rawValue)
                                         .font(.typography(.title))
+                                        .foregroundStyle(.tibbyBaseBlack)
+                                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                                        .background {
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .fill(collection.color)
+                                        }
                                         .padding(.leading)
                                         .onAppear {
                                             self.collectionTibbies = self.getTibbyList(collection: collection.rawValue, service: service)
+                                            self.collectionTibbies = self.collectionTibbies.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
                                         }
-                                        
                                     Spacer()
-                                    Button(action: {
-                                        self.collectionAlert = collection
-                                        showPopUp.toggle()
-                                    }, label: {
-                                        ZStack {
-                                            Circle().foregroundStyle(.black.opacity(0.5))
-                                            Text("?").foregroundStyle(.tibbyBaseWhite)
-                                                .padding(4)
-                                        }.frame(width: 24, height: 24)
-                                    }).padding(.trailing)
                                 }
-                                LazyVGrid(columns: columns, spacing: 8) {
+                                .padding(.bottom, 8)
+                                
+                                Text(collection.description)
+                                    .font(.typography(.label2))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                    .padding(.leading)
+                                
+                                LazyVGrid(columns: columns, spacing: 16) {
                                     ForEach($collectionTibbies) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            ItemCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
-                                                
+                                            TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)                                                
                                         } else if tibbyL.isUnlocked {
-                                            ItemCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         } else {
-                                            ItemCard(name: $tibbyL.name, status: .locked, color: collection.color, image: "\(tibbyL.species)1")
-                                                .padding()
+                                            TibbyCard(name: $tibbyL.name, status: .locked, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         }
                                     }
-                                }.background(collection.color)
+                                }
+                                .padding(16)
+                                .background(.tibbyBasePearlBlue)
                                     .cornerRadius(20)
                                     .padding()
-                                    .padding(.bottom, 50)       
                             }
-                        }.onAppear {
+                        }
+                        .onAppear {
                             print(collection.rawValue)
                             print(collectionTibbies.isEmpty)
                         }
@@ -78,11 +78,6 @@ struct TibbyBook: View {
             .ignoresSafeArea(.all, edges: .top)
             .background(Color.tibbyBaseWhite)
             .navigationBarBackButtonHidden(true)
-            .alert(collectionAlert.rawValue, isPresented: $showPopUp, actions: {
-                Button("OK", role: .cancel) {}
-            }, message: {
-                Text(collectionAlert.description)
-            })
             .onAppear {
                 self.tibbies = self.setupMap()
             }

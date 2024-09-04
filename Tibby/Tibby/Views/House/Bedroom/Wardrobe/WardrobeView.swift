@@ -52,11 +52,11 @@ struct WardrobeView: View {
                 // Top bar with close button
                 HStack(alignment: .top) {
                     Button(action: {}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
-                        .buttonSecondary(bgColor: .black)
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
                         .hidden()
                     Spacer()
                     Button(action: {wardrobeIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
-                        .buttonSecondary(bgColor: .black)
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
                 }
                 .padding()
                 

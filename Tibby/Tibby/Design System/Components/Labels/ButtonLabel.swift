@@ -41,12 +41,13 @@ struct ButtonLabel: View {
                 Text(text)
                     .font(.typography(.title))
                     .foregroundStyle(.tibbyBaseDarkBlue)
-                    .frame(minWidth: 150)
             } else {
                 EmptyView()
             }
             Spacer()
         }
+        .frame(minWidth: 290)
+
         .foregroundStyle(foregroundColor)
     }
 }

@@ -24,6 +24,6 @@ struct CustomBackButton: View {
         }, label: {
             ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")
         })
-        .buttonSecondary(bgColor: .black)
+        .buttonSecondary(bgColor: .black.opacity(0.5))
     }
 }
