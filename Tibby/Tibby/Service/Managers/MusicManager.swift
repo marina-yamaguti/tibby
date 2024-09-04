@@ -26,6 +26,8 @@ class AudioManager {
     /// The audio player instance used for tibby sounds.
     @Published private var tibbySoundPlayer: AVAudioPlayer?
     
+    private var currentMusic: Music = .happy
+    
     /// A boolean property that controls whether background music is enabled.
     ///
     /// The value is stored in `UserDefaults`. When set to `true`, the background music is played;
@@ -34,7 +36,7 @@ class AudioManager {
         didSet {
             UserDefaults.standard.set(music, forKey: "music")
             if music {
-                playMusic(audio: .happy)
+                playMusic(audio: currentMusic)
             } else {
                 audioPlayer?.stop()
             }
@@ -61,6 +63,7 @@ class AudioManager {
     /// If an audio file is already playing, it will be stopped before the new one begins.
     func playMusic(audio: Music) {
         audioPlayer?.stop() // Stop any currently playing audio
+        currentMusic = audio
         if music {
             if let audioURL = Bundle.main.url(forResource: audio.rawValue, withExtension: audio.soundExtension) {
                 do {
