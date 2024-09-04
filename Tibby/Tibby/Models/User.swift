@@ -34,6 +34,9 @@ final class User {
     /// The identifier for the Tibby the User is currently using
     var currentTibbyID: UUID?
     
+    /// A list cointaining the ids of the user's favorite tibbies (max: 3)
+    var favoriteTibbies: [UUID] = []
+    
     init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, currentTibbyID: UUID? = nil) {
         self.id = id
         self.username = username
