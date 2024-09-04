@@ -14,6 +14,13 @@ struct TibbyCard: View {
                     .resizable()
                     .frame(width: 15, height: 15)
                 Spacer()
+                if status == .locked {
+                    Image(TibbySymbols.lock.rawValue)
+                        .resizable()
+                        .renderingMode(.template)
+                        .frame(width: 9, height: 13)
+                        .foregroundStyle(Color.tibbyBaseBlack)
+                }
             }
             HStack(alignment: .center) {
                 Image(image)
@@ -25,7 +32,7 @@ struct TibbyCard: View {
             }
             .padding(.bottom, 5)
             HStack {
-                Text(name)
+                Text(status == .locked ? "???" : name)
                     .font(.typography(.label2))
                     .padding(.vertical, 8)
                     .frame(width: 110)

@@ -83,7 +83,7 @@ struct KitchenView: View {
                     HStack {
                         Spacer()
                         Button(action: {openSelector.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.carrot.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                     }
                     .padding(.bottom, 32).padding(.horizontal,20)
                 }

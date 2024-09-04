@@ -25,6 +25,7 @@ struct PageHeader: View {
             Image(symbol)
                 .resizable()
                 .frame(width: 32, height: 32)
+                .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
             
             Text(title)
                 .font(.typography(.title))

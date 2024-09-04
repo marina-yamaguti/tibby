@@ -72,10 +72,10 @@ struct BedroomView: View {
                 Spacer()
                 HStack {
                     Button(action: {vm.lightsOff(tibby: tibby)}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.lightBulb.rawValue, text: "")})
-                        .buttonSecondary(bgColor: .black)
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
                     Spacer()
                     Button(action: {wardrobeIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hanger.rawValue, text: "")})
-                        .buttonSecondary(bgColor: .black)
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
                 }
                 .padding(.bottom, 32).padding(.horizontal,20)
             }

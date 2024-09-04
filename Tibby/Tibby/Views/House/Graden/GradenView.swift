@@ -76,7 +76,7 @@ struct GardenView: View {
                     HStack {
                         Spacer()
                         Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.controller.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
                 if exercisesSheetIsOpen {
@@ -87,7 +87,7 @@ struct GardenView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
-                                    .buttonSecondary(bgColor: .black)
+                                    .buttonSecondary(bgColor: .black.opacity(0.5))
 
                             }
                             .padding()
