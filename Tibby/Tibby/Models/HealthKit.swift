@@ -741,6 +741,52 @@ enum WorkoutActivityType: CaseIterable {
     var icon: String {
         if self == .other {
             return "figure.stand"
+        } else if self == .functionalStrengthTraining {
+            return "figure.strengthtraining.functional"
+        } else if self == .traditionalStrengthTraining {
+            return "figure.strengthtraining.traditional"
+        } else if self == .cycling {
+            return "figure.outdoor.cycle"
+        } else if self == .running {
+            return "figure.run"
+        } else if self == .taiChi {
+            return "figure.taichi"
+        } else if self == .wheelchairRunPace {
+            return "figure.roll.runningpace"
+        } else if self == .wheelchairWalkPace {
+            return "figure.roll"
+        } else if self == .rowing {
+            return "figure.rower"
+        } else if self == .jumpRope {
+            return "figure.jumprope"
+        } else if self == .skatingSports {
+            return "figure.skating"
+        } else if self == .snowSports {
+            return "figure.snowboarding"
+        } else if self == .walking {
+            return "figure.walk"
+        } else if self == .stairClimbing {
+            return "figure.stairs"
+        } else if self == .surfingSports {
+            return "figure.surfing"
+        } else if self == .swimming {
+            return "figure.pool.swim"
+        } else if self == .waterPolo {
+            return "figure.waterpolo"
+        } else if self == .waterSports {
+            return "figure.water.fitness"
+        } else if self == .crossCountrySkiing {
+            return "figure.skiing.crosscountry"
+        } else if self == .downhillSkiing {
+            return "figure.skiing.downhill"
+        } else if self == .paddleSports {
+            return "figure.tennis"
+        } else if self == .preparationAndRecovery {
+            return "figure.strengthtraining.functional"
+        } else if self == .highIntensityIntervalTraining {
+            return "figure.highintensity.intervaltraining"
+        } else if self == .fitnessGaming {
+            return "gamecontroller.fill"
         }
         var name = self.name.lowercased()
         name = name.replacingOccurrences(of: " ", with: ".")

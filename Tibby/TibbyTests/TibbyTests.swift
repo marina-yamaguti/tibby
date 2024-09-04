@@ -79,6 +79,14 @@ final class TibbyTests: XCTestCase {
     }
     
     class RewardProtocolTets: RewardProtocol {
+        var rewardValue: Int = 0
+        
+        var rewardType: RewardType = .coin
+        
+        func reward(user: User?, tibby: Tibby?) {
+            
+        }
+        
         func reward(quantity: Int, rewardType: RewardType, user: User? = nil, tibby: Tibby? = nil) {
             switch rewardType {
             case .xp:
