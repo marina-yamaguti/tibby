@@ -20,11 +20,11 @@ struct OnboardingTab: View {
                 HStack {
                     if vm.currentIndex == 0 {
                         Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                             .hidden()
                     } else {
                         Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                     }
                     Spacer()
                 }
@@ -81,7 +81,7 @@ struct OnboardingTab: View {
 
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
-                .padding(32)
+                .padding(40)
             }
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }

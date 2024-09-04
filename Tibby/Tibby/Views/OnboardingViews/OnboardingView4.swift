@@ -16,6 +16,8 @@ struct OnboardingView4: View {
         VStack {
             HStack {
                 Image("CapsuleCommon")
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 60, height: 60)
                 VStack(alignment: .leading) {
                     Text("Gatcha Fun")
@@ -27,6 +29,8 @@ struct OnboardingView4: View {
             }
             HStack {
                 Image("CapsuleRare")
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 60, height: 60)
                 VStack(alignment: .leading) {
                     Text("Earn Rewards")
@@ -39,6 +43,8 @@ struct OnboardingView4: View {
             }
             HStack {
                 Image("CapsuleEpic")
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 60, height: 60)
                 VStack(alignment: .leading) {
                     Text("Stay Healthy")

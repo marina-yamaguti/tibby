@@ -51,7 +51,6 @@ enum TibbySymbols: String {
     case heart = "TibbySymbolHeart"
     case heartFill = "TibbySymbolHeartFill"
     case lock = "TibbySymbolLock"
-    case lock = "TibbySymbolLock"
     case plus = "TibbySymbolPlus"
     case minus = "TibbySymbolMinus"
 }

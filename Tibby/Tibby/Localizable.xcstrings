@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "?" : {
-
-    },
     "%@" : {
 
     },
@@ -32,22 +29,16 @@
     "100" : {
 
     },
-<<<<<<< HEAD
-    "Brought to you by:" : {
-=======
     "again..." : {
 
     },
-    "Cancel" : {
-
-    },
-    "100" : {
+    "Brought to you by:" : {
 
     },
     "Cancel" : {
 
     },
-    "Cancel" : {
+    "Complete missions and earn rewards like coins and items" : {
 
     },
     "description" : {
@@ -113,15 +104,9 @@
     "My Tibbies" : {
 
     },
-<<<<<<< HEAD
-=======
-    "OK" : {
-
-    },
     "Okay" : {
 
     },
->>>>>>> dev
     "Open Settings" : {
 
     },
@@ -155,7 +140,7 @@
     "settings" : {
 
     },
-    "Small title" : {
+    "Showcase" : {
 
     },
     "species" : {
@@ -177,6 +162,12 @@
           }
         }
       }
+    },
+    "Tibby:" : {
+
+    },
+    "Track your workouts, steps, and more to keep both you and your Tibby in top shape!" : {
+
     },
     "uau quero comprar %@" : {
 

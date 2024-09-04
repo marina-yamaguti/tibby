@@ -26,69 +26,22 @@ struct HomeView: View {
     @State private var showShop = false
     @State private var showMissions = false
     @State private var showSettings = false
-    @State private var showProfile = false
-
-
+    
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                HStack {
-                    Spacer()
-                    VStack {
-                        HStack(alignment: .center) {
-                            NavigationLink(destination: {ProfileView(currentTibby: $tibby)}) {
-                                LevelComponent(level: 32)
-
-                            }
-                               
-                            Spacer()
-                            Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
-                                .buttonSecondary(bgColor: .black.opacity(0.5))
-                                .navigationDestination(isPresented: $showSettings) {
-                                    SettingsView()
-                                }
-                        }
-                        .padding(16)
+        
+        ZStack {
+            HStack {
+                Spacer()
+                VStack {
+                    HStack(alignment: .center) {
+                        LevelComponent(level: 32)
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black)
                             .navigationDestination(isPresented: $showSettings) {
                                 SettingsView()
                             }
-                        }.frame(width: 300, height: 300)
-                        
-                        Button(action: {
-                            navigate.toggle()
-                        }) {
-                            HStack {
-                                Image(TibbySymbols.play.rawValue)
-                                    .padding(.trailing, 26)
-                                Text("Play")
-                                    .font(.typography(.title))
-                            }
-                        }
-                        .buttonPrimary(bgColor: .tibbyBaseBlue)
-                        .navigationDestination(isPresented: $navigate) {
-                            NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
-                        }
-                        
-                        HStack(alignment: .center) {
-                            Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
-                                .buttonSecondary(bgColor: .black.opacity(0.5))
-                                .navigationDestination(isPresented: $showShop) {
-                                    //
-                                    GatchaView()
-                                }
-                            Spacer()
-                            Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
-                                .buttonSecondary(bgColor: .black.opacity(0.5))
-                                .navigationDestination(isPresented: $showMissions) {
-                                    //
-                                }
-                        }
-                        .padding(16)
-                        Spacer()
                     }
                     .padding(16)
                     Spacer()
@@ -254,4 +207,3 @@ struct HomeView: View {
         }
     }
 }
-
