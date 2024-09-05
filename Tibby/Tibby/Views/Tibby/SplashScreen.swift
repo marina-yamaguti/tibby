@@ -26,7 +26,7 @@ struct SplashScreen: View {
     @EnvironmentObject var healthManager: HealthManager
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
-    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
+    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? false//true
     
     var body: some View {
         NavigationStack {
@@ -36,6 +36,9 @@ struct SplashScreen: View {
                 }
                 else {
                     StartView()
+                        .onAppear {
+                            AudioManager.instance.playMusic(audio: .happy)
+                        }
                 }
             } else {
                 VStack {

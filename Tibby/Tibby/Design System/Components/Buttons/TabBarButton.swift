@@ -28,6 +28,8 @@ struct TabBarButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
+            .frame(width: 30, height: 30)
+
             .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
@@ -45,12 +47,8 @@ struct TabBarButton: ButtonStyle {
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { oldValue, newValue in
-                if constants.vibration {
-                    HapticManager.instance.impact(style: .soft)
-                }
-                if constants.sfx {
-                    constants.playSFX(audio: "PrimaryButton")
-                }
+                HapticManager.instance.impact(style: .soft)
+                AudioManager.instance.playSFX(audio: .primaryButton)
             }
     }
 }

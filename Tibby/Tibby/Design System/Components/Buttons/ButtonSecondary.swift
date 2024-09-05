@@ -23,5 +23,10 @@ struct ButtonSecondary: ButtonStyle {
                     .fill(bgColor)
             )
             .animation(.linear(duration: 0), value: configuration.isPressed)
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                HapticManager.instance.impact(style: .soft)
+                AudioManager.instance.playSFX(audio: .secondaryButton)
+            }
+        
     }
 }

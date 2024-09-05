@@ -29,25 +29,18 @@ struct ButtonLabel: View {
     var foregroundColor: Color = .tibbyBaseDarkBlue
     
     var body: some View {
-        HStack(spacing: 32) {
-            Spacer()
+        HStack {
             Image(image)
-                .renderingMode(.template)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 32, height: 32)
-
             if type == .primary {
                 Text(text)
                     .font(.typography(.title))
-                    .foregroundStyle(.tibbyBaseDarkBlue)
+                    .padding(.leading, 32)
             } else {
                 EmptyView()
             }
-            Spacer()
         }
-        .frame(minWidth: 290)
-
         .foregroundStyle(foregroundColor)
     }
 }

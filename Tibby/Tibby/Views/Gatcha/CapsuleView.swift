@@ -74,9 +74,7 @@ struct CapsuleView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                         self.animate()
                         self.toggleBouncing()
-                        if constants.vibration {
-                            HapticManager.instance.impact(style: .heavy)
-                        }
+                        HapticManager.instance.impact(style: .heavy)
                     })
                     
                     
@@ -193,9 +191,7 @@ struct CapsuleView: View {
             .autoconnect()
             .sink { _ in
                 if bounceTogle {
-                    if constants.vibration {
-                        HapticManager.instance.impact(style: .rigid)
-                    }
+                    HapticManager.instance.impact(style: .rigid)
                     offset += 3
                 } else {
                     offset -= 3

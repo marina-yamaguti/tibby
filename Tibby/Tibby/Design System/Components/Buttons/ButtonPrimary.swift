@@ -42,5 +42,9 @@ struct ButtonPrimary: ButtonStyle {
             .overlay(GradientBackgroundView(cornerRadius: 20))
             .padding(.top, configuration.isPressed ? 20 : 0)
             .animation(.linear(duration: 0.1), value: configuration.isPressed)
+            .onChange(of: configuration.isPressed) { oldValue, newValue in
+                HapticManager.instance.impact(style: .soft)
+                AudioManager.instance.playSFX(audio: .primaryButton)
+            }
     }
 }

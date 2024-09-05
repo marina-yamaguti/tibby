@@ -41,7 +41,7 @@ struct TibbySelectedView: View {
                     
                     // MARK: - Tibby Profile Icon
                     TibbyProfileIcon(icon: "\(viewModel.tibby.species)Icon", status: $viewModel.status) {
-                        viewModel.changeTibby(vibration: constants.vibration)
+                        viewModel.changeTibby()
                     }
                 }
                 .padding(.bottom, 40)
