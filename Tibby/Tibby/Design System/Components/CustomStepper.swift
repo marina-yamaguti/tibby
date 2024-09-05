@@ -54,6 +54,8 @@ struct CustomStepper: View {
                 VStack(spacing: 8) {
                     Text("\(value)")
                         .font(.typography(.title))
+                        .foregroundStyle(.tibbyBaseBlack)
+                    
                     Text(description)
                         .font(.typography(.label2))
                         .foregroundStyle(.tibbyBaseGrey)

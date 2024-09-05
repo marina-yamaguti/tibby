@@ -27,6 +27,7 @@ struct CustomTextField: View {
                 .foregroundStyle(.tibbyBaseBlack)
                 .font(.typography(.body2))
             TextField(placeholder, text: $input)
+                .foregroundStyle(.tibbyBaseGrey)
                 .font(.typography(.body2))
             Divider()
         }

@@ -15,7 +15,6 @@ struct OnboardingView1: View {
 
     var body: some View {
         VStack {
-            
             ZStack {
                 if showFirstImage {
                     Image("Onboarding1")
