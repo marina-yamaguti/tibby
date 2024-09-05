@@ -38,7 +38,7 @@ struct HomeView: View {
                         LevelComponent(level: 32)
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
                                 SettingsView()
                             }
@@ -78,14 +78,14 @@ struct HomeView: View {
                     
                     HStack(alignment: .center) {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
                                 //
                                 GatchaView()
                             }
                         Spacer()
                         Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black)
+                            .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showMissions) {
                                 //
                             }
