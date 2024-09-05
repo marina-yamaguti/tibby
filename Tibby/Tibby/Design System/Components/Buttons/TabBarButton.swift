@@ -28,6 +28,8 @@ struct TabBarButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
+            .frame(width: 30, height: 30)
+
             .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
