@@ -113,6 +113,7 @@
 		FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */; };
 		FD51552D2C88C8BD00B9684A /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51552C2C88C8BD00B9684A /* WorkoutListView.swift */; };
 		FD51552F2C88D1EA00B9684A /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51552E2C88D1EA00B9684A /* CustomSearchBar.swift */; };
+		FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155312C8A1FD100B9684A /* WorkoutSession.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -323,6 +324,7 @@
 		FD5154D72C80EDDD00B9684A /* GachaArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaArrowAnimation.swift; sourceTree = "<group>"; };
 		FD51552C2C88C8BD00B9684A /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		FD51552E2C88D1EA00B9684A /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		FD5155312C8A1FD100B9684A /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD5155302C8A1FBA00B9684A /* WorkoutSession */,
 				FD51552B2C88C8AB00B9684A /* WorkoutList */,
 				FDDCE79E2C7515E600FEC8F2 /* Gatcha */,
 				7C6CBA3F2C6E852300D77ED9 /* Settings */,
@@ -724,6 +727,14 @@
 				FD51552C2C88C8BD00B9684A /* WorkoutListView.swift */,
 			);
 			path = WorkoutList;
+			sourceTree = "<group>";
+		};
+		FD5155302C8A1FBA00B9684A /* WorkoutSession */ = {
+			isa = PBXGroup;
+			children = (
+				FD5155312C8A1FD100B9684A /* WorkoutSession.swift */,
+			);
+			path = WorkoutSession;
 			sourceTree = "<group>";
 		};
 		FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */ = {
@@ -1181,6 +1192,7 @@
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */,
+				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,

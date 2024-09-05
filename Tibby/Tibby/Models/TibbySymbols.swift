@@ -53,4 +53,5 @@ enum TibbySymbols: String {
     case lock = "TibbySymbolLock"
     case plus = "TibbySymbolPlus"
     case minus = "TibbySymbolMinus"
+    case pauseWhite = "TibbySymbolPauseWhite"
 }
