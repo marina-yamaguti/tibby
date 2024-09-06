@@ -69,6 +69,10 @@
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
+		BCC17DE42C8A26ED00C24173 /* ShowcaseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC17DE32C8A26ED00C24173 /* ShowcaseComponent.swift */; };
+		BCC17DE62C8A320B00C24173 /* UserInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC17DE52C8A320B00C24173 /* UserInfoComponent.swift */; };
+		BCC17DE82C8A387800C24173 /* StreakCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC17DE72C8A387800C24173 /* StreakCountComponent.swift */; };
+		BCC17DEB2C8A72A200C24173 /* EditGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC17DEA2C8A72A200C24173 /* EditGoalsView.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -93,7 +97,7 @@
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
 		D83B398D2C863EE100043BC7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398C2C863EE100043BC7 /* ProfileView.swift */; };
 		D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398E2C86577400043BC7 /* GoalsComponent.swift */; };
-		D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B39902C865A6000043BC7 /* StreakComponent.swift */; };
+		D83B39912C865A6000043BC7 /* StreakDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B39902C865A6000043BC7 /* StreakDayComponent.swift */; };
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
@@ -293,6 +297,10 @@
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		BCC17DE32C8A26ED00C24173 /* ShowcaseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseComponent.swift; sourceTree = "<group>"; };
+		BCC17DE52C8A320B00C24173 /* UserInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoComponent.swift; sourceTree = "<group>"; };
+		BCC17DE72C8A387800C24173 /* StreakCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCountComponent.swift; sourceTree = "<group>"; };
+		BCC17DEA2C8A72A200C24173 /* EditGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalsView.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -315,7 +323,7 @@
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
 		D83B398C2C863EE100043BC7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D83B398E2C86577400043BC7 /* GoalsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsComponent.swift; sourceTree = "<group>"; };
-		D83B39902C865A6000043BC7 /* StreakComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakComponent.swift; sourceTree = "<group>"; };
+		D83B39902C865A6000043BC7 /* StreakDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakDayComponent.swift; sourceTree = "<group>"; };
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
@@ -443,6 +451,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCC17DE92C8A726C00C24173 /* Profile */,
 				FDDCE79E2C7515E600FEC8F2 /* Gatcha */,
 				7C6CBA3F2C6E852300D77ED9 /* Settings */,
 				FD45F26B2C6571580046DE49 /* Tibby Book */,
@@ -452,7 +461,6 @@
 				FDFF4ABD2C3C842100831968 /* Interaction Example */,
 				FD9075FE2C34B564000E5F24 /* CRUD Example */,
 				7C2ED2652C2DF0320030D0B9 /* Tibby */,
-				D83B398C2C863EE100043BC7 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -748,9 +756,12 @@
 				D8D520752C80E85900A37057 /* LevelComponent.swift */,
 				D84055132C82501000292BDC /* EquipComponent.swift */,
 				D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */,
-				D83B39902C865A6000043BC7 /* StreakComponent.swift */,
+				D83B39902C865A6000043BC7 /* StreakDayComponent.swift */,
 				D896AECD2C6C0293009C208C /* SheetWithCircle.swift */,
 				BC537F152C87D16400463E59 /* BackgroundView.swift */,
+				BCC17DE32C8A26ED00C24173 /* ShowcaseComponent.swift */,
+				BCC17DE52C8A320B00C24173 /* UserInfoComponent.swift */,
+				BCC17DE72C8A387800C24173 /* StreakCountComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -782,6 +793,15 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
+			sourceTree = "<group>";
+		};
+		BCC17DE92C8A726C00C24173 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D83B398C2C863EE100043BC7 /* ProfileView.swift */,
+				BCC17DEA2C8A72A200C24173 /* EditGoalsView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -1244,12 +1264,14 @@
 				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */,
+				BCC17DE82C8A387800C24173 /* StreakCountComponent.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
 				D82337D22C6AAA2E006BF8BD /* ButtonLabel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				D81284BF2C6BCC100088A7B9 /* CustomTextField.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
+				BCC17DE62C8A320B00C24173 /* UserInfoComponent.swift in Sources */,
 				D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
 				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
@@ -1270,8 +1292,9 @@
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
-				D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */,
+				D83B39912C865A6000043BC7 /* StreakDayComponent.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
+				BCC17DEB2C8A72A200C24173 /* EditGoalsView.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
@@ -1279,6 +1302,7 @@
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
 				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,
+				BCC17DE42C8A26ED00C24173 /* ShowcaseComponent.swift in Sources */,
 				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				D84055142C82501000292BDC /* EquipComponent.swift in Sources */,

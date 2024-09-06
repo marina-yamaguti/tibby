@@ -18,7 +18,6 @@ struct TibbyStatusComponent: View {
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: hunger))
-                .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
                 .frame(width: 17, height: 17)
 
             Spacer()
@@ -26,7 +25,6 @@ struct TibbyStatusComponent: View {
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: sleep))
-                .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
                 .frame(width: 17, height: 17)
 
             Spacer()
@@ -34,7 +32,6 @@ struct TibbyStatusComponent: View {
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: play))
-                .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
                 .frame(width: 17, height: 17)
 
         }

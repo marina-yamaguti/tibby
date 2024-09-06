@@ -24,6 +24,7 @@ enum TibbySymbols: String {
     case chevronLeft = "TibbySymbolChevronLeft"
     case chevronLeftWhite = "TibbySymbolChevronLeftWhite"
     case chevronRight = "TibbySymbolChevronRight"
+    case chevronRightWhite = "TibbySymbolChevronRightWhite"
     case checkMark = "TibbySymbolCheckmark"
     case settings = "TibbySymbolSettings"
     case roll = "TibbySymbolRoll"
@@ -53,4 +54,5 @@ enum TibbySymbols: String {
     case lock = "TibbySymbolLock"
     case plus = "TibbySymbolPlus"
     case minus = "TibbySymbolMinus"
+    
 }

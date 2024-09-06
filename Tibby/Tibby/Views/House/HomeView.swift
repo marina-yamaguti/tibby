@@ -35,7 +35,7 @@ struct HomeView: View {
                 Spacer()
                 VStack {
                     HStack(alignment: .center) {
-                        LevelComponent(level: 32)
+                        NavigationLink(destination: ProfileView(currentTibby: $tibby), label: {LevelComponent(level: 32)})
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))

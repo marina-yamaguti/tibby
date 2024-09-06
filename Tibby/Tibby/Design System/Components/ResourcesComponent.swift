@@ -48,7 +48,7 @@ enum ResourceCategory: Hashable, CaseIterable {
     var trailingType: TibbySymbols {
         switch self {
         case .credits:
-            return .chevronRight
+            return .chevronRightWhite
         case .support, .rateInAppStore, .follow:
             return .arrowDiagonalUp
         }
@@ -80,6 +80,10 @@ struct ResourcesComponent: View {
                         .font(.typography(.body2))
                     Spacer()
                     Image(category.trailingType.rawValue)
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundStyle(.tibbyBaseBlack)
+                        .frame(width: 15, height: 15)
                         .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
                 }
                 .foregroundStyle(.tibbyBaseBlack)

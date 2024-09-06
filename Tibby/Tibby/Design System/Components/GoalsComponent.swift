@@ -21,12 +21,15 @@ struct GoalsComponent: View {
         VStack(spacing: 16) {
             Text(title)
                 .font(.typography(.label2))
+                .foregroundStyle(.tibbyBaseBlack)
             
             Text("\(value)")
                 .font(.typography(.body))
+                .foregroundStyle(.tibbyBaseBlack)
+
             
             Text(description)
-                .font(.typography(.body2))
+                .font(.typography(.label2))
                 .foregroundStyle(.tibbyBaseGrey)
         }
         .padding(8)

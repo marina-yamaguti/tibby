@@ -30,6 +30,10 @@ struct EquipComponent: View {
     }
     
     private func toggleSelection() {
-        isSelected = (isSelected == .selected) ? .unselected : .selected
+        if isSelected == .unselected {
+            isSelected = .selected
+        } else {
+            
+        }
     }
 }

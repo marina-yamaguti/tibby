@@ -10,7 +10,6 @@ import SwiftUI
 struct TibbySelectedView: View {
     @ObservedObject var viewModel: TibbySelectedViewModel
     @EnvironmentObject var constants: Constants
-#warning("Aqui deve ser um binding assim que a lógica estiver pronta")
     @State var isFavorite: Bool = false
     
     var body: some View {
