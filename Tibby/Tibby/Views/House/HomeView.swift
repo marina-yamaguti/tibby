@@ -81,7 +81,7 @@ struct HomeView: View {
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
                                 //
-                                GatchaView()
+                                GatchaView(firtTimeHere: false)
                             }
                         Spacer()
                         Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})

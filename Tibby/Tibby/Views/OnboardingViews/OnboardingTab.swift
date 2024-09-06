@@ -86,7 +86,7 @@ struct OnboardingTab: View {
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
         .background(.tibbyBaseWhite)
-        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView() })
+        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView(firtTimeHere: firstTime) })
         .onAppear {
             if let user = service.getUser() {
                 user.coins = 100
