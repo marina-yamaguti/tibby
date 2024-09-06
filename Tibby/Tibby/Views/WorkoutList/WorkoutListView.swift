@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WorkoutListView: View {
+    @Binding var isOpen: Bool
+    @State var tibby: Tibby
     @State var text = ""
     @State var workouts = HealthManager().getAllWorkout
     var filteredList: [WorkoutActivityType] {
@@ -24,7 +26,9 @@ struct WorkoutListView: View {
                     .font(.typography(.title))
                     .foregroundStyle(.tibbyBaseWhite)
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    isOpen = false
+                }, label: {
                     ZStack {
                         Circle().foregroundStyle(.black.opacity(0.5))
                         Image(TibbySymbols.xMark.rawValue)
@@ -38,12 +42,14 @@ struct WorkoutListView: View {
                 .padding(.bottom)
             ScrollView {
                 ForEach(filteredList, id: \.self) { workout in
+                    NavigationLink(destination: WorkoutSessionView(image: "\(tibby.species)1", workout: workout), label: {
                     HStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 5)
                                 .foregroundStyle(.tibbyBaseGreen)
                                 .frame(width: 35, height: 35)
                             Image(systemName: workout.icon)
+                                .foregroundStyle(.black)
                         }
                         Text(workout.name)
                             .font(.typography(.body))
@@ -53,7 +59,8 @@ struct WorkoutListView: View {
                         Spacer()
                     }.padding(.horizontal)
                         .padding(.bottom)
-                    
+                        
+                    })
                 }
             }
             Spacer()
@@ -62,6 +69,3 @@ struct WorkoutListView: View {
     }
 }
 
-#Preview {
-    WorkoutListView()
-}

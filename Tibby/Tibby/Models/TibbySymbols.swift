@@ -10,6 +10,7 @@ import Foundation
 /// The `TibbySymbols` enum defines a collection of symbol names used throughout the Tibby application.
 enum TibbySymbols: String {
     case play = "TibbySymbolPlay"
+    case playWhite = "TibbySymbolPlayWhite"
     case xMark = "TibbySymbolXMark"
     case sleepy = "TibbySymbolSleepy"
     case food = "TibbySymbolFood"
@@ -54,4 +55,5 @@ enum TibbySymbols: String {
     case plus = "TibbySymbolPlus"
     case minus = "TibbySymbolMinus"
     case pauseWhite = "TibbySymbolPauseWhite"
+    case squareWhite = "TibbySymbolSquareWhite"
 }

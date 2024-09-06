@@ -56,10 +56,16 @@
     "Earn Rewards" : {
 
     },
+    "Elapsed Time" : {
+
+    },
     "Equip" : {
 
     },
     "Equipped" : {
+
+    },
+    "Finish" : {
 
     },
     "Gacha" : {
@@ -92,9 +98,6 @@
     "Lv. %lld" : {
 
     },
-    "minigames coming soon..." : {
-
-    },
     "my food inventory: " : {
 
     },
@@ -111,6 +114,9 @@
 
     },
     "Open Settings" : {
+
+    },
+    "Pause" : {
 
     },
     "Play" : {
@@ -152,7 +158,13 @@
     "species" : {
 
     },
+    "Start" : {
+
+    },
     "Stay Healthy" : {
+
+    },
+    "Steps Taken" : {
 
     },
     "tibby" : {

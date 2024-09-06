@@ -83,25 +83,7 @@ struct GardenView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 45)
                             .foregroundStyle(.tibbyBaseBlack)
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {exercisesSheetIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")})
-                                    .buttonSecondary(bgColor: .black.opacity(0.5))
-
-                            }
-                            .padding()
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("minigames coming soon...")
-                                    .font(.typography(.label))
-                                    .foregroundStyle(.tibbyBaseWhite)
-                                    .padding(.bottom)
-                                Spacer()
-                            }
-                            Spacer()
-                        }
+                        WorkoutListView(isOpen: $exercisesSheetIsOpen, tibby: tibby)
                     }.padding(.top, 100)
                 }
             }.padding().brightness(constants.brightness)
