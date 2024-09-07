@@ -77,11 +77,18 @@ struct OnboardingTab: View {
                     print(vm.currentIndex)
                     print(vm.currentOnboarding)
                 }, label: {
-                    ButtonLabel(type: .primary, image: vm.currentOnboarding.buttonSymbol, text: vm.currentOnboarding.buttonLabel)
+                    HStack {
+                        Image(vm.currentOnboarding.buttonSymbol)
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        Text(vm.currentOnboarding.buttonLabel)
+                            .font(.typography(.title))
+                            .foregroundStyle(.tibbyBaseBlack)
+                            .padding(.horizontal)
+                    }
 
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
-                .padding(40)
             }
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }

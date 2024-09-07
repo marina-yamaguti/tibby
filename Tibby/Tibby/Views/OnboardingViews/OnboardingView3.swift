@@ -13,6 +13,7 @@ struct OnboardingView3: View {
     @State var exercise: Int = 5
     @State var energy: Int = 10
     @State var steps: Int = 500
+    @State var sleep: Int = 8
     
     var body: some View {
         ScrollView {
@@ -22,11 +23,11 @@ struct OnboardingView3: View {
                 CustomStepper(value: $exercise, step: 5, range: 30...1440, title: "Daily Exercise", description: "minutes/day")
                 CustomStepper(value: $energy, step: 10, range: 110...1440, title: "Daily Energy Goal", description: "calories/day")
                 CustomStepper(value: $steps, step: 500, range: 500...1440, title: "Daily Steps", description: "steps/day")
-                CustomStepper(value: $steps, step: 1, range: 6...12, title: "Daily Sleep Time", description: "hours/day")
+                CustomStepper(value: $sleep, step: 1, range: 6...12, title: "Daily Sleep Time", description: "hours/day")
 
             }
             .padding(EdgeInsets(top: 0, leading: 32, bottom: 0, trailing: 32))
-        }
+        }.scrollIndicators(.hidden)
     }
 }
 

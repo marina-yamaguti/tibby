@@ -56,4 +56,5 @@ enum TibbySymbols: String {
     case minus = "TibbySymbolMinus"
     case pauseWhite = "TibbySymbolPauseWhite"
     case squareWhite = "TibbySymbolSquareWhite"
+    case duplicate = "TibbySymbolDuplicate"
 }

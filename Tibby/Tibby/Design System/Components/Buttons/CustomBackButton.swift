@@ -20,7 +20,7 @@ struct CustomBackButton: View {
             HapticManager.instance.impact(style: .soft)
             presentationMode.wrappedValue.dismiss()
         }, label: {
-            ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeft.rawValue, text: "")
+            ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")
         })
         .buttonSecondary(bgColor: .black.opacity(0.5))
     }

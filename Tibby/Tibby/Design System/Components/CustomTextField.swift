@@ -24,12 +24,14 @@ struct CustomTextField: View {
     var body: some View {
         VStack {
             Text("How should we call you?")
-                .foregroundStyle(.tibbyBaseBlack)
                 .font(.typography(.body2))
             TextField(placeholder, text: $input)
+                .preferredColorScheme(.light)
                 .font(.typography(.body2))
             Divider()
         }
         .font(.typography(.label))
+        .foregroundStyle(.tibbyBaseBlack)
+
     }
 }
