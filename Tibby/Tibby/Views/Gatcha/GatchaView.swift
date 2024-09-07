@@ -33,7 +33,9 @@ struct GatchaView: View {
         } else {
             VStack {
                 HStack {
-                    CustomBackButton()
+                    if !firtTimeHere {
+                        CustomBackButton()
+                    }
                     Spacer()
                     MoneyView(viewModel: MoneyViewModel(moneyType: .gem, service: service)).padding(.horizontal)
                     MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: service))
