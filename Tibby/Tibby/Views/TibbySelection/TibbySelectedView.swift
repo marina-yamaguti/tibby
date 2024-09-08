@@ -27,7 +27,7 @@ struct TibbySelectedView: View {
                 HStack {
                     CustomBackButton()
                     Spacer()
-                    EquipComponent(isSelected: $viewModel.status)
+                    EquipComponent(viewModel: viewModel, isSelected: $viewModel.status)
                     Button(action: {isFavorite.toggle()}, label: {ButtonLabel(type: .secondary, image: isFavorite ? TibbySymbols.heartFill.rawValue : TibbySymbols.heart.rawValue , text: "")})
                         .buttonSecondary(bgColor: isFavorite ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                 }
