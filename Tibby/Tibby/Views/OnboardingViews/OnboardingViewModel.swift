@@ -28,18 +28,18 @@ class OnboardingTabViewModel: ObservableObject {
             currentIndex -= 1
     }
     
-    func bodyContent(page: OnboardingViews) -> any View {
-        switch currentIndex {
-        case 0:
-            OnboardingView1()
-        case 1:
-            OnboardingView2()
-        case 2:
-            OnboardingView3()
-        case 3:
-            OnboardingView4()
-        default:
-            OnboardingView1()
-        }
-    }
+//    func bodyContent(page: OnboardingViews) -> any View {
+//        switch currentIndex {
+//        case 0:
+//            OnboardingView1()
+//        case 1:
+//            OnboardingView2()
+//        case 2:
+//            OnboardingView3()
+//        case 3:
+//            OnboardingView4()
+//        default:
+//            OnboardingView1()
+//        }
+//    }
 }

@@ -80,15 +80,14 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                //
                                 GatchaView(firtTimeHere: false)
                             }
                         Spacer()
                         Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
-                            .navigationDestination(isPresented: $showMissions) {
-                                //
-                            }
+//                            .navigationDestination(isPresented: $showMissions) {
+//                                
+//                            }
                     }
                     .padding(16)
                     Spacer()

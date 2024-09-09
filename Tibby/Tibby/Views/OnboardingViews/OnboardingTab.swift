@@ -12,7 +12,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
-    
+    @State var name = ""
     
     var body: some View {
         ZStack {
@@ -57,7 +57,7 @@ struct OnboardingTab: View {
                 case .onboarding2:
                     OnboardingView2()
                 case .onboarding3:
-                    OnboardingView3()
+                    OnboardingView3(name: $name)
                 case .onboarding4:
                     OnboardingView4()
                 
@@ -69,8 +69,12 @@ struct OnboardingTab: View {
                         vm.nextPage()
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
-                    }
-                    else {
+                    } else if vm.currentIndex == 2 {
+                        print(name)
+                        if !name.isEmpty {
+                            vm.nextPage()
+                        }
+                    } else {
                         vm.nextPage()
                     }
 

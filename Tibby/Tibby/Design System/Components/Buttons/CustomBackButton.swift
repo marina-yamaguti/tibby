@@ -12,13 +12,14 @@ import SwiftUI
 struct CustomBackButton: View {
     
     /// The environment variable that controls the presentation mode of the current view.
+    @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var constants: Constants
     
     var body: some View {
         Button(action: {
             HapticManager.instance.impact(style: .soft)
-            presentationMode.wrappedValue.dismiss()
+            dismiss()
         }, label: {
             ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")
         })
