@@ -8,6 +8,13 @@
 import Foundation
 import SwiftData
 
+/// Enum representing different categories of accessories.
+enum AccessoryCategory: CaseIterable {
+    case all
+    case head
+    case body
+}
+
 /// A model representing an accessory in the application.
 @Model
 final class Accessory {
