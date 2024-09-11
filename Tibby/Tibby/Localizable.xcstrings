@@ -23,6 +23,9 @@
     "100" : {
 
     },
+    "Add %@" : {
+
+    },
     "Brought to you by:" : {
 
     },
@@ -68,6 +71,9 @@
     "Given Name" : {
 
     },
+    "Go to Settings > Health > Tibby > Allow Data Access." : {
+
+    },
     "Hello, World!" : {
 
     },
@@ -80,7 +86,7 @@
     "How should we call you?" : {
 
     },
-    "How to allow?" : {
+    "How to allow" : {
 
     },
     "Light" : {
@@ -113,9 +119,6 @@
     "Play" : {
 
     },
-    "Please go to Settings and allow the necessary permissions." : {
-
-    },
     "price: %lld" : {
 
     },
@@ -126,6 +129,9 @@
 
     },
     "rarity" : {
+
+    },
+    "Remove" : {
 
     },
     "Resources" : {
@@ -159,7 +165,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
