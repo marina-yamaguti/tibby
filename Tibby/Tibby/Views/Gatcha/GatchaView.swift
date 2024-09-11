@@ -183,7 +183,7 @@ struct GatchaView: View {
                                         .font(.typography(.body))
                                         .padding(.bottom, 4)
                                         .padding(.top, 4)
-                                    Text("Hey, welcome! Let's start your journey by getting your first Tibby! Click the big gold button to roll for a random Tibby.")
+                                    Text("Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby.")
                                         .font(.typography(.label))
                                         .environment(\._lineHeightMultiple, 2)
                                         .padding(.bottom, 4)
