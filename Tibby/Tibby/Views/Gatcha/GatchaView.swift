@@ -22,18 +22,18 @@ struct GatchaView: View {
     @State private var disableButton = false
     @State private var showCapsuleAnimation = false
     @State var wasAlreadyUnlocked = false
-    @State var firtTimeHere: Bool
+    @Binding var firstTimeHere: Bool
     
     var body: some View {
         if showCapsuleAnimation {
             if vm.newTibbyImage != nil  {
-                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked, firtTimeHere: firtTimeHere)
+                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked, firstTimeHere: $firstTimeHere)
                     .navigationBarBackButtonHidden(true)
             }
         } else {
             VStack {
                 HStack {
-                    if !firtTimeHere {
+                    if !firstTimeHere {
                         CustomBackButton()
                     }
                     Spacer()
@@ -53,7 +53,7 @@ struct GatchaView: View {
                 ZStack {
                     ZStack {
                         if vm.currentGatchaSecondaryImage != nil {
-                            if !firtTimeHere {
+                            if !firstTimeHere {
                                 vm.currentGatchaSecondaryImage!
                                     .resizable()
                                     .offset(x: isBaseOnFocus ? UIScreen.main.bounds.width + UIScreen.main.bounds.width/5: 0 + xOffset)
@@ -82,7 +82,7 @@ struct GatchaView: View {
                     }.gesture(
                         DragGesture()
                             .onChanged { value in
-                                if !firtTimeHere {
+                                if !firstTimeHere {
                                     if value.translation.width < 0 && isBaseOnFocus {
                                         self.xOffset = value.translation.width
                                         if xOffset <= -40 {
@@ -115,7 +115,7 @@ struct GatchaView: View {
                             }
                     )
                 }
-                if !firtTimeHere {
+                if !firstTimeHere {
                     HStack {
                         Spacer()
                         if isBaseOnFocus {

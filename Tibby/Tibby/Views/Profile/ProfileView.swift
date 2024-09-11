@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Binding var currentTibby: Tibby
-    var userName: String = "Mateus G."
+    @State var userName: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
     var level: Int = 32
     var currentXp: Int = 30
     var xpToEvolve: Int = 100

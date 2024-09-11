@@ -113,6 +113,9 @@
     "Play" : {
 
     },
+    "Please fill the name field before continuing." : {
+
+    },
     "Please go to Settings and allow the necessary permissions." : {
 
     },
@@ -120,6 +123,9 @@
 
     },
     "Profile icon" : {
+
+    },
+    "Provide a Name" : {
 
     },
     "quantity: %lld" : {
