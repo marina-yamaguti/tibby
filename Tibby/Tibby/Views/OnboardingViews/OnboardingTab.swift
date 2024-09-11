@@ -12,7 +12,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
-    @State var name = ""
+    @State var name: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
     
     var body: some View {
         ZStack {

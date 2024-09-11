@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct OnboardingView4: View {
-    @EnvironmentObject var constants: Constants
     @EnvironmentObject var healthManager: HealthManager
     
     var body: some View {
