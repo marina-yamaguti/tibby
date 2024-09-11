@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "%@!" : {
 
     },
@@ -87,6 +90,9 @@
 
     },
     "Lv. %lld" : {
+
+    },
+    "Missions Streak" : {
 
     },
     "my food inventory: " : {
