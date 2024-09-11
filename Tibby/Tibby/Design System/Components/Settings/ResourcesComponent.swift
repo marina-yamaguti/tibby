@@ -91,11 +91,14 @@ struct ResourcesComponent: View {
                 }
                 Divider()
             }
-            Image("Logo")
+            Image("TibbyLogoBW")
+                .resizable()
+                .frame(width: 120, height: 45)
                 .padding(.top, 16)
             if let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
                 Text("v.\(appVersion)")
                     .font(.typography(.label))
+                    .padding(.top, 16)
             }
         }
         .navigationDestination(isPresented: $showCredits, destination: {CreditsComponent()})
