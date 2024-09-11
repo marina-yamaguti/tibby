@@ -18,6 +18,7 @@ struct CapsuleView: View {
     
     @EnvironmentObject var constants: Constants
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var service: Service
     
     @State var circleHeight: CGFloat = 500
     @State var circleWidth: CGFloat = 200
@@ -28,6 +29,8 @@ struct CapsuleView: View {
     @State private var timerSubscription: Cancellable? = nil
     @State var isBoucing = false
     @State var fadeText = false
+    @State var firtTimeHere: Bool
+    @State var goToHome = false
     
     
     var body: some View {
@@ -37,26 +40,13 @@ struct CapsuleView: View {
                     .frame(width:circleHeight, height: circleHeight)
                     .opacity(changeBackground ? 1 : 0)
                     .foregroundStyle(Color(red: 0.98, green: 0.98, blue: 0.98))
-                VStack(spacing: 24) {
+                VStack() {
                     Spacer()
-                    
-                    Text(tibby.rarity)
-                        .font(.typography(.display))
-                        .bold()
-                        .opacity(fadeText ? 0 : 1)
-                    
-                    
-                    Text("rarity Tibby")
-                        .font(.typography(.headline))
-                        .opacity(fadeText ? 0 : 1)
-                    
-                    
-                    
+                    //capsule
                     images[currentIndex]
                         .resizable()
                         .frame(width: 390, height: 390)
                         .offset(x: offset, y: offset)
-                    
                     Spacer()
                 }
             }.background(color)
@@ -96,30 +86,47 @@ struct CapsuleView: View {
                     }
                 })
         } else {
-            VStack(spacing: 24) {
+            VStack(alignment: .center, spacing: 24) {
                 Spacer()
-                Text("You Won")
+                Text(firtTimeHere ? "You Won your first Tibby:" : "You Won" )
                     .font(.typography(.title))
+                    .padding(.top, 32)
+                    .padding(.horizontal, 8)
+                    
                 
-                Text(wasAlreadyUnlocked ? "\(self.convertCamelCaseToSpaces(tibby.species))" : "\(self.convertCamelCaseToSpaces(tibby.species))!")
+                Text("\(self.convertCamelCaseToSpaces(tibby.species))!")
                     .font(.typography(.headline))
                     .bold()
                     .lineSpacing(10)
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
                 
-                if wasAlreadyUnlocked {
+                HStack {
+                    Spacer()
+                    RarityLabel(capsule: images[0], rarity: tibby.rarity)
                     
-                    Text(tibby.isUnlocked ? "again...": "")
-                        .font(.typography(.body))
+                    if wasAlreadyUnlocked {
+                        RarityLabel(capsule: Image(TibbySymbols.duplicate.rawValue), rarity: "duplicate")
+                    }
+                    Spacer()
                 }
+                
                 
                 tibbyImage
                     .resizable()
-                    .frame(width: 390, height: 390)
+                    .scaledToFit()
                 
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    if firtTimeHere {
+                        UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
+                        if let user = service.getUser() {
+                            user.currentTibbyID = tibby.id
+                        }
+                        
+                        goToHome = true
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }, label: {
                     HStack {
                         Image(TibbySymbols.checkMark.rawValue)
@@ -131,10 +138,11 @@ struct CapsuleView: View {
                             .padding(.horizontal)
                     }
                 }).buttonPrimary(bgColor: color == .tibbyBaseWhite ? .tibbyBaseYellow : color)
+                    .padding(.bottom)
                 
-                
-                Spacer()
             }.background(color)
+                .foregroundStyle(.tibbyBaseBlack)
+                .navigationDestination(isPresented: $goToHome, destination: { HomeView(tibby: tibby).navigationBarBackButtonHidden(true) })
         }
     }
     

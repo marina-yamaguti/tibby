@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EquipComponent: View {
+    @ObservedObject var viewModel: TibbySelectedViewModel
     @Binding var isSelected: SelectionStatus
     
     var body: some View {
@@ -25,7 +26,8 @@ struct EquipComponent: View {
         }
         .contentShape(Rectangle()) // This ensures the whole area is tappable
         .onTapGesture {
-            toggleSelection()
+            isSelected = .selected
+            viewModel.changeTibby()
         }
     }
     

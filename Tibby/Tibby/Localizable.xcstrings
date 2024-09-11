@@ -1,12 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
-    "%@" : {
-
-    },
     "%@!" : {
 
     },
@@ -27,9 +21,6 @@
 
     },
     "100" : {
-
-    },
-    "again..." : {
 
     },
     "Brought to you by:" : {
@@ -56,10 +47,16 @@
     "Earn Rewards" : {
 
     },
+    "Elapsed Time" : {
+
+    },
     "Equip" : {
 
     },
     "Equipped" : {
+
+    },
+    "Finish" : {
 
     },
     "Gacha" : {
@@ -92,12 +89,6 @@
     "Lv. %lld" : {
 
     },
-    "minigames coming soon..." : {
-
-    },
-    "Missions Streak" : {
-
-    },
     "my food inventory: " : {
 
     },
@@ -107,10 +98,16 @@
     "My Tibbies" : {
 
     },
+    "New Workout" : {
+
+    },
     "Okay" : {
 
     },
     "Open Settings" : {
+
+    },
+    "Pause" : {
 
     },
     "Play" : {
@@ -131,13 +128,13 @@
     "rarity" : {
 
     },
-    "rarity Tibby" : {
-
-    },
     "Resources" : {
 
     },
     "Roll" : {
+
+    },
+    "Search" : {
 
     },
     "settings" : {
@@ -149,7 +146,13 @@
     "species" : {
 
     },
+    "Start" : {
+
+    },
     "Stay Healthy" : {
+
+    },
+    "Steps Taken" : {
 
     },
     "tibby" : {
@@ -188,6 +191,9 @@
 
     },
     "You Won" : {
+
+    },
+    "You Won your first Tibby:" : {
 
     }
   },

@@ -17,6 +17,7 @@ struct MoneyView: View {
                 .frame(width: 22, height: 22)
             Text("\(viewModel.value)")
                 .font(.typography(.body))
+                .foregroundStyle(.tibbyBaseBlack)
         }
     }
 }

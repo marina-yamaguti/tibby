@@ -12,7 +12,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
-    
+    @State var name = ""
     
     var body: some View {
         ZStack {
@@ -57,7 +57,7 @@ struct OnboardingTab: View {
                 case .onboarding2:
                     OnboardingView2()
                 case .onboarding3:
-                    OnboardingView3()
+                    OnboardingView3(name: $name)
                 case .onboarding4:
                     OnboardingView4()
                 
@@ -69,24 +69,35 @@ struct OnboardingTab: View {
                         vm.nextPage()
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
-                    }
-                    else {
+                    } else if vm.currentIndex == 2 {
+                        print(name)
+                        if !name.isEmpty {
+                            vm.nextPage()
+                        }
+                    } else {
                         vm.nextPage()
                     }
 
                     print(vm.currentIndex)
                     print(vm.currentOnboarding)
                 }, label: {
-                    ButtonLabel(type: .primary, image: vm.currentOnboarding.buttonSymbol, text: vm.currentOnboarding.buttonLabel)
+                    HStack {
+                        Image(vm.currentOnboarding.buttonSymbol)
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        Text(vm.currentOnboarding.buttonLabel)
+                            .font(.typography(.title))
+                            .foregroundStyle(.tibbyBaseBlack)
+                            .padding(.horizontal)
+                    }
 
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
-                .padding(40)
             }
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
         .background(.tibbyBaseWhite)
-        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView() })
+        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView(firtTimeHere: firstTime) })
         .onAppear {
             if let user = service.getUser() {
                 user.coins = 100

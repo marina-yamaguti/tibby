@@ -55,7 +55,7 @@ struct OnboardingView4: View {
                 Spacer()
             }
             Spacer()
-        }
+        }.foregroundStyle(.tibbyBaseBlack)
         .onAppear {
             healthManager.fetchAllInformation()
         }
