@@ -65,7 +65,7 @@ struct OnboardingTab: View {
                 Spacer()
                 Button(action: {
                     if vm.currentIndex == 1 {
-                        healthManager.authorizationToWriteInHealthStore()
+                        healthManager.authorizationToWriteInHealthStore(vm)
                         vm.nextPage()
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true

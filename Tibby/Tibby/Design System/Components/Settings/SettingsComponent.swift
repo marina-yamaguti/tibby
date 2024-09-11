@@ -106,7 +106,7 @@ struct SettingsComponent: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Please go to Settings and allow the necessary permissions.")
+            Text("Go to Settings > Health > Tibby > Allow Data Access")
         }
     }
     
