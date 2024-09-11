@@ -26,13 +26,12 @@ struct SplashScreen: View {
     @EnvironmentObject var healthManager: HealthManager
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
-    @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     
     var body: some View {
         NavigationStack {
             if canProceed {
-                if firstTimeHere {
-                    OnboardingTab(firstTime: $firstTimeHere)
+                if constants.firstTimeHere {
+                    OnboardingTab()
                 }
                 else {
                     StartView()
@@ -49,7 +48,7 @@ struct SplashScreen: View {
                         .padding(.horizontal)
                     Spacer()
                 }.onAppear {
-                    if !firstTimeHere {
+                    if !constants.firstTimeHere {
                         healthManager.fetchAllInformation()
                     }
                     service.setupData()

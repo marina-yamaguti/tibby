@@ -29,7 +29,6 @@ struct CapsuleView: View {
     @State private var timerSubscription: Cancellable? = nil
     @State var isBoucing = false
     @State var fadeText = false
-    @Binding var firstTimeHere: Bool
     @State var goToHome = false
     
     
@@ -88,7 +87,7 @@ struct CapsuleView: View {
         } else {
             VStack(alignment: .center, spacing: 24) {
                 Spacer()
-                Text(firstTimeHere ? "You Won your first Tibby:" : "You Won" )
+                Text(constants.firstTimeHere ? "You Won your first Tibby:" : "You Won" )
                     .font(.typography(.title))
                     .padding(.top, 32)
                     .padding(.horizontal, 8)
@@ -117,9 +116,8 @@ struct CapsuleView: View {
                     .scaledToFit()
                 
                 Button(action: {
-                    if firstTimeHere {
-                        //UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
-                        firstTimeHere = false
+                    if constants.firstTimeHere {
+                        constants.firstTimeHere = false
                         if let user = service.getUser() {
                             user.currentTibbyID = tibby.id
                         }

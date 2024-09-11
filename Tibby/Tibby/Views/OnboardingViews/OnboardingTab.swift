@@ -8,12 +8,11 @@ import SwiftUI
 
 struct OnboardingTab: View {
     @ObservedObject var vm = OnboardingTabViewModel()
-    @Binding var firstTime: Bool
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
     @State var name: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
-    @State private var showAlert = false
+    @State var healthAuthorization: Bool = UserDefaults.standard.value(forKey: "healthAuthorization") as? Bool ?? false
     
     var body: some View {
         ZStack {
@@ -66,16 +65,12 @@ struct OnboardingTab: View {
                 Spacer()
                 Button(action: {
                     if vm.currentIndex == 1 {
-                        healthManager.authorizationToWriteInHealthStore()
-                        vm.nextPage()
+                        healthManager.authorizationToWriteInHealthStore(vm)
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
                     } else if vm.currentIndex == 2 {
                         if !name.isEmpty {
                             vm.nextPage()
-                        }
-                        else {
-                           showAlert = true
                         }
                     } else {
                         vm.nextPage()
@@ -96,17 +91,11 @@ struct OnboardingTab: View {
 
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
-                .alert(isPresented: $showAlert) {
-                    Alert(
-                            title: Text("Provide a Name"),
-                            message: Text("Please fill the name field before continuing.")
-                        )
-                    }
             }
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
         .background(.tibbyBaseWhite)
-        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView(firstTimeHere: $firstTime) })
+        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView() })
         .onAppear {
             if let user = service.getUser() {
                 user.coins = 100

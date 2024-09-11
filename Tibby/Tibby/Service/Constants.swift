@@ -18,6 +18,8 @@ class Constants: ObservableObject {
     /// The shared singleton instance of the `Constants` class.
     static let singleton: Constants = Constants()
     
+    @Published var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
+    
     // MARK: - Tibby's Level Variables
     
     /// The maximum XP level Tibby can reach.

@@ -68,6 +68,9 @@
     "Given Name" : {
 
     },
+    "Go to Settings > Health > Tibby > Allow Data Access" : {
+
+    },
     "Hello, World!" : {
 
     },
@@ -113,19 +116,10 @@
     "Play" : {
 
     },
-    "Please fill the name field before continuing." : {
-
-    },
-    "Please go to Settings and allow the necessary permissions." : {
-
-    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
-
-    },
-    "Provide a Name" : {
 
     },
     "quantity: %lld" : {
