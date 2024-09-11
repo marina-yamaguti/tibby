@@ -22,8 +22,10 @@ struct OnboardingView4: View {
                 VStack(alignment: .leading) {
                     Text("Gatcha Fun")
                         .font(.typography(.body))
+                        .padding(.bottom, 2)
                     Text("Unlock new Tibbies through our exciting gacha system")
                         .font(.typography(.body2))
+                        .environment(\._lineHeightMultiple, 0.8)
                 }
                 Spacer()
             }
@@ -35,11 +37,14 @@ struct OnboardingView4: View {
                 VStack(alignment: .leading) {
                     Text("Earn Rewards")
                         .font(.typography(.body))
+                        .padding(.bottom, 2)
                     Text("Complete missions and earn rewards like coins and items")
                         .font(.typography(.body2))
+                        .environment(\._lineHeightMultiple, 0.8)
+                    
                 }
                 Spacer()
-
+                
             }
             HStack {
                 Image("CapsuleEpic")
@@ -49,19 +54,17 @@ struct OnboardingView4: View {
                 VStack(alignment: .leading) {
                     Text("Stay Healthy")
                         .font(.typography(.body))
+                        .padding(.bottom, 2)
                     Text("Track your workouts, steps, and more to keep both you and your Tibby in top shape!")
                         .font(.typography(.body2))
+                        .environment(\._lineHeightMultiple, 0.8)
                 }
                 Spacer()
             }
             Spacer()
         }.foregroundStyle(.tibbyBaseBlack)
-        .onAppear {
-            healthManager.fetchAllInformation()
-        }
+            .onAppear {
+                healthManager.fetchAllInformation()
+            }
     }
-}
-
-#Preview {
-    OnboardingView4()
 }
