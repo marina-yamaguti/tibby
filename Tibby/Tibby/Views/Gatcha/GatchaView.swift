@@ -169,7 +169,7 @@ struct GatchaView: View {
                     .onChange(of: self.pressedButton, {
                         
                     })
-                if showExplanation {
+                if showExplanation && firtTimeHere {
                     ZStack {
                         Color.tibbyBaseBlack.opacity(0.5)
                             .ignoresSafeArea()
