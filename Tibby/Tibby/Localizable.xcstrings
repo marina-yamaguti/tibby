@@ -107,6 +107,9 @@
     "New Workout" : {
 
     },
+    "OK" : {
+
+    },
     "Okay" : {
 
     },
@@ -119,10 +122,16 @@
     "Play" : {
 
     },
+    "Please write your name to proceed." : {
+
+    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
+
+    },
+    "Provide a Name" : {
 
     },
     "quantity: %lld" : {

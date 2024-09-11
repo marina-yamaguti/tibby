@@ -41,10 +41,8 @@ struct OnboardingView4: View {
                     Text("Complete missions and earn rewards like coins and items")
                         .font(.typography(.body2))
                         .environment(\._lineHeightMultiple, 0.8)
-                    
                 }
                 Spacer()
-                
             }
             HStack {
                 Image("CapsuleEpic")

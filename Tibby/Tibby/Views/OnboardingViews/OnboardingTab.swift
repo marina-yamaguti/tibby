@@ -13,6 +13,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
     @State var name = ""
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
@@ -60,7 +61,7 @@ struct OnboardingTab: View {
                     OnboardingView3(name: $name)
                 case .onboarding4:
                     OnboardingView4()
-                
+                    
                 }
                 Spacer()
                 Button(action: {
@@ -70,14 +71,15 @@ struct OnboardingTab: View {
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
                     } else if vm.currentIndex == 2 {
-                        print(name)
                         if !name.isEmpty {
                             vm.nextPage()
+                        } else {
+                            showAlert = true
                         }
                     } else {
                         vm.nextPage()
                     }
-
+                    
                     print(vm.currentIndex)
                     print(vm.currentOnboarding)
                 }, label: {
@@ -90,9 +92,16 @@ struct OnboardingTab: View {
                             .foregroundStyle(.tibbyBaseBlack)
                             .padding(.horizontal)
                     }
-
+                    
                 })
                 .buttonPrimary(bgColor: .tibbyBaseBlue)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Provide a Name"),
+                        message: Text("Please write your name to proceed."),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
             }
             .padding(EdgeInsets(top: 90, leading: 16, bottom: 30, trailing: 16))
         }
