@@ -10,10 +10,10 @@ import SwiftUI
 struct OnboardingView3: View {
     @EnvironmentObject var constants: Constants
     @Binding var name: String
-    @State var exercise: Int = 5
-    @State var energy: Int = 110
-    @State var steps: Int = 500
-    @State var sleep: Int = 8
+    @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
+    @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
+    @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
+    @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
     
     var body: some View {
         ScrollView {

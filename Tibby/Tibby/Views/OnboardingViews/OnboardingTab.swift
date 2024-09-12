@@ -12,7 +12,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
-    @State var name = ""
+    @State var name: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
     @State private var showAlert = false
     
     var body: some View {
@@ -66,8 +66,7 @@ struct OnboardingTab: View {
                 Spacer()
                 Button(action: {
                     if vm.currentIndex == 1 {
-                        healthManager.authorizationToWriteInHealthStore()
-                        vm.nextPage()
+                        healthManager.authorizationToWriteInHealthStore(vm)
                     } else if vm.currentIndex == 3 {
                         vm.navigateToGatcha = true
                     } else if vm.currentIndex == 2 {
