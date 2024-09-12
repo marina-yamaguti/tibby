@@ -126,7 +126,7 @@ struct CapsuleView: View {
                         
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
-                        presentationMode.wrappedValue.dismiss()
+//                        presentationMode.wrappedValue.dismiss()
 //                        goToHome = true
                     } else {
                         presentationMode.wrappedValue.dismiss()
