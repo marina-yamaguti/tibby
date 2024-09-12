@@ -26,7 +26,7 @@ struct MissionManager {
             let rewardRaw = Int.random(in: 1...2)
             let rewardType = RewardType(rawValue: rewardRaw)!
             return MissionDay(
-                description: missionType.missionDescription(value: missionType.missionValue(difficulty: difficulty), frequency: dateType),
+                id: UUID(), description: missionType.missionDescription(value: missionType.missionValue(difficulty: difficulty), frequency: dateType),
                 valueTotal: missionType.missionValue(difficulty: difficulty),
                 reward: Reward(rewardValue: rewardType.rewardQuantity(difficulty: difficulty), rewardType: rewardType),
                 xp: Reward(rewardValue: RewardType.xp.rewardQuantity(difficulty: difficulty), rewardType: RewardType.xp),
@@ -36,7 +36,7 @@ struct MissionManager {
             let rewardRaw = Int.random(in: 1...2)
             let rewardType = RewardType(rawValue: rewardRaw)!
             return MissionWeek(
-                description: missionType.missionDescription(value: missionType.missionValue(difficulty: difficulty), frequency: dateType),
+                id: UUID(), description: missionType.missionDescription(value: missionType.missionValue(difficulty: difficulty), frequency: dateType),
                 valueTotal: missionType.missionValue(difficulty: difficulty),
                 reward: Reward(rewardValue: rewardType.rewardQuantity(difficulty: difficulty), rewardType: rewardType),
                 xp: Reward(rewardValue: RewardType.xp.rewardQuantity(difficulty: difficulty), rewardType: RewardType.xp),

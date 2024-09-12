@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "heartFull.png",
+      "filename" : "Type=Mission_BLACK.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Type=Mission@2x_BLACK.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Type=Mission@3x_BLACK.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

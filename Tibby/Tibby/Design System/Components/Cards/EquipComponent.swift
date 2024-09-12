@@ -26,8 +26,10 @@ struct EquipComponent: View {
         }
         .contentShape(Rectangle()) // This ensures the whole area is tappable
         .onTapGesture {
-            isSelected = .selected
-            viewModel.changeTibby()
+            if isSelected == .unselected {
+                isSelected = .selected
+                viewModel.changeTibby()
+            }
         }
     }
     
