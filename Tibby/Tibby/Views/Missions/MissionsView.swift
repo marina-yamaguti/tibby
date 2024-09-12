@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct MissionsView: View {
+    @State var streak = GameStreak()
     @State var dailyMission: DayMissionsCollection
     @State var weeklyMission: WeekMissionsCollection
     let missionManager = MissionManager() // Add MissionManager instance
+
 
     
     var body: some View {
@@ -31,8 +33,8 @@ struct MissionsView: View {
                         }
                         Spacer()
                         
-                        NavigationLink(destination: MissionsStreakUpComponent()) {
-                            StreakUpComponent(streakCount: 0)
+                        NavigationLink(destination: MissionsStreakView()) {
+                            StreakUpComponent(streakCount: streak.currentStreak)
                         }
                     }
                     .padding(.bottom, 16)
