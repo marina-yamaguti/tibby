@@ -19,7 +19,7 @@ struct OfferedRewardComponent: View {
 
 
             Text("\(reward.rewardValue)")
-                .font(.typography(.body))
+                .font(.typography(.label))
                 .foregroundStyle(.tibbyBaseDarkBlue)
                 .padding(4)
                 .background {
