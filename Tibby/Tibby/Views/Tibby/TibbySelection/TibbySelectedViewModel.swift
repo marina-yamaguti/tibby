@@ -14,12 +14,15 @@ class TibbySelectedViewModel: ObservableObject {
     @Binding var tibby: Tibby
     @Binding var currentTibby: Tibby
     @Published var status: SelectionStatus
+    @Published var showAlert = false
+    @Published var isFavorite = false
     
     init(tibby: Binding<Tibby>, currentTibby: Binding<Tibby>, status: SelectionStatus, service: Service) {
         self._tibby = tibby
         self._currentTibby = currentTibby
         self.status = status
         self.service = service
+        self.isFavorite = service.getFavoriteTibbies().contains(where: { $0.id == tibby.wrappedValue.id })
     }
     
     var color: Color {
@@ -52,7 +55,7 @@ class TibbySelectedViewModel: ObservableObject {
     var description: String {
         return tibby.details
     }
-
+    
     
     func changeTibby() {
         currentTibby = tibby
@@ -75,5 +78,24 @@ class TibbySelectedViewModel: ObservableObject {
         }
         
         return spacedString
+    }
+    
+    func toggleFavorite() {
+        let favoriteTibbies = service.getFavoriteTibbies()
+        //Remove from favorites
+        if isFavorite {
+            service.removeFavoriteTibby(id: tibby.id)
+            isFavorite = false
+        } else {
+            //Add to favorites
+            if favoriteTibbies.count < 3 {
+                if service.addFavoriteTibby(tibby: tibby) {
+                    isFavorite = true
+                }
+            } else {
+                //Show the alert if user already has 3 favorites
+                showAlert = true
+            }
+        }
     }
 }

@@ -83,7 +83,7 @@
     "Hello, World!" : {
 
     },
-    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big gold button to roll for a random Tibby." : {
+    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
 
     },
     "home" : {
@@ -99,6 +99,9 @@
 
     },
     "Light" : {
+
+    },
+    "Limit Reached" : {
 
     },
     "Lv. %lld" : {
@@ -208,6 +211,9 @@
 
     },
     "v.%@" : {
+
+    },
+    "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
 
     },
     "You Won" : {
