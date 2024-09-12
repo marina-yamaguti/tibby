@@ -29,8 +29,10 @@ struct CapsuleView: View {
     @State private var timerSubscription: Cancellable? = nil
     @State var isBoucing = false
     @State var fadeText = false
-    @State var firtTimeHere: Bool
-    @State var goToHome = false
+    @Binding var firstTimeHere: Bool
+//    @State var goToHome = false
+    
+    
     
     
     var body: some View {
@@ -88,7 +90,7 @@ struct CapsuleView: View {
         } else {
             VStack(alignment: .center, spacing: 24) {
                 Spacer()
-                Text(firtTimeHere ? "You Won your first Tibby:" : "You Won" )
+                Text(firstTimeHere ? "You Won your first Tibby:" : "You Won" )
                     .font(.typography(.title))
                     .padding(.top, 32)
                     .padding(.horizontal, 8)
@@ -117,13 +119,15 @@ struct CapsuleView: View {
                     .scaledToFit()
                 
                 Button(action: {
-                    if firtTimeHere {
-                        UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
+                    if firstTimeHere {
                         if let user = service.getUser() {
                             user.currentTibbyID = tibby.id
                         }
                         
-                        goToHome = true
+                        UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
+                        firstTimeHere = false
+                        presentationMode.wrappedValue.dismiss()
+//                        goToHome = true
                     } else {
                         presentationMode.wrappedValue.dismiss()
                     }
@@ -142,7 +146,7 @@ struct CapsuleView: View {
                 
             }.background(color)
                 .foregroundStyle(.tibbyBaseBlack)
-                .navigationDestination(isPresented: $goToHome, destination: { HomeView(tibby: tibby).navigationBarBackButtonHidden(true) })
+//                .navigationDestination(isPresented: $goToHome, destination: { HomeView(tibby: tibby).navigationBarBackButtonHidden(true) })
         }
     }
     

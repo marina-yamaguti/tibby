@@ -68,7 +68,6 @@
 		A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
-		A58862222C92296D00404123 /* OnbExpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58862212C92296D00404123 /* OnbExpl.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
@@ -295,7 +294,6 @@
 		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
-		A58862212C92296D00404123 /* OnbExpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbExpl.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
@@ -677,7 +675,6 @@
 				7CE131CF2C63F400001D7348 /* OnboardingView2.swift */,
 				7CE131D12C63F408001D7348 /* OnboardingView3.swift */,
 				7CE131D32C63F413001D7348 /* OnboardingView4.swift */,
-				A58862212C92296D00404123 /* OnbExpl.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -1346,7 +1343,6 @@
 				A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
 				FD45F2762C669BA30046DE49 /* StatusBar.swift in Sources */,
-				A58862222C92296D00404123 /* OnbExpl.swift in Sources */,
 				D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */,
 				7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */,
 				7C35636F2C80E7E000D8389C /* Mission.swift in Sources */,

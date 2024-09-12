@@ -23,9 +23,6 @@
     "100" : {
 
     },
-    "Add %@" : {
-
-    },
     "Brought to you by:" : {
 
     },
@@ -83,7 +80,7 @@
     "Hello, World!" : {
 
     },
-    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big gold button to roll for a random Tibby." : {
+    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
 
     },
     "home" : {
@@ -149,9 +146,6 @@
     "rarity" : {
 
     },
-    "Remove" : {
-
-    },
     "Resources" : {
 
     },
@@ -183,6 +177,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
