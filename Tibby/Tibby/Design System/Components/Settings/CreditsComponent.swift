@@ -49,6 +49,7 @@ struct CreditsComponent: View {
             .padding()
         }
         .ignoresSafeArea()
+        .background(.tibbyBaseWhite)
         .navigationBarBackButtonHidden()
     }
 }
