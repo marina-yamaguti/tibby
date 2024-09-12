@@ -76,6 +76,7 @@
 		BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */; };
 		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
 		BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */; };
+		BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC322C937CF70050D1CA /* Streak.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -309,6 +310,7 @@
 		BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsView.swift; sourceTree = "<group>"; };
 		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
 		BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakView.swift; sourceTree = "<group>"; };
+		BCB5AC322C937CF70050D1CA /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -927,6 +929,14 @@
 			path = Missions;
 			sourceTree = "<group>";
 		};
+		BCB5AC312C937CE80050D1CA /* Streak */ = {
+			isa = PBXGroup;
+			children = (
+				BCB5AC322C937CF70050D1CA /* Streak.swift */,
+			);
+			path = Streak;
+			sourceTree = "<group>";
+		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1073,7 @@
 		FDE4F8272C2CA7B200490F38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCB5AC312C937CE80050D1CA /* Streak */,
 				7C39A1F62C90DFAB00FAE080 /* Entities */,
 				7C39A1F52C90DF6300FAE080 /* Gacha */,
 				7C39A1F42C90DF4600FAE080 /* Missions */,
@@ -1389,6 +1400,7 @@
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
+				BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */,
 				BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */,
 				D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
