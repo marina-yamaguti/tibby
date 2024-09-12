@@ -101,6 +101,9 @@
     "Light" : {
 
     },
+    "Limit Reached" : {
+
+    },
     "Lv. %lld" : {
 
     },
@@ -208,6 +211,9 @@
 
     },
     "v.%@" : {
+
+    },
+    "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
 
     },
     "You Won" : {
