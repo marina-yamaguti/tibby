@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct OnboardingView2: View {
-    @EnvironmentObject var constants: Constants
-    @EnvironmentObject var healthManager: HealthManager
-    
     @State private var showFirstImage = true
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
 

@@ -11,11 +11,13 @@ import SwiftUI
 
 
 enum SettingsSections: Hashable {
-    case notifications, haptics, sound, health
+//    case notifications, haptics, sound, health
+    case haptics, sound, health
+
     
     var title: String {
         switch self {
-        case .notifications: return "App Notifications"
+      //  case .notifications: return "App Notifications"
         case .haptics: return "Haptics Feedback"
         case .sound: return "Game Sounds"
         case .health: return "Health Information"
@@ -23,7 +25,7 @@ enum SettingsSections: Hashable {
     }
     var labels: [String] {
         switch self {
-        case .notifications: return ["Notifications"]
+      //  case .notifications: return ["Notifications"]
         case .haptics: return ["Phone Vibrations"]
         case .sound: return ["Sound Effects", "Music"]
         case .health: return ["Health"]
@@ -31,7 +33,7 @@ enum SettingsSections: Hashable {
     }
     var trailingType: TrailingType {
         switch self {
-        case .notifications: return .details
+       // case .notifications: return .details
         case .haptics: return .toggleButton
         case .sound: return .toggleButton
         case .health: return .details
@@ -39,7 +41,7 @@ enum SettingsSections: Hashable {
     }
     var color: Color {
         switch self {
-        case .notifications: .tibbyBaseRed
+       // case .notifications: .tibbyBaseRed
         case .haptics: .tibbyBaseGreen
         case .sound: .tibbyBaseBlue
         case .health: .tibbyBasePink
@@ -49,7 +51,8 @@ enum SettingsSections: Hashable {
 }
 
 class SettingsViewModel: ObservableObject {
-    @Published var settingsSections: [SettingsSections] = [.notifications, .haptics, .sound, .health]
+//    @Published var settingsSections: [SettingsSections] = [.notifications, .haptics, .sound, .health]
+    @Published var settingsSections: [SettingsSections] = [.haptics, .sound, .health]
     @Published var notificationIsEnabled: Bool = false
     
     func openAppSettings() {
