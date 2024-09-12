@@ -29,10 +29,19 @@
     "100" : {
 
     },
+    "Add %@" : {
+
+    },
     "Brought to you by:" : {
 
     },
     "Cancel" : {
+
+    },
+    "Charlotte:" : {
+
+    },
+    "Click anywhere to dismiss." : {
 
     },
     "Complete missions and earn rewards like coins and items" : {
@@ -77,7 +86,13 @@
     "Given Name" : {
 
     },
+    "Go to Settings > Health > Tibby > Allow Data Access." : {
+
+    },
     "Hello, World!" : {
+
+    },
+    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
 
     },
     "home" : {
@@ -89,10 +104,13 @@
     "How should we call you?" : {
 
     },
-    "How to allow?" : {
+    "How to allow" : {
 
     },
     "Light" : {
+
+    },
+    "Limit Reached" : {
 
     },
     "Lv. %lld" : {
@@ -113,6 +131,9 @@
     "New Workout" : {
 
     },
+    "OK" : {
+
+    },
     "Okay" : {
 
     },
@@ -128,7 +149,7 @@
     "Play" : {
 
     },
-    "Please go to Settings and allow the necessary permissions." : {
+    "Please write your name to proceed." : {
 
     },
     "price: %lld" : {
@@ -137,10 +158,16 @@
     "Profile icon" : {
 
     },
+    "Provide a Name" : {
+
+    },
     "quantity: %lld" : {
 
     },
     "rarity" : {
+
+    },
+    "Remove" : {
 
     },
     "Resources" : {
@@ -177,7 +204,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -208,7 +234,7 @@
     "v.%@" : {
 
     },
-    "Workout Session" : {
+    "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
 
     },
     "You Won" : {

@@ -67,20 +67,16 @@ enum MissionType: CaseIterable {
         case .workout:
             switch difficulty {
             case 1:
-#warning("UserDefaults.standard.value(forKey: workout)")
-                return 30
+                return UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
                 
             case 2:
-#warning("UserDefaults.standard.value(forKey: workout) * 1.5")
-                return 60
+                return Int(Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 1.5)
                 
             case 5:
-#warning("Int((UserDefaults.standard.value(forKey: workout) * 5)/60)")
-                return 5
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 5)/60)
                 
             case 6:
-#warning("Int((UserDefaults.standard.value(forKey: workout) * 7)/60)")
-                return 10
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 7)/60)
                 
             default:
                 return 0
@@ -105,20 +101,16 @@ enum MissionType: CaseIterable {
         case .sleep:
             switch difficulty {
             case 1:
-#warning("Int(UserDefaults.standard.value(forKey: sleep) * 0.8)")
-                return 6
+                return Int((Double(UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 0.8))
                 
             case 2:
-#warning("UserDefaults.standard.value(forKey: sleep)")
-                return 8
+                return UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
                 
             case 5:
-#warning("UserDefaults.standard.value(forKey: sleep) * 5")
-                return 15
+                return ((UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 5)
                 
             case 6:
-#warning("Int((UserDefaults.standard.value(forKey: sleep) * 7)/60)")
-                return 20
+                return Int((Double(UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 7)/60)
                 
             default:
                 return 0
@@ -126,20 +118,16 @@ enum MissionType: CaseIterable {
         case .steps:
             switch difficulty {
             case 1:
-#warning("UserDefaults.standard.value(forKey: steps)")
-                return 1000
+                return UserDefaults.standard.value(forKey: "steps") as? Int ?? 1000
                 
             case 2:
-#warning("UserDefaults.standard.value(forKey: steps) * 2")
-                return 2000
+                return (UserDefaults.standard.value(forKey: "steps") as? Int ?? 1000) * 2
                 
             case 5:
-#warning("UserDefaults.standard.value(forKey: steps) * 10")
-                return 10000
+                return (UserDefaults.standard.value(forKey: "steps") as? Int ?? 1000) * 10
                 
             case 6:
-#warning("UserDefaults.standard.value(forKey: steps) * 20")
-                return 20000
+                return (UserDefaults.standard.value(forKey: "steps") as? Int ?? 1000) * 20
                 
             default:
                 return 0
@@ -173,6 +161,8 @@ protocol MissionProtocol {
     
     /// The type of mission.
     var missionType: MissionType { get }
+    
+    var id: UUID { get }
     
     /// Claims the reward for the mission.
     ///
@@ -288,6 +278,8 @@ struct DayMissionsCollection: MissionsCollectionProtocol {
 
 /// A structure representing a mission that is part of a daily collection.
 struct MissionDay: MissionProtocol {
+    var id: UUID
+    
     var description: String
     
     var valueTotal: Int
@@ -330,6 +322,8 @@ struct MissionDay: MissionProtocol {
 
 /// A structure representing a mission that is part of a weekly collection.
 struct MissionWeek: MissionProtocol {
+    var id: UUID
+    
     var description: String
     
     var valueTotal: Int

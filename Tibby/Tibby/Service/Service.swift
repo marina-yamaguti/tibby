@@ -112,6 +112,12 @@ class Service: ObservableObject, ServiceProtocol {
         return false
     }
     
+    func removeFavoriteTibby(id: UUID) {
+        if let user = self.getUser() {
+            user.favoriteTibbies.removeAll { $0 == id }
+        }
+    }
+    
     func getFavoriteTibbies() -> [Tibby] {
         var favoriteTibbies: [Tibby] = []
         if let user = self.getUser() {

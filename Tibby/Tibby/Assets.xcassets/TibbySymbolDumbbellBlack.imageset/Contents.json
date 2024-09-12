@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Type=Dumbbell.png",
+      "filename" : "Type=Dumbbell_BLACK.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Type=Dumbbell@2x.png",
+      "filename" : "Type=Dumbbell@2x_BLACK.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Type=Dumbbell@3x.png",
+      "filename" : "Type=Dumbbell@3x_BLACK.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

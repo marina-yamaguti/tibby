@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "TibbySymbolHeartFill.png",
+      "filename" : "Variation=Default, Color Mode=P&B.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "TibbySymbolHeartFill@2x.png",
+      "filename" : "Variation=Default, Color Mode=P&B 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "TibbySymbolHeartFill@3x.png",
+      "filename" : "Variation=Default, Color Mode=P&B 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
