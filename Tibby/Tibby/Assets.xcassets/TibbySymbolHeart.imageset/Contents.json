@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "heartEmpty.png",
+      "filename" : "TibbySymbolHeart.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "TibbySymbolHeart@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "TibbySymbolHeart@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
