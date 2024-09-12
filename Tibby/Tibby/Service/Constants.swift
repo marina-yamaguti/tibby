@@ -18,6 +18,13 @@ class Constants: ObservableObject {
     /// The shared singleton instance of the `Constants` class.
     static let singleton: Constants = Constants()
     
+    /// variables to control the workout flow of screens
+    @Published var showWorkoutSession = false
+    @Published var showFinishedWorkout = false
+    @Published var workout: WorkoutActivityType?
+    @Published var workoutSteps: Int = 0
+    @Published var workoutSeconds: Int = 0
+    
     // MARK: - Tibby's Level Variables
     
     /// The maximum XP level Tibby can reach.

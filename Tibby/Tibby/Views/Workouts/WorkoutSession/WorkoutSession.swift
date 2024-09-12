@@ -11,14 +11,18 @@ struct WorkoutSessionView: View {
     let image: String
     let workout: WorkoutActivityType
     
+    @EnvironmentObject var constants: Constants
     @State var startDate = Date()
     @State var stepsStart: Int = 0
-    @State private var timeRemaining = 0
+    @State private var timeSeconds = 0
     @State private var isRunning = true
     @State private var timer: Timer?
     @State var steps: Int = 0
     @State var health = HealthManager()
     @State var workoutList: [WorkoutPraticInterval] = []
+    @Binding var offset: CGFloat
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,14 +31,14 @@ struct WorkoutSessionView: View {
                     .font(.typography(.title))
                     .foregroundStyle(.tibbyBaseWhite)
                 Spacer()
-            }.padding()
-                .padding(.bottom, 40)
+            }.padding(.horizontal)
+                .padding(.top, 32)
             Spacer()
             VStack(alignment: .leading, spacing: 20) {
                 Text("Elapsed Time")
                     .font(.typography(.body))
                     .foregroundStyle(.tibbyBaseGreen)
-                Text(timeFormatted(timeRemaining))
+                Text(timeFormatted(timeSeconds))
                     .font(.typography(.display))
                     .foregroundStyle(.tibbyBaseWhite)
                 Text("Steps Taken")
@@ -83,7 +87,18 @@ struct WorkoutSessionView: View {
                 })
                 Spacer()
                 Button(action: {
+                    constants.workoutSteps = steps
+                    constants.workoutSeconds = timeSeconds
+                    constants.showFinishedWorkout = true
+                    print("finished workout: ")
+                    print("steps: \(constants.workoutSteps)")
+                    print("time: \(constants.workoutSeconds)")
                     stopTimer()
+                    withAnimation(.easeOut(duration: 0.2), {
+                        offset = UIScreen.main.bounds.height
+                        constants.showWorkoutSession = false
+                    })
+                    
                 }, label: {
                     HStack(spacing: 16) {
                         ZStack {
@@ -102,9 +117,18 @@ struct WorkoutSessionView: View {
                 
             }.padding(.horizontal, 36)
                 .padding(.vertical)
+            Spacer()
                 
             
         }.background(.tibbyBaseBlack)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: 45,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 45
+                )
+            )
             .onAppear {
                 health.fetchInformation(informationList: [(dateInfo: .startOfDay, sampleInfo: .steps, dataTypeInfo: .day)])
                 startTimer()
@@ -118,7 +142,7 @@ struct WorkoutSessionView: View {
             isRunning = true
             startDate = Date()
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                timeRemaining += 1
+                timeSeconds += 1
                 
                 health.fetchInformation(informationList: [(dateInfo: .startOfDay, sampleInfo: .steps, dataTypeInfo: .day)])
                 
@@ -144,9 +168,8 @@ struct WorkoutSessionView: View {
     
     func stopTimer() {
         pauseTimer()
-        timeRemaining = 0
+        timeSeconds = 0
         health.saveWorkout(workout: WorkoutPratic(intervals: workoutList))
-        //navigate back to workout list? 
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {

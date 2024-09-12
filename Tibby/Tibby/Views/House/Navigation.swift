@@ -24,21 +24,21 @@ enum Enviroment {
     func getTibbyProperties(tibby: Tibby) -> Binding<Int> {
         switch self {
         case .garden:
-                return Binding<Int>(
-                    get: { tibby.happiness },
-                    set: { tibby.happiness = $0 }
-                )
-            case .kitchen:
-                return Binding<Int>(
-                    get: { tibby.hunger },
-                    set: { tibby.hunger = $0 }
-                )
-            case .bedroom:
-                return Binding<Int>(
-                    get: { tibby.sleep },
-                    set: { tibby.sleep = $0 }
-                )
-            }
+            return Binding<Int>(
+                get: { tibby.happiness },
+                set: { tibby.happiness = $0 }
+            )
+        case .kitchen:
+            return Binding<Int>(
+                get: { tibby.hunger },
+                set: { tibby.hunger = $0 }
+            )
+        case .bedroom:
+            return Binding<Int>(
+                get: { tibby.sleep },
+                set: { tibby.sleep = $0 }
+            )
+        }
     }
 }
 
@@ -46,12 +46,15 @@ struct NavigationTabbarView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @ObservedObject var vm: NavigationViewModel
+    @State var offset = UIScreen.main.bounds.height
     let enviroments: [Enviroment] = [.kitchen, .bedroom, .garden]
     
     var body: some View {
-        VStack {
-            RetroNavigationBar()
-                .padding(.top, 60)
+        
+        ZStack {
+            VStack {
+                RetroNavigationBar()
+                    .padding(.top, 60)
                 //Decide the room depending on the button the user select
                 switch constants.currentEnviroment {
                 case .bedroom:
@@ -62,21 +65,46 @@ struct NavigationTabbarView: View {
                     KitchenView(tibby: vm.tibby, selectedFood: service.getFoodsFromUser().keys.first)
                 }
                 //Custom Tabbar
-                HStack(spacing: 30){
+                HStack(spacing: 30) {
                     ForEach(0..<enviroments.count) { ind in
                         Button(action: {constants.currentEnviroment = enviroments[ind]},
                                label: {
                             ButtonLabel(type: .tabBar, image: enviroments[ind].getIconAsset().rawValue, text: "")
-                        }
-                        )
+                        })
                         .buttonTabBar()
                     }
                 }.frame(height: 80)
             }
-        .navigationBarBackButtonHidden(true)
-        .ignoresSafeArea(edges: [.top])
-        .background(
-            .tibbyBaseWhite
-        )
+            .navigationBarBackButtonHidden(true)
+            .ignoresSafeArea(edges: [.top])
+            .background(
+                .tibbyBaseWhite
+            )
+            if constants.showWorkoutSession, constants.workout != nil {
+                VStack {
+                    WorkoutSessionView(image: "\(vm.tibby.species)1", workout: constants.workout!, offset: $offset)
+                        .offset(y: offset)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 0.2), {
+                                    self.offset = 0
+                            })
+                        }
+//                        .onDisappear {
+//                            withAnimation(.easeIn(duration: 0.1), {
+//                                self.offset = UIScreen.main.bounds.height
+//                            })
+//                            
+//                        }
+                        
+                }.padding(.top, 38)
+                    .navigationBarBackButtonHidden(true)
+                    .ignoresSafeArea(edges: [.bottom])
+                    .background(
+                        .tibbyBaseWhite
+                    )
+                
+            }
+        }
     }
 }
+

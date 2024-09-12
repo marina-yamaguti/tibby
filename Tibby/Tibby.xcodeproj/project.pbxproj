@@ -97,7 +97,6 @@
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
-		D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECD2C6C0293009C208C /* SheetWithCircle.swift */; };
 		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
 		D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED12C6D1B67009C208C /* SettingsView.swift */; };
 		D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED32C6D1BAC009C208C /* PageHeader.swift */; };
@@ -128,6 +127,8 @@
 		FD51552F2C88D1EA00B9684A /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51552E2C88D1EA00B9684A /* CustomSearchBar.swift */; };
 		FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155312C8A1FD100B9684A /* WorkoutSession.swift */; };
 		FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155332C8B79A600B9684A /* RarityLabel.swift */; };
+		FD5155372C920B7400B9684A /* WorkoutMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155362C920B7400B9684A /* WorkoutMission.swift */; };
+		FD5155392C935A7C00B9684A /* FinishedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155382C935A7C00B9684A /* FinishedWorkout.swift */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -322,7 +323,6 @@
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
-		D896AECD2C6C0293009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SheetWithCircle.swift; path = ../SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AED12C6D1B67009C208C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D896AED32C6D1BAC009C208C /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
@@ -353,6 +353,8 @@
 		FD51552E2C88D1EA00B9684A /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		FD5155312C8A1FD100B9684A /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		FD5155332C8B79A600B9684A /* RarityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RarityLabel.swift; sourceTree = "<group>"; };
+		FD5155362C920B7400B9684A /* WorkoutMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMission.swift; sourceTree = "<group>"; };
+		FD5155382C935A7C00B9684A /* FinishedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkout.swift; sourceTree = "<group>"; };
 		FD9075A02C2DD42E000E5F24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD9075A22C2DDC95000E5F24 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		FD9075A42C2DE065000E5F24 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -497,7 +499,6 @@
 				BC537F152C87D16400463E59 /* BackgroundView.swift */,
 				D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
-				D896AECD2C6C0293009C208C /* SheetWithCircle.swift */,
 				D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */,
 			);
 			path = Background;
@@ -550,8 +551,10 @@
 		7C39A1F12C90DEB400FAE080 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
+				FD5155352C920B6100B9684A /* WorkoutMisson */,
 				FD5155302C8A1FBA00B9684A /* WorkoutSession */,
 				FD51552B2C88C8AB00B9684A /* WorkoutList */,
+				FD5155382C935A7C00B9684A /* FinishedWorkout.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -933,6 +936,14 @@
 				FD5155312C8A1FD100B9684A /* WorkoutSession.swift */,
 			);
 			path = WorkoutSession;
+			sourceTree = "<group>";
+		};
+		FD5155352C920B6100B9684A /* WorkoutMisson */ = {
+			isa = PBXGroup;
+			children = (
+				FD5155362C920B7400B9684A /* WorkoutMission.swift */,
+			);
+			path = WorkoutMisson;
 			sourceTree = "<group>";
 		};
 		FD9075AD2C3489A4000E5F24 /* tibby-watch Watch App */ = {
@@ -1342,6 +1353,7 @@
 				A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */,
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
+				FD5155372C920B7400B9684A /* WorkoutMission.swift in Sources */,
 				7C8AEC932C87853B00DF0B8E /* MusicManager.swift in Sources */,
 				A50E92D22C6BDB6000762A11 /* TibbySelectedViewModel.swift in Sources */,
 				7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */,
@@ -1382,9 +1394,9 @@
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */,
+				FD5155392C935A7C00B9684A /* FinishedWorkout.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
 				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
-				D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,

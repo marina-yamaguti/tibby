@@ -17,6 +17,7 @@ struct GardenView: View {
     @State var exercisesSheetIsOpen = false
     
     var body: some View {
+        
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 45)
@@ -79,12 +80,24 @@ struct GardenView: View {
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                     }.padding(.bottom, 32).padding(.horizontal,20)
                 }
-                if exercisesSheetIsOpen {
+                if constants.showFinishedWorkout {
                     ZStack {
                         RoundedRectangle(cornerRadius: 45)
                             .foregroundStyle(.tibbyBaseBlack)
-                        WorkoutListView(isOpen: $exercisesSheetIsOpen, tibby: tibby)
+                        FinishedWorkout(showSheet: $constants.showFinishedWorkout, timeGoal: 30, workoutSeconds: $constants.workoutSeconds, stepsGoal: 500, workoutSteps: $constants.workoutSteps)
+                            .onAppear {
+                                self.exercisesSheetIsOpen = false
+                            }
                     }.padding(.top, 100)
+                    
+                } else {
+                    if exercisesSheetIsOpen {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 45)
+                                .foregroundStyle(.tibbyBaseBlack)
+                            WorkoutListView(isOpen: $exercisesSheetIsOpen, tibby: tibby)
+                        }.padding(.top, 100)
+                    }
                 }
             }.padding().brightness(constants.brightness)
         }.background(.tibbyBaseWhite)
@@ -102,5 +115,6 @@ struct GardenView: View {
                     tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                 }
             })
+        
     }
 }
