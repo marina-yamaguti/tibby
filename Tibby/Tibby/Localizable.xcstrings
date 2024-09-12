@@ -23,9 +23,6 @@
     "100" : {
 
     },
-    "Add %@" : {
-
-    },
     "Brought to you by:" : {
 
     },
@@ -152,9 +149,6 @@
     "rarity" : {
 
     },
-    "Remove" : {
-
-    },
     "Resources" : {
 
     },
@@ -186,6 +180,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
