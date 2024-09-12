@@ -30,6 +30,15 @@ extension Date {
 // Dates that represent the frequency of some activity
 enum DateType {
     case day, week
+    
+    var description: String {
+        switch self {
+        case .day:
+            return "Daily Mission"
+        case .week:
+            return "Weekly Mission"
+        }
+    }
 }
 
 // Mesure of time of the missions
