@@ -69,6 +69,13 @@
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
+		BCB5AC242C9212750050D1CA /* OfferedRewardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */; };
+		BCB5AC262C9215120050D1CA /* MissionProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */; };
+		BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */; };
+		BCB5AC2A2C921B410050D1CA /* MissionCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */; };
+		BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */; };
+		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
+		BCB5AC302C9350400050D1CA /* MissionsStreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -97,7 +104,6 @@
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
-		D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECD2C6C0293009C208C /* SheetWithCircle.swift */; };
 		D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */; };
 		D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED12C6D1B67009C208C /* SettingsView.swift */; };
 		D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AED32C6D1BAC009C208C /* PageHeader.swift */; };
@@ -296,6 +302,13 @@
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRewardComponent.swift; sourceTree = "<group>"; };
+		BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionProgressComponent.swift; sourceTree = "<group>"; };
+		BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsProgressBar.swift; sourceTree = "<group>"; };
+		BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardComponent.swift; sourceTree = "<group>"; };
+		BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsView.swift; sourceTree = "<group>"; };
+		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
+		BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakUpComponent.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -322,7 +335,6 @@
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
-		D896AECD2C6C0293009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SheetWithCircle.swift; path = ../SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWithCircle.swift; sourceTree = "<group>"; };
 		D896AED12C6D1B67009C208C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D896AED32C6D1BAC009C208C /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
@@ -449,6 +461,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCB5AC222C9212630050D1CA /* Missions */,
 				7C39A1F32C90DEFE00FAE080 /* Profile */,
 				7C39A1F22C90DEC000FAE080 /* Exemples */,
 				7C39A1F12C90DEB400FAE080 /* Workouts */,
@@ -497,7 +510,6 @@
 				BC537F152C87D16400463E59 /* BackgroundView.swift */,
 				D82337D32C6AB063006BF8BD /* GradientBackgroundView.swift */,
 				D81694502C49A5F20036BD03 /* CurvedRectangleComponent.swift */,
-				D896AECD2C6C0293009C208C /* SheetWithCircle.swift */,
 				D896AECF2C6D1B39009C208C /* SheetWithCircle.swift */,
 			);
 			path = Background;
@@ -899,6 +911,20 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
+			sourceTree = "<group>";
+		};
+		BCB5AC222C9212630050D1CA /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */,
+				BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */,
+				BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */,
+				BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */,
+				BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */,
+				BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */,
+				BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */,
+			);
+			path = Missions;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -1363,6 +1389,7 @@
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
 				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
+				BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */,
 				D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
 				D82337D22C6AAA2E006BF8BD /* ButtonLabel.swift in Sources */,
@@ -1372,6 +1399,7 @@
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
+				BCB5AC242C9212750050D1CA /* OfferedRewardComponent.swift in Sources */,
 				FDDCE7A22C751AC500FEC8F2 /* GatchaViewModel.swift in Sources */,
 				FD45F2612C629DED0046DE49 /* Roll.swift in Sources */,
 				D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */,
@@ -1384,7 +1412,6 @@
 				BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
 				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
-				D896AECE2C6C0293009C208C /* SheetWithCircle.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
@@ -1396,6 +1423,7 @@
 				FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
+				BCB5AC302C9350400050D1CA /* MissionsStreakUpComponent.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
@@ -1403,6 +1431,7 @@
 				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,
 				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
+				BCB5AC262C9215120050D1CA /* MissionProgressComponent.swift in Sources */,
 				D84055142C82501000292BDC /* EquipComponent.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
@@ -1417,10 +1446,13 @@
 				D816944D2C49A4630036BD03 /* ItemCard.swift in Sources */,
 				7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
+				BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */,
 				D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */,
+				BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */,
 				D81284B72C6AFC4D0088A7B9 /* Onboarding.swift in Sources */,
 				D816945D2C49B0A50036BD03 /* TabBarButton.swift in Sources */,
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
+				BCB5AC2A2C921B410050D1CA /* MissionCardComponent.swift in Sources */,
 				FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */,
 				D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */,
 				FD5154D62C7FB53D00B9684A /* ButtonGacha.swift in Sources */,

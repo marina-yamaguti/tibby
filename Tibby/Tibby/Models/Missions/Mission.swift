@@ -174,6 +174,8 @@ protocol MissionProtocol {
     /// The type of mission.
     var missionType: MissionType { get }
     
+    var id: UUID { get }
+    
     /// Claims the reward for the mission.
     ///
     /// - Parameters:
@@ -288,6 +290,8 @@ struct DayMissionsCollection: MissionsCollectionProtocol {
 
 /// A structure representing a mission that is part of a daily collection.
 struct MissionDay: MissionProtocol {
+    var id: UUID
+    
     var description: String
     
     var valueTotal: Int
@@ -330,6 +334,8 @@ struct MissionDay: MissionProtocol {
 
 /// A structure representing a mission that is part of a weekly collection.
 struct MissionWeek: MissionProtocol {
+    var id: UUID
+    
     var description: String
     
     var valueTotal: Int
