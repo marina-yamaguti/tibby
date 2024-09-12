@@ -100,13 +100,14 @@ struct SettingsComponent: View {
                     .fill(.tibbyBasePearlBlue)
             }
         }
-        .alert("How to allow?", isPresented: $showHealthAlert) {
+        .alert("How to allow", isPresented: $showHealthAlert) {
             Button("Open Settings") {
                 openSettings()
             }
             Button("Cancel", role: .cancel) {}
+                .foregroundColor(.gray) 
         } message: {
-            Text("Go to Settings > Health > Tibby > Allow Data Access")
+            Text("Go to Settings > Health > Tibby > Allow Data Access.")
         }
     }
     

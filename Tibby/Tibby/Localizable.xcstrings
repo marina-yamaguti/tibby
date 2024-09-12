@@ -23,10 +23,19 @@
     "100" : {
 
     },
+    "Add %@" : {
+
+    },
     "Brought to you by:" : {
 
     },
     "Cancel" : {
+
+    },
+    "Charlotte:" : {
+
+    },
+    "Click anywhere to dismiss." : {
 
     },
     "Complete missions and earn rewards like coins and items" : {
@@ -68,10 +77,13 @@
     "Given Name" : {
 
     },
-    "Go to Settings > Health > Tibby > Allow Data Access" : {
+    "Go to Settings > Health > Tibby > Allow Data Access." : {
 
     },
     "Hello, World!" : {
+
+    },
+    "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big gold button to roll for a random Tibby." : {
 
     },
     "home" : {
@@ -83,7 +95,7 @@
     "How should we call you?" : {
 
     },
-    "How to allow?" : {
+    "How to allow" : {
 
     },
     "Light" : {
@@ -104,6 +116,9 @@
     "New Workout" : {
 
     },
+    "OK" : {
+
+    },
     "Okay" : {
 
     },
@@ -116,16 +131,25 @@
     "Play" : {
 
     },
+    "Please write your name to proceed." : {
+
+    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
 
     },
+    "Provide a Name" : {
+
+    },
     "quantity: %lld" : {
 
     },
     "rarity" : {
+
+    },
+    "Remove" : {
 
     },
     "Resources" : {
@@ -159,7 +183,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

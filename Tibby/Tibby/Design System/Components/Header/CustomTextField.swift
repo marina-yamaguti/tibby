@@ -21,17 +21,45 @@ struct CustomTextField: View {
     /// The placeholder text displayed inside the text field when it is empty.
     var placeholder: String
     
+    /// Maximum number of characters allowed
+    var characterLimit: Int = 10
+    
+    /// Color of character limit
+    @State private var stateColor: Color = .tibbyBaseGrey
+
     var body: some View {
         VStack {
             Text("How should we call you?")
                 .font(.typography(.body2))
-            TextField(placeholder, text: $input)
-                .preferredColorScheme(.light)
-                .font(.typography(.body2))
+            ZStack {
+                TextField(placeholder, text: $input)
+                    .preferredColorScheme(.light)
+                    .font(.typography(.body2))
+                    .onChange(of: input) {oldValue, newValue in
+                        if newValue.count > characterLimit {
+                            input = String(newValue.prefix(characterLimit))
+                            HapticManager.instance.impact(style: .heavy)
+                        } else if  newValue.count == characterLimit{
+                            stateColor = .red
+                        } else {
+                            stateColor = .tibbyBaseGrey
+                        }
+                    }
+                HStack {
+                    Spacer()
+                    Text("\(input.count)/\(characterLimit)")
+                        .font(.caption)
+                        .foregroundColor(stateColor)
+                }
+            }
             Divider()
         }
         .font(.typography(.label))
         .foregroundStyle(.tibbyBaseBlack)
-
+        
     }
+}
+
+#Preview {
+    CustomTextField(input: .constant(""), prompt: "Name", placeholder: "Enter your name")
 }
