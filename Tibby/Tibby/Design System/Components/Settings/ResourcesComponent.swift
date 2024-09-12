@@ -99,6 +99,7 @@ struct ResourcesComponent: View {
                 Text("v.\(appVersion)")
                     .font(.typography(.label))
                     .padding(.top, 16)
+                    .foregroundStyle(.tibbyBaseBlack)
             }
         }
         .navigationDestination(isPresented: $showCredits, destination: {CreditsComponent()})
