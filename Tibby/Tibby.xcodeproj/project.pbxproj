@@ -75,7 +75,7 @@
 		BCB5AC2A2C921B410050D1CA /* MissionCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */; };
 		BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */; };
 		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
-		BCB5AC302C9350400050D1CA /* MissionsStreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */; };
+		BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -308,7 +308,7 @@
 		BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardComponent.swift; sourceTree = "<group>"; };
 		BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsView.swift; sourceTree = "<group>"; };
 		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
-		BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakUpComponent.swift; sourceTree = "<group>"; };
+		BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakView.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -922,7 +922,7 @@
 				BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */,
 				BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */,
 				BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */,
-				BCB5AC2F2C9350400050D1CA /* MissionsStreakUpComponent.swift */,
+				BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */,
 			);
 			path = Missions;
 			sourceTree = "<group>";
@@ -1423,7 +1423,7 @@
 				FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
-				BCB5AC302C9350400050D1CA /* MissionsStreakUpComponent.swift in Sources */,
+				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,

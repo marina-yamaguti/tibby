@@ -25,7 +25,7 @@ struct MissionsView: View {
                             Text("Daily Mission")
                                 .font(.typography(.body))
                                 .foregroundStyle(.tibbyBaseBlack)
-                            Text("\(dailyMission.timeRemaning.timeValue) \(dailyMission.timeRemaning.timeMesure) remaining")
+                            Text("\(dailyMission.timeRemaning.timeValue) \(dailyMission.timeRemaning.timeMesure.rawValue)\(dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
                                 .font(.typography(.label))
                                 .foregroundStyle(.tibbyBaseRed)
                         }
@@ -48,7 +48,7 @@ struct MissionsView: View {
                         Text("Weekly Mission")
                             .font(.typography(.body))
                             .foregroundStyle(.tibbyBaseBlack)
-                        Text("\(dailyMission.timeRemaning.timeValue) \(dailyMission.timeRemaning.timeMesure) remaining")
+                        Text("\(weeklyMission.timeRemaning.timeValue) \(weeklyMission.timeRemaning.timeMesure.rawValue)\(weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
                             .font(.typography(.label))
                             .foregroundStyle(.tibbyBaseRed)
                     }

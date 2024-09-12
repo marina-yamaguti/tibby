@@ -43,6 +43,6 @@ enum DateType {
 
 // Mesure of time of the missions
 enum TimeMesure: String {
-    case day = "day(s)"
-    case hour = "hour(s)"
+    case day = "day"
+    case hour = "hour"
 }
