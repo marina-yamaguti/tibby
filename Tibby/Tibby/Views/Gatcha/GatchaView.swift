@@ -28,7 +28,7 @@ struct GatchaView: View {
     var body: some View {
         if showCapsuleAnimation {
             if vm.newTibbyImage != nil  {
-                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked, firstTimeHere: $firstTimeHere)
+                CapsuleView(color: isBaseOnFocus ? .tibbyBaseWhite : vm.currentSeries.color, images: vm.getCapsuleAnimation(rarity: newTibby?.rarity), sparkImages: vm.sparkImages, tibbyImage: vm.newTibbyImage!, tibby: newTibby!, wasAlreadyUnlocked: wasAlreadyUnlocked, firstTimeHere: $firstTimeHere)
                     .navigationBarBackButtonHidden(true)
             }
         } else {
@@ -76,9 +76,9 @@ struct GatchaView: View {
                                     .zIndex(isBaseOnFocus ? 1 : 0)
                                     .animation(.smooth, value: isBaseOnFocus)
                             } else {
-                                Rectangle()
+                                Image("gatchaBase1")
+                                    .resizable()
                                     .frame(width: 377, height: 420)
-                                    .hidden()
                             }
                             
                         }.gesture(

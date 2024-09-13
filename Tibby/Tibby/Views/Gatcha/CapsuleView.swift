@@ -12,9 +12,11 @@ struct CapsuleView: View {
     
     var color: Color
     var images: [Image]
+    var sparkImages: [Image]
     var tibbyImage: Image
     var tibby: Tibby
     var wasAlreadyUnlocked: Bool
+    let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     
     @EnvironmentObject var constants: Constants
     @Environment(\.presentationMode) var presentationMode
@@ -24,6 +26,7 @@ struct CapsuleView: View {
     @State var circleWidth: CGFloat = 200
     @State var changeScreen = false
     @State var currentIndex = 0
+    @State var currentIndexSparks = 0
     @State var changeBackground = false
     @State var offset: CGFloat = 0
     @State private var timerSubscription: Cancellable? = nil
@@ -61,7 +64,7 @@ struct CapsuleView: View {
                     })
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                        self.animate()
+                        self.animate(images: images, currentIndex: $currentIndex, duration: 0.11)
                         self.toggleBouncing()
                         HapticManager.instance.impact(style: .heavy)
                     })
@@ -113,10 +116,21 @@ struct CapsuleView: View {
                     Spacer()
                 }
                 
-                
-                tibbyImage
-                    .resizable()
-                    .scaledToFit()
+                ZStack {
+                    tibbyImage
+                        .resizable()
+                        .scaledToFit()
+                    sparkImages[currentIndexSparks]
+                        .resizable()
+                        .scaledToFit()
+                        .onReceive(timer, perform: { _ in
+                            if currentIndexSparks == sparkImages.count - 1 {
+                                currentIndexSparks = 0
+                            } else {
+                                currentIndexSparks += 1
+                            }
+                        })
+                }
                 
                 Button(action: {
                     if firstTimeHere {
@@ -126,8 +140,6 @@ struct CapsuleView: View {
                         
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
-//                        presentationMode.wrappedValue.dismiss()
-//                        goToHome = true
                     } else {
                         presentationMode.wrappedValue.dismiss()
                     }
@@ -146,17 +158,18 @@ struct CapsuleView: View {
                 
             }.background(color)
                 .foregroundStyle(.tibbyBaseBlack)
-//                .navigationDestination(isPresented: $goToHome, destination: { HomeView(tibby: tibby).navigationBarBackButtonHidden(true) })
         }
     }
     
-    private func animate() {
-        for index in 0..<self.images.count-1 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.11, execute: {
-                self.currentIndex += 1
-            })
-            self.currentIndex = 0
-        }
+    func animate(images: [Image], currentIndex: Binding<Int>, duration: Double) {
+
+            for index in 0..<images.count-1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * duration, execute: {
+                    currentIndex.wrappedValue += 1
+                })
+                currentIndex.wrappedValue = 0
+            }
+        
     }
     
     private func convertCamelCaseToSpaces(_ input: String) -> String {
