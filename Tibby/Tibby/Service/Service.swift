@@ -619,7 +619,7 @@ class Service: ObservableObject, ServiceProtocol {
         // Activities Setup
         createActivity(id: UUID(), name: "Eat", effect: "{\"hunger\": 25}")
         createActivity(id: UUID(), name: "Pet", effect: "{\"happiness\": 25}")
-        createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 100}")
+        createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 1}")
         
         // Initial Food Inventory Setup
         if getFoodsFromUser().isEmpty {
