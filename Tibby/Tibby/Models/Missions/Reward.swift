@@ -72,18 +72,17 @@ enum RewardType: Int {
 
 /// A protocol defining the structure for reward management.
 ///
-/// This protocol outlines methods for granting rewards to users or Tibbies and for leveling up Tibbies.
+/// This protocol outlines methods for granting rewards to users.
 protocol RewardProtocol {
     /// Parameters that all Reward needs to have
     var rewardValue: Int { get }
     var rewardType: RewardType { get }
     
-    /// Grants a reward of the specified type and quantity to a user or Tibby.
+    /// Grants a reward of the specified type and quantity to a user.
     ///
     /// - Parameters:
-    ///   - user: An optional `User` object to receive the reward (for coins or gems).
-    ///   - tibby: An optional `Tibby` object to receive the reward (for XP).
-    func reward(user: User?, tibby: Tibby?)
+    ///   - user: An `User` object to receive the reward (for coins or gems or XP).
+    func reward(user: User)
 }
 
 /// A class that implements the `RewardProtocol`, providing functionality to manage rewards and Tibby leveling.
@@ -97,47 +96,40 @@ class Reward: RewardProtocol {
         self.rewardType = rewardType
     }
     
-    /// Grants a reward of the specified type and quantity to a user or Tibby.
+    /// Grants a reward of the specified type and quantity to a user.
     ///
-    /// Depending on the `rewardType`, this method will either increase the Tibby's XP, the user's coins, or the user's gems.
+    /// Depending on the `rewardType`, this method will either increase the user's XP, the user's coins, or the user's gems.
     ///
     /// - Parameters:
-    ///   - user: An optional `User` object to receive the reward (for coins or gems).
-    ///   - tibby: An optional `Tibby` object to receive the reward (for XP).
-    func reward(user: User? = nil, tibby: Tibby? = nil) {
+    ///   - user: An `User` object to receive the reward (for coins or gems).
+    func reward(user: User) {
         switch rewardType {
         case .xp:
-            // Increase the Tibby's XP and check for level up
-            if let tibby = tibby {
-                tibby.xp += rewardValue
-                levelUp(tibby)
-            }
+            // Increase the User's XP and check for level up
+            user.xp += rewardValue
+            levelUp(user)
         case .coin:
             // Increase the user's coins
-            if let user = user {
-                user.coins += rewardValue
-            }
+            user.coins += rewardValue
         case .gem:
             // Increase the user's gems
-            if let user = user {
-                user.gems += rewardValue
-            }
+            user.gems += rewardValue
         }
     }
     
-    /// Levels up the specified Tibby if its XP meets the criteria.
+    /// Levels up the specified user if its XP meets the criteria.
     ///
-    /// The Tibby will level up if its XP exceeds the required amount, with any excess XP carried over to the next level.
+    /// The user will level up if its XP exceeds the required amount, with any excess XP carried over to the next level.
     ///
-    /// - Parameter tibby: The `Tibby` to be leveled up.
-    private func levelUp(_ tibby: Tibby) {
-        // Check if the Tibby's XP meets the threshold for leveling up
-        if Constants.singleton.maxLevel == -1 || tibby.level < Constants.singleton.maxLevel {
-            let xpToEvolve = tibby.level * Constants.singleton.xpPerLevel
-            if tibby.xp >= xpToEvolve {
-                let auxXp = tibby.xp - xpToEvolve
-                tibby.level += 1
-                tibby.xp = auxXp
+    /// - Parameter user: The `User` to be leveled up.
+    private func levelUp(_ user: User) {
+        // Check if the user's XP meets the threshold for leveling up
+        if Constants.singleton.maxLevel == -1 || user.level < Constants.singleton.maxLevel {
+            let xpToEvolve = user.level * Constants.singleton.xpPerLevel
+            if user.xp >= xpToEvolve {
+                let auxXp = user.xp - xpToEvolve
+                user.level += 1
+                user.xp = auxXp
             }
         }
     }

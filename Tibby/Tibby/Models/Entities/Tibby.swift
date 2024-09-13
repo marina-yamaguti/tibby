@@ -188,12 +188,6 @@ final class Tibby {
     /// The species of the Tibby.
     var species: String
     
-    /// The current level of the Tibby.
-    var level: Int
-    
-    /// The experience points of the Tibby.
-    var xp: Int
-    
     /// The happiness level of the Tibby.
     var happiness: Int
     
@@ -218,7 +212,7 @@ final class Tibby {
     /// The unique identifier of the current Accessory the Tibby is using.
     var currentAccessoryId: UUID? = nil
     
-    init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
+    init(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
         self.id = id
         self.ownerId = ownerId
         self.name = name
@@ -226,8 +220,6 @@ final class Tibby {
         self.details = details
         self.personality = personality
         self.species = species
-        self.level = level
-        self.xp = xp
         self.happiness = happiness
         self.hunger = hunger
         self.sleep = sleep
