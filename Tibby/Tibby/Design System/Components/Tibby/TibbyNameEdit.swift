@@ -23,10 +23,18 @@ struct TibbyNameEdit: View {
     @State private var textWidth: CGFloat = 0
     
     @FocusState private var isFocused: Bool
-
+    
+    @State private var stateColor: Color = .tibbyBaseGrey
+            
+    let characterLimit: Int = 10
+    
+    var spacing: CGFloat {
+          return isEditing ? 0 : 16
+    }
+      
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: spacing) {
             nameEditView
             editIcon
         }
@@ -50,22 +58,36 @@ struct TibbyNameEdit: View {
                 })
                 .hidden()
             if isEditing {
-                // Text field for editing the name
-                TextField("Given Name", text: $tibby.name)
-                    .disableAutocorrection(true)
-                    .font(.typography(.headline))
-                    .foregroundStyle(Color.tibbyBaseBlack)
-                    .frame(width: textWidth)
-                    .onChange(of: tibby.name) { oldValue, newValue in
-                        // Limit the name length to 10 characters
-                        if newValue.count > 10 {
-                            tibby.name = String(newValue.prefix(10))
-                        }
+                ZStack {
+                    // Text field for editing the name
+                    HStack {
+                        TextField("Given Name", text: $tibby.name)
+                            .disableAutocorrection(true)
+                            .font(.typography(.headline))
+                            .foregroundStyle(Color.tibbyBaseBlack)
+                            .frame(width: textWidth)
+                            .onChange(of: tibby.name) {oldValue, newValue in
+                                if newValue.count > characterLimit {
+                                    tibby.name = String(newValue.prefix(characterLimit))
+                                    HapticManager.instance.impact(style: .heavy)
+                                } else if  newValue.count == characterLimit{
+                                    stateColor = .red
+                                } else {
+                                    stateColor = .tibbyBaseGrey
+                                }
+                            }
+                            .onSubmit {
+                                isEditing = false
+                            }
+                            .focused($isFocused)
+                        
+                        Text("\(tibby.name.count)/\(characterLimit)")
+                            .font(.caption)
+                            .foregroundColor(stateColor)
                     }
-                    .onSubmit {
-                        isEditing = false
-                    }
-                    .focused($isFocused)
+                    .padding()
+                }
+                
             } else {
                 // Static text displaying the name
                 Text(tibby.name)
