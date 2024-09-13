@@ -34,6 +34,9 @@ struct TibbySelectedView: View {
                     
                     // MARK: - Tibby Name Edit
                     TibbyNameEdit(tibby: $viewModel.tibby)
+                        .padding(8)
+                        .background(Color.tibbyBaseWhite.opacity(0.5))
+                        .withBorderRadius(40)
                     TibbyStatusComponent(hunger: viewModel.tibby.hunger, sleep: viewModel.tibby.sleep, play: viewModel.tibby.happiness)
                         .frame(width: 145, alignment: .center)
                     

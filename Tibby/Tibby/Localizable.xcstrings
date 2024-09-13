@@ -163,10 +163,16 @@
     "Please write your name to proceed." : {
 
     },
+    "Please write your Tibby name to proceed." : {
+
+    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
+
+    },
+    "Provide a name" : {
 
     },
     "Provide a Name" : {
