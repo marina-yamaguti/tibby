@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "coin1 2.png",
+      "filename" : "gem.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "coin1 2@2x.png",
+      "filename" : "gem@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "coin1 2@3x.png",
+      "filename" : "gem@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

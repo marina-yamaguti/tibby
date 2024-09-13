@@ -26,6 +26,8 @@ struct HomeView: View {
     @State private var showShop = false
     @State private var showMissions = false
     @State private var showSettings = false
+    @State private var showProfile = false
+
     
     
     var body: some View {
@@ -36,6 +38,12 @@ struct HomeView: View {
                 VStack {
                     HStack(alignment: .center) {
                         LevelComponent(level: 32)
+                            .onTapGesture {
+                                showProfile.toggle()
+                            }
+                            .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
+                        
+                    
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
@@ -80,7 +88,7 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                GatchaView(firtTimeHere: false)
+                                GatchaView(firstTimeHere: .constant(false))
                             }
                         Spacer()
                         Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})

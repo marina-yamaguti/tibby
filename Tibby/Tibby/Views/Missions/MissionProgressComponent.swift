@@ -10,28 +10,49 @@ import SwiftUI
 struct MissionProgressComponent: View {
     @State var mission: MissionProtocol
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            Image(mission.missionType.icon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 25, height: 25, alignment: .center)
-                .padding(8)
-                .background {
-                    Circle()
-                        .fill(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
-                }
-            
-            VStack(spacing: 8) {
-                Text(mission.description)
-                    .font(.typography(.label))
-                    .foregroundStyle(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
-                    .strikethrough(mission.progress == .done)
+        ZStack {
+            HStack(alignment: .center, spacing: 8) {
+                Image(mission.missionType.icon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25, alignment: .center)
+                    .padding(8)
+                    .background {
+                        Circle()
+                            .fill(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
+                    }
                 
-                ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
-                    .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                VStack(spacing: 8) {
+                    Text(mission.description)
+                        .font(.typography(.label))
+                        .foregroundStyle(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
+                        .strikethrough(mission.progress == .done)
+                    
+                    ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
+                        .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                }
+                .opacity(mission.progress == .done ? 0.1 : 1)
+                
+                
+                
+                OfferedRewardComponent(isCompleted: mission.progress == .done, reward: mission.reward)
+                    .padding(.trailing, mission.progress == .claim ? 40 : 0)
             }
-            OfferedRewardComponent(isCompleted: mission.progress == .done, reward: mission.reward)
+            .background {
+                if mission.progress == .claim {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.tibbyBaseSaturatedGreen.opacity(0.5))
+                }
+            }
+            .frame(height: 40)
+            
+            if mission.progress == .claim {
+                Text("Click to Claim")
+                    .font(.typography(.label))
+                    .foregroundStyle(.tibbyBaseDarkBlue)
+            }
         }
+        .opacity(mission.progress == .done ? 0.6 : 1)
     }
 }
 

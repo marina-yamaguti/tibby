@@ -21,14 +21,18 @@ struct GoalsComponent: View {
         VStack(spacing: 16) {
             Text(title)
                 .font(.typography(.label2))
+                .foregroundStyle(.tibbyBaseDarkBlue)
             
             Text("\(value)")
                 .font(.typography(.body))
+                .foregroundStyle(.tibbyBaseDarkBlue)
+
             
             Text(description)
-                .font(.typography(.body2))
+                .font(.typography(.label2))
                 .foregroundStyle(.tibbyBaseGrey)
         }
+        .frame(width: 105, height: 105)
         .padding(8)
         .overlay {
             RoundedRectangle(cornerRadius: 20, style: .continuous)

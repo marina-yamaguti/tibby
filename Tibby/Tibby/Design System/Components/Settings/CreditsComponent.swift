@@ -39,7 +39,7 @@ struct CreditsComponent: View {
                     .font(.typography(.headline))
                     .foregroundStyle(.tibbyBaseRed)
                     .padding(32)
-                ForEach(developers, id: \.self) { developer in
+                ForEach(designers, id: \.self) { developer in
                     Text(developer)
                         .font(.typography(.title))
                         .foregroundStyle(.tibbyBaseBlack)

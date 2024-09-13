@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 /// `Service` is a class that conforms to the `ServiceProtocol` and provides implementation for various operations related to managing Tibbies, Accessories, Users, Activities, Interactions, and Food within the app.
-class Service: ObservableObject, ServiceProtocol {
+class Service: ObservableObject, ServiceProtocol {    
     
     /// The context in which the model objects are managed.
     var modelContext: ModelContext
@@ -272,8 +272,8 @@ class Service: ObservableObject, ServiceProtocol {
     /// Adds a User object to the model context.
     ///
     /// - Parameters: Various parameters for creating a new User.
-    func createUser(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil) {
-        let user = User(id: id, username: username, email: email, passwordHash: passwordHash)
+    func createUser(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, level: Int, xp: Int) {
+        let user = User(id: id, username: username, email: email, passwordHash: passwordHash, level: level, xp: xp)
         modelContext.insert(user)
     }
     
@@ -603,7 +603,7 @@ class Service: ObservableObject, ServiceProtocol {
     func setupData() {
         // User Setup
         if getUser() == nil {
-            createUser(id: UUID(), username: "Sofia")
+            createUser(id: UUID(), username: "Sofia", level: 1, xp: 0)
         }
         
         // Tibbies Setup

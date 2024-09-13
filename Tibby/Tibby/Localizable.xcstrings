@@ -74,6 +74,9 @@
     "Click anywhere to dismiss." : {
 
     },
+    "Click to Claim" : {
+
+    },
     "Complete missions and earn rewards like coins and items" : {
 
     },
@@ -126,6 +129,9 @@
 
     },
     "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
+
+    },
+    "hi" : {
 
     },
     "home" : {
@@ -185,10 +191,16 @@
     "Please write your name to proceed." : {
 
     },
+    "Please write your Tibby name to proceed." : {
+
+    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
+
+    },
+    "Provide a name" : {
 
     },
     "Provide a Name" : {
@@ -268,7 +280,7 @@
     "Weekly Mission" : {
 
     },
-    "Workout Session" : {
+    "You don't have any favourited Tibby. Pick your favourites to see them here." : {
 
     },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {

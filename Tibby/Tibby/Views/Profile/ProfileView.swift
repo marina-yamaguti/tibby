@@ -8,84 +8,86 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var constants: Constants
+    @EnvironmentObject var service: Service
     @Binding var currentTibby: Tibby
-    @State var userName: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
-    var level: Int = 32
-    var currentXp: Int = 30
-    var xpToEvolve: Int = 100
+    @State var collectionTibbies: [Tibby] = []
+    @State var favoriteTibbies: [Collection:[Tibby]] = [:]
+    @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
+    @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
+    @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
+    @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
+    
     var body: some View {
         VStack {
             PageHeader(title: "Profile", symbol: TibbySymbols.profileBlack.rawValue)
-            
-            VStack(spacing: 16) {
-                HStack(alignment: .center) {
-                    Image("\(currentTibby.species)Icon")
-                        .resizable()
-                        .frame(width: 105, height: 105)
-                        .cornerRadius(20)
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(userName)
-                                .font(.typography(.title))
-                                .foregroundStyle(.tibbyBaseBlack)
-                            Spacer()
-                            Button(action: {}) {
-                                ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
-                            }
-                            .buttonSecondary(bgColor: .black.opacity(0.5))
-                        }
-                        HStack {
-                            Text("Tibby:")
-                                .font(.typography(.label2))
-                                .foregroundStyle(.tibbyBaseGrey)
-                            
-                            Text(currentTibby.name)
-                                .font(.typography(.label))
-                                .foregroundStyle(.tibbyBaseBlack)
-                            
-                        }
-                        HStack(alignment: .center) {
-                            Text("Lv. \(level)")
-                                .font(.typography(.body))
-                                .foregroundStyle(.tibbyBaseBlack)
-                            Text("\(currentXp)/\(xpToEvolve)")
-                                .font(.typography(.label2))
-                                .foregroundStyle(.tibbyBaseGrey)
-                        }
-                        ProgressView(value: Double(currentXp), total: Double(xpToEvolve))
-                            .progressViewStyle(CustomProgressBar(barType: .xp))
-                    }
-                    
-                }
-                .padding(.vertical)
+            VStack {
+                UserProfileComponent(currentTibby: $currentTibby, user: service.getUser() ?? User(id: UUID(), username: "Nat", level: 0, xp: 0))
                 
-                Rectangle()
-                    .fill(.tibbyBasePearlBlue)
-                    .frame(height: 5)
-                
-                VStack {
+                CustomDivider()
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Showcase")
                         .font(.typography(.body))
                         .foregroundStyle(.tibbyBaseBlack)
-                }
-                .padding(16)
-                VStack {
-                    Text("My Goals")
-                        .font(.typography(.body))
-                        .foregroundStyle(.tibbyBaseBlack)
-                }
-                VStack {
+                    
+                    ShowcaseCard()
+                    
+                    CustomDivider()
+                    
                     Text("My Goals")
                         .font(.typography(.body))
                         .foregroundStyle(.tibbyBaseBlack)
                     
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 16) {
+                            GoalsComponent(value: exercise, title: "Daily Exercise", description: "minutes/day")
+                            GoalsComponent(value: energy, title: "Daily Energy Goal", description: "calories/day")
+                            GoalsComponent(value: energy, title: "Daily Steps", description: "steps/day")
+                            GoalsComponent(value: energy, title: "Daily Sleep Time", description: "hours/day")
+                        }
+                    }
+                    
+                    CustomDivider()
+
+                    Text("My Goals")
+                        .font(.typography(.body))
+                        .foregroundStyle(.tibbyBaseBlack)
                 }
             }
+            .padding(16)
+            Spacer()
+        }
+        .ignoresSafeArea()
+        .background(.tibbyBaseWhite)
+        .navigationBarBackButtonHidden()
+        .onAppear {
+            self.collectionTibbies = self.collectionTibbies.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
+            self.favoriteTibbies = self.setupMap()
+        }
+    }
+    func getFavoriteTibbies(collection: String, service: Service) -> [Tibby] {
+        var tibbies: [Tibby] = []
+        let allTibbies = service.getAllTibbies()
+        tibbies = allTibbies.filter { $0.collection == collection}
+        return tibbies
+    }
+    
+    func setupMap() -> [Collection : [Tibby]] {
+        var map: [Collection : [Tibby]] = [:]
+        for collection in Collection.allCases {
+            map[collection] = self.getFavoriteTibbies(collection: collection.rawValue, service: service)
         }
         
-        .ignoresSafeArea()
-        .navigationBarBackButtonHidden()
+        return map
+    }
+    
+}
+
+struct CustomDivider: View {
+    var body: some View {
+        Rectangle()
+            .fill(.tibbyBasePearlBlue)
+            .frame(height: 5)
     }
 }
 
