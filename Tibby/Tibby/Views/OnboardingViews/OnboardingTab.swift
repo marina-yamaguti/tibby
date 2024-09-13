@@ -69,6 +69,11 @@ struct OnboardingTab: View {
                     OnboardingView4()
                 case .gacha:
                     GatchaView(firstTimeHere: $firstTime)
+                        .onAppear(perform: {
+                            if let user = service.getUser() {
+                                service.updateUser(user: user, username: name)
+                            }
+                        })
                 }
                 if vm.currentOnboarding != .gacha {
                     Spacer()
@@ -115,7 +120,6 @@ struct OnboardingTab: View {
             .padding(EdgeInsets(top: vm.currentOnboarding != .gacha ? 90 : 0, leading: vm.currentOnboarding != .gacha ? 16 : 0, bottom: vm.currentOnboarding != .gacha ? 30 : 0, trailing: vm.currentOnboarding != .gacha ? 16 : 0))
         }
         .background(.tibbyBaseWhite)
-//        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView(firstTimeHere: $firstTime) })
         .onAppear {
             if let user = service.getUser() {
                 user.coins = 100
