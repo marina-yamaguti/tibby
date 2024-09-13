@@ -168,8 +168,7 @@ protocol MissionProtocol {
     ///
     /// - Parameters:
     ///   - user: The user claiming the reward.
-    ///   - tibby: The Tibby associated with the mission.
-    mutating func claimReward(user: User?, tibby: Tibby?)
+    mutating func claimReward(user: User)
     
     /// Updates the progress of the mission.
     ///
@@ -301,11 +300,11 @@ struct MissionDay: MissionProtocol {
     /// - Parameters:
     ///   - user: The user claiming the reward.
     ///   - tibby: The Tibby associated with the mission.
-    mutating func claimReward(user: User?, tibby: Tibby?) {
+    mutating func claimReward(user: User) {
         if progress == .claim {
             progress = .done
             reward.reward(user: user)
-            xp.reward(tibby: tibby)
+            xp.reward(user: user)
         }
     }
     
@@ -343,12 +342,11 @@ struct MissionWeek: MissionProtocol {
     ///
     /// - Parameters:
     ///   - user: The user claiming the reward.
-    ///   - tibby: The Tibby associated with the mission.
-    mutating func claimReward(user: User?, tibby: Tibby?) {
+    mutating func claimReward(user: User) {
         if progress == .claim {
             progress = .done
             reward.reward(user: user)
-            xp.reward(tibby: tibby)
+            xp.reward(user: user)
         }
     }
     /// Updates the progress of the mission based on the value provided.
