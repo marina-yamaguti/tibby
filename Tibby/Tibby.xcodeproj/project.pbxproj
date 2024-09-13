@@ -79,6 +79,9 @@
 		BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC322C937CF70050D1CA /* Streak.swift */; };
 		BCB5AC352C9392230050D1CA /* UserProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */; };
 		BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */; };
+		BCFE76192C94B417006FCD0D /* FavoriteTibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */; };
+		BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */; };
+		BCFE761D2C94BBD4006FCD0D /* GoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761C2C94BBD4006FCD0D /* GoalsCard.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -315,6 +318,9 @@
 		BCB5AC322C937CF70050D1CA /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileComponent.swift; sourceTree = "<group>"; };
 		BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseCard.swift; sourceTree = "<group>"; };
+		BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTibbyCard.swift; sourceTree = "<group>"; };
+		BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallRounded.swift; sourceTree = "<group>"; };
+		BCFE761C2C94BBD4006FCD0D /* GoalsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCard.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -589,6 +595,8 @@
 				D83B398C2C863EE100043BC7 /* ProfileView.swift */,
 				BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */,
 				BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */,
+				BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */,
+				BCFE761C2C94BBD4006FCD0D /* GoalsCard.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -900,6 +908,7 @@
 				FD45F26E2C667D900046DE49 /* CustomBackButton.swift */,
 				D80755BD2C388D36000CA029 /* ButtonPrimary.swift */,
 				D816945C2C49B0A50036BD03 /* TabBarButton.swift */,
+				BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1436,6 +1445,7 @@
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
+				BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */,
 				D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */,
 				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
@@ -1459,6 +1469,8 @@
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81284BB2C6BC9010088A7B9 /* OnboardingViewModel.swift in Sources */,
 				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
+				BCFE76192C94B417006FCD0D /* FavoriteTibbyCard.swift in Sources */,
+				BCFE761D2C94BBD4006FCD0D /* GoalsCard.swift in Sources */,
 				7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */,
 				FD51552D2C88C8BD00B9684A /* WorkoutListView.swift in Sources */,
 				D80755CD2C3C588B000CA029 /* StyleDictionaryFont.swift in Sources */,

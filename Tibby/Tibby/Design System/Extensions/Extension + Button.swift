@@ -53,4 +53,7 @@ extension Button {
         self.buttonStyle(TabBarButton())
     }
     
+    func buttonSmallRounded(isDisabled: Bool? = false, bgColor: Color) -> some View {
+        self.buttonStyle(ButtonSmallRounded(bgColor: bgColor))
+    }
 }

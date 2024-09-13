@@ -14,47 +14,50 @@ struct UserProfileComponent: View {
     var xpToEvolve: Int = 100
     
     var body: some View {
-        HStack(alignment: .bottom) {
-            Image("\(currentTibby.species)Icon")
-                .resizable()
-                .frame(width: 120, height: 120)
-                .cornerRadius(20)
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(user.username)
-                        .font(.typography(.title))
-                        .foregroundStyle(.tibbyBaseBlack)
-                    Spacer()
-                    Button(action: {}) {
-                        ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
+        VStack(spacing: 16) {
+            HStack {
+                Image("\(currentTibby.species)Icon")
+                    .resizable()
+                    .frame(width: 110, height: 110)
+                    .cornerRadius(20)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(user.username)
+                            .font(.typography(.title))
+                            .foregroundStyle(.tibbyBaseBlack)
+                        Spacer()
+                        Button(action: {}) {
+                            ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
+                        }
+                        .buttonSmallRounded(bgColor: .black.opacity(0.5))
                     }
-                    .buttonSecondary(bgColor: .black.opacity(0.5))
-                }
-                
-                HStack {
-                    Text("Tibby:")
-                        .font(.typography(.label2))
-                        .foregroundStyle(.tibbyBaseGrey)
                     
-                    Text(currentTibby.name)
-                        .font(.typography(.label))
-                        .foregroundStyle(.tibbyBaseBlack)
+                    HStack {
+                        Text("Tibby:")
+                            .font(.typography(.label2))
+                            .foregroundStyle(.tibbyBaseGrey)
+                        
+                        Text(currentTibby.name)
+                            .font(.typography(.label))
+                            .foregroundStyle(.tibbyBaseBlack)
+                    }
+                    
+                    HStack(alignment: .center) {
+                        Text("Lv. \(user.level)")
+                            .font(.typography(.body))
+                            .foregroundStyle(.tibbyBaseBlack)
+                        Spacer()
+                        Text("\(currentXp)/\(xpToEvolve)")
+                            .font(.typography(.label2))
+                            .foregroundStyle(.tibbyBaseGrey)
+                    }
+                    ProgressView(value: Double(currentXp), total: Double(xpToEvolve))
+                        .progressViewStyle(CustomProgressBar(barType: .xp))
                 }
-                
-                HStack(alignment: .center) {
-                    Text("Lv. \(user.level)")
-                        .font(.typography(.body))
-                        .foregroundStyle(.tibbyBaseBlack)
-                    Spacer()
-                    Text("\(currentXp)/\(xpToEvolve)")
-                        .font(.typography(.label2))
-                        .foregroundStyle(.tibbyBaseGrey)
-                }
-                ProgressView(value: Double(currentXp), total: Double(xpToEvolve))
-                    .progressViewStyle(CustomProgressBar(barType: .xp))
             }
+
+            CustomDivider()
         }
-        .frame(height: 126)
     }
 }

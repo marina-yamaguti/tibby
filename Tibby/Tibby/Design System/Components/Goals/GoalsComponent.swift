@@ -18,30 +18,28 @@ struct GoalsComponent: View {
     var description: String
     
     var body: some View {
-        VStack(spacing: 16) {
-            Text(title)
-                .font(.typography(.label2))
-                .foregroundStyle(.tibbyBaseDarkBlue)
-            
-            Text("\(value)")
-                .font(.typography(.body))
-                .foregroundStyle(.tibbyBaseDarkBlue)
-
-            
-            Text(description)
-                .font(.typography(.label2))
-                .foregroundStyle(.tibbyBaseGrey)
-        }
-        .frame(width: 105, height: 105)
-        .padding(8)
-        .overlay {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(.tibbyBaseBlack, lineWidth: 1)
-        }
-
-        
-    }
-}
+         VStack(spacing: 16) {
+             Text(title)
+                 .font(.typography(.label2))
+                 .foregroundStyle(.tibbyBaseDarkBlue)
+             
+             Text("\(value)")
+                 .font(.typography(.body))
+                 .foregroundStyle(.tibbyBaseDarkBlue)
+             
+             Text(description)
+                 .font(.typography(.label2))
+                 .foregroundStyle(.tibbyBaseGrey)
+         }
+         .frame(width: 105, height: 105)
+         .padding(8)
+         .background(
+             RoundedRectangle(cornerRadius: 20, style: .continuous)
+                 .stroke(.tibbyBaseDarkBlue, lineWidth: 2)
+                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+         )
+     }
+ }
 
 #Preview {
     GoalsComponent(value: 30, title: "Daily Exercise", description: "minutes/day")
