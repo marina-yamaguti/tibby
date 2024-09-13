@@ -7,6 +7,16 @@
     "%lld" : {
 
     },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
     "%lld/%lld" : {
       "localizations" : {
         "en" : {
@@ -39,6 +49,9 @@
 
     },
     "Complete missions and earn rewards like coins and items" : {
+
+    },
+    "Daily Mission" : {
 
     },
     "description" : {
@@ -137,10 +150,16 @@
     "Please write your name to proceed." : {
 
     },
+    "Please write your Tibby name to proceed." : {
+
+    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
+
+    },
+    "Provide a name" : {
 
     },
     "Provide a Name" : {
@@ -211,6 +230,9 @@
 
     },
     "v.%@" : {
+
+    },
+    "Weekly Mission" : {
 
     },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
