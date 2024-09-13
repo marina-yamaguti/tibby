@@ -7,6 +7,26 @@
     "%lld" : {
 
     },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "%lld %@%@ remaining" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@%3$@ remaining"
+          }
+        }
+      }
+    },
     "%lld/%lld" : {
       "localizations" : {
         "en" : {
@@ -35,7 +55,13 @@
     "Click anywhere to dismiss." : {
 
     },
+    "Click to Claim" : {
+
+    },
     "Complete missions and earn rewards like coins and items" : {
+
+    },
+    "Daily Mission" : {
 
     },
     "description" : {
@@ -81,6 +107,9 @@
 
     },
     "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
+
+    },
+    "hi" : {
 
     },
     "home" : {
@@ -206,6 +235,12 @@
 
     },
     "v.%@" : {
+
+    },
+    "Weekly Mission" : {
+
+    },
+    "You don't have any favourited Tibby. Pick your favourites to see them here." : {
 
     },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {

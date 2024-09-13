@@ -142,7 +142,7 @@ protocol ServiceProtocol {
     ///   - username: The username of the User.
     ///   - email: The email address of the User (optional).
     ///   - passwordHash: The hashed password of the User (optional).
-    func createUser(id: UUID, username: String, email: String?, passwordHash: String?)
+    func createUser(id: UUID, username: String, email: String?, passwordHash: String?, level: Int, xp: Int)
     
     /// Deletes the specified User.
     ///

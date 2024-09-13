@@ -37,7 +37,11 @@ final class User {
     /// A list cointaining the ids of the user's favorite tibbies (max: 3)
     var favoriteTibbies: [UUID] = []
     
-    init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, currentTibbyID: UUID? = nil) {
+    var level: Int
+    
+    var xp: Int
+    
+    init(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, currentTibbyID: UUID? = nil, level: Int, xp: Int) {
         self.id = id
         self.username = username
         self.email = email
@@ -45,6 +49,8 @@ final class User {
         self.coins = 0
         self.gems = 0
         self.currentTibbyID = currentTibbyID
+        self.level = level
+        self.xp = xp
     }
 }
 

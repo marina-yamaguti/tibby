@@ -66,7 +66,7 @@ struct KitchenExample: View {
                 }
             }.onAppear {
                 if(service.getAllUsers().isEmpty) {
-                    service.createUser(id: UUID(), username: "sofia")
+                    service.createUser(id: UUID(), username: "sofia", level: 0, xp: 0)
                 }
                 if(service.getAllFoods().isEmpty) {
                     service.createFood(id: UUID(), name: "Pizza", image: "pizza", price: 10)
