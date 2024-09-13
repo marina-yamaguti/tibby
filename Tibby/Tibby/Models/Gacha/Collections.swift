@@ -8,12 +8,8 @@
 import Foundation
 import SwiftUI
 
-/// The `Collection` enum represents various themed series of Tibbies.
-///
-/// Each case in this enum corresponds to a different series of Tibbies, with associated descriptions and colors.
 enum Collection: String, CaseIterable {
     
-    /// A description of the collection.
     var description: String {
         switch self {
         case .seaSeries:
@@ -31,7 +27,6 @@ enum Collection: String, CaseIterable {
         }
     }
     
-    /// The color associated with the collection.
     var color: Color {
         switch self {
         case .seaSeries:

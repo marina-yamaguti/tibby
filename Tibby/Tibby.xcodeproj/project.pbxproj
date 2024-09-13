@@ -77,6 +77,8 @@
 		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
 		BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */; };
 		BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC322C937CF70050D1CA /* Streak.swift */; };
+		BCB5AC352C9392230050D1CA /* UserProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */; };
+		BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -311,6 +313,8 @@
 		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
 		BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakView.swift; sourceTree = "<group>"; };
 		BCB5AC322C937CF70050D1CA /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
+		BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileComponent.swift; sourceTree = "<group>"; };
+		BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseCard.swift; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -583,6 +587,8 @@
 			isa = PBXGroup;
 			children = (
 				D83B398C2C863EE100043BC7 /* ProfileView.swift */,
+				BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */,
+				BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1393,6 +1399,7 @@
 				D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */,
 				7C8AEC912C87852B00DF0B8E /* MissionManager.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
+				BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
 				FD45F2742C66821E0046DE49 /* RetroNavigationBar.swift in Sources */,
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
@@ -1463,6 +1470,7 @@
 				BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */,
 				D81284B72C6AFC4D0088A7B9 /* Onboarding.swift in Sources */,
 				D816945D2C49B0A50036BD03 /* TabBarButton.swift in Sources */,
+				BCB5AC352C9392230050D1CA /* UserProfileComponent.swift in Sources */,
 				FD45F26D2C65716B0046DE49 /* TibbyBook.swift in Sources */,
 				BCB5AC2A2C921B410050D1CA /* MissionCardComponent.swift in Sources */,
 				FD45F27A2C6BCD930046DE49 /* BedroomViewModel.swift in Sources */,
