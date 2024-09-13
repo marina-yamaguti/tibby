@@ -191,16 +191,10 @@
     "Please write your name to proceed." : {
 
     },
-    "Please write your Tibby name to proceed." : {
-
-    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
-
-    },
-    "Provide a name" : {
 
     },
     "Provide a Name" : {
@@ -278,6 +272,9 @@
 
     },
     "Weekly Mission" : {
+
+    },
+    "Workout Session" : {
 
     },
     "You don't have any favourited Tibby. Pick your favourites to see them here." : {
