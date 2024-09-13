@@ -16,6 +16,7 @@ struct CustomSearchBar: View {
                 .padding(8)
                 .background(.white)
                 .cornerRadius(50)
+                .preferredColorScheme(.light)
             ZStack {
                 Circle()
                     .frame(width: 40, height: 40)
