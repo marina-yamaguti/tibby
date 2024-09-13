@@ -20,6 +20,7 @@ final class GatchaViewModel: ObservableObject {
     @Published var commomCapsuleImages: [Image] = []
     @Published var epicCapsuleImages: [Image] = []
     @Published var rareCapsuleImages: [Image] = []
+    @Published var sparkImages: [Image] = []
     
     
     private var animationIndex = 0
@@ -144,6 +145,13 @@ final class GatchaViewModel: ObservableObject {
         "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation14.png",
         "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation15.png",
         "https://tibbyappstorage.blob.core.windows.net/epic-capsule-animation/EpicAnimation16.png"
+    ]
+    
+    let sparkAnimation = [
+        "https://tibbyappstorage.blob.core.windows.net/sparks-animation/PrizeAnimation1.png",
+        "https://tibbyappstorage.blob.core.windows.net/sparks-animation/PrizeAnimation2.png",
+        "https://tibbyappstorage.blob.core.windows.net/sparks-animation/PrizeAnimation3.png",
+        "https://tibbyappstorage.blob.core.windows.net/sparks-animation/PrizeAnimation4.png"
     ]
     
     init(roll: Roll = Roll()) {
@@ -275,6 +283,7 @@ final class GatchaViewModel: ObservableObject {
         var tempCommonCapsuleImages: [Image] = []
         var tempEpicCapsuleImages: [Image] = []
         var tempRareCapsuleImages: [Image] = []
+        var tempSparkAnimation: [Image] = []
         
         //load base animation
         for texture in commonCapsuleAnimation{
@@ -322,12 +331,28 @@ final class GatchaViewModel: ObservableObject {
             }
         }
         
+        for texture in sparkAnimation {
+            group.enter()
+            ImageHandler.shared.loadImage(urlString: texture) { image in
+                if let image = image {
+                    let texture = Image(uiImage: image)
+                    tempSparkAnimation.append(texture)
+                    group.leave()
+                } else {
+                    //TODO: Handle the case where the image could not be loaded here
+                    print("Failed to load image")
+                    group.leave()
+                }
+            }
+        }
+        
         group.leave()
         group.notify(queue: .main, execute: {
             //storing values
             self.commomCapsuleImages = tempCommonCapsuleImages
             self.rareCapsuleImages = tempRareCapsuleImages
             self.epicCapsuleImages = tempEpicCapsuleImages
+            self.sparkImages = tempSparkAnimation
             
         })
         
