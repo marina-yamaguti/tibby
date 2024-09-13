@@ -15,6 +15,8 @@ struct GardenView: View {
     @State var tibbyView = TibbyView()
     @State var showSprite = false
     @State var exercisesSheetIsOpen = false
+    @State var timeGoal: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
+    @State var stepsGoal: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
     
     var body: some View {
         
@@ -84,7 +86,7 @@ struct GardenView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 45)
                             .foregroundStyle(.tibbyBaseBlack)
-                        FinishedWorkout(showSheet: $constants.showFinishedWorkout, timeGoal: 30, workoutSeconds: $constants.workoutSeconds, stepsGoal: 500, workoutSteps: $constants.workoutSteps)
+                        FinishedWorkout(showSheet: $constants.showFinishedWorkout, timeGoal: timeGoal, workoutSeconds: $constants.workoutSeconds, stepsGoal: stepsGoal, workoutSteps: $constants.workoutSteps)
                             .onAppear {
                                 self.exercisesSheetIsOpen = false
                             }

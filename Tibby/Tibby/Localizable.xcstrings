@@ -7,11 +7,44 @@
     "/ %@ steps" : {
 
     },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@:" : {
+
+    },
     "%@!" : {
 
     },
     "%lld" : {
 
+    },
+    "%lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "%lld %@%@ remaining" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@%3$@ remaining"
+          }
+        }
+      }
     },
     "%lld/%lld" : {
       "localizations" : {
@@ -29,9 +62,6 @@
     "100" : {
 
     },
-    "Add %@" : {
-
-    },
     "Brought to you by:" : {
 
     },
@@ -45,6 +75,9 @@
 
     },
     "Complete missions and earn rewards like coins and items" : {
+
+    },
+    "Daily Mission" : {
 
     },
     "description" : {
@@ -167,9 +200,6 @@
     "rarity" : {
 
     },
-    "Remove" : {
-
-    },
     "Resources" : {
 
     },
@@ -204,6 +234,7 @@
 
     },
     "Tibby" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -232,6 +263,12 @@
 
     },
     "v.%@" : {
+
+    },
+    "Weekly Mission" : {
+
+    },
+    "Workout Session" : {
 
     },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {

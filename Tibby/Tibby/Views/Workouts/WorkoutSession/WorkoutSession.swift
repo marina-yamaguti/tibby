@@ -21,6 +21,8 @@ struct WorkoutSessionView: View {
     @State var health = HealthManager()
     @State var workoutList: [WorkoutPraticInterval] = []
     @Binding var offset: CGFloat
+    var stepsGoal: Int
+    var timeGoal: Int
     
     @Environment(\.dismiss) var dismiss
     
@@ -33,7 +35,7 @@ struct WorkoutSessionView: View {
                 Spacer()
             }.padding(.horizontal)
                 .padding(.top, 32)
-            Spacer()
+                .padding(.bottom)
             VStack(alignment: .leading, spacing: 20) {
                 Text("Elapsed Time")
                     .font(.typography(.body))
@@ -47,16 +49,23 @@ struct WorkoutSessionView: View {
                 Text(String(steps))
                     .font(.typography(.display))
                     .foregroundStyle(.tibbyBaseWhite)
-            }.padding(.leading, 32)
-            ZStack {
-                Image("WorkoutMat")
-                    .resizable()
-                    .scaledToFit()
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                
-            }.padding()
+                WorkoutComponent(goal: timeGoal, title: "Exercise goal", type: "min")
+                WorkoutComponent(goal: stepsGoal, title: "Steps goal", type: "steps")
+
+            }.padding(.horizontal, 32)
+            HStack {
+                Spacer()
+                ZStack {
+                    Image("WorkoutMat")
+                        .resizable()
+                        .scaledToFit()
+                    Image(image)
+                        .resizable()
+                        .scaledToFit()
+                    
+                }.padding()
+                Spacer()
+            }
             
             Rectangle()
                 .frame(height: 1)
@@ -90,9 +99,6 @@ struct WorkoutSessionView: View {
                     constants.workoutSteps = steps
                     constants.workoutSeconds = timeSeconds
                     constants.showFinishedWorkout = true
-                    print("finished workout: ")
-                    print("steps: \(constants.workoutSteps)")
-                    print("time: \(constants.workoutSeconds)")
                     stopTimer()
                     withAnimation(.easeOut(duration: 0.2), {
                         offset = UIScreen.main.bounds.height

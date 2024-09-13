@@ -31,9 +31,9 @@ struct MissionsView: View {
                         }
                         Spacer()
                         
-                        NavigationLink(destination: MissionsStreakUpComponent()) {
-                            StreakUpComponent(streakCount: 0)
-                        }
+//                        NavigationLink(destination: MissionsStreakUpComponent()) {
+//                            StreakUpComponent(streakCount: 0)
+//                        }
                     }
                     .padding(.bottom, 16)
                     

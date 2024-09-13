@@ -48,6 +48,8 @@ struct NavigationTabbarView: View {
     @ObservedObject var vm: NavigationViewModel
     @State var offset = UIScreen.main.bounds.height
     let enviroments: [Enviroment] = [.kitchen, .bedroom, .garden]
+    @State var timeGoal: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
+    @State var stepsGoal: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
     
     var body: some View {
         
@@ -82,7 +84,7 @@ struct NavigationTabbarView: View {
             )
             if constants.showWorkoutSession, constants.workout != nil {
                 VStack {
-                    WorkoutSessionView(image: "\(vm.tibby.species)1", workout: constants.workout!, offset: $offset)
+                    WorkoutSessionView(image: "\(vm.tibby.species)1", workout: constants.workout!, offset: $offset, stepsGoal: stepsGoal, timeGoal: timeGoal)
                         .offset(y: offset)
                         .onAppear {
                             withAnimation(.easeIn(duration: 0.2), {
