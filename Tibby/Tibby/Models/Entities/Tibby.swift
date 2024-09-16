@@ -19,7 +19,7 @@ enum TibbySpecie: String, CaseIterable {
     case dolphin = "dolphin"
     case yellowShark = "yellowShark"
     case axolotl = "axolotl"
-    case tuxedoCat = "blackCat"
+    case tuxedoCat = "tuxedoCat"
     case bunny = "bunny"
     case corgi = "corgi"
     case dog = "dog"
