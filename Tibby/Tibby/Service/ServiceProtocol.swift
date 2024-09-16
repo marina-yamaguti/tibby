@@ -23,8 +23,6 @@ protocol ServiceProtocol {
     ///   - details: Detailed information about the Tibby.
     ///   - personality: The personality traits of the Tibby.
     ///   - species: The species to which the Tibby belongs.
-    ///   - level: The current level of the Tibby.
-    ///   - xp: The experience points of the Tibby.
     ///   - happiness: The happiness level of the Tibby.
     ///   - hunger: The hunger level of the Tibby.
     ///   - sleep: The sleep level of the Tibby.
@@ -32,7 +30,7 @@ protocol ServiceProtocol {
     ///   - lastUpdated: The date when the Tibby was last updated.
     ///   - isUnlocked: A Boolean value indicating whether the Tibby is unlocked.
     ///   - collection: The collection to which the Tibby belongs.
-    func createTibby(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String)
+    func createTibby(id: UUID, ownerId: UUID?, name: String, rarity: String, details: String, personality: String, species: String, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String)
     
     /// Deletes the specified Tibby.
     ///
@@ -66,14 +64,12 @@ protocol ServiceProtocol {
     ///   - details: The new detailed information about the Tibby (optional).
     ///   - personality: The new personality traits of the Tibby (optional).
     ///   - species: The new species of the Tibby (optional).
-    ///   - level: The new level of the Tibby (optional).
-    ///   - xp: The new experience points of the Tibby (optional).
     ///   - happiness: The new happiness level of the Tibby (optional).
     ///   - hunger: The new hunger level of the Tibby (optional).
     ///   - sleep: The new sleep level of the Tibby (optional).
     ///   - friendship: The new friendship level of the Tibby (optional).
     ///   - lastUpdated: The new last updated date for the Tibby (optional).
-    func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, level: Int?, xp: Int?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?)
+    func updateTibby(tibby: Tibby, id: UUID?, ownerId: UUID?, rarity: String?, details: String?, personality: String?, species: String?, happiness: Int?, hunger: Int?, sleep: Int?, friendship: Int?, lastUpdated: Date?)
     
     // MARK: - Accessory Operations
     

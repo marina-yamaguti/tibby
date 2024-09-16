@@ -35,8 +35,8 @@ class Service: ObservableObject, ServiceProtocol {
     ///   - lastUpdated: The date when the Tibby was last updated.
     ///   - isUnlocked: A Boolean value indicating whether the Tibby is unlocked.
     ///   - collection: The collection to which the Tibby belongs.
-    func createTibby(id: UUID, ownerId: UUID? = nil, name: String, rarity: String, details: String, personality: String, species: String, level: Int, xp: Int, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
-        let newTibby = Tibby(id: id, ownerId: ownerId, name: name, rarity: rarity, details: details, personality: personality, species: species, level: level, xp: xp, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked, collection: collection)
+    func createTibby(id: UUID, ownerId: UUID? = nil, name: String, rarity: String, details: String, personality: String, species: String, happiness: Int, hunger: Int, sleep: Int, friendship: Int, lastUpdated: Date, isUnlocked: Bool, collection: String) {
+        let newTibby = Tibby(id: id, ownerId: ownerId, name: name, rarity: rarity, details: details, personality: personality, species: species, happiness: happiness, hunger: hunger, sleep: sleep, friendship: friendship, lastUpdated: lastUpdated, isUnlocked: isUnlocked, collection: collection)
         
         do {
             let tibbies = try modelContext.fetch(FetchDescriptor<Tibby>())
@@ -146,15 +146,13 @@ class Service: ObservableObject, ServiceProtocol {
     /// Updates the attributes of the given Tibby.
     ///
     /// - Parameters: Various optional parameters to update the corresponding properties of the Tibby.
-    func updateTibby(tibby: Tibby, id: UUID? = nil, ownerId: UUID? = nil, rarity: String? = nil, details: String? = nil, personality: String? = nil, species: String? = nil, level: Int? = nil, xp: Int? = nil, happiness: Int? = nil, hunger: Int? = nil, sleep: Int? = nil, friendship: Int? = nil, lastUpdated: Date? = nil) {
+    func updateTibby(tibby: Tibby, id: UUID? = nil, ownerId: UUID? = nil, rarity: String? = nil, details: String? = nil, personality: String? = nil, species: String? = nil, happiness: Int? = nil, hunger: Int? = nil, sleep: Int? = nil, friendship: Int? = nil, lastUpdated: Date? = nil) {
         if let id = id { tibby.id = id }
         if let ownerId = ownerId { tibby.ownerId = ownerId }
         if let rarity = rarity { tibby.rarity = rarity }
         if let details = details { tibby.details = details }
         if let personality = personality { tibby.personality = personality }
         if let species = species { tibby.species = species }
-        if let level = level { tibby.level = level }
-        if let xp = xp { tibby.xp = xp }
         if let happiness = happiness { tibby.happiness = happiness }
         if let hunger = hunger { tibby.hunger = hunger }
         if let sleep = sleep { tibby.sleep = sleep }
@@ -498,9 +496,6 @@ class Service: ObservableObject, ServiceProtocol {
         if let sleepEffect = effect["sleep"] {
             tibby.sleep = min(tibby.sleep + sleepEffect, 100)
         }
-        if let xpEffect = effect["xp"] {
-            tibby.xp += xpEffect
-        }
         if let friendshipEffect = effect["friendship"] {
             tibby.friendship += friendshipEffect
         }
@@ -607,10 +602,10 @@ class Service: ObservableObject, ServiceProtocol {
         }
         
         // Tibbies Setup
-        createTibby(id: UUID(), name: "Troy", rarity: "Common", details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", personality: "", species: "shark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Thor", rarity: "Epic", details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.", personality: "", species: "yellowShark", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures", personality: "", species: "dolphin", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Charlotte", rarity: "Rare", details: "The Axolot is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolot brings a sense of wonder and ancient magic to those who see it.", personality: "", species: "axolotl", level: 1, xp: 0, happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Troy", rarity: "Common", details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", personality: "", species: "shark", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Thor", rarity: "Epic", details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.", personality: "", species: "yellowShark", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures", personality: "", species: "dolphin", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
+        createTibby(id: UUID(), name: "Charlotte", rarity: "Rare", details: "The Axolot is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolot brings a sense of wonder and ancient magic to those who see it.", personality: "", species: "axolotl", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
         
         // Accessories Setup
         createAccessory(id: UUID(), name: "Hat", image: "Hat", price: 10, category: "Head")
@@ -624,7 +619,7 @@ class Service: ObservableObject, ServiceProtocol {
         // Activities Setup
         createActivity(id: UUID(), name: "Eat", effect: "{\"hunger\": 25}")
         createActivity(id: UUID(), name: "Pet", effect: "{\"happiness\": 25}")
-        createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 100}")
+        createActivity(id: UUID(), name: "Sleep", effect: "{\"sleep\": 1}")
         
         // Initial Food Inventory Setup
         if getFoodsFromUser().isEmpty {

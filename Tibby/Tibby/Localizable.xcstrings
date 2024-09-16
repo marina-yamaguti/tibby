@@ -1,6 +1,25 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "/ %@ min" : {
+
+    },
+    "/ %@ steps" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@:" : {
+
+    },
     "%@!" : {
 
     },
@@ -76,6 +95,9 @@
     "Development" : {
 
     },
+    "Done" : {
+
+    },
     "Earn Rewards" : {
 
     },
@@ -133,6 +155,9 @@
     "Lv. %lld" : {
 
     },
+    "Missions" : {
+
+    },
     "my food inventory: " : {
 
     },
@@ -155,6 +180,9 @@
 
     },
     "Open Settings" : {
+
+    },
+    "Overview" : {
 
     },
     "Pause" : {
@@ -211,6 +239,9 @@
     "Steps Taken" : {
 
     },
+    "There are no missions attached to this workout type." : {
+
+    },
     "tibby" : {
 
     },
@@ -226,6 +257,9 @@
       }
     },
     "Tibby:" : {
+
+    },
+    "Total Elapsed Time" : {
 
     },
     "Track your workouts, steps, and more to keep both you and your Tibby in top shape!" : {
@@ -244,6 +278,9 @@
 
     },
     "Weekly Mission" : {
+
+    },
+    "Workout Session" : {
 
     },
     "You don't have any favourited Tibby. Pick your favourites to see them here." : {
