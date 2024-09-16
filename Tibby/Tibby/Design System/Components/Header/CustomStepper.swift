@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+enum StepperType {
+    case firstTime, editing
+}
 /// A custom stepper component for adjusting a numeric value within a defined range.
 /// 
 /// `CustomStepper` allows users to increment or decrement a value by a specified step size within a given range.
@@ -27,12 +30,14 @@ struct CustomStepper: View {
     /// A description displayed below the value, providing context for what the value represents.
     var description: String
     
+    var stepperType: StepperType
+    
     var body: some View {
         VStack(spacing: 4) {
             // Title of the stepper
             Text(title)
                 .font(.typography(.body2))
-                .foregroundStyle(.tibbyBaseBlack)
+                .foregroundStyle(stepperType == .editing ? .tibbyBaseWhite : .tibbyBaseBlack)
             HStack {
                 // Decrement button
                 Button(action: {
@@ -54,9 +59,10 @@ struct CustomStepper: View {
                 VStack(spacing: 8) {
                     Text("\(value)")
                         .font(.typography(.title))
+                        .foregroundStyle(stepperType == .editing ? .tibbyBaseWhite : .tibbyBaseBlack)
                     Text(description)
                         .font(.typography(.label2))
-                        .foregroundStyle(.tibbyBaseGrey)
+                        .foregroundStyle(stepperType == .editing ? .tibbyBaseWhite : .tibbyBaseGrey)
                 }
                 
                 Spacer()
@@ -79,7 +85,7 @@ struct CustomStepper: View {
         .padding(8)
         .overlay {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(.tibbyBaseBlack, lineWidth: 1)
+                .stroke(stepperType == .editing ? .tibbyBaseWhite : .tibbyBaseBlack, lineWidth: 1)
         }
     }
 }
