@@ -9,9 +9,14 @@ import SwiftUI
 
 struct UserProfileComponent: View {
     @Binding var currentTibby: Tibby
+    @State var isEditing: Bool = false
     @State var user: User
+    @FocusState private var isFocused: Bool
+    @State private var stateColor: Color = .tibbyBaseGrey
     var currentXp: Int = 30
     var xpToEvolve: Int = 100
+    let characterLimit: Int = 10
+
     
     var body: some View {
         VStack(spacing: 16) {
@@ -23,16 +28,44 @@ struct UserProfileComponent: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(user.username)
-                            .font(.typography(.title))
-                            .foregroundStyle(.tibbyBaseBlack)
-                        Spacer()
-                        Button(action: {}) {
-                            ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
+                        if isEditing {
+                            TextField("Name", text: $user.username)
+                                .disableAutocorrection(true)
+                                .font(.typography(.title))
+                                .foregroundStyle(Color.tibbyBaseBlack)
+                                .onChange(of: user.username) {oldValue, newValue in
+                                    if newValue.count > characterLimit {
+                                        user.username = String(newValue.prefix(characterLimit))
+                                        HapticManager.instance.impact(style: .heavy)
+                                    } else if  newValue.count == characterLimit {
+                                        stateColor = .red
+                                    } else {
+                                        stateColor = .tibbyBaseGrey
+                                    }
+                                }
+                                .onSubmit {
+                                    isEditing = false
+                                }
+                                .focused($isFocused)
+                            
+                            Text("\(user.username.count)/\(characterLimit)")
+                                .font(.caption)
+                                .foregroundColor(stateColor)
+                            
+                        } else {
+                            Text(user.username)
+                                .font(.typography(.title))
+                                .foregroundStyle(.tibbyBaseBlack)
                         }
-                        .buttonSmallRounded(bgColor: .black.opacity(0.5))
+                        Spacer()
+                        Button(action: {
+                            isEditing.toggle()
+                            isFocused.toggle()}
+                        ) {
+                            ButtonLabel(type: .secondary, image: isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.pen.rawValue, text: "")
+                        }
+                        .buttonSmallRounded(bgColor: isEditing ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                     }
-                    
                     HStack {
                         Text("Tibby:")
                             .font(.typography(.label2))

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GoalsCard: View {
+    @Binding var showEdit: Bool
     @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
     @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
     @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
@@ -20,7 +21,7 @@ struct GoalsCard: View {
                     .font(.typography(.body))
                     .foregroundStyle(.tibbyBaseBlack)
                 Spacer()
-                Button(action: {}) {
+                Button(action: {showEdit = true}) {
                     ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
                 }
                 .buttonSmallRounded(bgColor: .black.opacity(0.5))

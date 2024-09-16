@@ -10,31 +10,45 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
+    @State var showEditGoals: Bool = false
     @Binding var currentTibby: Tibby
     @State var collectionTibbies: [Tibby] = []
     @State var favoriteTibbies: [Collection:[Tibby]] = [:]
+    @FocusState private var isFocused: Bool
+
     
     var body: some View {
-        VStack {
-            PageHeader(title: "Profile", symbol: TibbySymbols.profileBlack.rawValue)
-            
-            VStack(alignment: .leading, spacing: 32) {
-                UserProfileComponent(currentTibby: $currentTibby, user: service.getUser() ?? User(id: UUID(), username: "Nat", level: 0, xp: 0))
-                    .frame(height: 110)
-                                
-                ShowcaseCard()
+        ZStack {
+            VStack {
+                PageHeader(title: "Profile", symbol: TibbySymbols.profileBlack.rawValue)
+                
+                VStack(alignment: .leading, spacing: 32) {
+                    UserProfileComponent(currentTibby: $currentTibby, user: service.getUser() ?? User(id: UUID(), username: "Nat", level: 0, xp: 0))
+                        .frame(height: 110)
+                                    
+                    ShowcaseCard()
+                }
+                .padding(16)
+                
+                VStack(alignment: .leading, spacing: 32) {
+                    GoalsCard(showEdit: $showEditGoals)
+                }
+                .padding(.leading, 16)
+                Spacer()
             }
-            .padding(16)
+            .ignoresSafeArea()
+            .background(.tibbyBaseWhite)
+            .navigationBarBackButtonHidden()
+            .opacity(showEditGoals ? 0.4 : 1)
             
-            VStack(alignment: .leading, spacing: 32) {
-                GoalsCard()
+            if showEditGoals {
+                VStack {
+                    Spacer()
+                    EditingGoalsView(showEdit: $showEditGoals)
+                        .frame(maxHeight: 644)
+                }
             }
-            .padding(.leading, 16)
-            Spacer()
         }
-        .ignoresSafeArea()
-        .background(.tibbyBaseWhite)
-        .navigationBarBackButtonHidden()
     }
 }
 
