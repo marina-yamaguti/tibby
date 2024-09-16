@@ -23,14 +23,14 @@ class DateManager {
         return Date.startOfWeek
     }
     
-    func changedDayWeek(dateType: DateType) -> Bool {
+    func changedDayWeek(dateType: DateType, dateCheck: Date) -> Bool {
         let calendar = Calendar.current
         switch dateType {
         case .day:
-            return lastDayVisited != self.getDay()
+            return dateCheck != self.getDay()
         case .week:
             let weekDateComponents = calendar.dateComponents([.year, .month, .day], from: self.getWeek())
-            let lastDayDateComponents = calendar.dateComponents([.year, .month, .day], from: lastDayVisited)
+            let lastDayDateComponents = calendar.dateComponents([.year, .month, .day], from: dateCheck)
             return !((lastDayDateComponents.day! >= weekDateComponents.day!) && (lastDayDateComponents.month! >= weekDateComponents.month!) && (lastDayDateComponents.year! >= weekDateComponents.year!))
         }
     }
