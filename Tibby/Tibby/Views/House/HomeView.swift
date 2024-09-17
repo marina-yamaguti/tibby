@@ -108,6 +108,12 @@ struct HomeView: View {
                     SheetWithCircle(goingUp: arrowUp)
                         .ignoresSafeArea(.all)
                         .frame(height: sheetHeight)
+                        .onTapGesture {
+                            withAnimation {
+                                showSheet.toggle()
+                                sheetHeight = 100
+                            }
+                        }
                         .gesture(
                             DragGesture()
                                 .onChanged { value in

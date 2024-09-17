@@ -26,6 +26,11 @@ struct TibbySelectionView: View {
             SheetWithCircle(goingUp: false)
                 .ignoresSafeArea(.all)
                 .frame(height: sheetHeight)
+                .onTapGesture {
+                    withAnimation {
+                        showSheet.toggle()
+                    }
+                }
                 .gesture(
                     DragGesture()
                         .onChanged { value in
