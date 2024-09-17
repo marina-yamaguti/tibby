@@ -77,19 +77,19 @@ struct MissionsView: View {
 }
 
 
-#Preview {
-    let missionManager = MissionManager()
-    
-    // Generate some example daily and weekly missions using the MissionManager
-    let dailyMissions = DayMissionsCollection(
-        title: "Daily Missions",
-        missions: MissionType.allCases.map { missionManager.createMission(dateType: .day, missionType: $0) }
-    )
-    
-    let weeklyMissions = WeekMissionsCollection(
-        title: "Weekly Missions",
-        missions: MissionType.allCases.map { missionManager.createMission(dateType: .week, missionType: $0) }
-    )
-    
-    return MissionsView(dailyMission: dailyMissions, weeklyMission: weeklyMissions)
-}
+//#Preview {
+//    let missionManager = MissionManager()
+//    
+//    // Generate some example daily and weekly missions using the MissionManager
+//    let dailyMissions = DayMissionsCollection(
+//        title: "Daily Missions",
+//        missions: MissionType.allCases.map { missionManager.createMission(dateType: .day, missionType: $0) }
+//    )
+//    
+//    let weeklyMissions = WeekMissionsCollection(
+//        title: "Weekly Missions",
+//        missions: MissionType.allCases.map { missionManager.createMission(dateType: .week, missionType: $0) }
+//    )
+//    
+//    return MissionsView(dailyMission: dailyMissions, weeklyMission: weeklyMissions)
+//}
