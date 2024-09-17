@@ -11,7 +11,6 @@ struct TibbyBook: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @Binding var tibby: Tibby
-    @State var collectionTibbies: [Tibby] = []
     @State var tibbies: [Collection:[Tibby]] = [:]
     var body: some View {
         let columns = [
@@ -36,10 +35,6 @@ struct TibbyBook: View {
                                                 .fill(collection.color)
                                         }
                                         .padding(.leading)
-                                        .onAppear {
-                                            self.collectionTibbies = self.getTibbyList(collection: collection.rawValue, service: service)
-                                            self.collectionTibbies = self.collectionTibbies.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
-                                        }
                                     Spacer()
                                 }
                                 .padding(.bottom, 8)
@@ -50,9 +45,9 @@ struct TibbyBook: View {
                                     .padding(.leading)
                                 
                                 LazyVGrid(columns: columns, spacing: 16) {
-                                    ForEach($collectionTibbies) { $tibbyL in
+                                    ForEach(bindingList(collection: collection)) { $tibbyL in
                                         if  tibbyL.id == tibby.id {
-                                            TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)                                                
+                                            TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         } else if tibbyL.isUnlocked {
                                             TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         } else {
@@ -62,32 +57,43 @@ struct TibbyBook: View {
                                 }
                                 .padding(16)
                                 .background(.tibbyBasePearlBlue)
-                                    .cornerRadius(20)
-                                    .padding()
+                                .cornerRadius(20)
+                                .padding()
                             }
-                        }
-                        .onAppear {
-                            print(collection.rawValue)
-                            print(collectionTibbies.isEmpty)
                         }
                     }
                     Spacer()
                 }.padding(.top, 40)
             }.scrollIndicators(.hidden)
         }
-            .ignoresSafeArea(.all, edges: .top)
-            .background(Color.tibbyBaseWhite)
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                self.tibbies = self.setupMap()
-            }
+        .ignoresSafeArea(.all, edges: .top)
+        .background(Color.tibbyBaseWhite)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.tibbies = self.setupMap()
+        }
     }
+    
+    func bindingList(collection: Collection) -> Binding<[Tibby]> {
+        Binding(
+            get: { self.tibbies[collection] ?? [] },
+            set: { newValue in self.tibbies[collection] = newValue }
+        )
+    }
+    
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
         let allTibbies = service.getAllTibbies()
         tibbies = allTibbies.filter { $0.collection == collection}
+        
+        tibbies.sort { (lhs, rhs) -> Bool in
+            let lhsRarity = Rarity(rawValue: lhs.rarity) ?? .common
+            let rhsRarity = Rarity(rawString: rhs.rarity) ?? .common
+            return lhsRarity.order < rhsRarity.order
+        }
         return tibbies
     }
+    
     func setupMap() -> [Collection : [Tibby]] {
         var map: [Collection : [Tibby]] = [:]
         for collection in Collection.allCases {
