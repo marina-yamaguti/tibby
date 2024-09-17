@@ -618,7 +618,7 @@ class Service: ObservableObject, ServiceProtocol {
 
         
         // Accessories Setup
-        createAccessory(id: UUID(), name: "Hat", image: "Hat", price: 10, category: "Head")
+        createAccessory(id: UUID(), name: "SpyHat", image: "SpyHat", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
         

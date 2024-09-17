@@ -74,7 +74,11 @@ struct BedroomView: View {
                     Button(action: {vm.lightsOff(tibby: tibby)}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.lightBulb.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                     Spacer()
-                    Button(action: {wardrobeIsOpen.toggle()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hanger.rawValue, text: "")})
+                    Button(action: {
+                        if !constants.tibbySleeping {
+                            wardrobeIsOpen.toggle()
+                        }
+                    }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hanger.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                 }
                 .padding(.bottom, 32).padding(.horizontal,20)
@@ -92,8 +96,24 @@ struct BedroomView: View {
             }
             .onChange(of: constants.tibbySleeping, {
                 if constants.tibbySleeping {
+                    if tibby.currentAccessoryId != nil {
+                        tibbyView.removeAccessory {
+                            print("ACCESSORY REMOVED")
+                        }
+                    }
+                    
                     tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                 } else {
+                    if tibby.currentAccessoryId != nil {
+                        tibbyView.addAccessory(service.getAllAccessories()!.first(where: { a in
+                            a.id == tibby.currentAccessoryId
+                        })!, species: tibby.species) {
+                            print("ACCESSORY ADDED")
+                        } remove: {
+                            print("ACCESSORY REMOVED BEFORE ADD")
+                        }
+                    }
+                    
                     let tibbySpecie = TibbySpecie(rawValue: tibby.species)
                     tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                 }
