@@ -88,6 +88,7 @@ struct SettingsComponent: View {
                     }
                     .onTapGesture {
                         if label == "Health" {
+                            AudioManager.instance.playSFXSecondary(audio: .popup)
                             showHealthAlert = true
                         } else if label == "Notifications" {
                             print("Notification")
