@@ -145,7 +145,7 @@ protocol MissionProtocol {
     var valueTotal: Int { get }
     
     /// The value or progress that has been completed so far.
-    var valueDone: Int { get set }
+    var valueDone: Int { get }
     
     /// The reward given upon completion of the mission.
     var reward: Reward { get }
@@ -157,7 +157,7 @@ protocol MissionProtocol {
     var frequencyTime: DateType { get }
     
     /// The current progress status of the mission.
-    var progress: MissionProgress { get set }
+    var progress: MissionProgress { get }
     
     /// The type of mission.
     var missionType: MissionType { get }
@@ -185,16 +185,19 @@ protocol MissionsCollectionProtocol {
     var title: String { get }
     
     /// The list of missions included in the collection.
-    var missions: [MissionProtocol] { get set }
+    var missions: [MissionProtocol] { get }
     
     /// The remaining time for the collection of missions.
-    var timeRemaning: (timeValue: Int, timeMesure: TimeMesure) { get set }
+    var timeRemaning: (timeValue: Int, timeMesure: TimeMesure) { get }
+    
+    /// The last time that the missions were setted up
+    var dateSet: Date { get }
     
     /// Sets the remaining time for the missions in the collection.
     mutating func setTimeRemaning()
     
     /// Creates the missions included in the collection.
-    mutating func createMissions()
+    mutating func createMissions(newDate: Date)
     
     /// Returns the missions in the correct order to display on the screen.
     ///
@@ -204,6 +207,8 @@ protocol MissionsCollectionProtocol {
 
 /// A structure representing a weekly collection of missions.
 struct WeekMissionsCollection: MissionsCollectionProtocol {
+    var dateSet: Date
+    
     var frequencyTime: DateType = .week
     
     var title: String = ""
@@ -225,10 +230,11 @@ struct WeekMissionsCollection: MissionsCollectionProtocol {
     }
     
     /// Creates the missions for the weekly collection.
-    mutating func createMissions() {
+    mutating func createMissions(newDate: Date) {
         for mt in MissionType.allCases {
             missions.append(missionManager.createMission(dateType: frequencyTime, missionType: mt))
         }
+        dateSet = newDate
     }
     
     /// Returns the missions in the weekly collection sorted by progress.
@@ -243,6 +249,8 @@ struct WeekMissionsCollection: MissionsCollectionProtocol {
 
 /// A structure representing a daily collection of missions.
 struct DayMissionsCollection: MissionsCollectionProtocol {
+    var dateSet: Date
+    
     var frequencyTime: DateType = .day
     
     var title: String = ""
@@ -259,10 +267,11 @@ struct DayMissionsCollection: MissionsCollectionProtocol {
     }
     
     /// Creates the missions for the daily collection.
-    mutating func createMissions() {
+    mutating func createMissions(newDate: Date) {
         for mt in MissionType.allCases {
             missions.append(missionManager.createMission(dateType: frequencyTime, missionType: mt))
         }
+        dateSet = newDate
     }
     
     /// Returns the missions in the daily collection sorted by progress.
