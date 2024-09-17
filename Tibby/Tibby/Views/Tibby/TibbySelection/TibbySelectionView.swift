@@ -12,7 +12,6 @@ struct TibbySelectionView: View {
     @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
     @State var tibbies: [Collection:[Tibby]] = [:]
-    @State var tibbyCollection: [Tibby] = []
     @Binding var showSheet: Bool
     @State var sheetHeight: CGFloat = 100
     @State var navigate: Bool = false
@@ -62,15 +61,11 @@ struct TibbySelectionView: View {
                                 HStack(alignment: .center) {
                                     CollectionNameComponent(name: collection.rawValue, color: collection.color)
                                         .padding(.bottom, 16)
-                                        .onAppear {
-                                            self.tibbyCollection = self.getTibbyList(collection: collection.rawValue, service: service)
-                                            self.tibbyCollection = self.tibbyCollection.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
-                                        }
                                     Spacer()
                                 }
                                 
                                 LazyVGrid(columns: columns, spacing: 16) {
-                                    ForEach($tibbyCollection) { $tibbyL in
+                                    ForEach(bindingList(collection: collection)) { $tibbyL in
                                         if tibbyL.id == tibby.id {
                                             NavigationLink(destination: TibbySelectedView(viewModel: TibbySelectedViewModel(tibby: $tibbyL, currentTibby: $tibby, status: .selected, service: service))) {
                                                 TibbyCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
@@ -84,11 +79,10 @@ struct TibbySelectionView: View {
                                 }
                                 .padding()
                                 .background(.tibbyBasePearlBlue)
-                                    .cornerRadius(20)
-                                    .padding(.bottom, 50)
+                                .cornerRadius(20)
+                                .padding(.bottom, 50)
                             }
                         }
-                        
                     }
                     
                     Spacer()
@@ -102,14 +96,32 @@ struct TibbySelectionView: View {
         .animation(.easeInOut, value: showSheet)
         .navigationBarBackButtonHidden(true)
         .onAppear {
+            print("my tibbies: ")
             self.tibbies = self.setupMap()
+            for collection in tibbies.keys {
+                print("coleção: \(collection.rawValue)")
+                print(tibbies[collection]?.count)
+            }
         }
+    }
+    
+    func bindingList(collection: Collection) -> Binding<[Tibby]> {
+        Binding(
+            get: { self.tibbies[collection] ?? [] },
+            set: { newValue in self.tibbies[collection] = newValue }
+        )
     }
     
     func getTibbyList(collection: String, service: Service) -> [Tibby] {
         var tibbies: [Tibby] = []
         let allTibbies = service.getAllTibbies()
-        tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked }
+        tibbies = allTibbies.filter { $0.collection == collection && $0.isUnlocked == true}
+        
+        tibbies.sort { (lhs, rhs) -> Bool in
+            let lhsRarity = Rarity(rawValue: lhs.rarity) ?? .common
+            let rhsRarity = Rarity(rawString: rhs.rarity) ?? .common
+            return lhsRarity.order < rhsRarity.order
+        }
         return tibbies
     }
     
