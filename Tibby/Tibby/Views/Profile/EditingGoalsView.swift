@@ -9,10 +9,10 @@ import SwiftUI
 
 struct EditingGoalsView: View {
     @Binding var showEdit: Bool
-    @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
-    @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
-    @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
-    @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
+    @Binding var exercise: Int
+    @Binding var energy: Int
+    @Binding var steps: Int
+    @Binding var sleep: Int
     
     var body: some View {
         ZStack {
@@ -34,9 +34,12 @@ struct EditingGoalsView: View {
                     }
                     CustomStepper(value: $exercise, step: 5, range: 5...1440, title: "Daily Exercise", description: "minutes/day", stepperType: .editing)
                     CustomStepper(value: $energy, step: 10, range: 110...1440, title: "Daily Energy Goal", description: "calories/day", stepperType: .editing)
-                    CustomStepper(value: $steps, step: 500, range: 500...1440, title: "Daily Steps", description: "steps/day", stepperType: .editing)
+                    CustomStepper(value: $steps, step: 500, range: 500...10000, title: "Daily Steps", description: "steps/day", stepperType: .editing)
                     CustomStepper(value: $sleep, step: 1, range: 6...12, title: "Daily Sleep Time", description: "hours/day", stepperType: .editing)
-                    Button(action: {showEdit = false}) {
+                    Button(action: {
+                        saveGoals()
+                        showEdit = false
+                    }) {
                         HStack {
                             Image(TibbySymbols.checkMark.rawValue)
                                 .resizable()
@@ -52,5 +55,13 @@ struct EditingGoalsView: View {
             }
             .padding(16)
         }
+        
+    }
+    func saveGoals() {
+        UserDefaults.standard.set(exercise, forKey: "workout")
+        UserDefaults.standard.set(energy, forKey: "energy")
+        UserDefaults.standard.set(steps, forKey: "steps")
+        UserDefaults.standard.set(sleep, forKey: "sleep")
+        print("Goals saved: exercise \(exercise), energy \(energy), steps \(steps), sleep \(sleep)")
     }
 }

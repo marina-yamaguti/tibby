@@ -27,6 +27,9 @@ struct HomeView: View {
     @State private var showMissions = false
     @State private var showSettings = false
     @State private var showProfile = false
+    
+    //temporary
+    @State var showMissionsAlert = false
 
     
     
@@ -37,7 +40,7 @@ struct HomeView: View {
                 Spacer()
                 VStack {
                     HStack(alignment: .center) {
-                        LevelComponent(level: 32)
+                        LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
                                 showProfile.toggle()
                             }
@@ -91,7 +94,10 @@ struct HomeView: View {
                                 GatchaView(firstTimeHere: .constant(false))
                             }
                         Spacer()
-                        Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                        Button(action: {
+                            showMissionsAlert = true
+                            showMissions = true
+                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
 //                            .navigationDestination(isPresented: $showMissions) {
 //                                
@@ -145,7 +151,12 @@ struct HomeView: View {
         .background(
             .tibbyBaseBlue
         )
-        
+        .alert(isPresented: $showMissionsAlert, content: {
+            Alert(
+                title: Text("Missions Cooming Soon!"),
+                dismissButton: .default(Text("Ok"))
+            )
+        })
         .onAppear(perform: {
             print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

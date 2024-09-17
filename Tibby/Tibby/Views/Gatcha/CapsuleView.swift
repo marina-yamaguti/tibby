@@ -134,10 +134,6 @@ struct CapsuleView: View {
                 
                 Button(action: {
                     if firstTimeHere {
-                        if let user = service.getUser() {
-                            user.currentTibbyID = tibby.id
-                        }
-                        
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
                     } else {

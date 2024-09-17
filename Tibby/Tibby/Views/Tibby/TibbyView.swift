@@ -117,15 +117,6 @@ class TibbyView: SKScene, TibbyProtocol {
             if currentPosition != newPosition {
                 if petAnimation {
                     animateTibby(tibbySpecie!.happyAnimation(), nodeID: .tibby, timeFrame: 0.5)
-                    // TODO: Aumentar a felicidade do Tibby usando a classe de serviço
-                    if let tibby = tibbyObject {
-                        if let activity = service?.getActivityByName(name: "Pet") {
-                            let interaction = service?.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
-                            service?.applyInteractionToTibby(interaction: interaction!, tibby: tibby)
-                            print(tibby.happiness)
-                        }
-                    }
-                    
                     petAnimation = false
                 }
                 HapticManager.instance.impact(style: .soft)

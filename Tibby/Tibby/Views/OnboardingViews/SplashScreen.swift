@@ -10,13 +10,11 @@ import SwiftUI
 struct StartView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
+    @State var currentTibby: Tibby
     var body: some View {
-        //change this to initializa with the right tibby
-        if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
-            HomeView(tibby: currentTibby)
-        } else {
-            HomeView(tibby: service.getTibbyBySpecies(species: "shark")!)
-        }
+        //to do: handle error case
+        HomeView(tibby: currentTibby)
+        
     }
     
 }
@@ -35,10 +33,12 @@ struct SplashScreen: View {
                     OnboardingTab(firstTime: $firstTimeHere)
                 }
                 else {
-                    StartView()
-                        .onAppear {
-                            AudioManager.instance.playMusic(audio: .happy)
-                        }
+                    if let tibby = service.getCurrentTibby() {
+                        StartView(currentTibby: tibby)
+                            .onAppear {
+                                AudioManager.instance.playMusic(audio: .happy)
+                            }
+                    }
                 }
             } else {
                 VStack {

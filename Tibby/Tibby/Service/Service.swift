@@ -73,6 +73,29 @@ class Service: ObservableObject, ServiceProtocol {
         return nil
     }
     
+    func getCurrentTibby() -> Tibby? {
+        var tibby: Tibby? = nil
+        if let user = self.getUser() {
+            if let currentTibbyID = user.currentTibbyID {
+                return getTibbyByID(id: currentTibbyID)
+            } else {
+                print("error getting current tibby's ID: \(user.currentTibbyID)")
+            }
+        } else {
+            print("error getting user")
+        }
+        return tibby
+    }
+    
+    func setCurrentTibby(tibbyID: UUID) {
+        if let user = self.getUser() {
+            user.currentTibbyID = tibbyID
+            print("current tibby setted succefully")
+        } else {
+            print("error getting user")
+        }
+    }
+    
     /// Retrieves a Tibby object by its species.
     ///
     /// - Parameter species: The species of the Tibby.
@@ -598,7 +621,7 @@ class Service: ObservableObject, ServiceProtocol {
     func setupData() {
         // User Setup
         if getUser() == nil {
-            createUser(id: UUID(), username: "Sofia", level: 1, xp: 0)
+            createUser(id: UUID(), username: "", level: 1, xp: 0)
         }
         
         // Tibbies Setup

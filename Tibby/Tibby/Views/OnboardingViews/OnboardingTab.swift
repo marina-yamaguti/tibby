@@ -12,7 +12,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
-    @State var name: String = UserDefaults.standard.value(forKey: "username") as? String ?? ""
+    @State var name: String =  ""
     @State private var showAlert = false
     @State private var openHealth = false
     
@@ -58,6 +58,9 @@ struct OnboardingTab: View {
                 switch vm.currentOnboarding {
                 case .onboarding1:
                     OnboardingView1()
+                        .onAppear {
+                            service.createUser(id: UUID(), username: "", level: 1, xp: 0)
+                        }
                 case .onboarding2:
                     OnboardingView2()
                         .onAppear {
@@ -67,6 +70,9 @@ struct OnboardingTab: View {
                     OnboardingView3(name: $name)
                 case .onboarding4:
                     OnboardingView4()
+                        .onAppear {
+                            service.getUser()?.username = name
+                        }
                 case .gacha:
                     GatchaView(firstTimeHere: $firstTime)
                 }

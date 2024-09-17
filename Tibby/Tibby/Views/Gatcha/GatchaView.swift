@@ -141,7 +141,13 @@ struct GatchaView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                                 showCapsuleAnimation = true
                             })
-                            
+                            if firstTimeHere {
+                                if let user = service.getUser() {
+                                    if let tibbyID = newTibby?.id {
+                                        service.setCurrentTibby(tibbyID: tibbyID)
+                                    }
+                                }
+                            }
                             self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
                             newTibby?.isUnlocked = true
                         } else {
