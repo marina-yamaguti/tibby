@@ -146,6 +146,9 @@
     "How to allow" : {
 
     },
+    "It seems you don't have enough %@ for this." : {
+
+    },
     "Light" : {
 
     },
@@ -173,6 +176,9 @@
     "New Workout" : {
 
     },
+    "Ok" : {
+
+    },
     "OK" : {
 
     },
@@ -180,6 +186,9 @@
 
     },
     "Open Settings" : {
+
+    },
+    "Ops..." : {
 
     },
     "Overview" : {

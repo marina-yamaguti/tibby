@@ -127,6 +127,7 @@
 		D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520772C80FADC00A37057 /* TibbyCard.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
 		D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */; };
+		FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
 		FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2622C629E4A0046DE49 /* Rarity.swift */; };
@@ -369,6 +370,7 @@
 		D8D520772C80FADC00A37057 /* TibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyCard.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyStatusComponent.swift; sourceTree = "<group>"; };
+		FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArrowAnimation.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		FD45F2622C629E4A0046DE49 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 		A5126BDB2C4987D6008703E7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FD1004692C9A05CE00EECB37 /* ArrowAnimation */,
 				FD51553B2C9388A500B9684A /* WorkoutComponent */,
 				7C39A1F02C90DE6600FAE080 /* Goals */,
 				7C39A1EF2C90DE3F00FAE080 /* Settings */,
@@ -965,6 +968,14 @@
 				BCB5AC322C937CF70050D1CA /* Streak.swift */,
 			);
 			path = Streak;
+			sourceTree = "<group>";
+		};
+		FD1004692C9A05CE00EECB37 /* ArrowAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */,
+			);
+			path = ArrowAnimation;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -1487,6 +1498,7 @@
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
+				FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,

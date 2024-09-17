@@ -22,6 +22,7 @@ struct GatchaView: View {
     @State private var disableButton = false
     @State private var showCapsuleAnimation = false
     @State var wasAlreadyUnlocked = false
+    @State var showAlert = false
     @Binding var firstTimeHere: Bool
     @State private var showExplanation = true
     
@@ -143,6 +144,8 @@ struct GatchaView: View {
                             
                             self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
                             newTibby?.isUnlocked = true
+                        } else {
+                            self.showAlert = true
                         }
                     }
                     
@@ -218,7 +221,13 @@ struct GatchaView: View {
                     }
                 }
                 
-            }
+            }.alert(isPresented: $showAlert, content: {
+                Alert(
+                    title: Text("Ops..."),
+                    message: Text("It seems you don't have enough \(isBaseOnFocus ? "coins" : "gems") for this."),
+                    dismissButton: .default(Text("Ok"))
+                )
+            })
             
         }
     }
