@@ -87,6 +87,7 @@ struct OnboardingTab: View {
                             if !name.isEmpty {
                                 vm.nextPage()
                             } else {
+                                AudioManager.instance.playSFXSecondary(audio: .popup)
                                 showAlert = true
                             }
                         } else {

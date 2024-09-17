@@ -145,6 +145,7 @@ struct GatchaView: View {
                             self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
                             newTibby?.isUnlocked = true
                         } else {
+                            AudioManager.instance.playSFXSecondary(audio: .popup)
                             self.showAlert = true
                         }
                     }
