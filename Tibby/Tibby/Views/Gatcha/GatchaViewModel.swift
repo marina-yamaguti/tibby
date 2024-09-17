@@ -203,26 +203,28 @@ final class GatchaViewModel: ObservableObject {
     
     
     func animateRoll(isBase: Bool) {
-        if isBase {
-            print(self.baseImages)
-            guard !self.baseImages.isEmpty else {
-                print("No base images to animate.")
-                return
+        AudioManager.instance.playSFX(audio: Int.random(in: 1...2) == 1 ? .coinInsert1 : .coinInsert2)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            AudioManager.instance.playSFX(audio: .gachaMachineTwist)
+            if isBase {
+                print(self.baseImages)
+                guard !self.baseImages.isEmpty else {
+                    print("No base images to animate.")
+                    return
+                }
+                for index in 0..<self.gachaBaseAnimation.count {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
+                        self.currentGatchaImage = self.baseImages[index]
+                    })
+                }
+            } else {
+                for index in 0..<self.seriesImages.count {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
+                        self.currentGatchaSecondaryImage = self.seriesImages[index]
+                    })
+                }
             }
-            for index in 0..<self.gachaBaseAnimation.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
-                    self.currentGatchaImage = self.baseImages[index]
-                })
-            }
-        } else {
-            for index in 0..<self.seriesImages.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
-                    self.currentGatchaSecondaryImage = self.seriesImages[index]
-                })
-            }
-        }
-        
-        
+        })
     }
     
     func getBaseSprite(species: String) -> String {
