@@ -158,14 +158,14 @@ final class GatchaViewModel: ObservableObject {
         self.roll = roll
     }
     
-    func getNewTibby(service: Service, isCoins: Bool, price: Int, collection: Collection? = nil) -> Tibby? {
+    func getNewTibby(service: Service, isCoins: Bool, price: Int) -> Tibby? {
         if let user = service.getUser() {
             if isCoins {
-                let newTibby = self.roll.roll(collection: collection, service: service)
+                let newTibby = self.roll.roll(collection: nil, service: service)
                 user.coins -= price
                 return newTibby
             } else {
-                let newTibby = self.roll.roll(collection: collection, service: service)
+                let newTibby = self.roll.roll(collection: self.currentSeries, service: service)
                 user.gems -= price
                 return newTibby
             }
@@ -388,14 +388,14 @@ final class GatchaViewModel: ObservableObject {
             animation = gachaSeaSeriesAnimation
         case .houseSeries:
             animation = gachaHouseSeriesAnimation
-        case .forestSeries:
-            animation = gachaForestSeriesAnimation
-        case .beachSeries:
-            animation = gachaBeachSeriesAnimation
-        case .foodSeries:
-            animation = gachaFoodSeriesAnimation
-        case .urbanSeries:
-            animation = gachaUrbanSeriesAnimation
+//        case .forestSeries:
+//            animation = gachaForestSeriesAnimation
+//        case .beachSeries:
+//            animation = gachaBeachSeriesAnimation
+//        case .foodSeries:
+//            animation = gachaFoodSeriesAnimation
+//        case .urbanSeries:
+//            animation = gachaUrbanSeriesAnimation
         }
         
         //load series animation

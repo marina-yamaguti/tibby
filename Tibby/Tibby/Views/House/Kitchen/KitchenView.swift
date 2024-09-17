@@ -108,13 +108,16 @@ struct KitchenView: View {
                                             }
                                             foodLocation = state.location
                                             let tibbySpecie = TibbySpecie(rawValue: tibby.species)
-                                            if (foodLocation.x >= mouth.x - 100 && foodLocation.x <= mouth.x + 100 && foodLocation.y >= mouth.y - 50 && foodLocation.y <= mouth.y + 50) {
+                                            if (foodLocation.x >= mouth.x - 100 && foodLocation.x <= mouth.x + 100 && foodLocation.y >= mouth.y - 100 && foodLocation.y <= mouth.y + 100) {
                                                 tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
-                                                
-                                                toEat = false
-                                                isEating = false
-                                                selectedFood = nil
-                                                foodLocation = platePos
+                                                if self.toEat {
+                                                    self.toEat = false
+                                                    self.eat()
+                                                    self.foodLocation = platePos
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                    self.toEat = true
+                                                }
                                                 
                                                 //delete food from inventory
                                                 print(tibby.hunger)
@@ -123,7 +126,6 @@ struct KitchenView: View {
                                                 if let activity = service.getActivityByName(name: "Eat") {
                                                     let interaction = service.createInteraction(id: UUID(), tibbyId: tibby.id, activityId: activity.id, timestamp: Date())
                                                     service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
-                                                    print(tibby.hunger)
                                                     tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
                                                 }
                                             }
@@ -136,6 +138,7 @@ struct KitchenView: View {
                                             withAnimation {
                                                 foodLocation = platePos
                                             }
+                                            self.toEat = true
                                         })
                                 )
                         }
@@ -201,5 +204,19 @@ struct KitchenView: View {
                     tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
                 }
             })
+            .onChange(of: selectedFood, {
+                print(selectedFood?.name)
+            })
+    }
+    
+    func eat() {
+        print("comi")
+        self.isEating = false
+        if !(service.getFoodsFromUser()[selectedFood!] ?? 0 > 0) {
+            if let newFood = service.getFoodsFromUser().first?.key {
+                print("new food")
+                self.selectedFood = newFood
+            }
+        }
     }
 }
