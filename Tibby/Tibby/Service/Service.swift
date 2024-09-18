@@ -625,12 +625,66 @@ class Service: ObservableObject, ServiceProtocol {
         modelContext.insert(newMission)
     }
     
-    func getMissionByFrequencyTime(frequencyTime: DateType) -> [MissionProtocol]{
-        switch frequencyTime {
-        case .day:
-            //
-        case .week:
-            //
+    func getAllMissions() -> [Mission] {
+        do {
+            return try modelContext.fetch(FetchDescriptor<Mission>())
+        } catch {
+            print("Error fetching all Missions: \(error)")
+        }
+        return []
+    }
+    
+    func getMissionByFrequencyTime(frequencyTime: DateType) -> [MissionProtocol] {
+        var missions: [MissionProtocol] = []
+        for m in self.getAllMissions() {
+            var progress: MissionProgress = .inProgress
+            switch m.progress {
+            case "inProgress": progress = .inProgress
+            case "claim": progress = .claim
+            case "done": progress = .done
+            default: progress = .inProgress
+            }
+            switch frequencyTime {
+            case .day:
+                if m.frequencyTime == "Day" {
+                    var missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                    missions.append(missionReturn)
+                }
+            case .week:
+                if m.frequencyTime == "Week" {
+                    var missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                    missions.append(missionReturn)
+                }
+            }
+        }
+        return missions
+    }
+    
+    func removeMissionsByFrequencyTime(frequencyTime: DateType) {
+        for m in self.getAllMissions() {
+            switch frequencyTime {
+            case .day:
+                if m.frequencyTime == "Day" {
+                    modelContext.delete(m)
+                }
+            case .week:
+                if m.frequencyTime == "Week" {
+                    modelContext.delete(m)
+                }
+            }
+        }
+    }
+    
+    func updateMissionsByFrequencyTime(frequencyTime: DateType, missions: [MissionProtocol]) {
+        self.removeMissionsByFrequencyTime(frequencyTime: frequencyTime)
+        for m in missions {
+            var progress: String = "inProgress"
+            switch m.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            createMission(id: m.id, name: m.description, valueTotal: m.valueTotal, rewardValue: m.reward.rewardValue, rewardType: m.reward.rewardType.rawValue, xpValue: m.xp.rewardValue, xpType: m.xp.rewardType.rawValue, missionType: m.missionType.rawValue, valueDone: m.valueDone, frequencyTime: m.frequencyTime.rawValue, progress: progress)
         }
     }
     
