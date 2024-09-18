@@ -15,6 +15,7 @@ struct OnboardingTab: View {
     @State var name: String =  ""
     @State private var showAlert = false
     @State private var openHealth = false
+    @Binding var currentTibby: Tibby?
     
     var body: some View {
         ZStack {
@@ -74,7 +75,12 @@ struct OnboardingTab: View {
                             service.getUser()?.username = name
                         }
                 case .gacha:
-                    GatchaView(firstTimeHere: $firstTime)
+                    GatchaView(firstTimeHere: $firstTime, currentTibby: $currentTibby)
+                        .onAppear(perform: {
+                            if let user = service.getUser() {
+                                service.updateUser(user: user, username: name)
+                            }
+                        })
                 }
                 if vm.currentOnboarding != .gacha {
                     Spacer()
@@ -88,6 +94,7 @@ struct OnboardingTab: View {
                             if !name.isEmpty {
                                 vm.nextPage()
                             } else {
+                                AudioManager.instance.playSFXSecondary(audio: .popup)
                                 showAlert = true
                             }
                         } else {
@@ -121,7 +128,6 @@ struct OnboardingTab: View {
             .padding(EdgeInsets(top: vm.currentOnboarding != .gacha ? 90 : 0, leading: vm.currentOnboarding != .gacha ? 16 : 0, bottom: vm.currentOnboarding != .gacha ? 30 : 0, trailing: vm.currentOnboarding != .gacha ? 16 : 0))
         }
         .background(.tibbyBaseWhite)
-//        .navigationDestination(isPresented: $vm.navigateToGatcha, destination: { GatchaView(firstTimeHere: $firstTime) })
         .onAppear {
             if let user = service.getUser() {
                 user.coins = 100

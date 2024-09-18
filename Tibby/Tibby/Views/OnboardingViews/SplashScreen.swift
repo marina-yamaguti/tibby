@@ -25,15 +25,16 @@ struct SplashScreen: View {
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
+    @State var currentTibby: Tibby?
     
     var body: some View {
         NavigationStack {
             if canProceed {
                 if firstTimeHere {
-                    OnboardingTab(firstTime: $firstTimeHere)
+                    OnboardingTab(firstTime: $firstTimeHere, currentTibby: $currentTibby)
                 }
                 else {
-                    if let tibby = service.getCurrentTibby() {
+                    if let tibby = self.currentTibby {
                         StartView(currentTibby: tibby)
                             .onAppear {
                                 AudioManager.instance.playMusic(audio: .happy)
@@ -53,6 +54,7 @@ struct SplashScreen: View {
                         healthManager.fetchAllInformation()
                     }
                     service.setupData()
+                    self.currentTibby = service.getCurrentTibby()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                         canProceed = true
                     })

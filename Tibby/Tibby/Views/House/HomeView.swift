@@ -13,7 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
     @Environment(\.presentationMode) var presentationMode
-    
+    @Environment(\.scenePhase) var scenePhase
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @State var tibby: Tibby
@@ -30,7 +30,7 @@ struct HomeView: View {
     
     //temporary
     @State var showMissionsAlert = false
-
+    
     
     
     var body: some View {
@@ -46,7 +46,7 @@ struct HomeView: View {
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
                         
-                    
+                        
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
@@ -91,17 +91,17 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                GatchaView(firstTimeHere: .constant(false))
+                                GatchaView(firstTimeHere: .constant(false), currentTibby: .constant(nil))
                             }
                         Spacer()
                         Button(action: {
                             showMissionsAlert = true
                             showMissions = true
                         }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black.opacity(0.5))
-//                            .navigationDestination(isPresented: $showMissions) {
-//                                
-//                            }
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
+                        //                            .navigationDestination(isPresented: $showMissions) {
+                        //
+                        //                            }
                     }
                     .padding(16)
                     Spacer()
@@ -151,26 +151,29 @@ struct HomeView: View {
         .background(
             .tibbyBaseBlue
         )
-        .alert(isPresented: $showMissionsAlert, content: {
-            Alert(
-                title: Text("Missions Cooming Soon!"),
-                dismissButton: .default(Text("Ok"))
-            )
-        })
-        .onAppear(perform: {
-            print("home")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                showSprite = true
-            }
-            //Decrease the time spent out of the app
-            let enteredApp: Bool = UserDefaults.standard.value(forKey: "enteredApp") as? Bool ?? false
-            if enteredApp {
-                let exitDate: Date = UserDefaults.standard.value(forKey: "exitDate") as? Date ?? .now
-                UserDefaults.standard.setValue(false, forKey: "enteredApp")
-                
-                //calculate the time interval that the user was background
-                let interval = abs(exitDate.timeIntervalSince(Date()))
-                constants.decreseTibby(tibby: tibby, timeInterval: Double(interval), statusList: [.hungry, .happy, .sleep]) {
+        //Detect if the user is on or off the app
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                //Decrease the time spent out of the app
+                let enteredApp: Bool = UserDefaults.standard.value(forKey: "enteredApp") as? Bool ?? false
+                if enteredApp {
+                    let exitDate: Date = UserDefaults.standard.value(forKey: "exitDate") as? Date ?? .now
+                    UserDefaults.standard.setValue(false, forKey: "enteredApp")
+                    
+                    //calculate the time interval that the user was background
+                    let interval = abs(exitDate.timeIntervalSince(Date()))
+                    constants.decreseTibby(tibby: tibby, timeInterval: Double(interval), statusList: [.hungry, .happy, .sleep]) {
+                        //save the context of the changes
+                        do {
+                            try managedObjectContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        constants.objectWillChange.send()
+                    }
+                }
+                //create the timers for each necessity item
+                constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
                     //save the context of the changes
                     do {
                         try managedObjectContext.save()
@@ -180,15 +183,17 @@ struct HomeView: View {
                     constants.objectWillChange.send()
                 }
             }
-            //create the timers for each necessity item
-            constants.createTimer(tibby: tibby, statusList: [.hungry, .happy, .sleep]) {
-                //save the context of the changes
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-                constants.objectWillChange.send()
+            else if scenePhase == .inactive {
+                print("JORGE Inactive")
+            }
+            else if scenePhase == .background {
+                print("JORGE Background")
+            }
+        }
+        .onAppear(perform: {
+            print("home")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                showSprite = true
             }
             self.dressUpAccessory()
         })
@@ -199,6 +204,12 @@ struct HomeView: View {
         .onChange(of: self.tibby.currentAccessoryId, {
             print("mudou de acessorio")
             self.dressUpAccessory()
+        })
+        .alert(isPresented: $showMissionsAlert, content: {
+            Alert(
+                title: Text("Missions Cooming Soon!"),
+                dismissButton: .default(Text("Ok"))
+            )
         })
     }
     

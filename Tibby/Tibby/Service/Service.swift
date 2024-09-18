@@ -636,10 +636,12 @@ class Service: ObservableObject, ServiceProtocol {
         createTibby(id: UUID(), name: "Muffins", rarity: "Common", details: "The Bunny is an adorable companion who loves comfort and coziness. She enjoys finding the warmest spots in the house to curl up and enjoy a moment of peace. Her soft fur and gentle behavior make her the perfect friend to share quiet afternoons and fun adventures with.", personality: "", species: "bunny", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
         createTibby(id: UUID(), name: "Milo", rarity: "Rare", details: "The Corgi is a bundle of energy and joy, with his classic short legs and fluffy tail that make him irresistibly adorable. He has a special connection with the unseen, sensing when something is wrong or when someone is sad. With his magical intuition, Corgi fills your home with warmth and a sense of comfort.", personality: "", species: "corgi", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
         createTibby(id: UUID(), name: "Peanut", rarity: "Epic", details: "The Dog is an adorable little dog with an epic heart! Small in size but big in charm, known as the Guardian of Living Beings, she is always ready to help those in need when they call her name. Peanut's loyalty and playful spirit make her a truly epic companion.", personality: "", species: "dog", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
+        
+
 
         
         // Accessories Setup
-        createAccessory(id: UUID(), name: "Hat", image: "Hat", price: 10, category: "Head")
+        createAccessory(id: UUID(), name: "SpyHat", image: "SpyHat", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
         

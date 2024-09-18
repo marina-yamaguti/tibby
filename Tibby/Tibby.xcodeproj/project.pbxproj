@@ -32,6 +32,7 @@
 		7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D72C652EEA001D7348 /* Extension + Data.swift */; };
 		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
 		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
+		7CF713CE2C94D1E100552995 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF713CD2C94D1E100552995 /* DateManager.swift */; };
 		7CF9CA6E2C88E7B100A2AA2A /* StreakUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */; };
 		7CF9CA792C88E7B800A2AA2A /* CapsuleOpen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */; };
 		7CF9CA7A2C88E7B800A2AA2A /* CoinInsert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */; };
@@ -276,6 +277,7 @@
 		7CE131D72C652EEA001D7348 /* Extension + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Data.swift"; sourceTree = "<group>"; };
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7CF713CD2C94D1E100552995 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = StreakUp.wav; sourceTree = "<group>"; };
 		7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapsuleOpen.mp3; sourceTree = "<group>"; };
 		7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinInsert1.mp3; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 				D896AEDB2C6D4655009C208C /* NotificationManager.swift */,
 				D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */,
 				7C8AEC922C87853B00DF0B8E /* MusicManager.swift */,
+				7CF713CD2C94D1E100552995 /* DateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1522,6 +1525,7 @@
 				7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */,
+				7CF713CE2C94D1E100552995 /* DateManager.swift in Sources */,
 				D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */,
 				BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */,
 				D81284B72C6AFC4D0088A7B9 /* Onboarding.swift in Sources */,
