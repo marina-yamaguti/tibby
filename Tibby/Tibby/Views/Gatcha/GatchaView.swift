@@ -25,6 +25,7 @@ struct GatchaView: View {
     @State var showAlert = false
     @Binding var firstTimeHere: Bool
     @State private var showExplanation = true
+    @Binding var currentTibby: Tibby?
     
     var body: some View {
         if showCapsuleAnimation {
@@ -141,7 +142,14 @@ struct GatchaView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
                                 showCapsuleAnimation = true
                             })
-                            
+                            if firstTimeHere {
+                                if let user = service.getUser() {
+                                    if let tibbyID = newTibby?.id {
+                                        service.setCurrentTibby(tibbyID: tibbyID)
+                                    }
+                                }
+                                self.currentTibby = newTibby
+                            }
                             self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
                             newTibby?.isUnlocked = true
                         } else {

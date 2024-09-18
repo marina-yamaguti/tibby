@@ -40,7 +40,7 @@ struct TibbyBook: View {
                                 .padding(.bottom, 8)
                                 
                                 Text(collection.description)
-                                    .font(.typography(.label2))
+                                    .font(.typography(.body2))
                                     .foregroundStyle(.tibbyBaseBlack)
                                     .padding(.leading)
                                 

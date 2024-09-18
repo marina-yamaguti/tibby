@@ -28,6 +28,11 @@ struct HomeView: View {
     @State private var showSettings = false
     @State private var showProfile = false
     
+    //temporary
+    @State var showMissionsAlert = false
+    
+    
+    
     var body: some View {
         
         ZStack {
@@ -35,13 +40,13 @@ struct HomeView: View {
                 Spacer()
                 VStack {
                     HStack(alignment: .center) {
-                        LevelComponent(level: 32)
+                        LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
                                 showProfile.toggle()
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
                         
-                    
+                        
                         Spacer()
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
@@ -86,14 +91,17 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                GatchaView(firstTimeHere: .constant(false))
+                                GatchaView(firstTimeHere: .constant(false), currentTibby: .constant(nil))
                             }
                         Spacer()
-                        Button(action: {showMissions = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
-                            .buttonSecondary(bgColor: .black.opacity(0.5))
-//                            .navigationDestination(isPresented: $showMissions) {
-//                                
-//                            }
+                        Button(action: {
+                            showMissionsAlert = true
+                            showMissions = true
+                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                        .buttonSecondary(bgColor: .black.opacity(0.5))
+                        //                            .navigationDestination(isPresented: $showMissions) {
+                        //
+                        //                            }
                     }
                     .padding(16)
                     Spacer()
@@ -196,6 +204,12 @@ struct HomeView: View {
         .onChange(of: self.tibby.currentAccessoryId, {
             print("mudou de acessorio")
             self.dressUpAccessory()
+        })
+        .alert(isPresented: $showMissionsAlert, content: {
+            Alert(
+                title: Text("Missions Cooming Soon!"),
+                dismissButton: .default(Text("Ok"))
+            )
         })
     }
     

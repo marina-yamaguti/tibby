@@ -9,10 +9,10 @@ import SwiftUI
 
 struct GoalsCard: View {
     @Binding var showEdit: Bool
-    @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
-    @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
-    @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
-    @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
+    @Binding var exercise: Int
+    @Binding var energy: Int
+    @Binding var steps: Int
+    @Binding var sleep: Int
 
     var body: some View {
         VStack(spacing: 16) {
@@ -32,8 +32,8 @@ struct GoalsCard: View {
                 HStack(spacing: 16) {
                     GoalsComponent(value: exercise, title: "Daily Exercise", description: "minutes/day")
                     GoalsComponent(value: energy, title: "Daily Energy Goal", description: "calories/day")
-                    GoalsComponent(value: energy, title: "Daily Steps", description: "steps/day")
-                    GoalsComponent(value: energy, title: "Daily Sleep Time", description: "hours/day")
+                    GoalsComponent(value: steps, title: "Daily Steps", description: "steps/day")
+                    GoalsComponent(value: sleep, title: "Daily Sleep Time", description: "hours/day")
                 }
             }
         }

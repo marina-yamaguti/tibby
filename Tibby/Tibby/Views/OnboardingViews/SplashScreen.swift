@@ -10,13 +10,11 @@ import SwiftUI
 struct StartView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
+    @State var currentTibby: Tibby
     var body: some View {
-        //change this to initializa with the right tibby
-        if let currentTibby = service.getTibbyByID(id: service.getUser()?.currentTibbyID ?? UUID()) {
-            HomeView(tibby: currentTibby)
-        } else {
-            HomeView(tibby: service.getTibbyBySpecies(species: "shark")!)
-        }
+        //to do: handle error case
+        HomeView(tibby: currentTibby)
+        
     }
     
 }
@@ -27,18 +25,21 @@ struct SplashScreen: View {
     @EnvironmentObject var constants: Constants
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
+    @State var currentTibby: Tibby?
     
     var body: some View {
         NavigationStack {
             if canProceed {
                 if firstTimeHere {
-                    OnboardingTab(firstTime: $firstTimeHere)
+                    OnboardingTab(firstTime: $firstTimeHere, currentTibby: $currentTibby)
                 }
                 else {
-                    StartView()
-                        .onAppear {
-                            AudioManager.instance.playMusic(audio: .happy)
-                        }
+                    if let tibby = self.currentTibby {
+                        StartView(currentTibby: tibby)
+                            .onAppear {
+                                AudioManager.instance.playMusic(audio: .happy)
+                            }
+                    }
                 }
             } else {
                 VStack {
@@ -53,6 +54,7 @@ struct SplashScreen: View {
                         healthManager.fetchAllInformation()
                     }
                     service.setupData()
+                    self.currentTibby = service.getCurrentTibby()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
                         canProceed = true
                     })

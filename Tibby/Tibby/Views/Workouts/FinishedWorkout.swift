@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FinishedWorkout: View {
+    @EnvironmentObject var service: Service
+    @Binding var tibby: Tibby
     @Binding var showSheet: Bool
     var timeGoal: Int
     @Binding var workoutSeconds: Int
@@ -100,6 +102,16 @@ struct FinishedWorkout: View {
                 print("On Finished Workout: ")
                 print("steps: \(workoutSteps)")
                 print("time: \(workoutSeconds)")
+            }
+            .onAppear {
+                print("happiness antes: \(tibby.happiness)")
+                let happiness = (100 * (workoutSeconds/60))/timeGoal
+                withAnimation {
+                    tibby.happiness += happiness
+                }
+                print("workout goal: \(timeGoal)")
+                print("workout done: \(workoutSeconds)")
+                print("happiness depois: \(tibby.happiness)")
             }
         
         

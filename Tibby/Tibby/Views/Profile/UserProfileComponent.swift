@@ -81,11 +81,11 @@ struct UserProfileComponent: View {
                             .font(.typography(.body))
                             .foregroundStyle(.tibbyBaseBlack)
                         Spacer()
-                        Text("\(currentXp)/\(xpToEvolve)")
+                        Text("\(user.xp)/\(xpToEvolve)")
                             .font(.typography(.label2))
                             .foregroundStyle(.tibbyBaseGrey)
                     }
-                    ProgressView(value: Double(currentXp), total: Double(xpToEvolve))
+                    ProgressView(value: Double(user.xp), total: Double(xpToEvolve))
                         .progressViewStyle(CustomProgressBar(barType: .xp))
                 }
             }
