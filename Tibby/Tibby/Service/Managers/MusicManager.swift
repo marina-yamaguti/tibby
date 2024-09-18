@@ -68,7 +68,9 @@ class AudioManager {
             if let audioURL = Bundle.main.url(forResource: audio.rawValue, withExtension: audio.soundExtension) {
                 do {
                     try audioPlayer = AVAudioPlayer(contentsOf: audioURL)
-                    audioPlayer?.numberOfLoops = Int.max
+                    if audio != .suspenseGachaPull {
+                        audioPlayer?.numberOfLoops = Int.max
+                    }
                     audioPlayer?.play()
                 } catch {
                     print("Couldn't play audio. Error: \(error)")
@@ -168,14 +170,13 @@ enum SFX: String {
     case rarePull = "RarePull"
     case epicPull = "EpicPull"
     case gachaMachineTwist = "GachaMachineTwist"
-    case suspenseGachaPull = "SuspenseGachaPull"
     case streakUp = "StreakUp"
     case notification = "Notification"
     case popup = "Popup"
     
     var soundExtension: String {
         switch self {
-        case .capsuleOpen, .coinInsert1, .coinInsert2, .gachaMachineTwist, .suspenseGachaPull, .rarePull, .notification, .popup:
+        case .capsuleOpen, .coinInsert1, .coinInsert2, .gachaMachineTwist, .rarePull, .notification, .popup:
             "mp3"
         case .commonPull, .epicPull, .tertiaryButton, .secondaryButton, .primaryButton, .streakUp:
             "wav"
@@ -188,11 +189,14 @@ enum Music: String {
     case intricate = "IntricateSong"
     case happy = "TibbyHappyTheme"
     case mysterious = "MysteriousSong"
+    case suspenseGachaPull = "SuspenseGachaPull"
     
     var soundExtension: String {
         switch self {
         case .casual, .intricate, .happy, .mysterious:
             return "wav"
+        case .suspenseGachaPull:
+            return "mp3"
         }
     }
 }

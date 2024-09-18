@@ -33,6 +33,7 @@
 		7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131D72C652EEA001D7348 /* Extension + Data.swift */; };
 		7CF056C82C3C64E9006039A4 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C72C3C64E9006039A4 /* Reward.swift */; };
 		7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF056C92C3C774D006039A4 /* Constants.swift */; };
+		7CF713CE2C94D1E100552995 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF713CD2C94D1E100552995 /* DateManager.swift */; };
 		7CF9CA6E2C88E7B100A2AA2A /* StreakUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */; };
 		7CF9CA792C88E7B800A2AA2A /* CapsuleOpen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */; };
 		7CF9CA7A2C88E7B800A2AA2A /* CoinInsert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */; };
@@ -127,6 +128,7 @@
 		D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520772C80FADC00A37057 /* TibbyCard.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
 		D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */; };
+		FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
 		FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2622C629E4A0046DE49 /* Rarity.swift */; };
@@ -277,6 +279,7 @@
 		7CE131D72C652EEA001D7348 /* Extension + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Data.swift"; sourceTree = "<group>"; };
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7CF713CD2C94D1E100552995 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = StreakUp.wav; sourceTree = "<group>"; };
 		7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapsuleOpen.mp3; sourceTree = "<group>"; };
 		7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinInsert1.mp3; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 		D8D520772C80FADC00A37057 /* TibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyCard.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyStatusComponent.swift; sourceTree = "<group>"; };
+		FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArrowAnimation.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
 		FD45F2622C629E4A0046DE49 /* Rarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rarity.swift; sourceTree = "<group>"; };
@@ -705,6 +709,7 @@
 				D896AEDB2C6D4655009C208C /* NotificationManager.swift */,
 				D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */,
 				7C8AEC922C87853B00DF0B8E /* MusicManager.swift */,
+				7CF713CD2C94D1E100552995 /* DateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -900,6 +905,7 @@
 		A5126BDB2C4987D6008703E7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FD1004692C9A05CE00EECB37 /* ArrowAnimation */,
 				FD51553B2C9388A500B9684A /* WorkoutComponent */,
 				7C39A1F02C90DE6600FAE080 /* Goals */,
 				7C39A1EF2C90DE3F00FAE080 /* Settings */,
@@ -965,6 +971,14 @@
 				BCB5AC322C937CF70050D1CA /* Streak.swift */,
 			);
 			path = Streak;
+			sourceTree = "<group>";
+		};
+		FD1004692C9A05CE00EECB37 /* ArrowAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */,
+			);
+			path = ArrowAnimation;
 			sourceTree = "<group>";
 		};
 		FD45F2642C63F3E00046DE49 /* TibbySelection */ = {
@@ -1488,6 +1502,7 @@
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
 				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
+				FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
@@ -1514,6 +1529,7 @@
 				7CE131D82C652EEA001D7348 /* Extension + Data.swift in Sources */,
 				92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */,
 				BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */,
+				7CF713CE2C94D1E100552995 /* DateManager.swift in Sources */,
 				D8D520722C7FC00800A37057 /* ResourcesComponent.swift in Sources */,
 				BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */,
 				D81284B72C6AFC4D0088A7B9 /* Onboarding.swift in Sources */,

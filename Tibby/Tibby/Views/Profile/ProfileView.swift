@@ -15,6 +15,10 @@ struct ProfileView: View {
     @State var collectionTibbies: [Tibby] = []
     @State var favoriteTibbies: [Collection:[Tibby]] = [:]
     @FocusState private var isFocused: Bool
+    @State var exercise: Int = UserDefaults.standard.value(forKey: "workout") as? Int ?? 30
+    @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
+    @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
+    @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
 
     
     var body: some View {
@@ -31,7 +35,7 @@ struct ProfileView: View {
                 .padding(16)
                 
                 VStack(alignment: .leading, spacing: 32) {
-                    GoalsCard(showEdit: $showEditGoals)
+                    GoalsCard(showEdit: $showEditGoals, exercise: $exercise, energy: $energy, steps: $steps, sleep: $sleep)
                 }
                 .padding(.leading, 16)
                 Spacer()
@@ -44,9 +48,9 @@ struct ProfileView: View {
             if showEditGoals {
                 VStack {
                     Spacer()
-                    EditingGoalsView(showEdit: $showEditGoals)
+                    EditingGoalsView(showEdit: $showEditGoals, exercise: $exercise, energy: $energy, steps: $steps, sleep: $sleep)
                         .frame(maxHeight: 644)
-                }
+                }.ignoresSafeArea()
             }
         }
     }

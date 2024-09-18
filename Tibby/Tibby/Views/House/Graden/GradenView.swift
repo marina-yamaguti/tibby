@@ -11,7 +11,7 @@ import SpriteKit
 struct GardenView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
-    var tibby: Tibby
+    @State var tibby: Tibby
     @State var tibbyView = TibbyView()
     @State var showSprite = false
     @State var exercisesSheetIsOpen = false
@@ -86,7 +86,7 @@ struct GardenView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 45)
                             .foregroundStyle(.tibbyBaseBlack)
-                        FinishedWorkout(showSheet: $constants.showFinishedWorkout, timeGoal: timeGoal, workoutSeconds: $constants.workoutSeconds, stepsGoal: stepsGoal, workoutSteps: $constants.workoutSteps)
+                        FinishedWorkout(tibby: $tibby, showSheet: $constants.showFinishedWorkout, timeGoal: timeGoal, workoutSeconds: $constants.workoutSeconds, stepsGoal: stepsGoal, workoutSteps: $constants.workoutSteps)
                             .onAppear {
                                 self.exercisesSheetIsOpen = false
                             }

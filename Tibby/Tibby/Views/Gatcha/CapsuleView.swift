@@ -57,6 +57,7 @@ struct CapsuleView: View {
             }.background(color)
                 .onAppear {
                     self.toggleBouncing()
+                    AudioManager.instance.playMusic(audio: .suspenseGachaPull)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
                         withAnimation(.easeOut(duration: 0.5), {
                             fadeText = true
@@ -67,6 +68,7 @@ struct CapsuleView: View {
                         self.animate(images: images, currentIndex: $currentIndex, duration: 0.11)
                         self.toggleBouncing()
                         HapticManager.instance.impact(style: .heavy)
+                        AudioManager.instance.playSFX(audio: .capsuleOpen)
                     })
                     
                     
@@ -77,7 +79,6 @@ struct CapsuleView: View {
                         withAnimation(.snappy(duration: 0.2)) {
                             circleHeight = 1000
                         }
-                        
                     }
                 })
                 .onChange(of: circleHeight, {
@@ -120,6 +121,9 @@ struct CapsuleView: View {
                     tibbyImage
                         .resizable()
                         .scaledToFit()
+                        .onAppear {
+                            AudioManager.instance.playSFX(audio: tibby.rarity == "Common" ? .commonPull : (tibby.rarity == "Rare" ? .rarePull : .epicPull))
+                        }
                     sparkImages[currentIndexSparks]
                         .resizable()
                         .scaledToFit()
@@ -134,10 +138,6 @@ struct CapsuleView: View {
                 
                 Button(action: {
                     if firstTimeHere {
-                        if let user = service.getUser() {
-                            user.currentTibbyID = tibby.id
-                        }
-                        
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
                     } else {

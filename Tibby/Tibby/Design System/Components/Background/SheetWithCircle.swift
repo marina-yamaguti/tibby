@@ -17,10 +17,8 @@ struct SheetWithCircle: View {
                 BorderedShapeWithHandle()
                     .foregroundStyle(goingUp ? Color.tibbyBaseWhite : Color.tibbyBaseBlue)
                 VStack {
-                    Image("TibbySymbolArrowUp")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .padding()
+                    HomeArrowAnimation()
+                        .padding(.bottom)
                     Text(goingUp ? "My Tibbies" : "Home")
                         .foregroundStyle(.black)
                         .font(.typography(.label))

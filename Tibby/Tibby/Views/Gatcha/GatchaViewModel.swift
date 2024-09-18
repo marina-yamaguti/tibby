@@ -158,14 +158,14 @@ final class GatchaViewModel: ObservableObject {
         self.roll = roll
     }
     
-    func getNewTibby(service: Service, isCoins: Bool, price: Int, collection: Collection? = nil) -> Tibby? {
+    func getNewTibby(service: Service, isCoins: Bool, price: Int) -> Tibby? {
         if let user = service.getUser() {
             if isCoins {
-                let newTibby = self.roll.roll(collection: collection, service: service)
+                let newTibby = self.roll.roll(collection: nil, service: service)
                 user.coins -= price
                 return newTibby
             } else {
-                let newTibby = self.roll.roll(collection: collection, service: service)
+                let newTibby = self.roll.roll(collection: self.currentSeries, service: service)
                 user.gems -= price
                 return newTibby
             }
@@ -203,26 +203,28 @@ final class GatchaViewModel: ObservableObject {
     
     
     func animateRoll(isBase: Bool) {
-        if isBase {
-            print(self.baseImages)
-            guard !self.baseImages.isEmpty else {
-                print("No base images to animate.")
-                return
+        AudioManager.instance.playSFX(audio: Int.random(in: 1...2) == 1 ? .coinInsert1 : .coinInsert2)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            AudioManager.instance.playSFX(audio: .gachaMachineTwist)
+            if isBase {
+                print(self.baseImages)
+                guard !self.baseImages.isEmpty else {
+                    print("No base images to animate.")
+                    return
+                }
+                for index in 0..<self.gachaBaseAnimation.count {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
+                        self.currentGatchaImage = self.baseImages[index]
+                    })
+                }
+            } else {
+                for index in 0..<self.seriesImages.count {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
+                        self.currentGatchaSecondaryImage = self.seriesImages[index]
+                    })
+                }
             }
-            for index in 0..<self.gachaBaseAnimation.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
-                    self.currentGatchaImage = self.baseImages[index]
-                })
-            }
-        } else {
-            for index in 0..<self.seriesImages.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3, execute: {
-                    self.currentGatchaSecondaryImage = self.seriesImages[index]
-                })
-            }
-        }
-        
-        
+        })
     }
     
     func getBaseSprite(species: String) -> String {
@@ -386,14 +388,14 @@ final class GatchaViewModel: ObservableObject {
             animation = gachaSeaSeriesAnimation
         case .houseSeries:
             animation = gachaHouseSeriesAnimation
-        case .forestSeries:
-            animation = gachaForestSeriesAnimation
-        case .beachSeries:
-            animation = gachaBeachSeriesAnimation
-        case .foodSeries:
-            animation = gachaFoodSeriesAnimation
-        case .urbanSeries:
-            animation = gachaUrbanSeriesAnimation
+//        case .forestSeries:
+//            animation = gachaForestSeriesAnimation
+//        case .beachSeries:
+//            animation = gachaBeachSeriesAnimation
+//        case .foodSeries:
+//            animation = gachaFoodSeriesAnimation
+//        case .urbanSeries:
+//            animation = gachaUrbanSeriesAnimation
         }
         
         //load series animation

@@ -22,8 +22,10 @@ struct GatchaView: View {
     @State private var disableButton = false
     @State private var showCapsuleAnimation = false
     @State var wasAlreadyUnlocked = false
+    @State var showAlert = false
     @Binding var firstTimeHere: Bool
     @State private var showExplanation = true
+    @Binding var currentTibby: Tibby?
     
     var body: some View {
         if showCapsuleAnimation {
@@ -137,12 +139,22 @@ struct GatchaView: View {
                             vm.animateRoll(isBase: isBaseOnFocus)
                             newTibby = vm.getNewTibby(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20)
                             vm.getTibbyImage(species: newTibby?.species ?? "")
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
                                 showCapsuleAnimation = true
                             })
-                            
+                            if firstTimeHere {
+                                if let user = service.getUser() {
+                                    if let tibbyID = newTibby?.id {
+                                        service.setCurrentTibby(tibbyID: tibbyID)
+                                    }
+                                }
+                                self.currentTibby = newTibby
+                            }
                             self.wasAlreadyUnlocked = newTibby?.isUnlocked ?? false
                             newTibby?.isUnlocked = true
+                        } else {
+                            AudioManager.instance.playSFXSecondary(audio: .popup)
+                            self.showAlert = true
                         }
                     }
                     
@@ -218,7 +230,13 @@ struct GatchaView: View {
                     }
                 }
                 
-            }
+            }.alert(isPresented: $showAlert, content: {
+                Alert(
+                    title: Text("Ops..."),
+                    message: Text("It seems you don't have enough \(isBaseOnFocus ? "coins" : "gems") for this."),
+                    dismissButton: .default(Text("Ok"))
+                )
+            })
             
         }
     }
