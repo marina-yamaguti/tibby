@@ -59,6 +59,8 @@ class SettingsViewModel: ObservableObject {
     @Published var redeemCode: String = ""
     @Published var coins: Int = 0
     @Published var showRedeemSuccess: Bool = false
+    @Published var invalidAlert = false
+
    // @EnvironmentObject var service: Service
 
     private let validCode = "Tibby06"
@@ -74,12 +76,13 @@ class SettingsViewModel: ObservableObject {
     
     func redeemCodeAction(service: Service) {
             if isValidCode() {
-               // moneyViewModel.addCoins(amount: 1000) // Adiciona 1.000 moedas usando o MoneyViewModel
                 guard let user = service.getUser() else { return }
                 user.coins += 1000
                 showRedeemSuccess = true
-                redeemCode = "" // Limpa o campo de código após o sucesso
+            } else {
+                invalidAlert = true
             }
+            redeemCode = "" // Limpa o campo de código após o sucesso
         }
     
     func openAppSettings() {

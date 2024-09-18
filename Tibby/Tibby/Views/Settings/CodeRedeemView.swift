@@ -33,6 +33,7 @@ struct CodeRedeemView: View {
                         .frame(width: 286, height: 36)
                         .cornerRadius(20)
                         .textInputAutocapitalization(.none)
+                        .preferredColorScheme(.light)
                     
                     ZStack {
                         Circle()
@@ -44,11 +45,8 @@ struct CodeRedeemView: View {
                             .foregroundStyle(Color.tibbyBaseWhite)
                     }
                     .onTapGesture {
-                        if viewModel.isValidCode() {
-                            viewModel.redeemCodeAction(service: service)
-                        }
+                        viewModel.redeemCodeAction(service: service)
                     }
-                    .disabled(!viewModel.isValidCode())
                 }
             }
             .padding()
@@ -57,10 +55,28 @@ struct CodeRedeemView: View {
                     .fill(.tibbyBasePearlBlue)
             }
         }
-        .alert(isPresented: $viewModel.showRedeemSuccess) {
-            Alert(title: Text("Congratulations!"),
-                  message: Text("You unlocked 1,000 coins."),
-                  dismissButton: .default(Text("OK")))
+        .alert(isPresented: Binding<Bool>(
+            get: {
+                viewModel.showRedeemSuccess || viewModel.invalidAlert
+            },
+            set: { _ in
+                viewModel.showRedeemSuccess = false
+                viewModel.invalidAlert = false
+            })
+        ) {
+            if viewModel.showRedeemSuccess {
+                return Alert(
+                    title: Text("Congratulations!"),
+                    message: Text("You unlocked 1,000 coins."),
+                    dismissButton: .default(Text("OK"))
+                )
+            } else {
+                return Alert(
+                    title: Text("Invalid Code"),
+                    message: Text("Oops! The code you entered is not valid. Please try again."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }
