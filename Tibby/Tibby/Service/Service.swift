@@ -79,7 +79,7 @@ class Service: ObservableObject, ServiceProtocol {
             if let currentTibbyID = user.currentTibbyID {
                 return getTibbyByID(id: currentTibbyID)
             } else {
-                print("error getting current tibby's ID: \(user.currentTibbyID)")
+                print("error getting current tibby's ID: \(user.currentTibbyID ?? UUID())")
             }
         } else {
             print("error getting user")
@@ -612,6 +612,26 @@ class Service: ObservableObject, ServiceProtocol {
         if let name = name { food.name = name }
         if let image = image { food.image = image }
         if let price = price { food.price = price }
+    }
+    
+    func createMission(id: UUID, name: String, valueTotal: Int, rewardValue: Int, rewardType: Int, xpValue: Int, xpType: Int, missionType: String, valueDone: Int, frequencyTime: String, progress: String) {
+        var newMission = Mission(id: id, name: name, valueTotal: valueTotal, rewardValue: rewardValue, rewardType: rewardType, xpValue: xpValue, xpType: xpType, missionType: missionType, valueDone: valueDone, frequencyTime: frequencyTime, progress: progress)
+        do {
+            let missions = try modelContext.fetch(FetchDescriptor<Mission>())
+        } catch {
+            print("Error fetching Tibbies: \(error)")
+        }
+        
+        modelContext.insert(newMission)
+    }
+    
+    func getMissionByFrequencyTime(frequencyTime: DateType) -> [MissionProtocol]{
+        switch frequencyTime {
+        case .day:
+            //
+        case .week:
+            //
+        }
     }
     
     // MARK: - Data Setup

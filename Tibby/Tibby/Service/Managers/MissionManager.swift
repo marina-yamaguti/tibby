@@ -10,6 +10,10 @@ import Foundation
 /// A struct responsible for managing the creation of missions within the Tibby app.
 struct MissionManager {
     
+    static let instance = MissionManager()
+    
+    init() {}
+    
     /// Creates a new mission based on the provided date type and mission type.
     ///
     /// - Parameters:

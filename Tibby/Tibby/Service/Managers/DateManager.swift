@@ -7,11 +7,11 @@
 
 import Foundation
 
-class DateManager {
+class DateManager: ObservableObject {
     
     static let instance = DateManager()
     
-    private init() {}
+    init() {}
     
     @Published var lastDayVisited: Date = UserDefaults.standard.value(forKey: "lastDayVisited") as? Date ?? Date.startOfDay
     
