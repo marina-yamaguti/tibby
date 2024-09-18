@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F9000D82C99FA75002DF1B6 /* CodeRedeemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9000D72C99FA75002DF1B6 /* CodeRedeemView.swift */; };
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
 		7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636A2C77C77300D8389C /* ProgressBarType.swift */; };
 		7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */; };
@@ -252,6 +253,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F9000D72C99FA75002DF1B6 /* CodeRedeemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRedeemView.swift; sourceTree = "<group>"; };
 		7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyView.swift; sourceTree = "<group>"; };
 		7C35636A2C77C77300D8389C /* ProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarType.swift; sourceTree = "<group>"; };
 		7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarViewModel.swift; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				7CF9CA662C88CF7A00A2AA2A /* Audios */,
 				D896AED12C6D1B67009C208C /* SettingsView.swift */,
 				D896AED72C6D25CC009C208C /* SettingsViewModel.swift */,
+				6F9000D72C99FA75002DF1B6 /* CodeRedeemView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1479,6 +1482,7 @@
 				FD5154D82C80EDDD00B9684A /* GachaArrowAnimation.swift in Sources */,
 				FD45F2632C629E4A0046DE49 /* Rarity.swift in Sources */,
 				FDFF4ABF2C3C843F00831968 /* KitchenExample.swift in Sources */,
+				6F9000D82C99FA75002DF1B6 /* CodeRedeemView.swift in Sources */,
 				7C7B59232C459E62004FFD4B /* Navigation.swift in Sources */,
 				FD9075A72C2DECD9000E5F24 /* Interaction.swift in Sources */,
 				BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */,
@@ -1805,7 +1809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1854,7 +1858,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

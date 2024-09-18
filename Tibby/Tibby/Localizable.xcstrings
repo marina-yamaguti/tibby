@@ -62,6 +62,9 @@
     "100" : {
 
     },
+    "Add %@" : {
+
+    },
     "Brought to you by:" : {
 
     },
@@ -78,6 +81,9 @@
 
     },
     "Complete missions and earn rewards like coins and items" : {
+
+    },
+    "Congratulations!" : {
 
     },
     "Daily Mission" : {
@@ -102,6 +108,9 @@
 
     },
     "Elapsed Time" : {
+
+    },
+    "Enter Code" : {
 
     },
     "Equip" : {
@@ -221,6 +230,12 @@
     "rarity" : {
 
     },
+    "Redeem Code" : {
+
+    },
+    "Remove" : {
+
+    },
     "Resources" : {
 
     },
@@ -258,7 +273,6 @@
 
     },
     "Tibby" : {
-      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -299,6 +313,9 @@
 
     },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
+
+    },
+    "You unlocked 1,000 coins." : {
 
     },
     "You Won" : {
