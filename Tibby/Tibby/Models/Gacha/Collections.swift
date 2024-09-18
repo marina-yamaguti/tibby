@@ -14,8 +14,8 @@ enum Collection: String, CaseIterable {
         switch self {
         case .seaSeries:
             return "Tibbies found in the deepest oceans"
-//        case .forestSeries:
-//            return "Tibbies protected by Mother Nature herself"
+        case .forestSeries:
+            return "Tibbies protected by Mother Nature herself"
 //        case .beachSeries:
 //            return "Tibbies who love riding the waves and relaxing under the sun"
         case .houseSeries:
@@ -31,8 +31,8 @@ enum Collection: String, CaseIterable {
         switch self {
         case .seaSeries:
             return Color.tibbyBaseBlue
-//        case .forestSeries:
-//            return Color.tibbyBaseGreen
+        case .forestSeries:
+            return Color.tibbyBaseGreen
 //        case .beachSeries:
 //            return Color.tibbyBaseOrange
         case .houseSeries:
@@ -46,7 +46,7 @@ enum Collection: String, CaseIterable {
     
     case seaSeries = "Sea Series"
     case houseSeries = "House Series"
-//    case forestSeries = "Forest Series"
+    case forestSeries = "Forest Series"
 //    case beachSeries = "Beach Series"
 //    case foodSeries = "Food Series"
 //    case urbanSeries = "Urban Series"
