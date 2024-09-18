@@ -17,6 +17,7 @@ enum SettingsSections: Hashable {
     
     var title: String {
         switch self {
+       // case .code: return "Code Redeem"
       //  case .notifications: return "App Notifications"
         case .haptics: return "Haptics Feedback"
         case .sound: return "Game Sounds"
@@ -25,6 +26,7 @@ enum SettingsSections: Hashable {
     }
     var labels: [String] {
         switch self {
+        
       //  case .notifications: return ["Notifications"]
         case .haptics: return ["Phone Vibrations"]
         case .sound: return ["Sound Effects", "Music"]
@@ -54,6 +56,31 @@ class SettingsViewModel: ObservableObject {
 //    @Published var settingsSections: [SettingsSections] = [.notifications, .haptics, .sound, .health]
     @Published var settingsSections: [SettingsSections] = [.haptics, .sound, .health]
     @Published var notificationIsEnabled: Bool = false
+    @Published var redeemCode: String = ""
+    @Published var coins: Int = 0
+    @Published var showRedeemSuccess: Bool = false
+   // @EnvironmentObject var service: Service
+
+    private let validCode = "Tibby06"
+    //@ObservedObject var moneyViewModel = MoneyViewModel()
+    
+//    init(moneyViewModel: MoneyViewModel) {
+//            self.moneyViewModel = moneyViewModel
+//        }
+//    
+    func isValidCode() -> Bool {
+            return redeemCode == validCode
+        }
+    
+    func redeemCodeAction(service: Service) {
+            if isValidCode() {
+               // moneyViewModel.addCoins(amount: 1000) // Adiciona 1.000 moedas usando o MoneyViewModel
+                guard let user = service.getUser() else { return }
+                user.coins += 1000
+                showRedeemSuccess = true
+                redeemCode = "" // Limpa o campo de código após o sucesso
+            }
+        }
     
     func openAppSettings() {
         if let appSettingsURL = URL(string: UIApplication.openSettingsURLString) {

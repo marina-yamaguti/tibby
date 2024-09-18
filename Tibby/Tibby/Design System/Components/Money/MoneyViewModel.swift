@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 class MoneyViewModel: ObservableObject {
     @Published var moneyType: MoneyType
@@ -31,6 +32,12 @@ class MoneyViewModel: ObservableObject {
             self.value = user.gems
         }
     }
+    
+    func addCoins(amount: Int) {
+           if moneyType == .coin {
+               value += amount
+           }
+       }
     
     //image based on the type of money
 
