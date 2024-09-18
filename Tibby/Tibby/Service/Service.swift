@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 /// `Service` is a class that conforms to the `ServiceProtocol` and provides implementation for various operations related to managing Tibbies, Accessories, Users, Activities, Interactions, and Food within the app.
-class Service: ObservableObject, ServiceProtocol {    
+class Service: ObservableObject, ServiceProtocol {
     
     /// The context in which the model objects are managed.
     var modelContext: ModelContext
@@ -626,19 +626,191 @@ class Service: ObservableObject, ServiceProtocol {
         
         // Tibbies Setup
         //Sea Series
-        createTibby(id: UUID(), name: "Troy", rarity: "Common", details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.", personality: "", species: "shark", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Thor", rarity: "Epic", details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.", personality: "", species: "yellowShark", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Roger", rarity: "Common", details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures", personality: "", species: "dolphin", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
-        createTibby(id: UUID(), name: "Charlotte", rarity: "Rare", details: "The Axolotl is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolotl brings a sense of wonder and ancient magic to those who see it.", personality: "", species: "axolotl", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "Sea Series")
+        createTibby(
+            id: UUID(),
+            name: "Troy",
+            rarity: "Common",
+            details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.",
+            personality: "",
+            species: "shark",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Sea Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Thor",
+            rarity: "Epic",
+            details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.",
+            personality: "",
+            species: "yellowShark",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Sea Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Roger",
+            rarity: "Common",
+            details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures",
+            personality: "",
+            species: "dolphin",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Sea Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Charlotte",
+            rarity: "Rare",
+            details: "The Axolotl is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolotl brings a sense of wonder and ancient magic to those who see it.",
+            personality: "",
+            species: "axolotl",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Sea Series"
+        )
         
         //House Series
-        createTibby(id: UUID(), name: "Raven", rarity: "Common", details: "The Black Cat is a charming and elegant companion for the home, with sleek fur and bright eyes. Her mysterious charm and calming presence bring a touch of magic to any household. With her quiet confidence, she makes every space feel uniquely special.", personality: "", species: "tuxedoCat", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
-        createTibby(id: UUID(), name: "Muffins", rarity: "Common", details: "The Bunny is an adorable companion who loves comfort and coziness. She enjoys finding the warmest spots in the house to curl up and enjoy a moment of peace. Her soft fur and gentle behavior make her the perfect friend to share quiet afternoons and fun adventures with.", personality: "", species: "bunny", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
-        createTibby(id: UUID(), name: "Milo", rarity: "Rare", details: "The Corgi is a bundle of energy and joy, with his classic short legs and fluffy tail that make him irresistibly adorable. He has a special connection with the unseen, sensing when something is wrong or when someone is sad. With his magical intuition, Corgi fills your home with warmth and a sense of comfort.", personality: "", species: "corgi", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
-        createTibby(id: UUID(), name: "Peanut", rarity: "Epic", details: "The Dog is an adorable little dog with an epic heart! Small in size but big in charm, known as the Guardian of Living Beings, she is always ready to help those in need when they call her name. Peanut's loyalty and playful spirit make her a truly epic companion.", personality: "", species: "dog", happiness: 0, hunger: 0, sleep: 0, friendship: 0, lastUpdated: Date(), isUnlocked: false, collection: "House Series")
+        createTibby(
+            id: UUID(),
+            name: "Raven",
+            rarity: "Common",
+            details: "The Black Cat is a charming and elegant companion for the home, with sleek fur and bright eyes. Her mysterious charm and calming presence bring a touch of magic to any household. With her quiet confidence, she makes every space feel uniquely special.",
+            personality: "",
+            species: "tuxedoCat",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "House Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Muffins",
+            rarity: "Common",
+            details: "The Bunny is an adorable companion who loves comfort and coziness. She enjoys finding the warmest spots in the house to curl up and enjoy a moment of peace. Her soft fur and gentle behavior make her the perfect friend to share quiet afternoons and fun adventures with.",
+            personality: "",
+            species: "bunny",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "House Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Milo",
+            rarity: "Rare",
+            details: "The Corgi is a bundle of energy and joy, with his classic short legs and fluffy tail that make him irresistibly adorable. He has a special connection with the unseen, sensing when something is wrong or when someone is sad. With his magical intuition, Corgi fills your home with warmth and a sense of comfort.",
+            personality: "",
+            species: "corgi",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "House Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Peanut",
+            rarity: "Epic",
+            details: "The Dog is an adorable little dog with an epic heart! Small in size but big in charm, known as the Guardian of Living Beings, she is always ready to help those in need when they call her name. Peanut's loyalty and playful spirit make her a truly epic companion.",
+            personality: "",
+            species: "dog",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "House Series"
+        )
         
-
-
+        //Forest Series
+        createTibby(
+            id: UUID(),
+            name: "Chromis",
+            rarity: "Epic",
+            details: "The chameleon is a creature that knows how to adapt to its surroundings in such a way that it can disappear and reappear as and where it pleases. Known as the Guardian of Festivities, it brings joy and celebration wherever it goes, revealing itself in various colors to cheer up other beings, expressing its purpose of celebration through colors and interaction.",
+            personality: "",
+            species: "chameleon",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Forest Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Nutter",
+            rarity: "Common",
+            details: "The squirrel is a wise and agile creature, known for its quick thinking and foresight. As the Mentor of the Forest, it guides others with patience and wisdom, always prepared for the challenges ahead. With its keen instincts and boundless energy, it teaches the value of preparation, resourcefulness, and balance. Through its careful gathering of knowledge, just as it gathers acorns, the squirrel ensures that those under its guidance are equipped to thrive, encouraging growth and nurturing the potential of all who seek its counsel.",
+            personality: "",
+            species: "squirrel",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Forest Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Brontus",
+            rarity: "Common",
+            details: "The bear is a powerful and protective creature, revered as the Guardian of Strength. Known for its calm demeanor and deep wisdom, it watches over the forest, offering guidance and protection to those in need. With its vast knowledge of the land and an unshakable presence, the bear teaches the importance of resilience, patience, and courage. Whether through quiet contemplation or fierce defense, the bear embodies both gentle nurturing and formidable strength, always ready to stand as a pillar of support and wisdom for those who seek its guidance.",
+            personality: "",
+            species: "bear",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Forest Series"
+        )
+        createTibby(
+            id: UUID(),
+            name: "Sageon",
+            rarity: "Common",
+            details: "The owl is a symbol of wisdom and insight, known as the Seeker of Knowledge. With its sharp vision and quiet grace, it sees what others cannot, guiding those who seek the truth. Perched high in the trees, the owl watches over the forest, offering wisdom in times of uncertainty and clarity in moments of confusion. Its calm and thoughtful nature reminds others of the power of observation, patience, and reflection. Through its deep understanding of the world around it, the owl illuminates the path forward, offering counsel to all who come seeking answers.",
+            personality: "",
+            species: "owl",
+            happiness: 100,
+            hunger: 100,
+            sleep: 100,
+            friendship: 0,
+            lastUpdated: Date(),
+            isUnlocked: false,
+            collection: "Forest Series"
+        )
+        
         
         // Accessories Setup
         createAccessory(id: UUID(), name: "SpyHat", image: "SpyHat", price: 10, category: "Head")

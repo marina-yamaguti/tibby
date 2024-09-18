@@ -24,6 +24,9 @@ enum TibbySpecie: String, CaseIterable {
     case corgi = "corgi"
     case dog = "dog"
     case bear = "bear"
+    case squirrel = "squirrel"
+    case owl = "owl"
+    case chameleon = "chameleon"
     
     
     /// Returns the base animation frames for the species.
@@ -73,6 +76,21 @@ enum TibbySpecie: String, CaseIterable {
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Bear1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Bear2.png"
+            ]
+        case .squirrel:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirel1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirel2@3x.png"
+            ]
+        case .owl:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owl1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owl2@3x.png"
+            ]
+        case .chameleon:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleon1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleon2@3x.png"
             ]
         }
     }
@@ -143,6 +161,27 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearSleep3.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearSleep4.png"
             ]
+        case .squirrel:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSleep1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSleep2@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSleep3@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSleep4@3x.png"
+            ]
+        case .owl:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep2@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep3@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep4@3x.png"
+            ]
+        case .chameleon:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSleep1.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSleep2.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSleep3.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSleep4.png"
+            ]
         }
     }
     
@@ -152,7 +191,8 @@ enum TibbySpecie: String, CaseIterable {
         case .shark:
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep3@3x.png"
             ]
         case .yellowShark:
             return [
@@ -193,6 +233,21 @@ enum TibbySpecie: String, CaseIterable {
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearHappy1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearHappy2.png"
+            ]
+        case .squirrel:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelHappy1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelHappy2@3x.png"
+            ]
+        case .owl:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlHappy1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlHappy2@3x.png"
+            ]
+        case .chameleon:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonHappy1.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonHappy2.png"
             ]
         }
     }
@@ -247,6 +302,21 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearSad2.png"
             ]
             
+        case .squirrel:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSad1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelSad2@3x.png"
+            ]
+        case .owl:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSad1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSad2@3x.png"
+            ]
+        case .chameleon:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSad1.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonSad2.png"
+            ]
         }
     }
     
@@ -289,13 +359,29 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Corgi2.png"
             ]
         case .dog:
-            return ["https://tibbyappstorage.blob.core.windows.net/tibby-sprites/dogEat1.png",
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/dogEat1.png",
                     "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/dogEat2.png"
             ]
         case .bear:
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/BearEat1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/Bear2.png"
+            ]
+        case .squirrel:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelEat1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/squirelEat2@3x.png"
+            ]
+        case .owl:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlEat1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owl2@3x.png"
+            ]
+        case .chameleon:
+            return [
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonEat1.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/chameleonHappy2.png"
             ]
         }
     }
@@ -322,12 +408,9 @@ enum TibbyStatus {
     /// - Returns: A `Double` representing the time in seconds.
     func timeDecrease() -> Double {
         switch self {
-        case .hungry:
-            return 172
-        case .sleep:
-            return 432
-        case .happy:
-            return 172
+        case .hungry:   return 172
+        case .sleep:    return 432
+        case .happy:    return 172
         }
     }
 }
@@ -340,24 +423,16 @@ protocol TibbyProtocol {
     // MARK: - Tibby and Accessory Node Instances
     
     /// The Tibby node in the SpriteKit view.
-    var tibby: SKSpriteNode {
-        get set
-    }
+    var tibby: SKSpriteNode { get set }
     
     /// The accessory node in the SpriteKit view.
-    var accessory: SKSpriteNode {
-        get set
-    }
+    var accessory: SKSpriteNode { get set }
     
     /// The Tibby object associated with the view.
-    var tibbyObject: Tibby? {
-        get set
-    }
+    var tibbyObject: Tibby? { get set }
     
     /// The species of the Tibby.
-    var tibbySpecie: TibbySpecie? {
-        get set
-    }
+    var tibbySpecie: TibbySpecie? { get set }
     
     /// Sets the Tibby object, constants, and service for the view.
     ///
@@ -365,11 +440,7 @@ protocol TibbyProtocol {
     ///   - tibbyObject: The `Tibby` object to be set.
     ///   - constants: The `Constants` object used in the view.
     ///   - service: The `Service` object used in the view.
-    func setTibby(
-        tibbyObject: Tibby,
-        constants: Constants,
-        service: Service
-    )
+    func setTibby(tibbyObject: Tibby, constants: Constants, service: Service)
     
     /// Sets the Tibby species for the view.
     ///
@@ -379,21 +450,12 @@ protocol TibbyProtocol {
     )
     
     ///Functions to add and remove accessory from the SpriteKit View and SwiftData only populating deleting the accessory reference
-    func addAccessory(
-        _ accessory: Accessory,
-        species: String,
-        completion: ()->Void,
-        remove: ()-> Void
-    )
-    func removeAccessory(
-        completion: ()->Void
-    )
+    func addAccessory(_ accessory: Accessory, species: String, completion: ()->Void, remove: ()-> Void)
+    
+    func removeAccessory(completion: ()->Void)
+    
     ///Pass the set of images for the animation and what is animating
-    func animateTibby(
-        _ textureList: [String],
-        nodeID: NodeType,
-        timeFrame: TimeInterval
-    )
+    func animateTibby(_ textureList: [String], nodeID: NodeType, timeFrame: TimeInterval)
 }
 
 // MARK: - Tibby Model

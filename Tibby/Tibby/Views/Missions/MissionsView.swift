@@ -59,6 +59,7 @@ struct MissionsView: View {
                     // Display the missions in the weekly mission collection
                     MissionCardComponent(missions: weeklyMission.getMissions())
                 }
+                Spacer()
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 33)

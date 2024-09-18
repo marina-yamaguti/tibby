@@ -388,8 +388,8 @@ final class GatchaViewModel: ObservableObject {
             animation = gachaSeaSeriesAnimation
         case .houseSeries:
             animation = gachaHouseSeriesAnimation
-//        case .forestSeries:
-//            animation = gachaForestSeriesAnimation
+        case .forestSeries:
+            animation = gachaForestSeriesAnimation
 //        case .beachSeries:
 //            animation = gachaBeachSeriesAnimation
 //        case .foodSeries:
