@@ -26,7 +26,7 @@ struct TibbyCard: View {
                 Image(image)
                     .resizable()
                     .scaleEffect(1.5)
-                    .scaledToFill()
+                    .scaledToFit()
                     .brightness(status == .locked ? -1 : 0) // Dim the image if the item is locked
                     .padding(.horizontal, 22)
             }

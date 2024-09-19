@@ -10,8 +10,7 @@ import SwiftUI
 struct ShowcaseCard: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
-    @State var collectionTibbies: [Tibby] = []
-    @State var favoriteTibbies: [Collection:[Tibby]] = [:]
+    @State var favoriteTibbies: [Tibby] = []  // A list of all favorite Tibbies
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -19,67 +18,54 @@ struct ShowcaseCard: View {
                 .font(.typography(.body))
                 .foregroundStyle(.tibbyBaseBlack)
             
-            HStack {
-                if service.getFavoriteTibbies().isEmpty {
-                    HStack {
-                        Spacer()
-                        Text("You don't have any favourited Tibby. Pick your favourites to see them here.")
-                            .font(.typography(.label))
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.tibbyBaseGrey)
-                            .frame(minHeight: 50)
-                        Spacer()
+            if favoriteTibbies.isEmpty {
+                HStack {
+                    Spacer()
+                    Text("You don't have any favourited Tibby. Pick your favourites to see them here.")
+                        .font(.typography(.label))
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(.tibbyBaseGrey)
+                        .frame(minHeight: 50)
+                    Spacer()
+                }
+                .padding(16)
+                .background {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.tibbyBasePearlBlue)
+                }
+            } else {
+                // Show all favorite Tibbies from all collections in a single card
+                HStack(spacing: 8) {
+                    ForEach(favoriteTibbies.sorted(by: { constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity) })) { tibby in
+                        FavoriteTibbyCard(
+                            name: tibby.name,
+                            color: self.getCollectionColor(for: tibby.collection), // Get color from the collection
+                            image: "\(tibby.species)1",
+                            rarity: tibby.rarity
+                        )
+                        .scaledToFit()
                     }
-                    .padding(.vertical, 16)
-                    .padding(16)
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.tibbyBasePearlBlue)
-                    }
-                    
-                } else {
-                    ForEach(Array(favoriteTibbies.keys), id: \.self) { collection in
-                        VStack(alignment: .leading) {
-                            if !(favoriteTibbies[collection]?.isEmpty ?? false)  {
-                                HStack(spacing: 4) {
-                                    ForEach($collectionTibbies) { $tibby in
-                                            FavoriteTibbyCard(name: $tibby.name, status: .unselected, color: collection.color, image: "\(tibby.species)1", rarity: tibby.rarity)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(12)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(.tibbyBasePearlBlue)
-                                }
-                                .onAppear {
-                                    self.collectionTibbies = self.getFavoriteTibbyList(collection: collection.rawValue, service: service)
-                                    self.collectionTibbies = self.collectionTibbies.sorted(by: {constants.sortRarity(rarity1: $0.rarity, rarity2: $1.rarity)})
-                                }
-                            }
-                        }
-                        
-                    }
-
+                }
+                .padding(12)
+                .background {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.tibbyBasePearlBlue)
                 }
             }
         }
         .onAppear {
-            self.favoriteTibbies = self.setupMap()
+            self.favoriteTibbies = self.getAllFavoriteTibbies()
         }
     }
-        func getFavoriteTibbyList(collection: String, service: Service) -> [Tibby] {
-            var tibbies: [Tibby] = []
-            let allTibbies = service.getFavoriteTibbies()
-            tibbies = allTibbies.filter { $0.collection == collection}
-            return tibbies
-        }
-        func setupMap() -> [Collection : [Tibby]] {
-            var map: [Collection : [Tibby]] = [:]
-            for collection in Collection.allCases {
-                map[collection] = self.getFavoriteTibbyList(collection: collection.rawValue, service: service)
-            }
-            
-            return map
-        }
+    
+    // Function to get all favorite Tibbies without grouping by collection
+    func getAllFavoriteTibbies() -> [Tibby] {
+        return service.getFavoriteTibbies()
+    }
+    
+    // Function to map a Tibby's collection string back to a Collection object and get its color
+    func getCollectionColor(for collectionName: String) -> Color {
+        // Assuming Collection is an enum that has a color property
+        return Collection.allCases.first { $0.rawValue == collectionName }?.color ?? .black // Default to black if not found
+    }
 }
