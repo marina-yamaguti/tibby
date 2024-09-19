@@ -44,7 +44,7 @@ struct CreditsComponent: View {
                         .font(.typography(.title))
                         .foregroundStyle(.tibbyBaseBlack)
                 }
-                
+                Spacer()
             }
             .padding()
         }

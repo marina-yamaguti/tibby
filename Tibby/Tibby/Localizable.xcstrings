@@ -152,6 +152,9 @@
     "How to allow" : {
 
     },
+    "Invalid Code" : {
+
+    },
     "It seems you don't have enough %@ for this." : {
 
     },
@@ -189,6 +192,9 @@
 
     },
     "Okay" : {
+
+    },
+    "Oops! The code you entered is not valid. Please try again." : {
 
     },
     "Open Settings" : {

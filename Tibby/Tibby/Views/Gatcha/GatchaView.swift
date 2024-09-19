@@ -133,8 +133,9 @@ struct GatchaView: View {
                     }
                     
                     ButtonGacha(color: isBaseOnFocus ? .tibbyBaseYellow : vm.currentSeries.color, disableButton: $disableButton) {
+                        self.disableButton = true
                         if vm.checkForRoll(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20) {
-                            self.disableButton = true
+                            
                             
                             vm.animateRoll(isBase: isBaseOnFocus)
                             newTibby = vm.getNewTibby(service: service, isCoins: isBaseOnFocus, price: isBaseOnFocus ? 100 : 20)
@@ -155,6 +156,7 @@ struct GatchaView: View {
                         } else {
                             AudioManager.instance.playSFXSecondary(audio: .popup)
                             self.showAlert = true
+                            self.disableButton = false
                         }
                     }
                     

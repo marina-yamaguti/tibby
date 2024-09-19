@@ -31,8 +31,8 @@ class TibbySelectedViewModel: ObservableObject {
             return Color.tibbyBaseBlue
         case Collection.houseSeries.rawValue:
             return Color.tibbyBasePink
-//        case Collection.forestSeries.rawValue:
-//            return Color.tibbyBaseGreen
+        case Collection.forestSeries.rawValue:
+            return Color.tibbyBaseGreen
 //        case Collection.beachSeries.rawValue:
 //            return Color.tibbyBaseOrange
 //        case Collection.foodSeries.rawValue:

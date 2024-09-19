@@ -14,6 +14,8 @@ import SwiftUI
 struct CustomTextField: View {
     /// The text input provided by the user.
     @Binding var input: String
+    @FocusState private var isFocused: Bool
+
     
     /// The prompt displayed above the text field, indicating what the user should enter.
     var prompt: String
@@ -33,6 +35,7 @@ struct CustomTextField: View {
                 .font(.typography(.body2))
             ZStack {
                 TextField(placeholder, text: $input)
+                    .disableAutocorrection(true)
                     .preferredColorScheme(.light)
                     .font(.typography(.body2))
                     .onChange(of: input) {oldValue, newValue in
@@ -53,6 +56,9 @@ struct CustomTextField: View {
                 }
             }
             Divider()
+        }
+        .onTapGesture {
+            isFocused = true
         }
         .font(.typography(.label))
         .foregroundStyle(.tibbyBaseBlack)

@@ -60,7 +60,7 @@ struct CustomDivider: View {
     var body: some View {
         Rectangle()
             .fill(.tibbyBasePearlBlue)
-            .frame(height: 5)
+            .frame(height: 2)
     }
 }
 
