@@ -647,7 +647,7 @@ class Service: ObservableObject, ServiceProtocol {
             rarity: "Epic",
             details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.",
             personality: "",
-            species: "yellowShark",
+            species: "hammerShark",
             happiness: 100,
             hunger: 100,
             sleep: 100,
@@ -816,7 +816,7 @@ class Service: ObservableObject, ServiceProtocol {
         createAccessory(id: UUID(), name: "Spy Hat", image: "SpyHat", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
-        createAccessory(id: UUID(), name: "Prize Hat", image: "PrizeHat", price: 10, category: "Head")
+//        createAccessory(id: UUID(), name: "Prize Hat", image: "PrizeHat", price: 10, category: "Head")
 
         
         // Food Setup

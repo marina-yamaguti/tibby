@@ -53,44 +53,53 @@ enum SettingsSections: Hashable {
 }
 
 class SettingsViewModel: ObservableObject {
-//    @Published var settingsSections: [SettingsSections] = [.notifications, .haptics, .sound, .health]
     @Published var settingsSections: [SettingsSections] = [.haptics, .sound, .health]
-    @Published var notificationIsEnabled: Bool = false
     @Published var redeemCode: String = ""
-    @Published var coins: Int = 0
     @Published var showRedeemSuccess: Bool = false
+    @Published var showTestRedeem: Bool = false
     @Published var invalidAlert = false
+    @Published var codeAlreadyRedeemedAlert = false
 
-   // @EnvironmentObject var service: Service
+    private let testingCode = "Tibby06"
+    private let validCode = "1MoreThing"
+    private let codeRedeemedKey = "codeRedeemed"
 
-    private let validCode = "Tibby06"
-    //@ObservedObject var moneyViewModel = MoneyViewModel()
-    
-//    init(moneyViewModel: MoneyViewModel) {
-//            self.moneyViewModel = moneyViewModel
-//        }
-//    
     func isValidCode() -> Bool {
-            return redeemCode == validCode
-        }
-    
+        return redeemCode == validCode || redeemCode == testingCode
+    }
+
+    func hasAlreadyRedeemed() -> Bool {
+        return UserDefaults.standard.bool(forKey: codeRedeemedKey)
+    }
+
     func redeemCodeAction(service: Service) {
-            if isValidCode() {
-                guard let user = service.getUser() else { return }
-                user.coins += 1000
-                showRedeemSuccess = true
-            } else {
-                invalidAlert = true
-            }
-            redeemCode = "" // Limpa o campo de código após o sucesso
+        showRedeemSuccess = false
+        invalidAlert = false
+        codeAlreadyRedeemedAlert = false
+
+        if !isValidCode() {
+            invalidAlert = true
+        } else if hasAlreadyRedeemed() {
+            codeAlreadyRedeemedAlert = true
+        } else {
+            guard let user = service.getUser() else { return }
+            user.coins += 100
+            user.gems += 20
+            
+            let prizeHatID = UUID()
+            service.createAccessory(
+                id: prizeHatID,
+                name: "Prize Hat",
+                image: "PrizeHat",
+                price: 10,
+                category: "Head"
+            )
+
+            UserDefaults.standard.set(true, forKey: codeRedeemedKey)
+            
+            showRedeemSuccess = true
         }
-    
-    func openAppSettings() {
-        if let appSettingsURL = URL(string: UIApplication.openSettingsURLString) {
-            if UIApplication.shared.canOpenURL(appSettingsURL) {
-                UIApplication.shared.open(appSettingsURL, options: [:], completionHandler: nil)
-            }
-        }
+
+        redeemCode = ""
     }
 }
-
