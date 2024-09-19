@@ -767,9 +767,9 @@ class Service: ObservableObject, ServiceProtocol {
         )
         createTibby(
             id: UUID(),
-            name: "Nutter",
+            name: "Zoe",
             rarity: "Common",
-            details: "The squirrel is a wise and agile creature, known for its quick thinking and foresight. As the Mentor of the Forest, it guides others with patience and wisdom, always prepared for the challenges ahead. With its keen instincts and boundless energy, it teaches the value of preparation, resourcefulness, and balance. Through its careful gathering of knowledge, just as it gathers acorns, the squirrel ensures that those under its guidance are equipped to thrive, encouraging growth and nurturing the potential of all who seek its counsel.",
+            details: "The squirrel is a wise and agile creature, known for its quick thinking and foresight. As the Mentor of the Forest, she guides others with patience and wisdom, always prepared for the challenges ahead. With her keen instincts and boundless energy, she teaches the value of preparation, resourcefulness, and balance. Through its careful gathering of knowledge, just as it gathers acorns, the squirrel ensures that those under her guidance are equipped to thrive, encouraging growth and nurturing the potential of all who seek her counsel.",
             personality: "",
             species: "squirrel",
             happiness: 100,
@@ -813,9 +813,11 @@ class Service: ObservableObject, ServiceProtocol {
         
         
         // Accessories Setup
-        createAccessory(id: UUID(), name: "SpyHat", image: "SpyHat", price: 10, category: "Head")
+        createAccessory(id: UUID(), name: "Spy Hat", image: "SpyHat", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
+        createAccessory(id: UUID(), name: "Prize Hat", image: "PrizeHat", price: 10, category: "Head")
+
         
         // Food Setup
         createFood(id: UUID(), name: "Niguiri", image: "niguiri", price: 10)

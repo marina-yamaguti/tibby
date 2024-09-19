@@ -66,6 +66,7 @@ struct UserProfileComponent: View {
                         }
                         .buttonSmallRounded(bgColor: isEditing ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                     }
+                    Spacer()
                     HStack {
                         Text("Tibby:")
                             .font(.typography(.label2))
@@ -75,7 +76,8 @@ struct UserProfileComponent: View {
                             .font(.typography(.label))
                             .foregroundStyle(.tibbyBaseBlack)
                     }
-                    
+                    Spacer()
+
                     HStack(alignment: .center) {
                         Text("Lv. \(user.level)")
                             .font(.typography(.body))

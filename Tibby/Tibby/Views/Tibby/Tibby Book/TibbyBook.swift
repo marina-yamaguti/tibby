@@ -21,11 +21,9 @@ struct TibbyBook: View {
             PageHeader(title: "Tibby Book", symbol: TibbySymbols.bookBlack.rawValue)
             ScrollView {
                 VStack {
-                    Spacer()
                     ForEach(Array(tibbies.keys), id: \.self) { collection in
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 0) {
                             if !(tibbies[collection]?.isEmpty ?? false)  {
-                                HStack {
                                     Text(collection.rawValue)
                                         .font(.typography(.title))
                                         .foregroundStyle(.tibbyBaseBlack)
@@ -35,9 +33,7 @@ struct TibbyBook: View {
                                                 .fill(collection.color)
                                         }
                                         .padding(.leading)
-                                    Spacer()
-                                }
-                                .padding(.bottom, 8)
+                                        .padding(.bottom, 8)
                                 
                                 Text(collection.description)
                                     .font(.typography(.body2))
