@@ -22,8 +22,11 @@ enum MissionProgress: Comparable {
 /// - feed: A mission related to feeding.
 /// - sleep: A mission related to sleep.
 /// - steps: A mission related to taking steps.
-enum MissionType: CaseIterable {
-    case workout, feed, sleep, steps
+enum MissionType: String, CaseIterable {
+    case workout = "Workout"
+    case feed = "Feed"
+    case sleep = "Sleep"
+    case steps = "Steps"
     
     /// The icon associated with each mission type.
     var icon: String {

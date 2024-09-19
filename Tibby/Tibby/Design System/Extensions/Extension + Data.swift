@@ -28,8 +28,9 @@ extension Date {
 }
 
 // Dates that represent the frequency of some activity
-enum DateType {
-    case day, week
+enum DateType: String {
+    case day = "Day"
+    case week = "Week"
     
     var description: String {
         switch self {

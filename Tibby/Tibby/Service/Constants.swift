@@ -123,4 +123,9 @@ class Constants: ObservableObject {
         }
         return false
     }
+    
+    
+    
+    @Published var dailyMission: DayMissionsCollection = DayMissionsCollection(dateSet: Date.startOfDay)
+    @Published var weeklyMission: WeekMissionsCollection = WeekMissionsCollection(dateSet: Date.startOfWeek)
 }

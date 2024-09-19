@@ -9,11 +9,7 @@ import SwiftUI
 
 struct MissionsView: View {
     @State var streak = GameStreak()
-    @State var dailyMission: DayMissionsCollection
-    @State var weeklyMission: WeekMissionsCollection
-    let missionManager = MissionManager() // Add MissionManager instance
-
-
+    @EnvironmentObject var constants: Constants
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,7 +23,7 @@ struct MissionsView: View {
                             Text("Daily Mission")
                                 .font(.typography(.body))
                                 .foregroundStyle(.tibbyBaseBlack)
-                            Text("\(dailyMission.timeRemaning.timeValue) \(dailyMission.timeRemaning.timeMesure.rawValue)\(dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+                            Text("\(constants.dailyMission.timeRemaning.timeValue) \(constants.dailyMission.timeRemaning.timeMesure.rawValue)\(constants.dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
                                 .font(.typography(.label))
                                 .foregroundStyle(.tibbyBaseRed)
                         }
@@ -40,7 +36,7 @@ struct MissionsView: View {
                     .padding(.bottom, 16)
                     
                     // Display the missions in the daily mission collection
-                    MissionCardComponent(missions: dailyMission.getMissions())
+                    MissionCardComponent(missions: constants.dailyMission.getMissions())
                 }
                 .padding(.bottom, 16)
                 
@@ -50,30 +46,22 @@ struct MissionsView: View {
                         Text("Weekly Mission")
                             .font(.typography(.body))
                             .foregroundStyle(.tibbyBaseBlack)
-                        Text("\(weeklyMission.timeRemaning.timeValue) \(weeklyMission.timeRemaning.timeMesure.rawValue)\(weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+                        Text("\(constants.weeklyMission.timeRemaning.timeValue) \(constants.weeklyMission.timeRemaning.timeMesure.rawValue)\(constants.weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
                             .font(.typography(.label))
                             .foregroundStyle(.tibbyBaseRed)
                     }
                     .padding(.bottom, 16)
                     
                     // Display the missions in the weekly mission collection
-                    MissionCardComponent(missions: weeklyMission.getMissions())
+                    MissionCardComponent(missions: constants.weeklyMission.getMissions())
                 }
                 Spacer()
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 33)
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
-    }
-    func generateMissions() {
-        dailyMission.missions = MissionType.allCases.map {
-            missionManager.createMission(dateType: .day, missionType: $0)
-        }
-
-        weeklyMission.missions = MissionType.allCases.map {
-            missionManager.createMission(dateType: .week, missionType: $0)
-        }
     }
 }
 
