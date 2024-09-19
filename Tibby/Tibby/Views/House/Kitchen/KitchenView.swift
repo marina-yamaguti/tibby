@@ -119,7 +119,9 @@ struct KitchenView: View {
                                                     for i in 0 ..< missions.count {
                                                         if missions[i].missionType == .feed {
                                                             print(missions[i].valueDone)
-                                                            missions[i].updateProgress(value: missions[i].valueDone + 1)
+                                                            if missions[i].valueDone < missions[i].valueTotal {
+                                                                missions[i].updateProgress(value: 1)
+                                                            }
                                                             print(missions[i].valueDone)
                                                         }
                                                     }

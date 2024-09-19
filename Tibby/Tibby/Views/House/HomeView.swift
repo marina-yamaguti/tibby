@@ -183,21 +183,21 @@ struct HomeView: View {
                     }
                     constants.objectWillChange.send()
                 }
-                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
-                    dateManager.setToday()
-                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-                    
-                }
-                else if constants.dailyMission.missions.isEmpty {
-                    constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
-                    
-                }
-                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
-                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-                }
-                else if constants.weeklyMission.missions.isEmpty {
-                    constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
-                }
+//                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
+//                    dateManager.setToday()
+////                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+//                    
+//                }
+//                else if constants.dailyMission.missions.isEmpty {
+//                    constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
+//                    
+//                }
+//                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
+////                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+//                }
+//                else if constants.weeklyMission.missions.isEmpty {
+//                    constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+//                }
             }
             else if scenePhase == .inactive {
                 print("JORGE Inactive")
@@ -210,8 +210,10 @@ struct HomeView: View {
         }
         .onAppear(perform: {
             print("home")
-            constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
-            constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+            if constants.dailyMission.missions.isEmpty && constants.weeklyMission.missions.isEmpty {
+                constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
+                constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+            }
             service.setCurrentTibby(tibbyID: tibby.id)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 showSprite = true

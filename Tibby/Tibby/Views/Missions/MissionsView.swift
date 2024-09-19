@@ -15,51 +15,53 @@ struct MissionsView: View {
     var body: some View {
         VStack(spacing: 0) {
             PageHeader(title: "Missions", symbol: TibbySymbols.listBlack.rawValue)
-            
-            VStack {
-                // Daily Mission Section
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
+            ScrollView {
+                VStack {
+                    // Daily Mission Section
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Daily Mission")
+                                    .font(.typography(.body))
+                                    .foregroundStyle(.tibbyBaseBlack)
+                                Text("\(constants.dailyMission.timeRemaning.timeValue) \(constants.dailyMission.timeRemaning.timeMesure.rawValue)\(constants.dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+                                    .font(.typography(.label))
+                                    .foregroundStyle(.tibbyBaseRed)
+                            }
+                            Spacer()
+                            
+                            NavigationLink(destination: MissionsStreakView()) {
+                                StreakUpComponent(streakCount: streak.currentStreak)
+                            }
+                        }
+                        .padding(.bottom, 16)
+                        
+                        // Display the missions in the daily mission collection
+                        MissionCardComponent(missions: $constants.dailyMission.missions)
+                    }
+                    .padding(.bottom, 16)
+                    
+                    // Weekly Mission Section
+                    VStack(alignment: .leading) {
                         VStack(alignment: .leading, spacing: 16) {
-                            Text("Daily Mission")
+                            Text("Weekly Mission")
                                 .font(.typography(.body))
                                 .foregroundStyle(.tibbyBaseBlack)
-                            Text("\(constants.dailyMission.timeRemaning.timeValue) \(constants.dailyMission.timeRemaning.timeMesure.rawValue)\(constants.dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+                            Text("\(constants.weeklyMission.timeRemaning.timeValue) \(constants.weeklyMission.timeRemaning.timeMesure.rawValue)\(constants.weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
                                 .font(.typography(.label))
                                 .foregroundStyle(.tibbyBaseRed)
                         }
-                        Spacer()
+                        .padding(.bottom, 16)
                         
-                        NavigationLink(destination: MissionsStreakView()) {
-                            StreakUpComponent(streakCount: streak.currentStreak)
-                        }
+                        // Display the missions in the weekly mission collection
+                        MissionCardComponent(missions: $constants.weeklyMission.missions)
                     }
-                    .padding(.bottom, 16)
-                    
-                    // Display the missions in the daily mission collection
-                    MissionCardComponent(missions: $constants.dailyMission.missions)
+                    Spacer()
                 }
-                .padding(.bottom, 16)
-                
-                // Weekly Mission Section
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Weekly Mission")
-                            .font(.typography(.body))
-                            .foregroundStyle(.tibbyBaseBlack)
-                        Text("\(constants.weeklyMission.timeRemaning.timeValue) \(constants.weeklyMission.timeRemaning.timeMesure.rawValue)\(constants.weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
-                            .font(.typography(.label))
-                            .foregroundStyle(.tibbyBaseRed)
-                    }
-                    .padding(.bottom, 16)
-                    
-                    // Display the missions in the weekly mission collection
-                    MissionCardComponent(missions: $constants.weeklyMission.missions)
-                }
-                Spacer()
+                .padding(.vertical, 16)
+                .padding(.horizontal, 33)
             }
-            .padding(.vertical, 16)
-            .padding(.horizontal, 33)
+            .scrollIndicators(.hidden)
         }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)

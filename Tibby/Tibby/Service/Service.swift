@@ -646,12 +646,12 @@ class Service: ObservableObject, ServiceProtocol {
             }
             switch frequencyTime {
             case .day:
-                if m.frequencyTime == "Daily Mission" {
+                if m.frequencyTime == "Daily Mission" || m.frequencyTime == "Day" {
                     var missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
             case .week:
-                if m.frequencyTime == "Weekly Mission" {
+                if m.frequencyTime == "Weekly Mission" || m.frequencyTime == "Week" {
                     var missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
@@ -664,11 +664,11 @@ class Service: ObservableObject, ServiceProtocol {
         for m in self.getAllMissions() {
             switch frequencyTime {
             case .day:
-                if m.frequencyTime == "Day" {
+                if m.frequencyTime == "Daily Mission" || m.frequencyTime == "Day" {
                     modelContext.delete(m)
                 }
             case .week:
-                if m.frequencyTime == "Week" {
+                if m.frequencyTime == "Weekly Mission" || m.frequencyTime == "Week" {
                     modelContext.delete(m)
                 }
             }
@@ -872,7 +872,7 @@ class Service: ObservableObject, ServiceProtocol {
         createTibby(
             id: UUID(),
             name: "Sageon",
-            rarity: "Common",
+            rarity: "Rare",
             details: "The owl is a symbol of wisdom and insight, known as the Seeker of Knowledge. With its sharp vision and quiet grace, it sees what others cannot, guiding those who seek the truth. Perched high in the trees, the owl watches over the forest, offering wisdom in times of uncertainty and clarity in moments of confusion. Its calm and thoughtful nature reminds others of the power of observation, patience, and reflection. Through its deep understanding of the world around it, the owl illuminates the path forward, offering counsel to all who come seeking answers.",
             personality: "",
             species: "owl",

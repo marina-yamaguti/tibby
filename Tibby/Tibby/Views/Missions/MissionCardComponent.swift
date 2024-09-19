@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct MissionCardComponent: View {
+    @EnvironmentObject var service: Service
     @Binding var missions: [MissionProtocol]
     var body: some View {
         VStack(spacing: 0) {
             ForEach($missions, id: \.id) { $mission in
                 MissionProgressComponent(mission: $mission)
                     .padding(.vertical, 8)
+                    .onTapGesture {
+                        mission.claimReward(user: service.getUser()!)
+                    }
             }
         }
         .padding(16)
