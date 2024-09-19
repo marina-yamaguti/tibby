@@ -10,7 +10,7 @@ import SwiftUI
 struct CodeRedeemView: View {
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var service: Service
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -22,7 +22,7 @@ struct CodeRedeemView: View {
                     .foregroundStyle(Color.tibbyBaseBlack)
             }
             .padding(.vertical, 8)
-
+            
             VStack {
                 HStack {
                     TextField("Enter Code", text: $viewModel.redeemCode)
@@ -33,7 +33,7 @@ struct CodeRedeemView: View {
                         .cornerRadius(20)
                         .textInputAutocapitalization(.none)
                         .preferredColorScheme(.light)
-
+                    
                     ZStack {
                         Circle()
                             .foregroundStyle(.tibbyBackgroundShadowBlack.opacity(0.5))
@@ -64,22 +64,16 @@ struct CodeRedeemView: View {
                 viewModel.codeAlreadyRedeemedAlert = false
             })
         ) {
-            if viewModel.showTestRedeem {
+            if viewModel.showRedeemSuccess {
                 return Alert(
-                    title: Text("TEST CHEAT!"),
-                    message: Text("Unlocking 1,000 coins."),
+                    title: Text("Congratulations!"),
+                    message: Text("You unlocked a new acessory, 20 gems and 100 coins!"),
                     dismissButton: .default(Text("OK"))
                 )
             } else if viewModel.codeAlreadyRedeemedAlert {
                 return Alert(
                     title: Text("Code Already Redeemed"),
                     message: Text("You have already redeemed this code."),
-                    dismissButton: .default(Text("OK"))
-                )
-            } else if viewModel.showRedeemSuccess {
-                return Alert(
-                    title: Text("Congratulations!"),
-                    message: Text("You unlocked a new acessory, 20 gems and 100 coins!"),
                     dismissButton: .default(Text("OK"))
                 )
             } else {

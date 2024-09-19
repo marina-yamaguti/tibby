@@ -31,6 +31,7 @@ struct ProfileView: View {
                         .frame(height: 110)
                                     
                     ShowcaseCard()
+
                 }
                 .padding(16)
                 
@@ -40,7 +41,7 @@ struct ProfileView: View {
                 .padding(.leading, 16)
                 Spacer()
             }
-            .ignoresSafeArea()
+            .ignoresSafeArea(.all, edges: .top)
             .background(.tibbyBaseWhite)
             .navigationBarBackButtonHidden()
             .opacity(showEditGoals ? 0.4 : 1)
@@ -50,7 +51,8 @@ struct ProfileView: View {
                     Spacer()
                     EditingGoalsView(showEdit: $showEditGoals, exercise: $exercise, energy: $energy, steps: $steps, sleep: $sleep)
                         .frame(maxHeight: 644)
-                }.ignoresSafeArea()
+                }
+                .ignoresSafeArea()
             }
         }
     }

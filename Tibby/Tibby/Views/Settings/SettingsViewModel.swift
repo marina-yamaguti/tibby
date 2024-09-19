@@ -60,12 +60,11 @@ class SettingsViewModel: ObservableObject {
     @Published var invalidAlert = false
     @Published var codeAlreadyRedeemedAlert = false
 
-    private let testingCode = "Tibby06"
     private let validCode = "1MoreThing"
     private let codeRedeemedKey = "codeRedeemed"
 
     func isValidCode() -> Bool {
-        return redeemCode == validCode || redeemCode == testingCode
+        return redeemCode == validCode
     }
 
     func hasAlreadyRedeemed() -> Bool {
