@@ -22,6 +22,7 @@
 		7C9CDA3A2C73E9DA0044A8B3 /* TertiaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */; };
 		7C9CDA3B2C73E9DA0044A8B3 /* PrimaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */; };
 		7C9CDA3C2C73E9DA0044A8B3 /* SecondaryButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */; };
+		7CB7799E2C9B5C61006CAC62 /* MissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7799D2C9B5C61006CAC62 /* MissionEntity.swift */; };
 		7CC14D3D2C45AD68002715F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D3C2C45AD68002715F5 /* HomeView.swift */; };
 		7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC14D402C484FB5002715F5 /* HapticManager.swift */; };
 		7CE131CB2C63F3AE001D7348 /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */; };
@@ -268,6 +269,7 @@
 		7C9CDA372C73E9DA0044A8B3 /* TertiaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TertiaryButton.wav; sourceTree = "<group>"; };
 		7C9CDA382C73E9DA0044A8B3 /* PrimaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PrimaryButton.wav; sourceTree = "<group>"; };
 		7C9CDA392C73E9DA0044A8B3 /* SecondaryButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SecondaryButton.wav; sourceTree = "<group>"; };
+		7CB7799D2C9B5C61006CAC62 /* MissionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEntity.swift; sourceTree = "<group>"; };
 		7CC14D3C2C45AD68002715F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7CC14D402C484FB5002715F5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 				FD9075A02C2DD42E000E5F24 /* User.swift */,
 				FD9075A22C2DDC95000E5F24 /* Accessory.swift */,
 				FDFF4ABB2C3C739500831968 /* Food.swift */,
+				7CB7799D2C9B5C61006CAC62 /* MissionEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -954,11 +957,11 @@
 		BCB5AC222C9212630050D1CA /* Missions */ = {
 			isa = PBXGroup;
 			children = (
+				BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */,
 				BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */,
 				BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */,
 				BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */,
 				BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */,
-				BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */,
 				BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */,
 				BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */,
 			);
@@ -1504,6 +1507,7 @@
 				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
 				FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
+				7CB7799E2C9B5C61006CAC62 /* MissionEntity.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,

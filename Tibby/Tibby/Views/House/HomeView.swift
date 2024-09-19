@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
+    @EnvironmentObject var dateManager: DateManager
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -95,13 +96,13 @@ struct HomeView: View {
                             }
                         Spacer()
                         Button(action: {
-                            showMissionsAlert = true
+                            //showMissionsAlert = true
                             showMissions = true
                         }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
-                        //                            .navigationDestination(isPresented: $showMissions) {
-                        //
-                        //                            }
+                        .navigationDestination(isPresented: $showMissions) {
+                            MissionsView()
+                        }
                     }
                     .padding(16)
                     Spacer()
@@ -182,15 +183,46 @@ struct HomeView: View {
                     }
                     constants.objectWillChange.send()
                 }
+                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
+                    dateManager.setToday()
+                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+                }
+                else if constants.dailyMission.missions.isEmpty {
+                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+                    
+                }
+                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
+                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+                }
+                else if constants.weeklyMission.missions.isEmpty {
+                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+                    
+                }
             }
             else if scenePhase == .inactive {
                 print("JORGE Inactive")
             }
             else if scenePhase == .background {
+                #warning("Salver Missions no service")
                 print("JORGE Background")
             }
         }
         .onAppear(perform: {
+            if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
+                dateManager.setToday()
+                constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+            }
+            else if constants.dailyMission.missions.isEmpty {
+                constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+                
+            }
+            if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
+                constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+            }
+            else if constants.weeklyMission.missions.isEmpty {
+                constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+                
+            }
             print("home")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 showSprite = true
@@ -205,12 +237,12 @@ struct HomeView: View {
             print("mudou de acessorio")
             self.dressUpAccessory()
         })
-        .alert(isPresented: $showMissionsAlert, content: {
-            Alert(
-                title: Text("Missions Cooming Soon!"),
-                dismissButton: .default(Text("Ok"))
-            )
-        })
+//        .alert(isPresented: $showMissionsAlert, content: {
+//            Alert(
+//                title: Text("Missions Cooming Soon!"),
+//                dismissButton: .default(Text("Ok"))
+//            )
+//        })
     }
     
     private func dressUpAccessory() {
