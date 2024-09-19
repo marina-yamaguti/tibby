@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-
 import SwiftUI
-
 struct CodeRedeemView: View {
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var service: Service
@@ -24,17 +22,18 @@ struct CodeRedeemView: View {
                     .foregroundStyle(Color.tibbyBaseBlack)
             }
             .padding(.vertical, 8)
-            
+
             VStack {
                 HStack {
                     TextField("Enter Code", text: $viewModel.redeemCode)
+                        .autocorrectionDisabled()
                         .padding()
                         .background(.tibbyBaseWhite)
                         .frame(width: 286, height: 36)
                         .cornerRadius(20)
                         .textInputAutocapitalization(.none)
                         .preferredColorScheme(.light)
-                    
+
                     ZStack {
                         Circle()
                             .foregroundStyle(.tibbyBackgroundShadowBlack.opacity(0.5))
@@ -57,17 +56,30 @@ struct CodeRedeemView: View {
         }
         .alert(isPresented: Binding<Bool>(
             get: {
-                viewModel.showRedeemSuccess || viewModel.invalidAlert
+                viewModel.showRedeemSuccess || viewModel.invalidAlert || viewModel.codeAlreadyRedeemedAlert
             },
             set: { _ in
                 viewModel.showRedeemSuccess = false
                 viewModel.invalidAlert = false
+                viewModel.codeAlreadyRedeemedAlert = false
             })
         ) {
-            if viewModel.showRedeemSuccess {
+            if viewModel.showTestRedeem {
+                return Alert(
+                    title: Text("TEST CHEAT!"),
+                    message: Text("Unlocking 1,000 coins."),
+                    dismissButton: .default(Text("OK"))
+                )
+            } else if viewModel.codeAlreadyRedeemedAlert {
+                return Alert(
+                    title: Text("Code Already Redeemed"),
+                    message: Text("You have already redeemed this code."),
+                    dismissButton: .default(Text("OK"))
+                )
+            } else if viewModel.showRedeemSuccess {
                 return Alert(
                     title: Text("Congratulations!"),
-                    message: Text("You unlocked 1,000 coins."),
+                    message: Text("You unlocked a new acessory, 20 gems and 100 coins!"),
                     dismissButton: .default(Text("OK"))
                 )
             } else {
