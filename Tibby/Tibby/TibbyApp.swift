@@ -48,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 struct TibbyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self
+            Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self, Mission.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

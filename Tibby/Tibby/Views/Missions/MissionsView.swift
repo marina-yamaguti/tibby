@@ -10,6 +10,7 @@ import SwiftUI
 struct MissionsView: View {
     @State var streak = GameStreak()
     @EnvironmentObject var constants: Constants
+//    @EnvironmentObject var service: Service
     
     var body: some View {
         VStack(spacing: 0) {
@@ -36,7 +37,7 @@ struct MissionsView: View {
                     .padding(.bottom, 16)
                     
                     // Display the missions in the daily mission collection
-                    MissionCardComponent(missions: constants.dailyMission.getMissions())
+                    MissionCardComponent(missions: $constants.dailyMission.missions)
                 }
                 .padding(.bottom, 16)
                 
@@ -53,7 +54,7 @@ struct MissionsView: View {
                     .padding(.bottom, 16)
                     
                     // Display the missions in the weekly mission collection
-                    MissionCardComponent(missions: constants.weeklyMission.getMissions())
+                    MissionCardComponent(missions: $constants.weeklyMission.missions)
                 }
                 Spacer()
             }
@@ -65,20 +66,3 @@ struct MissionsView: View {
     }
 }
 
-
-//#Preview {
-//    let missionManager = MissionManager()
-//    
-//    // Generate some example daily and weekly missions using the MissionManager
-//    let dailyMissions = DayMissionsCollection(
-//        title: "Daily Missions",
-//        missions: MissionType.allCases.map { missionManager.createMission(dateType: .day, missionType: $0) }
-//    )
-//    
-//    let weeklyMissions = WeekMissionsCollection(
-//        title: "Weekly Missions",
-//        missions: MissionType.allCases.map { missionManager.createMission(dateType: .week, missionType: $0) }
-//    )
-//    
-//    return MissionsView(dailyMission: dailyMissions, weeklyMission: weeklyMissions)
-//}

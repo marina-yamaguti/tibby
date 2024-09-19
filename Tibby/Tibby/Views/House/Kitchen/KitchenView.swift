@@ -113,6 +113,20 @@ struct KitchenView: View {
                                                 if self.toEat {
                                                     self.toEat = false
                                                     self.eat()
+                                                    
+                                                    var missions = constants.dailyMission.getMissions()
+
+                                                    for i in 0 ..< missions.count {
+                                                        if missions[i].missionType == .feed {
+                                                            print(missions[i].valueDone)
+                                                            missions[i].updateProgress(value: missions[i].valueDone + 1)
+                                                            print(missions[i].valueDone)
+                                                        }
+                                                    }
+                                                    constants.dailyMission.missions = missions
+                                                    
+                                                    
+                                                    
                                                     self.foodLocation = platePos
                                                 }
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

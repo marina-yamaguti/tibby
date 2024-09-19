@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionProgressComponent: View {
-    @State var mission: MissionProtocol
+    @Binding var mission: MissionProtocol
     var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 8) {
@@ -56,6 +56,3 @@ struct MissionProgressComponent: View {
     }
 }
 
-#Preview {
-    MissionProgressComponent(mission: MissionDay(id: UUID(), description: "60 minute workout", valueTotal: 60, reward: Reward(rewardValue: 10, rewardType: .gem), xp: Reward(rewardValue: 10, rewardType: .coin), missionType: .workout))
-}

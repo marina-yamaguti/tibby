@@ -615,11 +615,11 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     func createMission(id: UUID, name: String, valueTotal: Int, rewardValue: Int, rewardType: Int, xpValue: Int, xpType: Int, missionType: String, valueDone: Int, frequencyTime: String, progress: String) {
-        var newMission = Mission(id: id, name: name, valueTotal: valueTotal, rewardValue: rewardValue, rewardType: rewardType, xpValue: xpValue, xpType: xpType, missionType: missionType, valueDone: valueDone, frequencyTime: frequencyTime, progress: progress)
+        let newMission = Mission(id: id, name: name, valueTotal: valueTotal, rewardValue: rewardValue, rewardType: rewardType, xpValue: xpValue, xpType: xpType, missionType: missionType, valueDone: valueDone, frequencyTime: frequencyTime, progress: progress)
         do {
             let missions = try modelContext.fetch(FetchDescriptor<Mission>())
         } catch {
-            print("Error fetching Tibbies: \(error)")
+            print("Error fetching Missions: \(error)")
         }
         
         modelContext.insert(newMission)
@@ -646,12 +646,12 @@ class Service: ObservableObject, ServiceProtocol {
             }
             switch frequencyTime {
             case .day:
-                if m.frequencyTime == "Day" {
+                if m.frequencyTime == "Daily Mission" {
                     var missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
             case .week:
-                if m.frequencyTime == "Week" {
+                if m.frequencyTime == "Weekly Mission" {
                     var missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
@@ -907,6 +907,102 @@ class Service: ObservableObject, ServiceProtocol {
             for food in getAllFoods() {
                 addFoodToUser(food: food)
             }
+        }
+        
+        //creating daily missions
+        if self.getMissionByFrequencyTime(frequencyTime: .day).isEmpty {
+            let f = MissionManager.instance.createMission(dateType: .day, missionType: .feed)
+            let w = MissionManager.instance.createMission(dateType: .day, missionType: .workout)
+            let sl = MissionManager.instance.createMission(dateType: .day, missionType: .sleep)
+            let st = MissionManager.instance.createMission(dateType: .day, missionType: .steps)
+            
+            // workout mission
+            var progress: String = "inProgress"
+            switch w.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: w.id, name: w.description, valueTotal: w.valueTotal, rewardValue: w.reward.rewardValue, rewardType: w.reward.rewardType.rawValue, xpValue: w.xp.rewardValue, xpType: w.xp.rewardType.rawValue, missionType: w.missionType.rawValue, valueDone: w.valueDone, frequencyTime: w.frequencyTime.description, progress: progress)
+            
+            // feed mission
+            progress = "inProgress"
+            switch f.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: f.id, name: f.description, valueTotal: f.valueTotal, rewardValue: f.reward.rewardValue, rewardType: f.reward.rewardType.rawValue, xpValue: f.xp.rewardValue, xpType: f.xp.rewardType.rawValue, missionType: f.missionType.rawValue, valueDone: f.valueDone, frequencyTime: f.frequencyTime.description, progress: progress)
+            
+            // steps missions
+            progress = "inProgress"
+            switch st.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: st.id, name: st.description, valueTotal: st.valueTotal, rewardValue: st.reward.rewardValue, rewardType: st.reward.rewardType.rawValue, xpValue: st.xp.rewardValue, xpType: st.xp.rewardType.rawValue, missionType: st.missionType.rawValue, valueDone: st.valueDone, frequencyTime: st.frequencyTime.description, progress: progress)
+            
+            // sleep mission
+            progress = "inProgress"
+            switch sl.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: sl.id, name: sl.description, valueTotal: sl.valueTotal, rewardValue: sl.reward.rewardValue, rewardType: sl.reward.rewardType.rawValue, xpValue: sl.xp.rewardValue, xpType: sl.xp.rewardType.rawValue, missionType: sl.missionType.rawValue, valueDone: sl.valueDone, frequencyTime: sl.frequencyTime.description, progress: progress)
+        }
+        
+        //creating weekly missions
+        if self.getMissionByFrequencyTime(frequencyTime: .week).isEmpty {
+            let f = MissionManager.instance.createMission(dateType: .week, missionType: .feed)
+            let w = MissionManager.instance.createMission(dateType: .week, missionType: .workout)
+            let sl = MissionManager.instance.createMission(dateType: .week, missionType: .sleep)
+            let st = MissionManager.instance.createMission(dateType: .week, missionType: .steps)
+            
+            // workout mission
+            var progress: String = "inProgress"
+            switch w.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: w.id, name: w.description, valueTotal: w.valueTotal, rewardValue: w.reward.rewardValue, rewardType: w.reward.rewardType.rawValue, xpValue: w.xp.rewardValue, xpType: w.xp.rewardType.rawValue, missionType: w.missionType.rawValue, valueDone: w.valueDone, frequencyTime: w.frequencyTime.description, progress: progress)
+            
+            // feed mission
+            progress = "inProgress"
+            switch f.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: f.id, name: f.description, valueTotal: f.valueTotal, rewardValue: f.reward.rewardValue, rewardType: f.reward.rewardType.rawValue, xpValue: f.xp.rewardValue, xpType: f.xp.rewardType.rawValue, missionType: f.missionType.rawValue, valueDone: f.valueDone, frequencyTime: f.frequencyTime.description, progress: progress)
+            
+            // steps missions
+            progress = "inProgress"
+            switch st.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: st.id, name: st.description, valueTotal: st.valueTotal, rewardValue: st.reward.rewardValue, rewardType: st.reward.rewardType.rawValue, xpValue: st.xp.rewardValue, xpType: st.xp.rewardType.rawValue, missionType: st.missionType.rawValue, valueDone: st.valueDone, frequencyTime: st.frequencyTime.description, progress: progress)
+            
+            // sleep mission
+            progress = "inProgress"
+            switch sl.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: sl.id, name: sl.description, valueTotal: sl.valueTotal, rewardValue: sl.reward.rewardValue, rewardType: sl.reward.rewardType.rawValue, xpValue: sl.xp.rewardValue, xpType: sl.xp.rewardType.rawValue, missionType: sl.missionType.rawValue, valueDone: sl.valueDone, frequencyTime: sl.frequencyTime.description, progress: progress)
         }
         
         print("Setup completed")

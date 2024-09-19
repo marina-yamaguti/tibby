@@ -55,7 +55,7 @@ enum MissionType: String, CaseIterable {
         case .feed:
             return "feed \(value) times"
         case .sleep:
-            return "\(value) \(frequency == .day ? "minutes" : "hours") of sleep"
+            return "\(value) hours of sleep"
         case .steps:
             return "\(value) steps"
         }
@@ -148,7 +148,7 @@ protocol MissionProtocol {
     var valueTotal: Int { get }
     
     /// The value or progress that has been completed so far.
-    var valueDone: Int { get }
+    var valueDone: Int { get set }
     
     /// The reward given upon completion of the mission.
     var reward: Reward { get }
@@ -160,7 +160,7 @@ protocol MissionProtocol {
     var frequencyTime: DateType { get }
     
     /// The current progress status of the mission.
-    var progress: MissionProgress { get }
+    var progress: MissionProgress { get set }
     
     /// The type of mission.
     var missionType: MissionType { get }
@@ -188,7 +188,7 @@ protocol MissionsCollectionProtocol {
     var title: String { get }
     
     /// The list of missions included in the collection.
-    var missions: [MissionProtocol] { get }
+    var missions: [MissionProtocol] { get set }
     
     /// The remaining time for the collection of missions.
     var timeRemaning: (timeValue: Int, timeMesure: TimeMesure) { get }
