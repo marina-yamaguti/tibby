@@ -24,9 +24,9 @@ struct MissionsView: View {
                                 Text("Daily Mission")
                                     .font(.typography(.body))
                                     .foregroundStyle(.tibbyBaseBlack)
-                                Text("\(constants.dailyMission.timeRemaning.timeValue) \(constants.dailyMission.timeRemaning.timeMesure.rawValue)\(constants.dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
-                                    .font(.typography(.label))
-                                    .foregroundStyle(.tibbyBaseRed)
+//                                Text("\(constants.dailyMission.timeRemaning.timeValue) \(constants.dailyMission.timeRemaning.timeMesure.rawValue)\(constants.dailyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+//                                    .font(.typography(.label))
+//                                    .foregroundStyle(.tibbyBaseRed)
                             }
                             Spacer()
                             
@@ -47,9 +47,9 @@ struct MissionsView: View {
                             Text("Weekly Mission")
                                 .font(.typography(.body))
                                 .foregroundStyle(.tibbyBaseBlack)
-                            Text("\(constants.weeklyMission.timeRemaning.timeValue) \(constants.weeklyMission.timeRemaning.timeMesure.rawValue)\(constants.weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
-                                .font(.typography(.label))
-                                .foregroundStyle(.tibbyBaseRed)
+//                            Text("\(constants.weeklyMission.timeRemaning.timeValue) \(constants.weeklyMission.timeRemaning.timeMesure.rawValue)\(constants.weeklyMission.timeRemaning.timeValue > 1 ? "s" : "") remaining")
+//                                .font(.typography(.label))
+//                                .foregroundStyle(.tibbyBaseRed)
                         }
                         .padding(.bottom, 16)
                         
@@ -63,6 +63,7 @@ struct MissionsView: View {
             }
             .scrollIndicators(.hidden)
         }
+        .preferredColorScheme(.light)
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
     }

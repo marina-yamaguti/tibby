@@ -36,11 +36,11 @@ struct MissionProgressComponent: View {
                             .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
                     }
                 }
-                .opacity(mission.progress == .done ? 0.1 : 1)
+                .opacity(mission.progress == .done || mission.progress == .claim ? 0.1 : 1)
                 
                 
                 
-                OfferedRewardComponent(isCompleted: mission.progress == .done, reward: mission.reward)
+                OfferedRewardComponent(isCompleted: mission.progress == .done, isClaim: mission.progress == .claim, reward: mission.reward)
                     .padding(.trailing, mission.progress == .claim ? 40 : 0)
             }
             .background {
