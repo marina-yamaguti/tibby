@@ -126,6 +126,6 @@ class Constants: ObservableObject {
     
     
     
-    @Published var dailyMission: DayMissionsCollection = DayMissionsCollection(dateSet: Date.startOfDay)
+    @Published var dailyMission: DayMissionsCollection = DayMissionsCollection(dateSet: Date.startOfDay) 
     @Published var weeklyMission: WeekMissionsCollection = WeekMissionsCollection(dateSet: Date.startOfWeek)
 }

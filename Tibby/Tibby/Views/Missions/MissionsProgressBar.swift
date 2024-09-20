@@ -26,7 +26,7 @@ struct MissionsProgressBar: ProgressViewStyle {
                     .frame(width: geometry.size.width * CGFloat(fractionCompleted), height: CGFloat(height))
                 
                 // Progress percentage text
-                Text("\(Int(fractionCompleted)) / \(totalValue)")
+                Text("\(Int(fractionCompleted * Double(totalValue))) / \(totalValue)")
                     .font(.typography(.label))
                     .foregroundColor(.tibbyBaseDarkBlue)
                     .frame(width: geometry.size.width, alignment: .center)

@@ -36,16 +36,6 @@
         }
       }
     },
-    "%lld %@%@ remaining" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld %2$@%3$@ remaining"
-          }
-        }
-      }
-    },
     "%lld/%lld" : {
       "localizations" : {
         "en" : {
@@ -87,6 +77,12 @@
 
     },
     "Daily Mission" : {
+
+    },
+    "day streak" : {
+
+    },
+    "days streak" : {
 
     },
     "description" : {

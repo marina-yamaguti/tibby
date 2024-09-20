@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OfferedRewardComponent: View {
     @State var isCompleted: Bool
+    @State var isClaim: Bool
     var reward: Reward
     var body: some View {
         ZStack {
@@ -29,12 +30,14 @@ struct OfferedRewardComponent: View {
                 .offset(x: 10, y: 10)
         }
         .background {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(isCompleted ? .tibbyBaseGrey: .tibbyBaseGreen)
+            if !isClaim {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(isCompleted ? .tibbyBaseGrey: .tibbyBaseGreen)
+            }
         }
     }
 }
 
 #Preview {
-    OfferedRewardComponent(isCompleted: true, reward: Reward(rewardValue: 10, rewardType: .coin))
+    OfferedRewardComponent(isCompleted: false, isClaim: true, reward: Reward(rewardValue: 10, rewardType: .coin))
 }

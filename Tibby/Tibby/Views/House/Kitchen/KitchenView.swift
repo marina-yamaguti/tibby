@@ -113,6 +113,33 @@ struct KitchenView: View {
                                                 if self.toEat {
                                                     self.toEat = false
                                                     self.eat()
+                                                    
+                                                    var missionsDaily = constants.dailyMission.getMissions()
+
+                                                    for i in 0 ..< missionsDaily.count {
+                                                        if missionsDaily[i].missionType == .feed {
+                                                            print(missionsDaily[i].valueDone)
+                                                            if missionsDaily[i].valueDone < missionsDaily[i].valueTotal {
+                                                                missionsDaily[i].updateProgress(value: 1)
+                                                            }
+                                                            print(missionsDaily[i].valueDone)
+                                                        }
+                                                    }
+                                                    constants.dailyMission.missions = missionsDaily
+                                                    
+                                                    var missionsWeekly = constants.weeklyMission.getMissions()
+
+                                                    for i in 0 ..< missionsWeekly.count {
+                                                        if missionsWeekly[i].missionType == .feed {
+                                                            print(missionsWeekly[i].valueDone)
+                                                            if missionsWeekly[i].valueDone < missionsWeekly[i].valueTotal {
+                                                                missionsWeekly[i].updateProgress(value: 1)
+                                                            }
+                                                            print(missionsWeekly[i].valueDone)
+                                                        }
+                                                    }
+                                                    constants.weeklyMission.missions = missionsWeekly
+                                                    
                                                     self.foodLocation = platePos
                                                 }
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

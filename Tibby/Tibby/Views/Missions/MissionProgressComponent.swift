@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionProgressComponent: View {
-    @State var mission: MissionProtocol
+    @Binding var mission: MissionProtocol
     var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 8) {
@@ -27,15 +27,20 @@ struct MissionProgressComponent: View {
                         .font(.typography(.label))
                         .foregroundStyle(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
                         .strikethrough(mission.progress == .done)
-                    
-                    ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
-                        .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                    if mission.frequencyTime == .week && mission.missionType == .workout {
+                        ProgressView(value: Double(Int(mission.valueDone/60)), total: Double(Int(mission.valueTotal/60)))
+                            .progressViewStyle(MissionsProgressBar(totalValue: Int(mission.valueTotal/60)))
+                    }
+                    else {
+                        ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
+                            .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                    }
                 }
-                .opacity(mission.progress == .done ? 0.1 : 1)
+                .opacity(mission.progress == .done || mission.progress == .claim ? 0.1 : 1)
                 
                 
                 
-                OfferedRewardComponent(isCompleted: mission.progress == .done, reward: mission.reward)
+                OfferedRewardComponent(isCompleted: mission.progress == .done, isClaim: mission.progress == .claim, reward: mission.reward)
                     .padding(.trailing, mission.progress == .claim ? 40 : 0)
             }
             .background {
@@ -56,6 +61,3 @@ struct MissionProgressComponent: View {
     }
 }
 
-#Preview {
-    MissionProgressComponent(mission: MissionDay(id: UUID(), description: "60 minute workout", valueTotal: 60, reward: Reward(rewardValue: 10, rewardType: .gem), xp: Reward(rewardValue: 10, rewardType: .coin), missionType: .workout))
-}

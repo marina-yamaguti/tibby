@@ -183,47 +183,74 @@ struct HomeView: View {
                     }
                     constants.objectWillChange.send()
                 }
-                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
-                    dateManager.setToday()
-                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-                }
-                else if constants.dailyMission.missions.isEmpty {
-                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-                    
-                }
-                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
-                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-                }
-                else if constants.weeklyMission.missions.isEmpty {
-                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-                    
-                }
+//                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
+//                    dateManager.setToday()
+////                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
+//                    
+//                }
+//                else if constants.dailyMission.missions.isEmpty {
+//                    constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
+//                    
+//                }
+//                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
+////                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
+//                }
+//                else if constants.weeklyMission.missions.isEmpty {
+//                    constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+//                }
             }
             else if scenePhase == .inactive {
                 print("JORGE Inactive")
             }
             else if scenePhase == .background {
-                #warning("Salver Missions no service")
+                var missionsDaily = constants.dailyMission.getMissions()
+
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .steps {
+                        missionsDaily[i].updateProgress(value: healthManager.stepsDay)
+                    }
+                }
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .steps {
+                        missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
+                
+                service.updateMissionsByFrequencyTime(frequencyTime: .day, missions: constants.dailyMission.getMissions())
+                service.updateMissionsByFrequencyTime(frequencyTime: .week, missions: constants.weeklyMission.getMissions())
                 print("JORGE Background")
             }
         }
         .onAppear(perform: {
-            if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
-                dateManager.setToday()
-                constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-            }
-            else if constants.dailyMission.missions.isEmpty {
-                constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-                
-            }
-            if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
-                constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-            }
-            else if constants.weeklyMission.missions.isEmpty {
-                constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-                
-            }
             print("home")
+            if constants.dailyMission.missions.isEmpty && constants.weeklyMission.missions.isEmpty {
+                constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
+                constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+                
+                var missionsDaily = constants.dailyMission.getMissions()
+
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .steps {
+                        missionsDaily[i].updateProgress(value: healthManager.stepsDay)
+                    }
+                }
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .steps {
+                        missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
+            }
+            service.setCurrentTibby(tibbyID: tibby.id)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 showSprite = true
             }

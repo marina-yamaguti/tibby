@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FinishedWorkout: View {
     @EnvironmentObject var service: Service
+    @EnvironmentObject var constants: Constants
     @Binding var tibby: Tibby
     @Binding var showSheet: Bool
     var timeGoal: Int
@@ -99,19 +100,30 @@ struct FinishedWorkout: View {
         }.background(.tibbyBaseBlack)
             .withBorderRadius(40)
             .onAppear {
-                print("On Finished Workout: ")
-                print("steps: \(workoutSteps)")
-                print("time: \(workoutSeconds)")
+                var missionsDaily = constants.dailyMission.getMissions()
+
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .workout {
+                        missionsDaily[i].updateProgress(value: workoutSeconds / 60)
+                    }
+                }
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .workout {
+                        missionsWeekly[i].updateProgress(value: workoutSeconds / 60)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
             }
             .onAppear {
-                print("happiness antes: \(tibby.happiness)")
                 let happiness = (100 * (workoutSeconds/60))/timeGoal
                 withAnimation {
                     tibby.happiness += happiness
                 }
-                print("workout goal: \(timeGoal)")
-                print("workout done: \(workoutSeconds)")
-                print("happiness depois: \(tibby.happiness)")
+                
             }
         
         

@@ -615,11 +615,11 @@ class Service: ObservableObject, ServiceProtocol {
     }
     
     func createMission(id: UUID, name: String, valueTotal: Int, rewardValue: Int, rewardType: Int, xpValue: Int, xpType: Int, missionType: String, valueDone: Int, frequencyTime: String, progress: String) {
-        var newMission = Mission(id: id, name: name, valueTotal: valueTotal, rewardValue: rewardValue, rewardType: rewardType, xpValue: xpValue, xpType: xpType, missionType: missionType, valueDone: valueDone, frequencyTime: frequencyTime, progress: progress)
+        let newMission = Mission(id: id, name: name, valueTotal: valueTotal, rewardValue: rewardValue, rewardType: rewardType, xpValue: xpValue, xpType: xpType, missionType: missionType, valueDone: valueDone, frequencyTime: frequencyTime, progress: progress)
         do {
             let missions = try modelContext.fetch(FetchDescriptor<Mission>())
         } catch {
-            print("Error fetching Tibbies: \(error)")
+            print("Error fetching Missions: \(error)")
         }
         
         modelContext.insert(newMission)
@@ -646,13 +646,13 @@ class Service: ObservableObject, ServiceProtocol {
             }
             switch frequencyTime {
             case .day:
-                if m.frequencyTime == "Day" {
-                    var missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                if m.frequencyTime == "Daily Mission" || m.frequencyTime == "Day" {
+                    let missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
             case .week:
-                if m.frequencyTime == "Week" {
-                    var missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                if m.frequencyTime == "Weekly Mission" || m.frequencyTime == "Week" {
+                    let missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
                     missions.append(missionReturn)
                 }
             }
@@ -664,11 +664,11 @@ class Service: ObservableObject, ServiceProtocol {
         for m in self.getAllMissions() {
             switch frequencyTime {
             case .day:
-                if m.frequencyTime == "Day" {
+                if m.frequencyTime == "Daily Mission" || m.frequencyTime == "Day" {
                     modelContext.delete(m)
                 }
             case .week:
-                if m.frequencyTime == "Week" {
+                if m.frequencyTime == "Weekly Mission" || m.frequencyTime == "Week" {
                     modelContext.delete(m)
                 }
             }
@@ -707,9 +707,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "Despite his fearsome appearance, Shark loves making new friends and exploring the underwater world. With sharp fins and a swift tail, he can glide through the ocean with grace and agility.",
             personality: "",
             species: "shark",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -722,9 +722,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Yellow Shark, the Guardian of the Seas, lives in the deepest part of the ocean, where few have access. Although its appearance is a little scary, it is very friendly and protects every corner of the sea. Its coloration is due to the light it emits to illuminate its path in the deep, dark oceans.",
             personality: "",
             species: "hammerShark",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -737,9 +737,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Pink Dolphin is a charming smart and social marine creature, known for its playful spirit and ability to glide through the ocean, often seen riding waves and leaping into the air. Their ability to connect with humans, their curiosity, and their joyful leaps out of the water make them fascinating and endearing creatures",
             personality: "",
             species: "dolphin",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -752,9 +752,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Axolotl is a magical water creature known for its cute smile and soft, feather-like gills. It stays looking young forever and swims gracefully in its peaceful underwater home. With its special power of regeneration and its enchanting presence, the Axolotl brings a sense of wonder and ancient magic to those who see it.",
             personality: "",
             species: "axolotl",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -769,9 +769,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Black Cat is a charming and elegant companion for the home, with sleek fur and bright eyes. Her mysterious charm and calming presence bring a touch of magic to any household. With her quiet confidence, she makes every space feel uniquely special.",
             personality: "",
             species: "tuxedoCat",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -784,9 +784,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Bunny is an adorable companion who loves comfort and coziness. She enjoys finding the warmest spots in the house to curl up and enjoy a moment of peace. Her soft fur and gentle behavior make her the perfect friend to share quiet afternoons and fun adventures with.",
             personality: "",
             species: "bunny",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -799,9 +799,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Corgi is a bundle of energy and joy, with his classic short legs and fluffy tail that make him irresistibly adorable. He has a special connection with the unseen, sensing when something is wrong or when someone is sad. With his magical intuition, Corgi fills your home with warmth and a sense of comfort.",
             personality: "",
             species: "corgi",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -814,9 +814,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The Dog is an adorable little dog with an epic heart! Small in size but big in charm, known as the Guardian of Living Beings, she is always ready to help those in need when they call her name. Peanut's loyalty and playful spirit make her a truly epic companion.",
             personality: "",
             species: "dog",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -831,9 +831,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The chameleon is a creature that knows how to adapt to its surroundings in such a way that it can disappear and reappear as and where it pleases. Known as the Guardian of Festivities, it brings joy and celebration wherever it goes, revealing itself in various colors to cheer up other beings, expressing its purpose of celebration through colors and interaction.",
             personality: "",
             species: "chameleon",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -846,9 +846,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The squirrel is a wise and agile creature, known for its quick thinking and foresight. As the Mentor of the Forest, she guides others with patience and wisdom, always prepared for the challenges ahead. With her keen instincts and boundless energy, she teaches the value of preparation, resourcefulness, and balance. Through its careful gathering of knowledge, just as it gathers acorns, the squirrel ensures that those under her guidance are equipped to thrive, encouraging growth and nurturing the potential of all who seek her counsel.",
             personality: "",
             species: "squirrel",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -861,9 +861,9 @@ class Service: ObservableObject, ServiceProtocol {
             details: "The bear is a powerful and protective creature, revered as the Guardian of Strength. Known for its calm demeanor and deep wisdom, it watches over the forest, offering guidance and protection to those in need. With its vast knowledge of the land and an unshakable presence, the bear teaches the importance of resilience, patience, and courage. Whether through quiet contemplation or fierce defense, the bear embodies both gentle nurturing and formidable strength, always ready to stand as a pillar of support and wisdom for those who seek its guidance.",
             personality: "",
             species: "bear",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -872,13 +872,13 @@ class Service: ObservableObject, ServiceProtocol {
         createTibby(
             id: UUID(),
             name: "Sageon",
-            rarity: "Common",
+            rarity: "Rare",
             details: "The owl is a symbol of wisdom and insight, known as the Seeker of Knowledge. With its sharp vision and quiet grace, it sees what others cannot, guiding those who seek the truth. Perched high in the trees, the owl watches over the forest, offering wisdom in times of uncertainty and clarity in moments of confusion. Its calm and thoughtful nature reminds others of the power of observation, patience, and reflection. Through its deep understanding of the world around it, the owl illuminates the path forward, offering counsel to all who come seeking answers.",
             personality: "",
             species: "owl",
-            happiness: 100,
-            hunger: 100,
-            sleep: 100,
+            happiness: 10,
+            hunger: 10,
+            sleep: 10,
             friendship: 0,
             lastUpdated: Date(),
             isUnlocked: false,
@@ -907,6 +907,102 @@ class Service: ObservableObject, ServiceProtocol {
             for food in getAllFoods() {
                 addFoodToUser(food: food)
             }
+        }
+        
+        //creating daily missions
+        if self.getMissionByFrequencyTime(frequencyTime: .day).isEmpty {
+            let f = MissionManager.instance.createMission(dateType: .day, missionType: .feed)
+            let w = MissionManager.instance.createMission(dateType: .day, missionType: .workout)
+            let sl = MissionManager.instance.createMission(dateType: .day, missionType: .sleep)
+            let st = MissionManager.instance.createMission(dateType: .day, missionType: .steps)
+            
+            // workout mission
+            var progress: String = "inProgress"
+            switch w.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: w.id, name: w.description, valueTotal: w.valueTotal, rewardValue: w.reward.rewardValue, rewardType: w.reward.rewardType.rawValue, xpValue: w.xp.rewardValue, xpType: w.xp.rewardType.rawValue, missionType: w.missionType.rawValue, valueDone: w.valueDone, frequencyTime: w.frequencyTime.description, progress: progress)
+            
+            // feed mission
+            progress = "inProgress"
+            switch f.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: f.id, name: f.description, valueTotal: f.valueTotal, rewardValue: f.reward.rewardValue, rewardType: f.reward.rewardType.rawValue, xpValue: f.xp.rewardValue, xpType: f.xp.rewardType.rawValue, missionType: f.missionType.rawValue, valueDone: f.valueDone, frequencyTime: f.frequencyTime.description, progress: progress)
+            
+            // steps missions
+            progress = "inProgress"
+            switch st.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: st.id, name: st.description, valueTotal: st.valueTotal, rewardValue: st.reward.rewardValue, rewardType: st.reward.rewardType.rawValue, xpValue: st.xp.rewardValue, xpType: st.xp.rewardType.rawValue, missionType: st.missionType.rawValue, valueDone: st.valueDone, frequencyTime: st.frequencyTime.description, progress: progress)
+            
+            // sleep mission
+            progress = "inProgress"
+            switch sl.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: sl.id, name: sl.description, valueTotal: sl.valueTotal, rewardValue: sl.reward.rewardValue, rewardType: sl.reward.rewardType.rawValue, xpValue: sl.xp.rewardValue, xpType: sl.xp.rewardType.rawValue, missionType: sl.missionType.rawValue, valueDone: sl.valueDone, frequencyTime: sl.frequencyTime.description, progress: progress)
+        }
+        
+        //creating weekly missions
+        if self.getMissionByFrequencyTime(frequencyTime: .week).isEmpty {
+            let f = MissionManager.instance.createMission(dateType: .week, missionType: .feed)
+            let w = MissionManager.instance.createMission(dateType: .week, missionType: .workout)
+            let sl = MissionManager.instance.createMission(dateType: .week, missionType: .sleep)
+            let st = MissionManager.instance.createMission(dateType: .week, missionType: .steps)
+            
+            // workout mission
+            var progress: String = "inProgress"
+            switch w.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: w.id, name: w.description, valueTotal: w.valueTotal, rewardValue: w.reward.rewardValue, rewardType: w.reward.rewardType.rawValue, xpValue: w.xp.rewardValue, xpType: w.xp.rewardType.rawValue, missionType: w.missionType.rawValue, valueDone: w.valueDone, frequencyTime: w.frequencyTime.description, progress: progress)
+            
+            // feed mission
+            progress = "inProgress"
+            switch f.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: f.id, name: f.description, valueTotal: f.valueTotal, rewardValue: f.reward.rewardValue, rewardType: f.reward.rewardType.rawValue, xpValue: f.xp.rewardValue, xpType: f.xp.rewardType.rawValue, missionType: f.missionType.rawValue, valueDone: f.valueDone, frequencyTime: f.frequencyTime.description, progress: progress)
+            
+            // steps missions
+            progress = "inProgress"
+            switch st.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: st.id, name: st.description, valueTotal: st.valueTotal, rewardValue: st.reward.rewardValue, rewardType: st.reward.rewardType.rawValue, xpValue: st.xp.rewardValue, xpType: st.xp.rewardType.rawValue, missionType: st.missionType.rawValue, valueDone: st.valueDone, frequencyTime: st.frequencyTime.description, progress: progress)
+            
+            // sleep mission
+            progress = "inProgress"
+            switch sl.progress {
+            case .inProgress: progress = "inProgress"
+            case .claim: progress = "claim"
+            case .done: progress = "done"
+            }
+            
+            self.createMission(id: sl.id, name: sl.description, valueTotal: sl.valueTotal, rewardValue: sl.reward.rewardValue, rewardType: sl.reward.rewardType.rawValue, xpValue: sl.xp.rewardValue, xpType: sl.xp.rewardType.rawValue, missionType: sl.missionType.rawValue, valueDone: sl.valueDone, frequencyTime: sl.frequencyTime.description, progress: progress)
         }
         
         print("Setup completed")
