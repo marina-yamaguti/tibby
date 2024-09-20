@@ -17,7 +17,7 @@ import SpriteKit
 enum TibbySpecie: String, CaseIterable {
     case shark = "shark"
     case dolphin = "dolphin"
-    case yellowShark = "yellowShark"
+    case hammerShark = "hammerShark"
     case axolotl = "axolotl"
     case tuxedoCat = "tuxedoCat"
     case bunny = "bunny"
@@ -37,7 +37,7 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkBase1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkBase2.png"
             ]
-        case .yellowShark:
+        case .hammerShark:
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow2.png"
