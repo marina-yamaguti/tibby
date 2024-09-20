@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FavoriteTibbyCard: View {
-    @Binding var name: String
-    @State var status: SelectionStatus
+    @State var name: String
     var color: Color
     var image: String
     var rarity: String
@@ -27,31 +26,24 @@ struct FavoriteTibbyCard: View {
                 Image(image)
                     .resizable()
                     .scaleEffect(1.5)
-                    .scaledToFill()
-                    .brightness(status == .locked ? -1 : 0) // Dim the image if the item is locked
-                    .padding(.horizontal, 22)
+                    .scaledToFit()
             }
             .padding(.bottom, 5)
             HStack {
-                Text(status == .locked ? "???" : name)
+                Text(name)
                     .font(.typography(.label2))
                     .padding(.vertical, 4)
-                    .frame(width: 110)
+                    .frame(width: 90)
                     .foregroundStyle(Color.tibbyBaseBlack)
             }
             .background(Color.tibbyBaseWhite.opacity(0.5))
             .withBorderRadius(20)
         }
-        .frame(maxWidth: 105, maxHeight: 105)
-        .padding(16)
+        .padding(8)
         .aspectRatio(1, contentMode: .fit)
         .background {
-            color
-                .cornerRadius(15)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(.tibbyBaseBlack, lineWidth: status == .unselected ? 0 : 1)
-                }
+            RoundedRectangle(cornerRadius: 15)
+                .fill(color)
         }
         .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
     }

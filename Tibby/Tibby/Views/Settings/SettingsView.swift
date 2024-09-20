@@ -13,15 +13,7 @@ struct SettingsView: View {
     //@ObservedObject var moneyViewModel = MoneyViewModel()
     @ObservedObject var vm = SettingsViewModel()
     @EnvironmentObject var service: Service
-       
-//    init(modelContext: ModelContext) {
-//            // Inicializa o Service com o modelContext e o MoneyViewModel
-//            let service = Service(modelContext: modelContext)
-//            let moneyVM = MoneyViewModel(moneyType: .coin, service: service)
-//            
-//            _moneyViewModel = StateObject(wrappedValue: moneyVM)
-//            _vm = StateObject(wrappedValue: SettingsViewModel(moneyViewModel: moneyVM))
-//        }
+
     var body: some View {
         VStack(spacing: 0) {
             PageHeader(title: "Settings", symbol: "TibbySymbolSettings")
@@ -46,8 +38,3 @@ struct SettingsView: View {
         .ignoresSafeArea(.container, edges: .top)
     }
 }
-
-//#Preview {
-//    let previewContext = ModelContext() // Substitua isso pela sua instância de contexto correta
-//       return SettingsView(modelContext: previewContext)
-//}

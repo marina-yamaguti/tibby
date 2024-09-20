@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
-
 import SwiftUI
-
 struct CodeRedeemView: View {
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var service: Service
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -28,6 +26,7 @@ struct CodeRedeemView: View {
             VStack {
                 HStack {
                     TextField("Enter Code", text: $viewModel.redeemCode)
+                        .autocorrectionDisabled()
                         .padding()
                         .background(.tibbyBaseWhite)
                         .frame(width: 286, height: 36)
@@ -57,17 +56,24 @@ struct CodeRedeemView: View {
         }
         .alert(isPresented: Binding<Bool>(
             get: {
-                viewModel.showRedeemSuccess || viewModel.invalidAlert
+                viewModel.showRedeemSuccess || viewModel.invalidAlert || viewModel.codeAlreadyRedeemedAlert
             },
             set: { _ in
                 viewModel.showRedeemSuccess = false
                 viewModel.invalidAlert = false
+                viewModel.codeAlreadyRedeemedAlert = false
             })
         ) {
             if viewModel.showRedeemSuccess {
                 return Alert(
                     title: Text("Congratulations!"),
-                    message: Text("You unlocked 1,000 coins."),
+                    message: Text("You unlocked a new acessory, 20 gems and 100 coins!"),
+                    dismissButton: .default(Text("OK"))
+                )
+            } else if viewModel.codeAlreadyRedeemedAlert {
+                return Alert(
+                    title: Text("Code Already Redeemed"),
+                    message: Text("You have already redeemed this code."),
                     dismissButton: .default(Text("OK"))
                 )
             } else {

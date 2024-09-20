@@ -42,25 +42,22 @@ struct SplashScreen: View {
                     }
                 }
             } else {
-                VStack {
-                    Spacer()
-                    Image("TibbyLogoFull")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                    Spacer()
-                }.onAppear {
+                SplashAnimation()
+                    .onAppear {
                     if !firstTimeHere {
                         healthManager.fetchAllInformation()
                     }
                     service.setupData()
                     self.currentTibby = service.getCurrentTibby()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.8, execute: {
                         canProceed = true
                     })
                 }
-                .background(.tibbyBaseBlue)
+                
             }
         }
     }
 }
+
+
+

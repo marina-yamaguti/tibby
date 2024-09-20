@@ -19,6 +19,8 @@ struct ProfileView: View {
     @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
     @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
     @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
+    @State var streak = GameStreak()
+
 
     
     var body: some View {
@@ -31,6 +33,7 @@ struct ProfileView: View {
                         .frame(height: 110)
                                     
                     ShowcaseCard()
+
                 }
                 .padding(16)
                 
@@ -38,9 +41,11 @@ struct ProfileView: View {
                     GoalsCard(showEdit: $showEditGoals, exercise: $exercise, energy: $energy, steps: $steps, sleep: $sleep)
                 }
                 .padding(.leading, 16)
+                
+                StreakScroll(streak: streak)
                 Spacer()
             }
-            .ignoresSafeArea()
+            .ignoresSafeArea(.all, edges: .top)
             .background(.tibbyBaseWhite)
             .navigationBarBackButtonHidden()
             .opacity(showEditGoals ? 0.4 : 1)
@@ -50,7 +55,8 @@ struct ProfileView: View {
                     Spacer()
                     EditingGoalsView(showEdit: $showEditGoals, exercise: $exercise, energy: $energy, steps: $steps, sleep: $sleep)
                         .frame(maxHeight: 644)
-                }.ignoresSafeArea()
+                }
+                .ignoresSafeArea()
             }
         }
     }

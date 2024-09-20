@@ -67,6 +67,9 @@
     "Click to Claim" : {
 
     },
+    "Code Already Redeemed" : {
+
+    },
     "Complete missions and earn rewards like coins and items" : {
 
     },
@@ -125,9 +128,6 @@
 
     },
     "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
-
-    },
-    "hi" : {
 
     },
     "home" : {
@@ -300,10 +300,13 @@
     "You don't have any favourited Tibby. Pick your favourites to see them here." : {
 
     },
+    "You have already redeemed this code." : {
+
+    },
     "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
 
     },
-    "You unlocked 1,000 coins." : {
+    "You unlocked a new acessory, 20 gems and 100 coins!" : {
 
     },
     "You Won" : {
