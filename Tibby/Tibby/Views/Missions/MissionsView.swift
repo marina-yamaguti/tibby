@@ -29,7 +29,7 @@ struct MissionsView: View {
                         }
                         Spacer()
                         
-                        NavigationLink(destination: MissionsStreakView()) {
+                        NavigationLink(destination: StreakView(streak: GameStreak())) {
                             StreakUpComponent(streakCount: streak.currentStreak)
                         }
                     }

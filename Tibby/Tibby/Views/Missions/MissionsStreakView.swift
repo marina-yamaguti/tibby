@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct MissionsStreakView: View {
+    @State var streak: GameStreak
+    
     var body: some View {
-        Text("hi")
+        VStack {
+            Image(streak.currentStreak > 0 ? "ongoing1" : "broken1")
+        }
     }
 }
 
 #Preview {
-    MissionsStreakView()
+    MissionsStreakView(streak: GameStreak())
 }
