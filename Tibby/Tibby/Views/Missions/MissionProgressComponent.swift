@@ -27,9 +27,14 @@ struct MissionProgressComponent: View {
                         .font(.typography(.label))
                         .foregroundStyle(mission.progress == .done ? .tibbyBaseGrey : .tibbyBaseDarkBlue)
                         .strikethrough(mission.progress == .done)
-                    
-                    ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
-                        .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                    if mission.frequencyTime == .week && mission.missionType == .workout {
+                        ProgressView(value: Double(Int(mission.valueDone/60)), total: Double(Int(mission.valueTotal/60)))
+                            .progressViewStyle(MissionsProgressBar(totalValue: Int(mission.valueTotal/60)))
+                    }
+                    else {
+                        ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
+                            .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
+                    }
                 }
                 .opacity(mission.progress == .done ? 0.1 : 1)
                 

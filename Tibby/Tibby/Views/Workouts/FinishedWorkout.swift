@@ -100,14 +100,23 @@ struct FinishedWorkout: View {
         }.background(.tibbyBaseBlack)
             .withBorderRadius(40)
             .onAppear {
-                var missions = constants.dailyMission.getMissions()
+                var missionsDaily = constants.dailyMission.getMissions()
 
-                for i in 0 ..< missions.count {
-                    if missions[i].missionType == .workout {
-                        missions[i].updateProgress(value: workoutSeconds / 60)
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .workout {
+                        missionsDaily[i].updateProgress(value: workoutSeconds / 60)
                     }
                 }
-                constants.dailyMission.missions = missions
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .workout {
+                        missionsWeekly[i].updateProgress(value: workoutSeconds / 60)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
             }
             .onAppear {
                 let happiness = (100 * (workoutSeconds/60))/timeGoal

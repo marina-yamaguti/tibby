@@ -76,10 +76,10 @@ enum MissionType: String, CaseIterable {
                 return Int(Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 1.5)
                 
             case 5:
-                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 5)/60)
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 5))
                 
             case 6:
-                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 7)/60)
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 7))
                 
             default:
                 return 0

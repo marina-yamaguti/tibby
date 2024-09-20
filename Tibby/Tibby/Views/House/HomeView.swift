@@ -203,6 +203,24 @@ struct HomeView: View {
                 print("JORGE Inactive")
             }
             else if scenePhase == .background {
+                var missionsDaily = constants.dailyMission.getMissions()
+
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .steps {
+                        missionsDaily[i].updateProgress(value: healthManager.stepsDay)
+                    }
+                }
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .steps {
+                        missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
+                
                 service.updateMissionsByFrequencyTime(frequencyTime: .day, missions: constants.dailyMission.getMissions())
                 service.updateMissionsByFrequencyTime(frequencyTime: .week, missions: constants.weeklyMission.getMissions())
                 print("JORGE Background")
@@ -213,6 +231,24 @@ struct HomeView: View {
             if constants.dailyMission.missions.isEmpty && constants.weeklyMission.missions.isEmpty {
                 constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
                 constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+                
+                var missionsDaily = constants.dailyMission.getMissions()
+
+                for i in 0 ..< missionsDaily.count {
+                    if missionsDaily[i].missionType == .steps {
+                        missionsDaily[i].updateProgress(value: healthManager.stepsDay)
+                    }
+                }
+                constants.dailyMission.missions = missionsDaily
+                
+                var missionsWeekly = constants.weeklyMission.getMissions()
+
+                for i in 0 ..< missionsWeekly.count {
+                    if missionsWeekly[i].missionType == .steps {
+                        missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                }
+                constants.weeklyMission.missions = missionsWeekly
             }
             service.setCurrentTibby(tibbyID: tibby.id)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

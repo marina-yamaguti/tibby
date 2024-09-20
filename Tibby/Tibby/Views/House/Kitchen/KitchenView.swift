@@ -114,20 +114,31 @@ struct KitchenView: View {
                                                     self.toEat = false
                                                     self.eat()
                                                     
-                                                    var missions = constants.dailyMission.getMissions()
+                                                    var missionsDaily = constants.dailyMission.getMissions()
 
-                                                    for i in 0 ..< missions.count {
-                                                        if missions[i].missionType == .feed {
-                                                            print(missions[i].valueDone)
-                                                            if missions[i].valueDone < missions[i].valueTotal {
-                                                                missions[i].updateProgress(value: 1)
+                                                    for i in 0 ..< missionsDaily.count {
+                                                        if missionsDaily[i].missionType == .feed {
+                                                            print(missionsDaily[i].valueDone)
+                                                            if missionsDaily[i].valueDone < missionsDaily[i].valueTotal {
+                                                                missionsDaily[i].updateProgress(value: 1)
                                                             }
-                                                            print(missions[i].valueDone)
+                                                            print(missionsDaily[i].valueDone)
                                                         }
                                                     }
-                                                    constants.dailyMission.missions = missions
+                                                    constants.dailyMission.missions = missionsDaily
                                                     
-                                                    
+                                                    var missionsWeekly = constants.weeklyMission.getMissions()
+
+                                                    for i in 0 ..< missionsWeekly.count {
+                                                        if missionsWeekly[i].missionType == .feed {
+                                                            print(missionsWeekly[i].valueDone)
+                                                            if missionsWeekly[i].valueDone < missionsWeekly[i].valueTotal {
+                                                                missionsWeekly[i].updateProgress(value: 1)
+                                                            }
+                                                            print(missionsWeekly[i].valueDone)
+                                                        }
+                                                    }
+                                                    constants.weeklyMission.missions = missionsWeekly
                                                     
                                                     self.foodLocation = platePos
                                                 }

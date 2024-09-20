@@ -191,8 +191,7 @@ enum TibbySpecie: String, CaseIterable {
         case .shark:
             return [
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/owlSleep3@3x.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png"
             ]
         case .yellowShark:
             return [
