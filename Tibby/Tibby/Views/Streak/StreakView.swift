@@ -17,17 +17,35 @@ struct StreakView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(streak.currentStreak > 0 ? "ongoing\(currentFrame)" : "broken\(currentFrame)")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 170, height: 210)
-            
-            
+            if streak.currentStreak > 0 {
+                ZStack {
+                    Image("ongoing\(currentFrame)")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 170, height: 210)
+                        .onAppear {
+                            startFrameAnimation() // Start the frame animation when the view appears
+                        }
+                    Image("ongoing1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 170, height: 210)
+                }
+            } else {
+                Image("broken\(currentFrame)")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 170, height: 210)
+                    .onAppear {
+                        startFrameAnimation() // Start the frame animation when the view appears
+                    }
+            }
+
             Text("\(streak.currentStreak)")
                 .font(.typography(.display))
                 .foregroundStyle(.tibbyBaseBlack)
                 .padding(.bottom, 4)
-
+            
             
             Text(streak.currentStreak > 0 ? "days streak" : "day streak")
                 .font(.typography(.title))
@@ -80,7 +98,25 @@ struct StreakView: View {
         .ignoresSafeArea(.all)
         
     }
+    func startFrameAnimation() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+            withAnimation(.spring) {
+                if currentFrame < totalFrames {
+                    currentFrame += 1
+                } else {
+//                    currentFrame = 1 // Reset to the first frame to loop the animation
+                    stopFrameAnimation()
+                }
+            }
+        }
+    }
+    
+    func stopFrameAnimation() {
+        timer?.invalidate()
+        timer = nil
+    }
 }
+
 
 #Preview {
     StreakView(streak: GameStreak())
