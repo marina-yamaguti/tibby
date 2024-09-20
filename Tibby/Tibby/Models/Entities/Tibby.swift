@@ -39,8 +39,8 @@ enum TibbySpecie: String, CaseIterable {
             ]
         case .hammerShark:
             return [
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow2.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkBase1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkBase2@3x.png"
             ]
         case .dolphin:
             return [
@@ -105,12 +105,12 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep3.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSleep4.png"
             ]
-        case .yellowShark:
+        case .hammerShark:
             return [
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep2.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep3.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sleep4.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSleep1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSleep2@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSleep3@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSleep4@3x.png"
             ]
         case .dolphin:
             return [
@@ -193,10 +193,10 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark1Happy2.png"
             ]
-        case .yellowShark:
+        case .hammerShark:
             return [
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Happy2.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkHappy1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkHappy2@3x.png"
             ]
         case .dolphin:
             return [
@@ -259,10 +259,10 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkSad2.png"
             ]
-        case .yellowShark:
+        case .hammerShark:
             return [
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad1.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad4.png"
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSad1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkSad2@3x.png"
             ]
         case .dolphin:
             return [
@@ -327,10 +327,10 @@ enum TibbySpecie: String, CaseIterable {
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating1.png",
                 "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/sharkEating2.png"
             ]
-        case .yellowShark:
+        case .hammerShark:
             return [
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/shark2Sad2.png",
-                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/tibbySharkYellow2.png"
+                "tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkEat1@3x.png",
+                "https://tibbyappstorage.blob.core.windows.net/tibby-sprites/hammerSharkEat2@3x.png"
             ]
         case .dolphin:
             return [

@@ -30,9 +30,9 @@ struct MissionsView: View {
                             }
                             Spacer()
                             
-                            NavigationLink(destination: MissionsStreakView()) {
-                                StreakUpComponent(streakCount: streak.currentStreak)
-                            }
+//                            NavigationLink(destination: MissionsStreakView()) {
+//                                StreakUpComponent(streakCount: streak.currentStreak)
+//                            }
                         }
                         .padding(.bottom, 16)
                         
