@@ -73,6 +73,9 @@
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */; };
+		BC7386622C9CE6E20079E5F5 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386612C9CE6E20079E5F5 /* StreakView.swift */; };
+		BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */; };
+		BC7386662C9D0F240079E5F5 /* StreakScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386652C9D0F240079E5F5 /* StreakScroll.swift */; };
 		BCB5AC242C9212750050D1CA /* OfferedRewardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */; };
 		BCB5AC262C9215120050D1CA /* MissionProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */; };
 		BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */; };
@@ -110,7 +113,6 @@
 		D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */; };
 		D83B398D2C863EE100043BC7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398C2C863EE100043BC7 /* ProfileView.swift */; };
 		D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B398E2C86577400043BC7 /* GoalsComponent.swift */; };
-		D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83B39902C865A6000043BC7 /* StreakComponent.swift */; };
 		D84055142C82501000292BDC /* EquipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84055132C82501000292BDC /* EquipComponent.swift */; };
 		D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */; };
 		D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D896AECB2C6BD35D009C208C /* CustomStepper.swift */; };
@@ -320,6 +322,9 @@
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGoalsView.swift; sourceTree = "<group>"; };
+		BC7386612C9CE6E20079E5F5 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimation.swift; sourceTree = "<group>"; };
+		BC7386652C9D0F240079E5F5 /* StreakScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakScroll.swift; sourceTree = "<group>"; };
 		BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRewardComponent.swift; sourceTree = "<group>"; };
 		BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionProgressComponent.swift; sourceTree = "<group>"; };
 		BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsProgressBar.swift; sourceTree = "<group>"; };
@@ -355,7 +360,6 @@
 		D82337D72C6AB681006BF8BD /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
 		D83B398C2C863EE100043BC7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D83B398E2C86577400043BC7 /* GoalsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsComponent.swift; sourceTree = "<group>"; };
-		D83B39902C865A6000043BC7 /* StreakComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakComponent.swift; sourceTree = "<group>"; };
 		D84055132C82501000292BDC /* EquipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipComponent.swift; sourceTree = "<group>"; };
 		D8527A2B2C4AB5D60076E6B1 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D896AECB2C6BD35D009C208C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC7386602C9CE6D20079E5F5 /* Streak */,
 				BCB5AC222C9212630050D1CA /* Missions */,
 				7C39A1F32C90DEFE00FAE080 /* Profile */,
 				7C39A1F22C90DEC000FAE080 /* Exemples */,
@@ -581,7 +586,6 @@
 		7C39A1F02C90DE6600FAE080 /* Goals */ = {
 			isa = PBXGroup;
 			children = (
-				D83B39902C865A6000043BC7 /* StreakComponent.swift */,
 				D83B398E2C86577400043BC7 /* GoalsComponent.swift */,
 			);
 			path = Goals;
@@ -728,6 +732,7 @@
 				7CE131CF2C63F400001D7348 /* OnboardingView2.swift */,
 				7CE131D12C63F408001D7348 /* OnboardingView3.swift */,
 				7CE131D32C63F413001D7348 /* OnboardingView4.swift */,
+				BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -952,6 +957,15 @@
 				A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */,
 			);
 			path = Money;
+			sourceTree = "<group>";
+		};
+		BC7386602C9CE6D20079E5F5 /* Streak */ = {
+			isa = PBXGroup;
+			children = (
+				BC7386612C9CE6E20079E5F5 /* StreakView.swift */,
+				BC7386652C9D0F240079E5F5 /* StreakScroll.swift */,
+			);
+			path = Streak;
 			sourceTree = "<group>";
 		};
 		BCB5AC222C9212630050D1CA /* Missions */ = {
@@ -1491,6 +1505,7 @@
 				BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */,
 				FD5155392C935A7C00B9684A /* FinishedWorkout.swift in Sources */,
 				D896AED02C6D1B39009C208C /* SheetWithCircle.swift in Sources */,
+				BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */,
 				FDDCE7A62C76728100FEC8F2 /* CapsuleView.swift in Sources */,
 				D82337D82C6AB681006BF8BD /* ButtonTertiary.swift in Sources */,
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
@@ -1498,18 +1513,19 @@
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */,
-				D83B39912C865A6000043BC7 /* StreakComponent.swift in Sources */,
 				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
 				FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
+				BC7386662C9D0F240079E5F5 /* StreakScroll.swift in Sources */,
 				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
 				FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CB7799E2C9B5C61006CAC62 /* MissionEntity.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
+				BC7386622C9CE6E20079E5F5 /* StreakView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
 				FD51553D2C9388B600B9684A /* WorkoutComponent.swift in Sources */,
 				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,

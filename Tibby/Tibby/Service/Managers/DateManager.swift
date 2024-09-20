@@ -38,4 +38,28 @@ class DateManager: ObservableObject {
     func setToday() {
         lastDayVisited = self.getDay()
     }
+    
+    // Function to get all days and their abbreviated day of the week in a given month
+    func getAllDaysInMonth(for date: Date) -> [(date: Date, dayName: String)] {
+        var result: [(Date, String)] = []
+        
+        let calendar = Calendar.current
+        // Get the range of days in the given month
+        guard let range = calendar.range(of: .day, in: .month, for: date) else {
+            return result // Return empty if range cannot be determined
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E" // Short form of the day (e.g., "Sat", "Sun")
+        
+        for day in range {
+            var components = calendar.dateComponents([.year, .month], from: date)
+            components.day = day
+            if let fullDate = calendar.date(from: components) {
+                let dayName = formatter.string(from: fullDate)
+                result.append((fullDate, dayName))
+            }
+        }
+        return result
+    }
 }
