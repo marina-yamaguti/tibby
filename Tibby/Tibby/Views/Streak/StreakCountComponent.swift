@@ -1,31 +1,28 @@
 //
-//  StreakUpComponent.swift
+//  StreakCountComponent.swift
 //  Tibby
 //
-//  Created by Natalia Dal Pizzol on 12/09/24.
+//  Created by Natalia Dal Pizzol on 20/09/24.
 //
 
 import SwiftUI
 
-struct StreakUpComponent: View {
+struct StreakCountComponent: View {
     @State var streak = GameStreak()
-    
     var body: some View {
-        ZStack {
+        HStack(alignment: .bottom) {
             Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
                 .resizable()
-                .frame(width: 36, height: 48)
+                .frame(width: 21, height: 27)
             
             Text("\(streak.currentStreak)")
                 .font(.typography(.body))
-                .foregroundStyle(.tibbyBaseDarkBlue)
-                .padding(4)
-                .offset(x: 10, y: 15)
+                .foregroundStyle(.tibbyBaseBlack)
         }
     }
 }
 
 
 #Preview {
-    StreakUpComponent()
+    StreakCountComponent()
 }

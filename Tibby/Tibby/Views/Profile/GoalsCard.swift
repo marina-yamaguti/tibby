@@ -36,6 +36,7 @@ struct GoalsCard: View {
                     GoalsComponent(value: sleep, title: "Daily Sleep Time", description: "hours/day")
                 }
             }
+            .scrollClipDisabled()
             .scrollIndicators(.hidden)
         }
     }

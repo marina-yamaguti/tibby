@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StreakView: View {
-    @State var streak: GameStreak
+    @State var streak = GameStreak()
     @State private var currentFrame = 1
     @State private var timer: Timer? = nil
     @Environment(\.dismiss) var dismiss
@@ -119,5 +119,5 @@ struct StreakView: View {
 
 
 #Preview {
-    StreakView(streak: GameStreak())
+    StreakView()
 }

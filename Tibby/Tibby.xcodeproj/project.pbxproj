@@ -71,18 +71,18 @@
 		A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */; };
 		A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BDE2C498842008703E7 /* MoneyView.swift */; };
 		A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */; };
+		BC4F9FB52C9E5D2200D23338 /* StreakScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */; };
+		BC4F9FB72C9E5D2E00D23338 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */; };
+		BC4F9FB92C9E5EFF00D23338 /* StreakCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */; };
-		BC7386622C9CE6E20079E5F5 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386612C9CE6E20079E5F5 /* StreakView.swift */; };
 		BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */; };
-		BC7386662C9D0F240079E5F5 /* StreakScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386652C9D0F240079E5F5 /* StreakScroll.swift */; };
 		BCB5AC242C9212750050D1CA /* OfferedRewardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */; };
 		BCB5AC262C9215120050D1CA /* MissionProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */; };
 		BCB5AC282C92198D0050D1CA /* MissionsProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */; };
 		BCB5AC2A2C921B410050D1CA /* MissionCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */; };
 		BCB5AC2C2C93203B0050D1CA /* MissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */; };
 		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
-		BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */; };
 		BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC322C937CF70050D1CA /* Streak.swift */; };
 		BCB5AC352C9392230050D1CA /* UserProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */; };
 		BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */; };
@@ -320,18 +320,18 @@
 		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
+		BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakScroll.swift; sourceTree = "<group>"; };
+		BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCountComponent.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGoalsView.swift; sourceTree = "<group>"; };
-		BC7386612C9CE6E20079E5F5 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimation.swift; sourceTree = "<group>"; };
-		BC7386652C9D0F240079E5F5 /* StreakScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakScroll.swift; sourceTree = "<group>"; };
 		BCB5AC232C9212750050D1CA /* OfferedRewardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferedRewardComponent.swift; sourceTree = "<group>"; };
 		BCB5AC252C9215120050D1CA /* MissionProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionProgressComponent.swift; sourceTree = "<group>"; };
 		BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsProgressBar.swift; sourceTree = "<group>"; };
 		BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCardComponent.swift; sourceTree = "<group>"; };
 		BCB5AC2B2C93203B0050D1CA /* MissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsView.swift; sourceTree = "<group>"; };
 		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
-		BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsStreakView.swift; sourceTree = "<group>"; };
 		BCB5AC322C937CF70050D1CA /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileComponent.swift; sourceTree = "<group>"; };
 		BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseCard.swift; sourceTree = "<group>"; };
@@ -962,8 +962,9 @@
 		BC7386602C9CE6D20079E5F5 /* Streak */ = {
 			isa = PBXGroup;
 			children = (
-				BC7386612C9CE6E20079E5F5 /* StreakView.swift */,
-				BC7386652C9D0F240079E5F5 /* StreakScroll.swift */,
+				BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */,
+				BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */,
+				BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */,
 			);
 			path = Streak;
 			sourceTree = "<group>";
@@ -977,7 +978,6 @@
 				BCB5AC272C92198D0050D1CA /* MissionsProgressBar.swift */,
 				BCB5AC292C921B410050D1CA /* MissionCardComponent.swift */,
 				BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */,
-				BCB5AC2F2C9350400050D1CA /* MissionsStreakView.swift */,
 			);
 			path = Missions;
 			sourceTree = "<group>";
@@ -1455,6 +1455,7 @@
 				A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */,
 				A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */,
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
+				BC4F9FB92C9E5EFF00D23338 /* StreakCountComponent.swift in Sources */,
 				A5126BDF2C498842008703E7 /* MoneyView.swift in Sources */,
 				FD5155372C920B7400B9684A /* WorkoutMission.swift in Sources */,
 				BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */,
@@ -1488,6 +1489,7 @@
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				D81284BF2C6BCC100088A7B9 /* CustomTextField.swift in Sources */,
+				BC4F9FB52C9E5D2200D23338 /* StreakScroll.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
 				D82337D62C6AB590006BF8BD /* ButtonSecondary.swift in Sources */,
 				D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */,
@@ -1518,14 +1520,11 @@
 				FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,
 				FDE4F8292C2CA7C900490F38 /* Tibby.swift in Sources */,
-				BC7386662C9D0F240079E5F5 /* StreakScroll.swift in Sources */,
-				BCB5AC302C9350400050D1CA /* MissionsStreakView.swift in Sources */,
 				FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */,
 				A5126BE32C498A7B008703E7 /* MoneyViewModel.swift in Sources */,
 				7CB7799E2C9B5C61006CAC62 /* MissionEntity.swift in Sources */,
 				7CE131CD2C63F3D0001D7348 /* OnboardingView1.swift in Sources */,
 				FDDCE7A02C7515F800FEC8F2 /* GatchaView.swift in Sources */,
-				BC7386622C9CE6E20079E5F5 /* StreakView.swift in Sources */,
 				FDDCE79D2C73B3DF00FEC8F2 /* CollectionNameComponent.swift in Sources */,
 				FD51553D2C9388B600B9684A /* WorkoutComponent.swift in Sources */,
 				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,
@@ -1565,6 +1564,7 @@
 				D82337D42C6AB063006BF8BD /* GradientBackgroundView.swift in Sources */,
 				FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
+				BC4F9FB72C9E5D2E00D23338 /* StreakView.swift in Sources */,
 				D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */,
 				D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */,
 				FD51552F2C88D1EA00B9684A /* CustomSearchBar.swift in Sources */,
@@ -1829,7 +1829,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1878,7 +1878,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tibby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tibby App Prov Profile";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -25,7 +25,7 @@ struct ShowcaseCard: View {
                         .font(.typography(.label))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.tibbyBaseGrey)
-                        .frame(minHeight: 50)
+                        .frame(minHeight: 100)
                     Spacer()
                 }
                 .padding(16)
@@ -44,8 +44,10 @@ struct ShowcaseCard: View {
                             rarity: tibby.rarity
                         )
                         .scaledToFit()
+                        .frame(maxWidth: 105, maxHeight: 105)
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(12)
                 .background {
                     RoundedRectangle(cornerRadius: 10)
