@@ -84,7 +84,7 @@ struct OnboardingTab: View {
                 }
                 if vm.currentOnboarding != .gacha {
                     Spacer()
-                    Button(action: {
+                    Button {
                         if vm.currentIndex == 1 {
                             if !openHealth {
                                 healthManager.authorizationToWriteInHealthStore(vm)
@@ -103,7 +103,7 @@ struct OnboardingTab: View {
                         
                         print(vm.currentIndex)
                         print(vm.currentOnboarding)
-                    }, label: {
+                    } label: {
                         HStack {
                             Image(vm.currentOnboarding.buttonSymbol)
                                 .resizable()
@@ -113,9 +113,9 @@ struct OnboardingTab: View {
                                 .foregroundStyle(.tibbyBaseBlack)
                                 .padding(.horizontal)
                         }
-                        
-                    })
+                    }
                     .buttonPrimary(bgColor: .tibbyBaseBlue)
+
                     .alert(isPresented: $showAlert) {
                         Alert(
                             title: Text("Provide a Name"),

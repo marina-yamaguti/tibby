@@ -58,13 +58,13 @@ enum OnboardingViews: CaseIterable {
     var buttonSymbol: String {
         switch self {
         case .onboarding1:
-            TibbySymbols.chevronRight.rawValue
+            TibbySymbols.chevronRightBlack.rawValue
         case .onboarding2:
-            TibbySymbols.lock.rawValue
+            TibbySymbols.lockBlack.rawValue
         case .onboarding3:
-            TibbySymbols.checkMark.rawValue
+            TibbySymbols.checkmarkBlack.rawValue
         case .onboarding4:
-            TibbySymbols.play.rawValue
+            TibbySymbols.playBlack.rawValue
         case .gacha:
             ""
         }

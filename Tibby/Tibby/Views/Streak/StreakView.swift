@@ -59,7 +59,7 @@ struct StreakView: View {
             Button(action: {dismiss()},
                    label: {
                 HStack {
-                    Image(TibbySymbols.checkMark.rawValue)
+                    Image(TibbySymbols.checkmarkBlack.rawValue)
                         .resizable()
                         .frame(width: 32, height: 32)
                     Text("Okay")
@@ -68,9 +68,10 @@ struct StreakView: View {
                         .padding(.horizontal)
                 }
             })
-            .buttonPrimary(bgColor: .tibbyBaseYellow)
+            .buttonPrimary(bgColor: streak.currentStreak > 0 ? .tibbyBaseYellow : .tibbyBaseWhite)
             .padding(.bottom, 32)
         }
+        .navigationBarBackButtonHidden(true)
         .background {
             if streak.currentStreak > 0 {
                 Color.tibbyBaseOrange
@@ -98,6 +99,7 @@ struct StreakView: View {
         .ignoresSafeArea(.all)
         
     }
+
     func startFrameAnimation() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             withAnimation(.spring) {

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Type=Chevron Left_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Type=Chevron Left@2x_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Type=Chevron Left@3x_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

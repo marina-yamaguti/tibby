@@ -71,14 +71,14 @@ struct BedroomView: View {
                 }.frame(width: 300, height: 300) //tibby
                 Spacer()
                 HStack {
-                    Button(action: {vm.lightsOff(tibby: tibby)}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.lightBulb.rawValue, text: "")})
+                    Button(action: {vm.lightsOff(tibby: tibby)}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.lightbulbWhite.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                     Spacer()
                     Button(action: {
                         if !constants.tibbySleeping {
                             wardrobeIsOpen.toggle()
                         }
-                    }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hanger.rawValue, text: "")})
+                    }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.hangerWhite.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                 }
                 .padding(.bottom, 32).padding(.horizontal,20)

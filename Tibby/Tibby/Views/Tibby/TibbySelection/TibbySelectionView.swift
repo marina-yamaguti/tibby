@@ -50,7 +50,7 @@ struct TibbySelectionView: View {
                 )
             HStack {
                 Spacer()
-                Button(action: {showTibbyBook = true}, label: {ButtonLabel(type: .secondary, image: "TibbySymbolBook", text: "")})
+                Button(action: {showTibbyBook = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.bookWhite.rawValue, text: "")})
                     .buttonSecondary(bgColor: .black.opacity(0.5))
                     .navigationDestination(isPresented: $showTibbyBook) {
                         TibbyBook(tibby: $tibby)

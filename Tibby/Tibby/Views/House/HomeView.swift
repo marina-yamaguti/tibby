@@ -49,7 +49,7 @@ struct HomeView: View {
                         
                         
                         Spacer()
-                        Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
+                        Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
                                 SettingsView()
@@ -77,7 +77,7 @@ struct HomeView: View {
                         navigate.toggle()
                     }) {
                         HStack {
-                            Image(TibbySymbols.play.rawValue)
+                            Image(TibbySymbols.playBlack.rawValue)
                                 .padding(.trailing, 26)
                             Text("Play")
                                 .font(.typography(.title))
@@ -89,7 +89,7 @@ struct HomeView: View {
                     }
                     
                     HStack(alignment: .center) {
-                        Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
+                        Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cartWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
                                 GatchaView(firstTimeHere: .constant(false), currentTibby: .constant(nil))
@@ -98,7 +98,7 @@ struct HomeView: View {
                         Button(action: {
                             //showMissionsAlert = true
                             showMissions = true
-                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.listWhite.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                         .navigationDestination(isPresented: $showMissions) {
                             MissionsView()

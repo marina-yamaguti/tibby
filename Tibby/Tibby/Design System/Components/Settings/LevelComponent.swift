@@ -11,7 +11,9 @@ struct LevelComponent: View {
     var level: Int
     var body: some View {
         HStack {
-            Image(TibbySymbols.profile.rawValue)
+            Image(TibbySymbols.profileWhite.rawValue)
+                .resizable()
+                .scaledToFit()
                 .frame(width: 14, height: 14)
                 .padding(8)
                 .background {

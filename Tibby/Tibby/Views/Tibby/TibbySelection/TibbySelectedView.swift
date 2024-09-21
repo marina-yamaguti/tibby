@@ -26,7 +26,7 @@ struct TibbySelectedView: View {
                     CustomBackButton()
                     Spacer()
                     EquipComponent(viewModel: viewModel, isSelected: $viewModel.status)
-                    Button(action: {viewModel.toggleFavorite()}, label: {ButtonLabel(type: .secondary, image: viewModel.isFavorite ? TibbySymbols.heartFill.rawValue : TibbySymbols.heart.rawValue , text: "")})
+                    Button(action: {viewModel.toggleFavorite()}, label: {ButtonLabel(type: .secondary, image: viewModel.isFavorite ? TibbySymbols.heartFillWhite.rawValue : TibbySymbols.heartWhite.rawValue , text: "")})
                         .buttonSecondary(bgColor: viewModel.isFavorite ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                 }
                 .padding(.bottom, 24)

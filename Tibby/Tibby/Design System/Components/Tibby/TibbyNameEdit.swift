@@ -106,7 +106,7 @@ struct TibbyNameEdit: View {
         ZStack {
             Circle()
                 .foregroundStyle(isEditing ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
-            Image(isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.pen.rawValue)
+            Image(isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.penWhite.rawValue)
                 .resizable()
                 .frame(width: 14, height: 14)
                 .foregroundStyle(Color.tibbyBaseWhite)

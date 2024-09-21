@@ -50,7 +50,7 @@ enum ResourceCategory: Hashable, CaseIterable {
         case .credits:
             return .chevronRightGrey
         case .support, .rateInAppStore, .follow:
-            return .arrowUpGrey
+            return .arrowUpDiagonalGrey
         }
     }
 }

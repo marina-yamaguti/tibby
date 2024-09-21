@@ -15,9 +15,9 @@ enum Enviroment {
         case .garden:
             return TibbySymbols.dumbbellBlack
         case .kitchen:
-            return TibbySymbols.food
+            return TibbySymbols.kitchenBlack
         case .bedroom:
-            return TibbySymbols.sleepy
+            return TibbySymbols.sleepBlack
         }
     }
     
@@ -75,7 +75,8 @@ struct NavigationTabbarView: View {
                         })
                         .buttonTabBar()
                     }
-                }.frame(height: 80)
+                }
+                .frame(height: 80)
             }
             .navigationBarBackButtonHidden(true)
             .ignoresSafeArea(edges: [.top])

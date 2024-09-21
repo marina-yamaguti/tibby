@@ -74,6 +74,8 @@
 		BC4F9FB52C9E5D2200D23338 /* StreakScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */; };
 		BC4F9FB72C9E5D2E00D23338 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */; };
 		BC4F9FB92C9E5EFF00D23338 /* StreakCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */; };
+		BC4F9FBC2C9E6AD000D23338 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FBB2C9E6AD000D23338 /* ConnectionView.swift */; };
+		BC4F9FC02C9E934200D23338 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FBF2C9E934200D23338 /* NetworkMonitor.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */; };
 		BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */; };
@@ -323,6 +325,8 @@
 		BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakScroll.swift; sourceTree = "<group>"; };
 		BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCountComponent.swift; sourceTree = "<group>"; };
+		BC4F9FBB2C9E6AD000D23338 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		BC4F9FBF2C9E934200D23338 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGoalsView.swift; sourceTree = "<group>"; };
 		BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimation.swift; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC4F9FBA2C9E6ABC00D23338 /* Connection */,
 				BC7386602C9CE6D20079E5F5 /* Streak */,
 				BCB5AC222C9212630050D1CA /* Missions */,
 				7C39A1F32C90DEFE00FAE080 /* Profile */,
@@ -959,6 +964,14 @@
 			path = Money;
 			sourceTree = "<group>";
 		};
+		BC4F9FBA2C9E6ABC00D23338 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				BC4F9FBB2C9E6AD000D23338 /* ConnectionView.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
 		BC7386602C9CE6D20079E5F5 /* Streak */ = {
 			isa = PBXGroup;
 			children = (
@@ -1113,6 +1126,7 @@
 				FDCD3F502C34EEFE0075E0C7 /* Service.swift */,
 				FDCD3F712C37469A0075E0C7 /* ServiceProtocol.swift */,
 				7CF056C92C3C774D006039A4 /* Constants.swift */,
+				BC4F9FBF2C9E934200D23338 /* NetworkMonitor.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1479,6 +1493,7 @@
 				D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */,
 				7CE131D02C63F400001D7348 /* OnboardingView2.swift in Sources */,
 				D80755C52C3C5774000CA029 /* Extension + Font.swift in Sources */,
+				BC4F9FBC2C9E6AD000D23338 /* ConnectionView.swift in Sources */,
 				D896AEDC2C6D4655009C208C /* NotificationManager.swift in Sources */,
 				7CE131D62C640773001D7348 /* HealthKit.swift in Sources */,
 				BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */,
@@ -1516,6 +1531,7 @@
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */,
 				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,
+				BC4F9FC02C9E934200D23338 /* NetworkMonitor.swift in Sources */,
 				7CC14D412C484FB5002715F5 /* HapticManager.swift in Sources */,
 				FD5155342C8B79A600B9684A /* RarityLabel.swift in Sources */,
 				D896AED62C6D21C5009C208C /* SettingsComponent.swift in Sources */,

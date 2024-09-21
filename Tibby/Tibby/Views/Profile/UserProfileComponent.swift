@@ -62,7 +62,7 @@ struct UserProfileComponent: View {
                             isEditing.toggle()
                             isFocused.toggle()}
                         ) {
-                            ButtonLabel(type: .secondary, image: isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.pen.rawValue, text: "")
+                            ButtonLabel(type: .secondary, image: isEditing ? TibbySymbols.checkmarkWhite.rawValue: TibbySymbols.penWhite.rawValue, text: "")
                         }
                         .buttonSmallRounded(bgColor: isEditing ? .tibbyBaseSaturatedGreen : .black.opacity(0.5))
                     }

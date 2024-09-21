@@ -16,7 +16,7 @@ struct SettingsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            PageHeader(title: "Settings", symbol: "TibbySymbolSettings")
+            PageHeader(title: "Settings", symbol: TibbySymbols.gearBlack.rawValue)
             ScrollView {
                 VStack {
                     VStack(spacing: 16) {
