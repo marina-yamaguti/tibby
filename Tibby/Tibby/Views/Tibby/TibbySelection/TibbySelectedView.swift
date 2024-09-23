@@ -61,12 +61,8 @@ struct TibbySelectedView: View {
                 } .scrollIndicators(.hidden).ignoresSafeArea(.all, edges: Edge.Set(.bottom))
             }
             .padding()
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(
-                    title: Text("Limit Reached"),
-                    message: Text("You reached the limit of favourite Tibbies (3). Remove one to add another."),
-                    dismissButton: .default(Text("OK"))
-                )
+            .popup(isPresented: $viewModel.showAlert) {
+                CustomPopUpView(isPresented: $viewModel.showAlert, title: "Limit Reached", description: "You reached the limit of favourite Tibbies (3). Remove one to add another.", actionType: .ok)
             }
         }
         .background(Color.tibbyBaseWhite)

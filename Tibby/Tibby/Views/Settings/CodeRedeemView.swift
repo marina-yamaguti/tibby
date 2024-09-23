@@ -54,35 +54,5 @@ struct CodeRedeemView: View {
                     .fill(.tibbyBasePearlBlue)
             }
         }
-        .alert(isPresented: Binding<Bool>(
-            get: {
-                viewModel.showRedeemSuccess || viewModel.invalidAlert || viewModel.codeAlreadyRedeemedAlert
-            },
-            set: { _ in
-                viewModel.showRedeemSuccess = false
-                viewModel.invalidAlert = false
-                viewModel.codeAlreadyRedeemedAlert = false
-            })
-        ) {
-            if viewModel.showRedeemSuccess {
-                return Alert(
-                    title: Text("Congratulations!"),
-                    message: Text("You unlocked a new acessory, 20 gems and 100 coins!"),
-                    dismissButton: .default(Text("OK"))
-                )
-            } else if viewModel.codeAlreadyRedeemedAlert {
-                return Alert(
-                    title: Text("Code Already Redeemed"),
-                    message: Text("You have already redeemed this code."),
-                    dismissButton: .default(Text("OK"))
-                )
-            } else {
-                return Alert(
-                    title: Text("Invalid Code"),
-                    message: Text("Oops! The code you entered is not valid. Please try again."),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-        }
     }
 }

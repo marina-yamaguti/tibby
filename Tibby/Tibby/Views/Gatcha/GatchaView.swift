@@ -232,14 +232,10 @@ struct GatchaView: View {
                     }
                 }
                 
-            }.alert(isPresented: $showAlert, content: {
-                Alert(
-                    title: Text("Ops..."),
-                    message: Text("It seems you don't have enough \(isBaseOnFocus ? "coins" : "gems") for this."),
-                    dismissButton: .default(Text("Ok"))
-                )
-            })
-            
+            }
+            .popup(isPresented: $showAlert) {
+                CustomPopUpView(isPresented: $showAlert, title: "Ops...", description: "It seems you don't have enough \(isBaseOnFocus ? "coins" : "gems") to purchase this.", actionType: .ok)
+            }
         }
     }
 }

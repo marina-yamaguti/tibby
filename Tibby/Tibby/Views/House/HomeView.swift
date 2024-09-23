@@ -30,25 +30,21 @@ struct HomeView: View {
     @State private var showProfile = false
     
     //temporary
-    @State var showMissionsAlert = false
-    
-    
-    
+
     var body: some View {
-        
         ZStack {
             HStack {
                 Spacer()
                 VStack {
-                    HStack(alignment: .center) {
+                    HStack(alignment: .top) {
                         LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
                                 showProfile.toggle()
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
                         
-                        
                         Spacer()
+                        
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
@@ -84,6 +80,7 @@ struct HomeView: View {
                         }
                     }
                     .buttonPrimary(bgColor: .tibbyBaseBlue)
+                    .frame(maxHeight: 80)
                     .navigationDestination(isPresented: $navigate) {
                         NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                     }
@@ -264,12 +261,6 @@ struct HomeView: View {
             print("mudou de acessorio")
             self.dressUpAccessory()
         })
-//        .alert(isPresented: $showMissionsAlert, content: {
-//            Alert(
-//                title: Text("Missions Cooming Soon!"),
-//                dismissButton: .default(Text("Ok"))
-//            )
-//        })
     }
     
     private func dressUpAccessory() {

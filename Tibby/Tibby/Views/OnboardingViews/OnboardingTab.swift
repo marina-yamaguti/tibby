@@ -13,7 +13,7 @@ struct OnboardingTab: View {
     @EnvironmentObject var service: Service
     @EnvironmentObject var healthManager: HealthManager
     @State var name: String =  ""
-    @State private var showAlert = false
+    @State private var showingPopUp = false
     @State private var openHealth = false
     @Binding var currentTibby: Tibby?
     
@@ -95,7 +95,7 @@ struct OnboardingTab: View {
                                 vm.nextPage()
                             } else {
                                 AudioManager.instance.playSFXSecondary(audio: .popup)
-                                showAlert = true
+                                showingPopUp = true
                             }
                         } else {
                             vm.nextPage()
@@ -115,17 +115,17 @@ struct OnboardingTab: View {
                         }
                     }
                     .buttonPrimary(bgColor: .tibbyBaseBlue)
-
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Provide a Name"),
-                            message: Text("Please write your name to proceed."),
-                            dismissButton: .default(Text("OK"))
-                        )
-                    }
                 }
             }
             .padding(EdgeInsets(top: vm.currentOnboarding != .gacha ? 90 : 0, leading: vm.currentOnboarding != .gacha ? 16 : 0, bottom: vm.currentOnboarding != .gacha ? 30 : 0, trailing: vm.currentOnboarding != .gacha ? 16 : 0))
+        }
+        .popup(isPresented: $showingPopUp) {
+            CustomPopUpView(
+                isPresented: $showingPopUp, 
+                title: "Provide a Name",
+                description: "Please write your name to proceed.",
+                actionType: .ok
+            )
         }
         .background(.tibbyBaseWhite)
         .onAppear {
@@ -136,3 +136,5 @@ struct OnboardingTab: View {
         }
     }
 }
+    
+    
