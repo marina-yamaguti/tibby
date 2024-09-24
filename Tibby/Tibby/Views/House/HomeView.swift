@@ -30,26 +30,22 @@ struct HomeView: View {
     @State private var showProfile = false
     
     //temporary
-    @State var showMissionsAlert = false
-    
-    
-    
+
     var body: some View {
-        
         ZStack {
             HStack {
                 Spacer()
                 VStack {
-                    HStack(alignment: .center) {
+                    HStack(alignment: .top) {
                         LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
                                 showProfile.toggle()
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
                         
-                        
                         Spacer()
-                        Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.settingsWhite.rawValue, text: "")})
+                        
+                        Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
                                 SettingsView()
@@ -77,19 +73,20 @@ struct HomeView: View {
                         navigate.toggle()
                     }) {
                         HStack {
-                            Image(TibbySymbols.play.rawValue)
+                            Image(TibbySymbols.playBlack.rawValue)
                                 .padding(.trailing, 26)
                             Text("Play")
                                 .font(.typography(.title))
                         }
                     }
                     .buttonPrimary(bgColor: .tibbyBaseBlue)
+                    .frame(maxHeight: 80)
                     .navigationDestination(isPresented: $navigate) {
                         NavigationTabbarView(vm: NavigationViewModel(tibby: tibby))
                     }
                     
                     HStack(alignment: .center) {
-                        Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cart.rawValue, text: "")})
+                        Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cartWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
                                 GatchaView(firstTimeHere: .constant(false), currentTibby: .constant(nil))
@@ -98,7 +95,7 @@ struct HomeView: View {
                         Button(action: {
                             //showMissionsAlert = true
                             showMissions = true
-                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.list.rawValue, text: "")})
+                        }, label: {ButtonLabel(type: .secondary, image: TibbySymbols.listWhite.rawValue, text: "")})
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                         .navigationDestination(isPresented: $showMissions) {
                             MissionsView()
@@ -264,12 +261,6 @@ struct HomeView: View {
             print("mudou de acessorio")
             self.dressUpAccessory()
         })
-//        .alert(isPresented: $showMissionsAlert, content: {
-//            Alert(
-//                title: Text("Missions Cooming Soon!"),
-//                dismissButton: .default(Text("Ok"))
-//            )
-//        })
     }
     
     private func dressUpAccessory() {

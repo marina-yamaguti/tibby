@@ -19,7 +19,7 @@ struct TibbyBook: View {
             GridItem(.flexible(), spacing: 16)
         ]
         
-        VStack {
+        VStack(spacing: 0) {
             PageHeader(title: "Tibby Book", symbol: TibbySymbols.bookBlack.rawValue)
             ScrollView {
                 VStack {

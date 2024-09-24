@@ -23,24 +23,28 @@ struct ButtonLabel: View {
     var image: String
     
     /// The text to display next to the image (used for primary buttons).
-    var text: String
+    var text: String?
     
     /// The color of the text and image.
     var foregroundColor: Color = .tibbyBaseDarkBlue
     
     var body: some View {
         HStack {
-            Image(image)
-                .resizable()
-                .scaledToFit()
             if type == .primary {
-                Text(text)
+                Image(TibbySymbols.checkmarkBlack.rawValue)
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                Text(text ?? "")
                     .font(.typography(.title))
-                    .padding(.leading, 32)
+                    .foregroundStyle(.tibbyBaseBlack)
+                    .padding(.horizontal)
             } else {
-                EmptyView()
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
             }
         }
         .foregroundStyle(foregroundColor)
     }
 }
+

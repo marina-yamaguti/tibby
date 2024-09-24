@@ -112,7 +112,7 @@ struct CapsuleView: View {
                     RarityLabel(capsule: images[0], rarity: tibby.rarity)
                     
                     if wasAlreadyUnlocked {
-                        RarityLabel(capsule: Image(TibbySymbols.duplicate.rawValue), rarity: "duplicate")
+                        RarityLabel(capsule: Image(TibbySymbols.duplicateWhite.rawValue), rarity: "duplicate")
                     }
                     Spacer()
                 }
@@ -136,16 +136,16 @@ struct CapsuleView: View {
                         })
                 }
                 
-                Button(action: {
+                Button {
                     if firstTimeHere {
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
                     } else {
                         presentationMode.wrappedValue.dismiss()
                     }
-                }, label: {
+                } label: {
                     HStack {
-                        Image(TibbySymbols.checkMark.rawValue)
+                        Image(TibbySymbols.checkmarkBlack.rawValue)
                             .resizable()
                             .frame(width: 32, height: 32)
                         Text("Okay")
@@ -153,8 +153,10 @@ struct CapsuleView: View {
                             .foregroundStyle(.tibbyBaseBlack)
                             .padding(.horizontal)
                     }
-                }).buttonPrimary(bgColor: color == .tibbyBaseWhite ? .tibbyBaseYellow : color)
-                    .padding(.bottom)
+                }
+                .buttonPrimary(bgColor: color == .tibbyBaseWhite ? .tibbyBaseYellow : color)
+                .padding(.bottom)
+
                 
             }.background(color)
                 .foregroundStyle(.tibbyBaseBlack)

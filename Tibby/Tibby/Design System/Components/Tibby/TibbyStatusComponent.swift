@@ -14,7 +14,7 @@ struct TibbyStatusComponent: View {
     
     var body: some View {
         HStack {
-            Image(TibbySymbols.food.rawValue)
+            Image(TibbySymbols.kitchenWhite.rawValue)
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: hunger))
@@ -22,7 +22,7 @@ struct TibbyStatusComponent: View {
                 .frame(width: 17, height: 17)
 
             Spacer()
-            Image(TibbySymbols.sleepy.rawValue)
+            Image(TibbySymbols.sleepWhite.rawValue)
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: sleep))
@@ -30,7 +30,7 @@ struct TibbyStatusComponent: View {
                 .frame(width: 17, height: 17)
 
             Spacer()
-            Image(TibbySymbols.dumbbell.rawValue)
+            Image(TibbySymbols.dumbbellWhite.rawValue)
                 .resizable()
                 .renderingMode(.template) // Set the image rendering mode to template
                 .foregroundStyle(getProgressColor(progress: play))

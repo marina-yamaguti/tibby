@@ -28,7 +28,7 @@ struct EditingGoalsView: View {
                         
                         Button(action: {showEdit = false},
                                label: {
-                            ButtonLabel(type: .secondary, image: TibbySymbols.xMark.rawValue, text: "")
+                            ButtonLabel(type: .secondary, image: TibbySymbols.xmarkWhite.rawValue, text: "")
                         })
                         .buttonSecondary(bgColor: .black.opacity(0.5))
                     }
@@ -36,12 +36,12 @@ struct EditingGoalsView: View {
                     CustomStepper(value: $energy, step: 10, range: 110...1440, title: "Daily Energy Goal", description: "calories/day", stepperType: .editing)
                     CustomStepper(value: $steps, step: 500, range: 500...10000, title: "Daily Steps", description: "steps/day", stepperType: .editing)
                     CustomStepper(value: $sleep, step: 1, range: 6...12, title: "Daily Sleep Time", description: "hours/day", stepperType: .editing)
-                    Button(action: {
+                    Button {
                         saveGoals()
                         showEdit = false
-                    }) {
+                    } label: {
                         HStack {
-                            Image(TibbySymbols.checkMark.rawValue)
+                            Image(TibbySymbols.checkmarkWhite.rawValue)
                                 .resizable()
                                 .frame(width: 32, height: 32)
                             Text("Save")
@@ -51,6 +51,7 @@ struct EditingGoalsView: View {
                         }
                     }
                     .buttonPrimary(bgColor: .tibbyBaseYellow)
+
                 }
             }
             .padding(16)

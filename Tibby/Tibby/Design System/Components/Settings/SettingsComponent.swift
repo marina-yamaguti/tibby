@@ -15,7 +15,7 @@ enum TrailingType {
 
 /// A reusable SwiftUI component for displaying a settings option with either a toggle button or details view.
 struct SettingsComponent: View {
-    @State private var showHealthAlert = false
+    @Binding var showHealthAlert: Bool
     @State var hapticManager = HapticManager.instance
     @State var audioManager = AudioManager.instance
     
@@ -29,7 +29,7 @@ struct SettingsComponent: View {
     
     /// The color of the circle next to the title.
     var color: Color
-
+    
     
     var body: some View {
         VStack(spacing: 16) {
@@ -101,23 +101,5 @@ struct SettingsComponent: View {
                     .fill(.tibbyBasePearlBlue)
             }
         }
-        .alert("How to allow", isPresented: $showHealthAlert) {
-            Button("Open Settings") {
-                openSettings()
-            }
-            Button("Cancel", role: .cancel) {}
-                .foregroundColor(.gray) 
-        } message: {
-            Text("Go to Settings > Health > Tibby > Allow Data Access.")
-        }
-    }
-    
-    private func openSettings() {
-        if let url = URL(string: UIApplication.openSettingsURLString) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
     }
 }
-

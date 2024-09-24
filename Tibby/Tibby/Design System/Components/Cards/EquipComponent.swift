@@ -17,6 +17,8 @@ struct EquipComponent: View {
                 .font(.typography(.body))
                 .foregroundStyle(isSelected == .selected ? .tibbyBaseGrey : .tibbyBaseBlack)
             Image(TibbySymbols.checkmarkWhite.rawValue)
+                .resizable()
+                .frame(width: 14, height: 14)
                 .padding(14)
                 .background {
                     Circle()

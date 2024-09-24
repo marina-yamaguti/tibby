@@ -27,7 +27,7 @@ struct WorkoutMission: View {
                     ZStack {
                         Circle()
                             .foregroundStyle(.black.opacity(0.5))
-                        Image(TibbySymbols.xMark.rawValue)
+                        Image(TibbySymbols.xmarkWhite.rawValue)
                             .resizable()
                             .padding(10)
                     }.frame(width: 40, height: 40)

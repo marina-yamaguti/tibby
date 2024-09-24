@@ -45,7 +45,7 @@ struct CustomStepper: View {
                         value -= step
                     }
                 }) {
-                    Image(TibbySymbols.minus.rawValue)
+                    Image(TibbySymbols.minusWhite.rawValue)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 14)
@@ -73,7 +73,7 @@ struct CustomStepper: View {
                         value += step
                     }
                 }) {
-                    Image(TibbySymbols.plus.rawValue)
+                    Image(TibbySymbols.plusWhite.rawValue)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 14)

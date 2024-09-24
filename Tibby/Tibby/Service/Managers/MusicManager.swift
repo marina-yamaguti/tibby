@@ -54,7 +54,20 @@ class AudioManager {
     }
     
     /// Private initializer to enforce the singleton pattern.
-    private init() {}
+    private init() {
+        configureAudioSession() // Configure the audio session when initializing AudioManager
+    }
+    
+    /// Configures the audio session to allow playback even in silent mode.
+    private func configureAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default, options: [])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to configure audio session: \(error)")
+        }
+    }
     
     /// Plays background music using the provided audio file name.
     ///
@@ -78,8 +91,7 @@ class AudioManager {
             } else {
                 print("No audio file found")
             }
-        }
-        else {
+        } else {
             audioPlayer?.stop() // Stop any currently playing audio
         }
     }
@@ -102,8 +114,7 @@ class AudioManager {
             } else {
                 print("No audio file found")
             }
-        }
-        else {
+        } else {
             sfxPlayerSecondary?.stop() // Stop any currently playing audio
         }
     }
@@ -126,11 +137,35 @@ class AudioManager {
             } else {
                 print("No audio file found")
             }
-        }
-        else {
+        } else {
             sfxPlayer?.stop() // Stop any currently playing audio
         }
     }
+
+#warning("QUANDO SONS DOS TIBBIES FOREM DECIDIDOS IMPLEMENTAR")
+    /// Plays a tibby sound using the provided audio file name.
+    ///
+    /// - Parameter audio: The name of the audio file without extension to be played as background music.
+    ///
+    /// If an SFX is already playing, it will be stopped before the new one begins.
+//    func playTibbySound(audio: TibbySound) {
+//        tibbySoundPlayer?.stop() // Stop any currently playing audio
+//        if sfx {
+//            if let audioURL = Bundle.main.url(forResource: audio.rawValue, withExtension: audio.soundExtension) {
+//                do {
+//                    try tibbySoundPlayer = AVAudioPlayer(contentsOf: audioURL)
+//                    tibbySoundPlayer?.play()
+//                } catch {
+//                    print("Couldn't play audio. Error: \(error)")
+//                }
+//            } else {
+//                print("No audio file found")
+//            }
+//        } else {
+//            tibbySoundPlayer?.stop() // Stop any currently playing audio
+//        }
+//    }
+}
 
 #warning("QUANDO SONS DOS TIBBIES FOREM DECIDIDOS IMPLEMENTAR")
     /// Plays a tibby sound using the provided audio file name.
@@ -156,7 +191,7 @@ class AudioManager {
 //            tibbySoundPlayer?.stop() // Stop any currently playing audio
 //        }
 //    }
-}
+
 
 
 enum SFX: String {
@@ -203,5 +238,5 @@ enum Music: String {
 
 #warning("QUANDO SONS DOS TIBBIES FOREM DECIDIDOS IMPLEMENTAR")
 //enum TibbySounds: String {
-//    
+//
 //}

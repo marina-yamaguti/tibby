@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Type=Minus_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Type=Minus@2x_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Type=Minus@3x_BLACK.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

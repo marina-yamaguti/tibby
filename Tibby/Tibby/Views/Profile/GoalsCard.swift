@@ -22,7 +22,7 @@ struct GoalsCard: View {
                     .foregroundStyle(.tibbyBaseBlack)
                 Spacer()
                 Button(action: {showEdit = true}) {
-                    ButtonLabel(type: .secondary, image: TibbySymbols.pen.rawValue, text: "")
+                    ButtonLabel(type: .secondary, image: TibbySymbols.penWhite.rawValue, text: "")
                 }
                 .buttonSmallRounded(bgColor: .black.opacity(0.5))
                 .padding(.trailing, 16)
@@ -36,6 +36,7 @@ struct GoalsCard: View {
                     GoalsComponent(value: sleep, title: "Daily Sleep Time", description: "hours/day")
                 }
             }
+            .scrollClipDisabled()
             .scrollIndicators(.hidden)
         }
     }

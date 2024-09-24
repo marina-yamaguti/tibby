@@ -55,9 +55,6 @@
     "Brought to you by:" : {
 
     },
-    "Cancel" : {
-
-    },
     "Charlotte:" : {
 
     },
@@ -67,13 +64,7 @@
     "Click to Claim" : {
 
     },
-    "Code Already Redeemed" : {
-
-    },
     "Complete missions and earn rewards like coins and items" : {
-
-    },
-    "Congratulations!" : {
 
     },
     "Daily Mission" : {
@@ -127,13 +118,13 @@
     "Given Name" : {
 
     },
-    "Go to Settings > Health > Tibby > Allow Data Access." : {
-
-    },
     "Hello, World!" : {
 
     },
     "Hey, welcome! Let's start your journey by getting your first Tibby! Click the big Roll button to roll for a random Tibby." : {
+
+    },
+    "Hey!" : {
 
     },
     "home" : {
@@ -145,25 +136,19 @@
     "How should we call you?" : {
 
     },
-    "How to allow" : {
-
-    },
-    "Invalid Code" : {
-
-    },
-    "It seems you don't have enough %@ for this." : {
-
-    },
     "Light" : {
-
-    },
-    "Limit Reached" : {
 
     },
     "Lv. %lld" : {
 
     },
+    "Make sure you are connected to the internet to be able to interact with your Tibbies again." : {
+
+    },
     "Missions" : {
+
+    },
+    "Missions Streak" : {
 
     },
     "my food inventory: " : {
@@ -181,22 +166,7 @@
     "New Workout" : {
 
     },
-    "Ok" : {
-
-    },
-    "OK" : {
-
-    },
     "Okay" : {
-
-    },
-    "Oops! The code you entered is not valid. Please try again." : {
-
-    },
-    "Open Settings" : {
-
-    },
-    "Ops..." : {
 
     },
     "Overview" : {
@@ -208,16 +178,10 @@
     "Play" : {
 
     },
-    "Please write your name to proceed." : {
-
-    },
     "price: %lld" : {
 
     },
     "Profile icon" : {
-
-    },
-    "Provide a Name" : {
 
     },
     "quantity: %lld" : {
@@ -285,6 +249,9 @@
     "Track your workouts, steps, and more to keep both you and your Tibby in top shape!" : {
 
     },
+    "Try Again" : {
+
+    },
     "uau quero comprar %@" : {
 
     },
@@ -300,19 +267,13 @@
     "Weekly Mission" : {
 
     },
+    "Who turned the lights out?" : {
+
+    },
     "Workout Session" : {
 
     },
     "You don't have any favourited Tibby. Pick your favourites to see them here." : {
-
-    },
-    "You have already redeemed this code." : {
-
-    },
-    "You reached the limit of favourite Tibbies (3). Remove one to add another." : {
-
-    },
-    "You unlocked a new acessory, 20 gems and 100 coins!" : {
 
     },
     "You Won" : {
