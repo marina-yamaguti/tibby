@@ -78,6 +78,8 @@
 		BC4F9FC02C9E934200D23338 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FBF2C9E934200D23338 /* NetworkMonitor.swift */; };
 		BC4F9FC32CA0DE3700D23338 /* CustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FC22CA0DE3700D23338 /* CustomPopUpView.swift */; };
 		BC4F9FC62CA1A56900D23338 /* PopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FC52CA1A56900D23338 /* PopUpModifier.swift */; };
+		BC4F9FCC2CA1B40A00D23338 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */; };
+		BC4F9FCE2CA1B4F800D23338 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */; };
 		BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */; };
@@ -331,6 +333,8 @@
 		BC4F9FBF2C9E934200D23338 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BC4F9FC22CA0DE3700D23338 /* CustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpView.swift; sourceTree = "<group>"; };
 		BC4F9FC52CA1A56900D23338 /* PopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModifier.swift; sourceTree = "<group>"; };
+		BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGoalsView.swift; sourceTree = "<group>"; };
 		BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimation.swift; sourceTree = "<group>"; };
@@ -501,6 +505,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC4F9FCA2CA1B40400D23338 /* Store */,
 				BC4F9FC12CA0DE2700D23338 /* PopUp */,
 				BC4F9FBA2C9E6ABC00D23338 /* Connection */,
 				BC7386602C9CE6D20079E5F5 /* Streak */,
@@ -992,6 +997,15 @@
 				BC4F9FC52CA1A56900D23338 /* PopUpModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		BC4F9FCA2CA1B40400D23338 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */,
+				BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		BC7386602C9CE6D20079E5F5 /* Streak */ = {
@@ -1509,6 +1523,7 @@
 				7CF056CA2C3C774D006039A4 /* Constants.swift in Sources */,
 				D896AECC2C6BD35D009C208C /* CustomStepper.swift in Sources */,
 				7C8AEC912C87852B00DF0B8E /* MissionManager.swift in Sources */,
+				BC4F9FCC2CA1B40A00D23338 /* StoreView.swift in Sources */,
 				D8527A2C2C4AB5D60076E6B1 /* SwiftUIView.swift in Sources */,
 				BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */,
 				FD9846AD2C4979450047575F /* NavigationViewModel.swift in Sources */,
@@ -1551,6 +1566,7 @@
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
+				BC4F9FCE2CA1B4F800D23338 /* StoreViewModel.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */,
 				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,

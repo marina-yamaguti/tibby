@@ -293,9 +293,26 @@ class Service: ObservableObject, ServiceProtocol {
     /// Adds a User object to the model context.
     ///
     /// - Parameters: Various parameters for creating a new User.
+    /// Adds a User object to the model context and associates it with the user ID.
+    ///
+    /// - Parameters: Various parameters for creating a new User.
     func createUser(id: UUID, username: String, email: String? = nil, passwordHash: String? = nil, level: Int, xp: Int) {
+        // Check if a user with the same ID already exists
+        if getUser() != nil {
+            print("User already exists, skipping user creation.")
+            return
+        }
+        
+        // Create a new User object
         let user = User(id: id, username: username, email: email, passwordHash: passwordHash, level: level, xp: xp)
+        
+        // Insert the user into the model context
         modelContext.insert(user)
+        
+        // Save the user's ID to UserDefaults to avoid future duplicates
+        UserDefaults.standard.set(id.uuidString, forKey: "currentUserID")
+        
+        print("User created successfully with ID: \(id)")
     }
     
     /// Deletes a User from the model context.
@@ -321,11 +338,17 @@ class Service: ObservableObject, ServiceProtocol {
     ///
     /// - Returns: The first User object if found, otherwise `nil`.
     func getUser() -> User? {
-        do {
-            let users = try modelContext.fetch(FetchDescriptor<User>())
-            return users.first
-        } catch {
-            print("Error fetching User: \(error)")
+        // Try to retrieve the user ID stored in UserDefaults
+        if let savedUserIDString = UserDefaults.standard.string(forKey: "currentUserID"),
+           let savedUserID = UUID(uuidString: savedUserIDString) {
+            
+            // Fetch user with the saved user ID
+            do {
+                let users = try modelContext.fetch(FetchDescriptor<User>())
+                return users.first(where: { $0.id == savedUserID })
+            } catch {
+                print("Error fetching User: \(error)")
+            }
         }
         return nil
     }
@@ -695,7 +718,11 @@ class Service: ObservableObject, ServiceProtocol {
     func setupData() {
         // User Setup
         if getUser() == nil {
-            createUser(id: UUID(), username: "", level: 1, xp: 0)
+            let newUserId = UUID()
+            createUser(id: newUserId, username: "DefaultUser", level: 1, xp: 0)
+            print("New user created with ID: \(newUserId)")
+        } else {
+            print("User already exists.")
         }
         
         // Tibbies Setup
@@ -890,8 +917,8 @@ class Service: ObservableObject, ServiceProtocol {
         createAccessory(id: UUID(), name: "Spy Hat", image: "SpyHat", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Glasses", image: "Glasses", price: 10, category: "Head")
         createAccessory(id: UUID(), name: "Tie", image: "Tie", price: 10, category: "Body")
-//        createAccessory(id: UUID(), name: "Prize Hat", image: "PrizeHat", price: 10, category: "Head")
-
+        //        createAccessory(id: UUID(), name: "Prize Hat", image: "PrizeHat", price: 10, category: "Head")
+        
         
         // Food Setup
         createFood(id: UUID(), name: "Niguiri", image: "niguiri", price: 10)

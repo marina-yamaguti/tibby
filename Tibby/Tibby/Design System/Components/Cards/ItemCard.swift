@@ -49,9 +49,9 @@ struct ItemCard: View {
                     Spacer()
                     ZStack {
                         if status == .locked {
-                            statusIcon(backgroundColor: .tibbyBaseGrey, iconName: "TibbySymbolLock")
+                            statusIcon(backgroundColor: .tibbyBaseGrey, iconName: TibbySymbols.lockBlack.rawValue)
                         } else if status == .selected {
-                            statusIcon(backgroundColor: .tibbyBaseGreen, iconName: "TibbySymbolCheckmark")
+                            statusIcon(backgroundColor: .tibbyBaseGreen, iconName: TibbySymbols.checkmarkBlack.rawValue)
                         }
                     }
                 }
