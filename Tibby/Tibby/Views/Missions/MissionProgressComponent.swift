@@ -32,7 +32,10 @@ struct MissionProgressComponent: View {
                             .progressViewStyle(MissionsProgressBar(totalValue: Int(mission.valueTotal/60)))
                     }
                     else {
-                        ProgressView(value: Double(mission.valueDone), total: Double(mission.valueTotal))
+                        let totalValue = Double(mission.valueTotal)
+                        let clampedValue = min(max(Double(mission.valueDone), 0), totalValue > 0 ? totalValue : 1)
+
+                        ProgressView(value: clampedValue, total: totalValue > 0 ? totalValue : 1)  
                             .progressViewStyle(MissionsProgressBar(totalValue: mission.valueTotal))
                     }
                 }
