@@ -83,7 +83,7 @@ struct UserProfileComponent: View {
                             .font(.typography(.body))
                             .foregroundStyle(.tibbyBaseBlack)
                         Spacer()
-                        Text("\(user.xp)/\(xpToEvolve)")
+                        Text("\(user.xp)/\(xpToEvolve) xp")
                             .font(.typography(.label2))
                             .foregroundStyle(.tibbyBaseGrey)
                     }

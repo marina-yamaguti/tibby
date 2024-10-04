@@ -237,11 +237,9 @@ struct KitchenView: View {
     }
     
     func eat() {
-        print("comi")
         self.isEating = false
         if !(service.getFoodsFromUser()[selectedFood!] ?? 0 > 0) {
             if let newFood = service.getFoodsFromUser().first?.key {
-                print("new food")
                 self.selectedFood = newFood
             }
         }

@@ -16,13 +16,13 @@ struct StreakScroll: View {
     let today = Date()
 
     var body: some View {
-        let daysInMonth = dateManager.getAllDaysInMonth(for: today)
+        let next30Days = dateManager.get15DaysPastAndFuture(from: today)
 
         // Use ScrollViewReader to enable programmatically scrolling to the current day
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(daysInMonth, id: \.date) { day in
+                    ForEach(next30Days, id: \.date) { day in
                         StreakDays(
                             streak: streak,
                             date: day.date,
@@ -35,7 +35,7 @@ struct StreakScroll: View {
                 .padding(.horizontal)
                 .onAppear {
                     // Scroll to today's date when the view appears
-                    if let today = daysInMonth.first(where: { Calendar.current.isDateInToday($0.date) }) {
+                    if let today = next30Days.first(where: { Calendar.current.isDateInToday($0.date) }) {
                         proxy.scrollTo(today.date, anchor: .leading)
                     }
                 }
@@ -43,6 +43,7 @@ struct StreakScroll: View {
         }
     }
 }
+
 
 struct StreakScroll_Previews: PreviewProvider {
     static var previews: some View {
@@ -58,6 +59,8 @@ struct StreakDays: View {
     var isToday: Bool
     
     var body: some View {
+        let isPastDay = date < Date() && !isToday // Check if the day is in the past
+        
         VStack {
             // Image indicating streak
             Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
@@ -92,5 +95,6 @@ struct StreakDays: View {
                 .stroke(isToday ? .clear : .tibbyBaseDarkBlue, lineWidth: streak.currentStreak > 0 ? 0 : 1)
         }
         .padding(4)
+        .opacity(isPastDay ? 0.5 : 1.0) // Apply 50% opacity to past days
     }
 }

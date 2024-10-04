@@ -62,4 +62,33 @@ class DateManager: ObservableObject {
         }
         return result
     }
+    
+    func get15DaysPastAndFuture(from startDate: Date) -> [(date: Date, dayName: String)] {
+           var result: [(Date, String)] = []
+           let calendar = Calendar.current
+           let formatter = DateFormatter()
+           formatter.dateFormat = "E" // Short form of the day (e.g., "Sat", "Sun")
+
+           // Get 15 days in the past
+           for offset in -15..<0 {
+               if let pastDate = calendar.date(byAdding: .day, value: offset, to: startDate) {
+                   let dayName = formatter.string(from: pastDate)
+                   result.append((pastDate, dayName))
+               }
+           }
+
+           // Include today
+           let todayName = formatter.string(from: startDate)
+           result.append((startDate, todayName))
+
+           // Get 15 days in the future
+           for offset in 1...15 {
+               if let futureDate = calendar.date(byAdding: .day, value: offset, to: startDate) {
+                   let dayName = formatter.string(from: futureDate)
+                   result.append((futureDate, dayName))
+               }
+           }
+
+           return result
+       }
 }
