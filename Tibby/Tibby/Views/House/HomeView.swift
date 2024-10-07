@@ -230,7 +230,6 @@ struct HomeView: View {
                 constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
                 
                 var missionsDaily = constants.dailyMission.getMissions()
-
                 for i in 0 ..< missionsDaily.count {
                     if missionsDaily[i].missionType == .steps {
                         missionsDaily[i].updateProgress(value: healthManager.stepsDay)
@@ -252,6 +251,8 @@ struct HomeView: View {
                 showSprite = true
             }
             self.dressUpAccessory()
+            
+            print("homes", constants.dailyMission.missions)
         })
         .onChange(of: showSheet, {
             print("abir a sheet para mudar de tibby")
