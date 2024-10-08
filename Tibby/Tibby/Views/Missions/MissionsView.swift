@@ -17,7 +17,6 @@ struct MissionsView: View {
             PageHeader(title: "Missions", symbol: TibbySymbols.listBlack.rawValue)
             ScrollView {
                 VStack {
-                    // Daily Mission Section
                     VStack(alignment: .leading) {
                         HStack(alignment: .center) {
                             VStack(alignment: .leading, spacing: 16) {
@@ -36,12 +35,10 @@ struct MissionsView: View {
                         }
                         .padding(.bottom, 16)
                         
-                        // Display the missions in the daily mission collection
                         MissionCardComponent(missions: $constants.dailyMission.missions)
                     }
                     .padding(.bottom, 16)
                     
-                    // Weekly Mission Section
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading, spacing: 16) {
                             Text("Weekly Mission")

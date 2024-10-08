@@ -14,6 +14,7 @@ struct StreakUpComponent: View {
         ZStack {
             Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
                 .resizable()
+                .scaledToFill()
                 .frame(width: 36, height: 48)
             
             Text("\(streak.currentStreak)")

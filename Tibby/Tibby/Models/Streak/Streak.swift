@@ -8,7 +8,7 @@
 import Foundation
 
 /// A struct that manages the streak functionality.
-struct GameStreak {
+class GameStreak {
     
     // MARK: - Properties
     
@@ -42,7 +42,7 @@ struct GameStreak {
     // MARK: - Streak Logic
     
     /// Increments the current streak if it hasn't been updated today. If more than 24 hours have passed since the last update, the streak is reset. The updated streak is saved to `UserDefaults`.
-    mutating func incrementStreak() {
+    func incrementStreak() {
         let now = Date()
         let calendar = Calendar.current
         
@@ -68,14 +68,14 @@ struct GameStreak {
     }
     
     /// Resets the current streak to 0 and updates the last updated date. The updated state is saved to `UserDefaults`.
-    mutating func resetStreak() {
+    func resetStreak() {
         currentStreak = 0
         lastUpdated = Date()
         saveStreak()
     }
     
     /// Checks if more than 24 hours have passed since the last streak update. If so, the streak is reset.
-    mutating func checkStreakStatus() {
+    func checkStreakStatus() {
         if let lastDate = lastUpdated, Date().timeIntervalSince(lastDate) > streakInterval {
             resetStreak()
         }
@@ -95,7 +95,7 @@ struct GameStreak {
     // MARK: - UserDefaults Management
     
     /// Saves the current streak, highest streak, and last updated date to `UserDefaults`.
-    private func saveStreak() {
+    func saveStreak() {
         let defaults = UserDefaults.standard
         defaults.set(currentStreak, forKey: streakCurrentKey)
         defaults.set(highestStreak, forKey: streakHighestKey)
