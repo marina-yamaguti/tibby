@@ -10,35 +10,22 @@ import SwiftUI
 struct StreakView: View {
     @State var streak = GameStreak()
     @State private var currentFrame = 1
-    @State private var timer: Timer? = nil
     @Environment(\.dismiss) var dismiss
-    let totalFrames = 5
     
     var body: some View {
         VStack {
             Spacer()
             if streak.currentStreak > 0 {
-                ZStack {
-                    Image("ongoing\(currentFrame)")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 170, height: 210)
-                        .onAppear {
-                            startFrameAnimation() // Start the frame animation when the view appears
-                        }
                     Image("ongoing1")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 170, height: 210)
-                }
-            } else {
-                Image("broken\(currentFrame)")
+                } else {
+                Image("broken1")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 170, height: 210)
-                    .onAppear {
-                        startFrameAnimation() // Start the frame animation when the view appears
-                    }
+
             }
 
             Text("\(streak.currentStreak)")
@@ -53,6 +40,9 @@ struct StreakView: View {
                 .padding(.bottom, 32)
             
             StreakScroll(streak: streak)
+                .scrollClipDisabled()
+
+            
             
             Spacer()
             
@@ -98,24 +88,6 @@ struct StreakView: View {
         }
         .ignoresSafeArea(.all)
         
-    }
-
-    func startFrameAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-            withAnimation(.spring) {
-                if currentFrame < totalFrames {
-                    currentFrame += 1
-                } else {
-//                    currentFrame = 1 // Reset to the first frame to loop the animation
-                    stopFrameAnimation()
-                }
-            }
-        }
-    }
-    
-    func stopFrameAnimation() {
-        timer?.invalidate()
-        timer = nil
     }
 }
 
