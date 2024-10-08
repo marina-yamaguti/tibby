@@ -300,19 +300,19 @@ class Service: ObservableObject, ServiceProtocol {
         // Check if a user with the same ID already exists
         if getUser() != nil {
             print("User already exists, skipping user creation.")
-            return
         }
-        
-        // Create a new User object
-        let user = User(id: id, username: username, email: email, passwordHash: passwordHash, level: level, xp: xp)
-        
-        // Insert the user into the model context
-        modelContext.insert(user)
-        
-        // Save the user's ID to UserDefaults to avoid future duplicates
-        UserDefaults.standard.set(id.uuidString, forKey: "currentUserID")
-        
-        print("User created successfully with ID: \(id)")
+        else {
+            // Create a new User object
+            let user = User(id: id, username: username, email: email, passwordHash: passwordHash, level: level, xp: xp)
+            
+            // Insert the user into the model context
+            modelContext.insert(user)
+            
+            // Save the user's ID to UserDefaults to avoid future duplicates
+            UserDefaults.standard.set(id.uuidString, forKey: "currentUserID")
+            
+            print("User created successfully with ID: \(id)")
+        }
     }
     
     /// Deletes a User from the model context.

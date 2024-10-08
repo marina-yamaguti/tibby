@@ -325,7 +325,7 @@ struct MissionDay: MissionProtocol {
     /// - Parameter value: The amount of progress to add to the mission.
     mutating func updateProgress(value: Int) {
         valueDone += value
-        if valueDone >= valueTotal {
+        if valueDone >= valueTotal && progress == .inProgress {
             progress = .claim
         }
     }
@@ -366,7 +366,7 @@ struct MissionWeek: MissionProtocol {
     /// - Parameter value: The amount of progress to add to the mission.
     mutating func updateProgress(value: Int) {
         valueDone += value
-        if valueDone >= valueTotal {
+        if valueDone >= valueTotal && progress == .inProgress {
             progress = .claim
         }
     }

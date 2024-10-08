@@ -59,9 +59,9 @@ struct OnboardingTab: View {
                 switch vm.currentOnboarding {
                 case .onboarding1:
                     OnboardingView1()
-                        .onAppear {
-                            service.createUser(id: UUID(), username: "", level: 1, xp: 0)
-                        }
+//                        .onAppear {
+//                            service.createUser(id: UUID(), username: "", level: 1, xp: 0)
+//                        }
                 case .onboarding2:
                     OnboardingView2()
                         .onAppear {
