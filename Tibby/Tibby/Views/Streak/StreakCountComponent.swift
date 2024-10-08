@@ -10,10 +10,11 @@ import SwiftUI
 struct StreakCountComponent: View {
     @State var streak = GameStreak()
     var body: some View {
-        HStack(alignment: .bottom) {
+        HStack(alignment: .bottom, spacing: 4) {
             Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
                 .resizable()
-                .frame(width: 21, height: 27)
+                .scaledToFill()
+                .frame(width: 23, height: 23)
             
             Text("\(streak.currentStreak)")
                 .font(.typography(.body))

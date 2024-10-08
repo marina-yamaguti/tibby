@@ -8,7 +8,7 @@
 import Foundation
 
 /// A struct that manages the streak functionality.
-class GameStreak {
+class GameStreak: ObservableObject {
     
     // MARK: - Properties
     

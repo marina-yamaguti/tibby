@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct StreakScroll: View {
     @State var streak: GameStreak
     @ObservedObject var dateManager = DateManager()
@@ -15,7 +17,7 @@ struct StreakScroll: View {
     var body: some View {
         // Get the dates around today (past 15 days and next 15 days)
         let next30Days = dateManager.get15DaysPastAndFuture(from: today)
-        
+
         // Calculate the start of the streak period (counting backwards from today)
         let streakDates = calculateStreakDays()
 
@@ -40,8 +42,9 @@ struct StreakScroll: View {
                 .padding(.horizontal)
                 .onAppear {
                     if let today = next30Days.first(where: { Calendar.current.isDateInToday($0.date) }) {
+                        // Scroll to today and align it to the leading position
                         DispatchQueue.main.async {
-                            proxy.scrollTo(today.date, anchor: .center)
+                            proxy.scrollTo(today.date, anchor: .leading)
                         }
                     }
                 }
@@ -68,6 +71,7 @@ struct StreakScroll: View {
         return streakDates
     }
 }
+
 
 
 struct StreakScroll_Previews: PreviewProvider {
