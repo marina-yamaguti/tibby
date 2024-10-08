@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 import SwiftUI
 
 struct StreakScroll: View {
@@ -16,33 +15,63 @@ struct StreakScroll: View {
     let today = Date()
 
     var body: some View {
+        // Get the dates around today (past 15 days and next 15 days)
         let next30Days = dateManager.get15DaysPastAndFuture(from: today)
 
-        // Use ScrollViewReader to enable programmatically scrolling to the current day
+        // Calculate the start of the streak period (counting backwards from today)
+        let streakDates = calculateStreakDays()
+
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(next30Days, id: \.date) { day in
+                        // Determine if the day falls within the streak period
+                        let isPartOfStreak = streakDates.contains { Calendar.current.isDate($0, inSameDayAs: day.date) }
+                        
                         StreakDays(
                             streak: streak,
                             date: day.date,
                             dayName: day.dayName,
-                            isToday: Calendar.current.isDateInToday(day.date)
+                            isToday: Calendar.current.isDateInToday(day.date),
+                            isPartOfStreak: isPartOfStreak
                         )
-                        .id(day.date) // Assign a unique ID to each day
+                        .id(day.date)
                     }
                 }
+                .scrollTargetLayout()
                 .padding(.horizontal)
                 .onAppear {
-                    // Scroll to today's date when the view appears
                     if let today = next30Days.first(where: { Calendar.current.isDateInToday($0.date) }) {
-                        proxy.scrollTo(today.date, anchor: .leading)
+                        // Scroll to today and align it to the leading position
+                        DispatchQueue.main.async {
+                            proxy.scrollTo(today.date, anchor: .leading)
+                        }
                     }
                 }
             }
+            .scrollTargetBehavior(.viewAligned)
         }
     }
+
+    /// Calculate the streak days by counting backwards from today based on the current streak length.
+    private func calculateStreakDays() -> [Date] {
+        guard streak.currentStreak > 0, let lastUpdated = streak.lastUpdated else {
+            return []
+        }
+        
+        var streakDates: [Date] = []
+        let calendar = Calendar.current
+        
+        // Calculate the streak dates by going back from lastUpdated day by the number of streak days
+        for offset in 0..<streak.currentStreak {
+            if let date = calendar.date(byAdding: .day, value: -offset, to: lastUpdated) {
+                streakDates.append(date)
+            }
+        }
+        return streakDates
+    }
 }
+
 
 
 struct StreakScroll_Previews: PreviewProvider {
@@ -57,13 +86,14 @@ struct StreakDays: View {
     var date: Date
     var dayName: String
     var isToday: Bool
+    var isPartOfStreak: Bool // New property to track if the day is part of the streak
     
     var body: some View {
         let isPastDay = date < Date() && !isToday // Check if the day is in the past
         
         VStack {
-            // Image indicating streak
-            Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
+            // Image indicating if the day is part of the streak
+            Image(isPartOfStreak ? "CapsuleStreakOn" : "CapsuleStreakOff")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 22, height: 26)
@@ -72,17 +102,17 @@ struct StreakDays: View {
             Text("\(Calendar.current.component(.day, from: date))")
                 .font(.typography(.body))
                 .kerning(0.25)
-                .foregroundStyle(isToday ? .tibbyBaseDarkBlue : (streak.currentStreak > 0 ? .tibbyBaseDarkBlue : .tibbyBaseWhite))
+                .foregroundStyle(isToday ? .tibbyBaseDarkBlue : (isPartOfStreak ? .tibbyBaseDarkBlue : .tibbyBaseWhite))
                 .padding(8)
                 .background {
                     RoundedRectangle(cornerRadius: 50)
-                        .fill(isToday ? .tibbyBaseWhite : (streak.currentStreak > 0 ? .tibbyBaseWhite : .tibbyBaseDarkBlue))
+                        .fill(isToday ? .tibbyBaseWhite : (isPartOfStreak ? .tibbyBaseWhite : .tibbyBaseDarkBlue))
                 }
             
             // Display the abbreviated day name
             Text(dayName)
                 .font(.typography(.label2))
-                .foregroundStyle(isToday ? .tibbyBaseWhite : (streak.currentStreak > 0 ? .tibbyBaseWhite : .tibbyBaseDarkBlue))
+                .foregroundStyle(isToday ? .tibbyBaseWhite : (isPartOfStreak ? .tibbyBaseWhite : .tibbyBaseDarkBlue))
                 .frame(width: 40)
                 .minimumScaleFactor(0.5)  // Allow text to shrink if needed
                 .lineLimit(1)  // Prevents multi-line text
@@ -91,8 +121,8 @@ struct StreakDays: View {
         .padding(8)
         .background {
             RoundedRectangle(cornerRadius: 20)
-                .fill(isToday ? .tibbyBaseDarkBlue : (streak.currentStreak > 0  ? .tibbyBaseDarkBlue : .clear))
-                .stroke(isToday ? .clear : .tibbyBaseDarkBlue, lineWidth: streak.currentStreak > 0 ? 0 : 1)
+                .fill(isToday ? .tibbyBaseDarkBlue : (isPartOfStreak ? .tibbyBaseDarkBlue : .clear))
+                .stroke(isToday ? .clear : .tibbyBaseDarkBlue, lineWidth: isPartOfStreak ? 0 : 1)
         }
         .padding(4)
         .opacity(isPastDay ? 0.5 : 1.0) // Apply 50% opacity to past days

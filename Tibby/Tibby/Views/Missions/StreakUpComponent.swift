@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct StreakUpComponent: View {
-    @State var streak = GameStreak()
+    @ObservedObject var streak: GameStreak  
     
     var body: some View {
         ZStack {
             Image(streak.currentStreak > 0 ? "CapsuleStreakOn" : "CapsuleStreakOff")
                 .resizable()
+                .scaledToFill()
                 .frame(width: 36, height: 48)
             
             Text("\(streak.currentStreak)")
@@ -25,7 +26,6 @@ struct StreakUpComponent: View {
     }
 }
 
-
 #Preview {
-    StreakUpComponent()
+    StreakUpComponent(streak: GameStreak())  // Preview with a sample streak
 }
