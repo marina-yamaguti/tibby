@@ -181,6 +181,7 @@ struct HomeView: View {
                     constants.objectWillChange.send()
                 }
                 
+                //Change the date of today, using the start of the day and start of the week
                 if dateManager.lastDayVisited != dateManager.getDay() || dateManager.lastWeekVisited != dateManager.getWeek(){
                     dateManager.setToday()
                 }
@@ -254,6 +255,7 @@ struct HomeView: View {
             self.dressUpAccessory()
         })
         .onChange(of: dateManager.lastDayVisited) {
+            //if the day change, create new missions for the day
             let newMissions: [MissionProtocol] = [
                 MissionManager.instance.createMission(dateType: .day, missionType: .feed),
                 MissionManager.instance.createMission(dateType: .day, missionType: .workout),
@@ -265,6 +267,7 @@ struct HomeView: View {
             constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
         }
         .onChange(of: dateManager.lastWeekVisited) {
+            //if the week change, create new missions for the week
             let newMissions: [MissionProtocol] = [
                 MissionManager.instance.createMission(dateType: .week, missionType: .feed),
                 MissionManager.instance.createMission(dateType: .week, missionType: .workout),
