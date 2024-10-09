@@ -180,21 +180,11 @@ struct HomeView: View {
                     }
                     constants.objectWillChange.send()
                 }
-//                if  dateManager.changedDayWeek(dateType: .day, dateCheck: Date.startOfDay) {
-//                    dateManager.setToday()
-////                    constants.dailyMission.createMissions(newDate: dateManager.lastDayVisited)
-//                    
-//                }
-//                else if constants.dailyMission.missions.isEmpty {
-//                    constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
-//                    
-//                }
-//                if dateManager.changedDayWeek(dateType: .week, dateCheck: Date.startOfDay) {
-////                    constants.weeklyMission.createMissions(newDate: dateManager.lastDayVisited)
-//                }
-//                else if constants.weeklyMission.missions.isEmpty {
-//                    constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
-//                }
+                
+                //Change the date of today, using the start of the day and start of the week
+                if dateManager.lastDayVisited != dateManager.getDay() || dateManager.lastWeekVisited != dateManager.getWeek(){
+                    dateManager.setToday()
+                }
             }
             else if scenePhase == .inactive {
                 print("JORGE Inactive")
@@ -252,7 +242,9 @@ struct HomeView: View {
             }
             self.dressUpAccessory()
             
-            print("homes", constants.dailyMission.missions)
+            if dateManager.lastDayVisited != dateManager.getDay() || dateManager.lastWeekVisited != dateManager.getWeek(){
+                dateManager.setToday()
+            }
         })
         .onChange(of: showSheet, {
             print("abir a sheet para mudar de tibby")
@@ -262,6 +254,30 @@ struct HomeView: View {
             print("mudou de acessorio")
             self.dressUpAccessory()
         })
+        .onChange(of: dateManager.lastDayVisited) {
+            //if the day change, create new missions for the day
+            let newMissions: [MissionProtocol] = [
+                MissionManager.instance.createMission(dateType: .day, missionType: .feed),
+                MissionManager.instance.createMission(dateType: .day, missionType: .workout),
+                MissionManager.instance.createMission(dateType: .day, missionType: .sleep),
+                MissionManager.instance.createMission(dateType: .day, missionType: .steps)
+            ]
+            service.updateMissionsByFrequencyTime(frequencyTime: .day, missions: newMissions)
+            
+            constants.dailyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .day)
+        }
+        .onChange(of: dateManager.lastWeekVisited) {
+            //if the week change, create new missions for the week
+            let newMissions: [MissionProtocol] = [
+                MissionManager.instance.createMission(dateType: .week, missionType: .feed),
+                MissionManager.instance.createMission(dateType: .week, missionType: .workout),
+                MissionManager.instance.createMission(dateType: .week, missionType: .sleep),
+                MissionManager.instance.createMission(dateType: .week, missionType: .steps)
+            ]
+            service.updateMissionsByFrequencyTime(frequencyTime: .week, missions: newMissions)
+            constants.weeklyMission.missions = service.getMissionByFrequencyTime(frequencyTime: .week)
+        }
+        
     }
     
     private func dressUpAccessory() {
