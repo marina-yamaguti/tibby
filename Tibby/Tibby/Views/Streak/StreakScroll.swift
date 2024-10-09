@@ -11,15 +11,19 @@ import SwiftUI
 
 struct StreakScroll: View {
     @State var streak: GameStreak
-    @ObservedObject var dateManager = DateManager()
+    @EnvironmentObject var dateManager: DateManager
     let today = Date()
+    // Get the dates around today (past 15 days and next 15 days)
+    var next30Days: [(date: Date, dayName: String)] {
+        dateManager.get15DaysPastAndFuture(from: today)
+    }
+    // Calculate the start of the streak period (counting backwards from today)
 
+    var streakDates: [Date] {
+        calculateStreakDays()
+    }
     var body: some View {
-        // Get the dates around today (past 15 days and next 15 days)
-        let next30Days = dateManager.get15DaysPastAndFuture(from: today)
 
-        // Calculate the start of the streak period (counting backwards from today)
-        let streakDates = calculateStreakDays()
 
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {

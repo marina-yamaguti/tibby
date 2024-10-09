@@ -48,7 +48,7 @@ struct HomeView: View {
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
-                                SettingsView()
+                                StoreView()
                             }
                     }
                     .padding(16)

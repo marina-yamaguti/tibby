@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 
 enum Collection: String, CaseIterable {
+    case seaSeries = "Sea Series"
+    case houseSeries = "House Series"
+    case forestSeries = "Forest Series"
+//    case beachSeries = "Beach Series"
+//    case foodSeries = "Food Series"
+//    case urbanSeries = "Urban Series"
     
     var description: String {
         switch self {
@@ -44,10 +50,14 @@ enum Collection: String, CaseIterable {
         }
     }
     
-    case seaSeries = "Sea Series"
-    case houseSeries = "House Series"
-    case forestSeries = "Forest Series"
-//    case beachSeries = "Beach Series"
-//    case foodSeries = "Food Series"
-//    case urbanSeries = "Urban Series"
+    var image: String {
+        switch self {
+        case .seaSeries:
+            "gatchaSeaSeries1"
+        case .houseSeries:
+            "gatchaSeaSeries1"
+        case .forestSeries:
+            "gatchaSeaSeries1"
+        }
+    }
 }

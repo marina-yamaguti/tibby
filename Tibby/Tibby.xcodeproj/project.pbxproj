@@ -91,6 +91,9 @@
 		BCB5AC2E2C9348ED0050D1CA /* StreakUpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */; };
 		BCB5AC332C937CF70050D1CA /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC322C937CF70050D1CA /* Streak.swift */; };
 		BCB5AC352C9392230050D1CA /* UserProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */; };
+		BCE59E642CB5B5EB00095FD6 /* GachaCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */; };
+		BCE59E662CB5DAE400095FD6 /* StoreSectionTitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */; };
+		BCE59E682CB5DB5500095FD6 /* StoreItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */; };
 		BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */; };
 		BCFE76192C94B417006FCD0D /* FavoriteTibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */; };
 		BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */; };
@@ -346,6 +349,9 @@
 		BCB5AC2D2C9348ED0050D1CA /* StreakUpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakUpComponent.swift; sourceTree = "<group>"; };
 		BCB5AC322C937CF70050D1CA /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		BCB5AC342C9392230050D1CA /* UserProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileComponent.swift; sourceTree = "<group>"; };
+		BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaCardComponent.swift; sourceTree = "<group>"; };
+		BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSectionTitleComponent.swift; sourceTree = "<group>"; };
+		BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemComponent.swift; sourceTree = "<group>"; };
 		BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseCard.swift; sourceTree = "<group>"; };
 		BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTibbyCard.swift; sourceTree = "<group>"; };
 		BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallRounded.swift; sourceTree = "<group>"; };
@@ -1004,6 +1010,9 @@
 			children = (
 				BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */,
 				BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */,
+				BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */,
+				BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */,
+				BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1502,6 +1511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE59E682CB5DB5500095FD6 /* StoreItemComponent.swift in Sources */,
 				A50E92CE2C6BCDCA00762A11 /* TibbyDescriptionLabel.swift in Sources */,
 				A50E92CA2C6BC92200762A11 /* TibbySelectedView.swift in Sources */,
 				D81694512C49A5F20036BD03 /* CurvedRectangleComponent.swift in Sources */,
@@ -1541,6 +1551,7 @@
 				D82337D22C6AAA2E006BF8BD /* ButtonLabel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
+				BCE59E642CB5B5EB00095FD6 /* GachaCardComponent.swift in Sources */,
 				D81284BF2C6BCC100088A7B9 /* CustomTextField.swift in Sources */,
 				BC4F9FB52C9E5D2200D23338 /* StreakScroll.swift in Sources */,
 				7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */,
@@ -1591,6 +1602,7 @@
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
+				BCE59E662CB5DAE400095FD6 /* StoreSectionTitleComponent.swift in Sources */,
 				FD45F25F2C6292320046DE49 /* Collections.swift in Sources */,
 				D81284BB2C6BC9010088A7B9 /* OnboardingViewModel.swift in Sources */,
 				7CE131D22C63F408001D7348 /* OnboardingView3.swift in Sources */,
