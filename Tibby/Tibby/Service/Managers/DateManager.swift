@@ -14,6 +14,7 @@ class DateManager: ObservableObject {
     init() {}
     
     @Published var lastDayVisited: Date = UserDefaults.standard.value(forKey: "lastDayVisited") as? Date ?? Date.startOfDay
+    @Published var lastWeekVisited: Date = UserDefaults.standard.value(forKey: "lastWeekVisited") as? Date ?? Date.startOfWeek
     
     func getDay() -> Date {
         return Date.startOfDay
@@ -37,6 +38,7 @@ class DateManager: ObservableObject {
     
     func setToday() {
         lastDayVisited = self.getDay()
+        lastWeekVisited = self.getWeek()
     }
     
     // Function to get all days and their abbreviated day of the week in a given month
