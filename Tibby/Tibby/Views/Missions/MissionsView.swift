@@ -56,5 +56,9 @@ struct MissionsView: View {
         .preferredColorScheme(.light)
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
+        .onAppear {
+            constants.weeklyMission.missions = constants.weeklyMission.getMissions()
+            constants.dailyMission.missions = constants.dailyMission.getMissions()
+        }
     }
 }
