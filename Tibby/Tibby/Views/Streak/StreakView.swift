@@ -7,16 +7,19 @@
 
 import SwiftUI
 
+
 struct StreakView: View {
-    @State var streak = GameStreak()
-    @Environment(\.dismiss) var dismiss
+    @ObservedObject var streak: GameStreak
     @EnvironmentObject var dateManager: DateManager
+    @Environment(\.dismiss) var dismiss
     let today = Date()
+    
+    // Get the dates around today (past 15 days and next 15 days)
     var next30Days: [(date: Date, dayName: String)] {
         dateManager.get15DaysPastAndFuture(from: today)
     }
-    // Calculate the start of the streak period (counting backwards from today)
-
+    
+    // Fetch streak dates by checking the streak record
     var streakDates: [Date] {
         calculateStreakDays()
     }
@@ -53,7 +56,7 @@ struct StreakView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(next30Days, id: \.date) { day in
-                            // Determine if the day falls within the streak period
+                            // Determine if the day falls within the streak period based on the record
                             let isPartOfStreak = streakDates.contains { Calendar.current.isDate($0, inSameDayAs: day.date) }
                             
                             StreakDays(
@@ -79,7 +82,7 @@ struct StreakView: View {
                 }
                 .scrollTargetBehavior(.viewAligned)
             }
-            
+            .scrollClipDisabled()
             
             Spacer()
             
@@ -127,25 +130,44 @@ struct StreakView: View {
         
         
     }
+    private func todayStatus() -> Bool {
+         let todayString = dateToString(today)
+         if streak.streakRecord[todayString] == nil {
+             return true
+         }
+         return false
+     }
+    
+    private func dateToString(_ date: Date) -> String {
+          let formatter = DateFormatter()
+          formatter.dateFormat = "yyyy-MM-dd"
+          return formatter.string(from: date)
+      }
+    
     private func calculateStreakDays() -> [Date] {
-        guard streak.currentStreak > 0, let lastUpdated = streak.lastUpdated else {
-            return []
-        }
-        
-        var streakDates: [Date] = []
+        var streakDays: [Date] = []
         let calendar = Calendar.current
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         
-        // Calculate the streak dates by going back from lastUpdated day by the number of streak days
-        for offset in 0..<streak.currentStreak {
-            if let date = calendar.date(byAdding: .day, value: -offset, to: lastUpdated) {
-                streakDates.append(date)
+        for day in next30Days {
+            let dateString = formatter.string(from: day.date)
+            // Check if the day exists in the streak record
+            if let isStreakOn = streak.streakRecord[dateString] {
+                if isStreakOn {
+                    streakDays.append(day.date)
+                }
+            } else {
+                // If there's no record for this day, mark it as a missed streak
+                streak.streakRecord[dateString] = false
             }
         }
-        return streakDates
+        
+        return streakDays
     }
 }
 
 
 #Preview {
-    StreakView()
+    StreakView(streak: GameStreak())
 }

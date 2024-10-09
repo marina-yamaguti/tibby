@@ -19,7 +19,6 @@ struct ProfileView: View {
     @State var energy: Int = UserDefaults.standard.value(forKey: "energy") as? Int ?? 110
     @State var steps: Int = UserDefaults.standard.value(forKey: "steps") as? Int ?? 500
     @State var sleep: Int = UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8
-    @State var streak = GameStreak()
     
     var body: some View {
         ZStack {
@@ -50,7 +49,7 @@ struct ProfileView: View {
                                 StreakCountComponent()
                             }
                             
-                            StreakScroll(streak: streak)
+                            StreakScroll(streak: GameStreak())
                                 .scrollClipDisabled()
 
                         }
