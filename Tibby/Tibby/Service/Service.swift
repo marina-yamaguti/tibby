@@ -670,12 +670,30 @@ class Service: ObservableObject, ServiceProtocol {
             switch frequencyTime {
             case .day:
                 if m.frequencyTime == "Daily Mission" || m.frequencyTime == "Day" {
-                    let missionReturn: MissionDay = MissionDay(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                    let missionReturn: MissionDay = MissionDay(
+                        id: m.id,
+                        description: m.name,
+                        valueTotal: m.valueTotal,
+                        reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!),
+                        xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!),
+                        missionType: MissionType(rawValue: m.missionType)!,
+                        valueDone: m.valueDone,
+                        progress: progress)
+                    
                     missions.append(missionReturn)
                 }
             case .week:
                 if m.frequencyTime == "Weekly Mission" || m.frequencyTime == "Week" {
-                    let missionReturn: MissionWeek = MissionWeek(id: m.id, description: m.name, valueTotal: m.valueTotal, reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), xp: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!), missionType: MissionType(rawValue: m.missionType)!, valueDone: m.valueDone, progress: progress)
+                    let missionReturn: MissionWeek = MissionWeek(
+                        id: m.id,
+                        description: m.name,
+                        valueTotal: m.valueTotal,
+                        reward: Reward(rewardValue: m.rewardValue, rewardType: RewardType(rawValue: m.rewardType)!),
+                        xp: Reward(rewardValue: m.xpValue, rewardType: RewardType(rawValue: m.xpType)!),
+                        missionType: MissionType(rawValue: m.missionType)!,
+                        valueDone: m.valueDone,
+                        progress: progress)
+                    
                     missions.append(missionReturn)
                 }
             }
