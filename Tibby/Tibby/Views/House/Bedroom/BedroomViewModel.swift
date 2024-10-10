@@ -37,10 +37,60 @@ class BedroomViewModel: ObservableObject {
                     self.service.applyInteractionToTibby(interaction: interaction, tibby: tibby)
                     if !self.constants.tibbySleeping {
                         self.timerSleep?.invalidate()
+                        var missionsDaily = self.constants.dailyMission.getMissions()
+
+                        for i in 0 ..< missionsDaily.count {
+                            if missionsDaily[i].missionType == .sleep {
+                                print(missionsDaily[i].valueDone)
+                                if missionsDaily[i].valueDone < missionsDaily[i].valueTotal {
+                                    missionsDaily[i].updateProgress(value: Int((self.timerSleep!.timeInterval)/60))
+                                }
+                                print(missionsDaily[i].valueDone)
+                            }
+                        }
+                        self.constants.dailyMission.missions = missionsDaily
+                        
+                        var missionsWeekly = self.constants.weeklyMission.getMissions()
+
+                        for i in 0 ..< missionsWeekly.count {
+                            if missionsWeekly[i].missionType == .sleep {
+                                print(missionsWeekly[i].valueDone)
+                                if missionsWeekly[i].valueDone < missionsWeekly[i].valueTotal {
+                                    missionsWeekly[i].updateProgress(value: Int((self.timerSleep!.timeInterval)/60))
+                                }
+                                print(missionsWeekly[i].valueDone)
+                            }
+                        }
+                        self.constants.weeklyMission.missions = missionsWeekly
                     }
                 }
                 else {
                     self.timerSleep?.invalidate()
+                    var missionsDaily = self.constants.dailyMission.getMissions()
+
+                    for i in 0 ..< missionsDaily.count {
+                        if missionsDaily[i].missionType == .sleep {
+                            print(missionsDaily[i].valueDone)
+                            if missionsDaily[i].valueDone < missionsDaily[i].valueTotal {
+                                missionsDaily[i].updateProgress(value: Int((self.timerSleep!.timeInterval)/60))
+                            }
+                            print(missionsDaily[i].valueDone)
+                        }
+                    }
+                    self.constants.dailyMission.missions = missionsDaily
+                    
+                    var missionsWeekly = self.constants.weeklyMission.getMissions()
+
+                    for i in 0 ..< missionsWeekly.count {
+                        if missionsWeekly[i].missionType == .sleep {
+                            print(missionsWeekly[i].valueDone)
+                            if missionsWeekly[i].valueDone < missionsWeekly[i].valueTotal {
+                                missionsWeekly[i].updateProgress(value: Int((self.timerSleep!.timeInterval)/60))
+                            }
+                            print(missionsWeekly[i].valueDone)
+                        }
+                    }
+                    self.constants.weeklyMission.missions = missionsWeekly
                 }
                 print(tibby.sleep)
             })
