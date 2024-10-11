@@ -38,7 +38,7 @@ struct TibbyStatusComponent: View {
                 .frame(width: 17, height: 17)
 
         }
-        .padding(16)
+        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         .background {
             RoundedRectangle(cornerRadius: 50)
                 .fill(.tibbyBaseWhite.opacity(0.5))

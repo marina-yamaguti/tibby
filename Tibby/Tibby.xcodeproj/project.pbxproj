@@ -79,7 +79,6 @@
 		BC4F9FC32CA0DE3700D23338 /* CustomPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FC22CA0DE3700D23338 /* CustomPopUpView.swift */; };
 		BC4F9FC62CA1A56900D23338 /* PopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FC52CA1A56900D23338 /* PopUpModifier.swift */; };
 		BC4F9FCC2CA1B40A00D23338 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */; };
-		BC4F9FCE2CA1B4F800D23338 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */; };
 		BC537F162C87D16400463E59 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC537F152C87D16400463E59 /* BackgroundView.swift */; };
 		BC54F9B42C9853BC00EAB603 /* EditingGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */; };
 		BC7386642C9D08D30079E5F5 /* SplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */; };
@@ -94,6 +93,11 @@
 		BCE59E642CB5B5EB00095FD6 /* GachaCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */; };
 		BCE59E662CB5DAE400095FD6 /* StoreSectionTitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */; };
 		BCE59E682CB5DB5500095FD6 /* StoreItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */; };
+		BCE59E842CB83EE500095FD6 /* AdBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E832CB83EE500095FD6 /* AdBanner.swift */; };
+		BCE59E862CB845F700095FD6 /* StoreCurrencyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E852CB845F700095FD6 /* StoreCurrencyComponent.swift */; };
+		BCE59E882CB8685700095FD6 /* SaleConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E872CB8685700095FD6 /* SaleConfirmationAlert.swift */; };
+		BCE59E8A2CB86A1F00095FD6 /* SaleSuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E892CB86A1F00095FD6 /* SaleSuccessAlert.swift */; };
+		BCE59E8C2CB95F9500095FD6 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE59E8B2CB95F9500095FD6 /* StoreViewModel.swift */; };
 		BCFE76152C94A024006FCD0D /* ShowcaseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */; };
 		BCFE76192C94B417006FCD0D /* FavoriteTibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */; };
 		BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */; };
@@ -337,7 +341,6 @@
 		BC4F9FC22CA0DE3700D23338 /* CustomPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpView.swift; sourceTree = "<group>"; };
 		BC4F9FC52CA1A56900D23338 /* PopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModifier.swift; sourceTree = "<group>"; };
 		BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
-		BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		BC537F152C87D16400463E59 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BC54F9B32C9853BC00EAB603 /* EditingGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingGoalsView.swift; sourceTree = "<group>"; };
 		BC7386632C9D08D30079E5F5 /* SplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimation.swift; sourceTree = "<group>"; };
@@ -352,6 +355,11 @@
 		BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaCardComponent.swift; sourceTree = "<group>"; };
 		BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSectionTitleComponent.swift; sourceTree = "<group>"; };
 		BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemComponent.swift; sourceTree = "<group>"; };
+		BCE59E832CB83EE500095FD6 /* AdBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBanner.swift; sourceTree = "<group>"; };
+		BCE59E852CB845F700095FD6 /* StoreCurrencyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCurrencyComponent.swift; sourceTree = "<group>"; };
+		BCE59E872CB8685700095FD6 /* SaleConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleConfirmationAlert.swift; sourceTree = "<group>"; };
+		BCE59E892CB86A1F00095FD6 /* SaleSuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleSuccessAlert.swift; sourceTree = "<group>"; };
+		BCE59E8B2CB95F9500095FD6 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		BCFE76142C94A024006FCD0D /* ShowcaseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseCard.swift; sourceTree = "<group>"; };
 		BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTibbyCard.swift; sourceTree = "<group>"; };
 		BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallRounded.swift; sourceTree = "<group>"; };
@@ -1009,10 +1017,14 @@
 			isa = PBXGroup;
 			children = (
 				BC4F9FCB2CA1B40A00D23338 /* StoreView.swift */,
-				BC4F9FCD2CA1B4F800D23338 /* StoreViewModel.swift */,
 				BCE59E632CB5B5EB00095FD6 /* GachaCardComponent.swift */,
 				BCE59E652CB5DAE400095FD6 /* StoreSectionTitleComponent.swift */,
 				BCE59E672CB5DB5500095FD6 /* StoreItemComponent.swift */,
+				BCE59E832CB83EE500095FD6 /* AdBanner.swift */,
+				BCE59E852CB845F700095FD6 /* StoreCurrencyComponent.swift */,
+				BCE59E872CB8685700095FD6 /* SaleConfirmationAlert.swift */,
+				BCE59E892CB86A1F00095FD6 /* SaleSuccessAlert.swift */,
+				BCE59E8B2CB95F9500095FD6 /* StoreViewModel.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1549,6 +1561,7 @@
 				D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */,
 				FD45F2662C63F4070046DE49 /* TibbySelectionView.swift in Sources */,
 				D82337D22C6AAA2E006BF8BD /* ButtonLabel.swift in Sources */,
+				BCE59E8C2CB95F9500095FD6 /* StoreViewModel.swift in Sources */,
 				D816944B2C49A3FE0036BD03 /* TibbyNameComponent.swift in Sources */,
 				FD9076002C34BB1F000E5F24 /* CRUDExample.swift in Sources */,
 				BCE59E642CB5B5EB00095FD6 /* GachaCardComponent.swift in Sources */,
@@ -1577,7 +1590,6 @@
 				7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */,
 				7C95859D2C405C7900780558 /* BedroomExemple.swift in Sources */,
 				FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */,
-				BC4F9FCE2CA1B4F800D23338 /* StoreViewModel.swift in Sources */,
 				D896AED22C6D1B67009C208C /* SettingsView.swift in Sources */,
 				BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */,
 				FD5155322C8A1FD100B9684A /* WorkoutSession.swift in Sources */,
@@ -1595,11 +1607,13 @@
 				FD51553D2C9388B600B9684A /* WorkoutComponent.swift in Sources */,
 				D83B398F2C86577400043BC7 /* GoalsComponent.swift in Sources */,
 				D8D520762C80E85900A37057 /* LevelComponent.swift in Sources */,
+				BCE59E862CB845F700095FD6 /* StoreCurrencyComponent.swift in Sources */,
 				D896AED82C6D25CC009C208C /* SettingsViewModel.swift in Sources */,
 				BCB5AC262C9215120050D1CA /* MissionProgressComponent.swift in Sources */,
 				D84055142C82501000292BDC /* EquipComponent.swift in Sources */,
 				7CE131D42C63F413001D7348 /* OnboardingView4.swift in Sources */,
 				A50E92D42C6BEC6100762A11 /* TibbyNameEdit.swift in Sources */,
+				BCE59E8A2CB86A1F00095FD6 /* SaleSuccessAlert.swift in Sources */,
 				D8C53A902C3C7A2500CAB009 /* SplashScreen.swift in Sources */,
 				7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */,
 				BCE59E662CB5DAE400095FD6 /* StoreSectionTitleComponent.swift in Sources */,
@@ -1634,7 +1648,9 @@
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				BC4F9FB72C9E5D2E00D23338 /* StreakView.swift in Sources */,
 				D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */,
+				BCE59E882CB8685700095FD6 /* SaleConfirmationAlert.swift in Sources */,
 				D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */,
+				BCE59E842CB83EE500095FD6 /* AdBanner.swift in Sources */,
 				FD51552F2C88D1EA00B9684A /* CustomSearchBar.swift in Sources */,
 				FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */,
 				D8B7D1A72C483A9E00A1739E /* TibbySymbols.swift in Sources */,

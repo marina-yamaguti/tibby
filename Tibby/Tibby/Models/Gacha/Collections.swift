@@ -55,9 +55,9 @@ enum Collection: String, CaseIterable {
         case .seaSeries:
             "gatchaSeaSeries1"
         case .houseSeries:
-            "gatchaSeaSeries1"
+            "gatchaHouseSeries1"
         case .forestSeries:
-            "gatchaSeaSeries1"
+            "gatchaForestSeries1"
         }
     }
 }

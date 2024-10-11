@@ -10,21 +10,16 @@ import SwiftUI
 struct StoreSectionTitleComponent: View {
     private var title: String
     private var backgrounImage: String
-    private var color: Color
     
-    init(title: String, backgrounImage: String, color: Color) {
+    init(title: String, backgrounImage: String) {
         self.title = title
         self.backgrounImage = backgrounImage
-        self.color = color
     }
     
     var body: some View {
         ZStack {
             Image(backgrounImage)
                 .resizable()
-            
-            color
-                .opacity(0.8)
             
             HStack {
                 Text(title)

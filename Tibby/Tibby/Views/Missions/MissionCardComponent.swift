@@ -19,7 +19,7 @@ struct MissionCardComponent: View {
                     .padding(.vertical, 8)
                     .onTapGesture {
                         mission.claimReward(user: service.getUser()!)
-                        incrementStreak() // Increment streak directly on mission completion
+                        incrementStreak()
                     }
             }
         }
@@ -32,6 +32,6 @@ struct MissionCardComponent: View {
     
     /// Increment the streak directly when a mission is completed.
     private func incrementStreak() {
-        gameStreak.incrementStreak() // Handle both incrementing and resetting if needed
+        gameStreak.incrementStreak()
     }
 }

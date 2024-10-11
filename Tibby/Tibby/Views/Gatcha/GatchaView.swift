@@ -16,7 +16,7 @@ struct GatchaView: View {
     @State private var snappedItem = 0.0
     @State private var draggingItem = 0.0
     @State private var xOffset: CGFloat = 0
-    @State private var isBaseOnFocus = true
+    @Binding var isBaseOnFocus: Bool
     @State private var pressedButton = false
     @State private var backgroundcolor = Color.tibbyBaseWhite
     @State private var disableButton = false
@@ -26,6 +26,8 @@ struct GatchaView: View {
     @Binding var firstTimeHere: Bool
     @State private var showExplanation = true
     @Binding var currentTibby: Tibby?
+    
+    
     
     var body: some View {
         if showCapsuleAnimation {

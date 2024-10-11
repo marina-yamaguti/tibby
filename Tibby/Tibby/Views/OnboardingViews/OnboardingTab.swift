@@ -75,7 +75,7 @@ struct OnboardingTab: View {
                             service.getUser()?.username = name
                         }
                 case .gacha:
-                    GatchaView(firstTimeHere: $firstTime, currentTibby: $currentTibby)
+                    GatchaView(isBaseOnFocus: .constant(true), firstTimeHere: $firstTime, currentTibby: $currentTibby)
                         .onAppear(perform: {
                             if let user = service.getUser() {
                                 service.updateUser(user: user, username: name)

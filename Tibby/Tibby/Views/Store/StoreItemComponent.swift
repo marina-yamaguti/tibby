@@ -9,17 +9,12 @@ import SwiftUI
 
 
 struct StoreItemComponent: View {
-    private var image: String
-    private var itemName: String
-    private var currencyType: MoneyType
-    private var price: Int
-    
-    init(image: String, itemName: String, currencyType: MoneyType, price: Int) {
-        self.image = image
-        self.itemName = itemName
-        self.currencyType = currencyType
-        self.price = price
-    }
+    var image: String
+    var itemName: String
+    var currencyType: MoneyType
+    var price: Int
+    @Binding var showConfirmationAlert: Bool
+    var tapHandler: () -> Void
     
     var body: some View {
         VStack {
@@ -59,11 +54,11 @@ struct StoreItemComponent: View {
                 Capsule()
                     .fill(.tibbyBaseBlack)
             }
+            .onTapGesture {
+                tapHandler()
+            }
         }
         .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)
     }
 }
 
-#Preview {
-    StoreItemComponent(image: "SpyHat-wardrobe", itemName: "Spy Hat", currencyType: .coin, price: 20)
-}
