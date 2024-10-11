@@ -369,9 +369,7 @@ class HealthManager: ObservableObject {
                 for workout in workouts {
                     count += Int(round((workout.totalEnergyBurned?.doubleValue(for: sample.getUnit()!)) ?? 0))
                 }
-                
-                print("Jorge", sample, count)
-                
+                                
                 //Save the workouts' information
                 DispatchQueue.main.async {
                     if frequency == .day {
@@ -401,9 +399,7 @@ class HealthManager: ObservableObject {
                 for workout in workouts {
                     count += Int(workout.duration/60)
                 }
-                
-                print("Jorge", sample, count)
-                
+                                
                 //Save the workouts' information
                 DispatchQueue.main.async {
                     if frequency == .day {
@@ -437,7 +433,6 @@ class HealthManager: ObservableObject {
                         self.stepsWeek = count
                     }
                 }
-                print("Jorge", sample, count)
             })
             
         case .energyBurned:
@@ -463,7 +458,6 @@ class HealthManager: ObservableObject {
                         self.caloriesWeek = count
                     }
                 }
-                print("Jorge", sample, count)
             })
         }
         

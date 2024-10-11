@@ -12,17 +12,13 @@ struct StoreView: View {
     @EnvironmentObject var constants: Constants
     @State var accessories: [Accessory] = []
     @State var category: String = "All"
-    @State var showBaseGacha: Bool = false
-    @State var showSeriesGacha: Bool = false
+    @State var showGacha: Bool = false
+    @State var selectedGacha: GachaType = .base
     @State private var isBaseOnFocus: Bool = true
-    @State private var isBaseNotOnFocus: Bool = false
     @State private var showConfirmationAlert: Bool = false
     @State private var selectedAccessory: Accessory?
     let categories = ["All", "Head", "Body"]
 
-
-    
-    
     var body: some View {
         VStack(
             spacing: 0
@@ -58,53 +54,49 @@ struct StoreView: View {
                     )
                     
                     HStack {
-                        // Base Gacha Card
-                        GachaCardComponent(
-                            gachaType: .base,
-                            title: "All\nSeries",
-                            color: .tibbyBasePearlBlue,
-                            image: "gatchaBase1"
-                        )
-                        .onTapGesture {
-                            showBaseGacha = true
-                        }
-                        .navigationDestination(
-                            isPresented: $showBaseGacha
-                        ) {
-                            GatchaView(
-                                isBaseOnFocus: $isBaseOnFocus,
-                                firstTimeHere: .constant(
-                                    false
-                                ),
-                                currentTibby: .constant(
-                                    nil
-                                )
-                            )
-                        }
                         
-                        // Series Gacha Card
-                        GachaCardComponent(
+                        NavigationLink(destination: {GatchaView(
+                            isBaseOnFocus: true,
+                            firstTimeHere: .constant(
+                                false
+                            ),
+                            currentTibby: .constant(
+                                nil
+                            )
+                        )}, label: {
+                            GachaCardComponent(
+                                gachaType: .base,
+                                title: "Sea Series",
+                                color: gachaViewModel.currentSeries.color,
+                                image: "\(gachaViewModel.currentSeries.image)"
+                            )
+                        })
+                        
+                        NavigationLink(destination: {GatchaView(
+                            isBaseOnFocus: false,
+                            firstTimeHere: .constant(
+                                false
+                            ),
+                            currentTibby: .constant(
+                                nil
+                            )
+                        )}, label: {   GachaCardComponent(
                             gachaType: .series,
                             title: "Sea Series",
                             color: gachaViewModel.currentSeries.color,
                             image: "\(gachaViewModel.currentSeries.image)"
-                        )
-                        .onTapGesture {
-                            showSeriesGacha.toggle()
-                        }
-                        .navigationDestination(
-                            isPresented: $showSeriesGacha
-                        ) {
-                            GatchaView(
-                                isBaseOnFocus: $isBaseNotOnFocus,
-                                firstTimeHere: .constant(
-                                    false
-                                ),
-                                currentTibby: .constant(
-                                    nil
-                                )
-                            )
-                        }
+                        )})
+                        // Series Gacha Card
+//                        GachaCardComponent(
+//                            gachaType: .series,
+//                            title: "Sea Series",
+//                            color: gachaViewModel.currentSeries.color,
+//                            image: "\(gachaViewModel.currentSeries.image)"
+//                        )
+//                        .onTapGesture {
+//                            selectedGacha = .series
+//                            showGacha = true
+//                        }
                     }
                     .padding(
                         .horizontal,
@@ -178,7 +170,6 @@ struct StoreView: View {
         ) { _ in
             accessories = getFilteredList()
         }
-        // Present the popup conditionally
         .popup(
             isPresented: $showConfirmationAlert
         ) {
