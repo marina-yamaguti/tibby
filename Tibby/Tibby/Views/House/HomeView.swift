@@ -48,7 +48,7 @@ struct HomeView: View {
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showSettings) {
-                                StoreView()
+                                SettingsView()
                             }
                     }
                     .padding(16)
@@ -93,7 +93,7 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cartWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                GatchaView(isBaseOnFocus: false, firstTimeHere: .constant(false), currentTibby: .constant(nil))
+                                GatchaView(isBaseOnFocus: true, firstTimeHere: .constant(false), currentTibby: .constant(nil))
                             }
                         Spacer()
                         Button(action: {

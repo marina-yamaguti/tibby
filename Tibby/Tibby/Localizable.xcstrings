@@ -7,9 +7,6 @@
     "/ %@ steps" : {
 
     },
-    "%@" : {
-
-    },
     "%@ %@" : {
       "localizations" : {
         "en" : {
@@ -28,16 +25,6 @@
     },
     "%lld" : {
 
-    },
-    "%lld / %lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld / %2$lld"
-          }
-        }
-      }
     },
     "%lld %@s" : {
       "localizations" : {
@@ -84,13 +71,7 @@
     "Are you sure you want to buy this item?" : {
 
     },
-    "BALANCE" : {
-
-    },
     "Brought to you by:" : {
-
-    },
-    "Cancel" : {
 
     },
     "Charlotte:" : {
@@ -205,9 +186,6 @@
 
     },
     "New Workout" : {
-
-    },
-    "Ok" : {
 
     },
     "Okay" : {
