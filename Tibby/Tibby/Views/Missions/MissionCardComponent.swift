@@ -18,8 +18,9 @@ struct MissionCardComponent: View {
                 MissionProgressComponent(mission: $mission)
                     .padding(.vertical, 8)
                     .onTapGesture {
-                        mission.claimReward(user: service.getUser()!)
-                        incrementStreak()
+                        mission.claimReward(user: service.getUser()!, action: {
+                            checkAndIncrementStreak() // Check and increment streak on mission completion
+                        })
                     }
             }
         }

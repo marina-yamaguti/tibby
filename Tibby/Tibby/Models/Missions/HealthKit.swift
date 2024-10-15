@@ -154,7 +154,7 @@ class HealthManager: ObservableObject {
     /// Requests authorization to read health data from HealthKit.
     ///
     /// The app requests permission to access step count, active energy burned, and workout data.
-    func authorizationToWriteInHealthStore(_ vm: OnboardingTabViewModel) {
+    func authorizationToWriteInHealthStore(action: @escaping () -> Void) {
         // Types of samples you want to use
         let healthTypesWrite: Set = [
             HKQuantityType(.stepCount),
@@ -178,7 +178,7 @@ class HealthManager: ObservableObject {
             } else {
                 // Handle authorization failure
             }
-            vm.nextPage()
+            action()
         })
     }
     

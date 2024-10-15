@@ -87,7 +87,9 @@ struct OnboardingTab: View {
                     Button {
                         if vm.currentIndex == 1 {
                             if !openHealth {
-                                healthManager.authorizationToWriteInHealthStore(vm)
+                                healthManager.authorizationToWriteInHealthStore(action: {
+                                    vm.nextPage()
+                                })
                                 openHealth = true
                             }
                         } else if vm.currentIndex == 2 {
