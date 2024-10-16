@@ -51,7 +51,7 @@ enum MissionType: String, CaseIterable {
     func missionDescription(value: Int, frequency: DateType) -> String {
         switch self {
         case .workout:
-            return "\(frequency == .day ? "\(value) minutes" : "\(Int(value/60)) hours") of workout"
+            return "\(frequency == .day ? "\(value) minutes" : "\(Int(value/60)) hours") workout"
         case .feed:
             return "feed \(value) times"
         case .sleep:
