@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct OnboardingTab: View {
-    @ObservedObject var vm = OnboardingTabViewModel()
+//    @ObservedObject var vm = OnboardingTabViewModel()
     @Binding var firstTime: Bool
     @EnvironmentObject var constants: Constants
     @EnvironmentObject var service: Service
@@ -17,17 +17,33 @@ struct OnboardingTab: View {
     @State private var openHealth = false
     @Binding var currentTibby: Tibby?
     
+    @State var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4, .gacha]
+    @State var currentIndex: Int = 0
+    var currentOnboarding: OnboardingViews {
+        return onboardingViews[currentIndex]
+    }
+    
+    func nextPage() {
+        if currentIndex <= 4 {
+            currentIndex += 1
+        }
+    }
+    
+    func previousPage() {
+            currentIndex -= 1
+    }
+    
     var body: some View {
         ZStack {
-            if vm.currentOnboarding != .gacha {
+            if self.currentOnboarding != .gacha {
                 VStack(alignment: .leading) {
                     HStack {
-                        if vm.currentIndex == 0 {
-                            Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
+                        if self.currentIndex == 0 {
+                            Button(action: {self.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
                                 .buttonSecondary(bgColor: .black.opacity(0.5))
                                 .hidden()
                         } else {
-                            Button(action: {vm.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
+                            Button(action: {self.previousPage()}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.chevronLeftWhite.rawValue, text: "")})
                                 .buttonSecondary(bgColor: .black.opacity(0.5))
                         }
                         Spacer()
@@ -37,26 +53,26 @@ struct OnboardingTab: View {
                 .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 24))
             }
             VStack {
-                if vm.currentOnboarding != .gacha {
+                if self.currentOnboarding != .gacha {
                     VStack(spacing: 32) {
-                        ProgressIndicator(page: vm.currentIndex)
+                        ProgressIndicator(page: self.currentIndex)
                             .padding(.horizontal, 16)
-                        Text(vm.currentOnboarding.title)
+                        Text(self.currentOnboarding.title)
                             .font(.typography(.headline))
                             .foregroundStyle(.tibbyBaseBlack)
                             .multilineTextAlignment(.center)
                             .lineLimit(nil)
-                        Text(vm.currentOnboarding.description)
+                        Text(self.currentOnboarding.description)
                             .font(.typography(.body2))
                             .foregroundStyle(.tibbyBaseBlack)
                             .multilineTextAlignment(.center)
                     }
                     .foregroundStyle(.black)
-                    if vm.currentOnboarding.description != "" {
+                    if self.currentOnboarding.description != "" {
                         Spacer()
                     }
                 }
-                switch vm.currentOnboarding {
+                switch self.currentOnboarding {
                 case .onboarding1:
                     OnboardingView1()
 //                        .onAppear {
@@ -64,9 +80,6 @@ struct OnboardingTab: View {
 //                        }
                 case .onboarding2:
                     OnboardingView2()
-                        .onAppear {
-                            openHealth = false
-                        }
                 case .onboarding3:
                     OnboardingView3(name: $name)
                 case .onboarding4:
@@ -82,35 +95,38 @@ struct OnboardingTab: View {
                             }
                         })
                 }
-                if vm.currentOnboarding != .gacha {
+                if self.currentOnboarding != .gacha {
                     Spacer()
                     Button {
-                        if vm.currentIndex == 1 {
+                        if self.currentIndex == 1 {
                             if !openHealth {
                                 healthManager.authorizationToWriteInHealthStore(action: {
-                                    vm.nextPage()
+                                    self.nextPage()
                                 })
                                 openHealth = true
                             }
-                        } else if vm.currentIndex == 2 {
+                            else {
+                                self.nextPage()
+                            }
+                        } else if self.currentIndex == 2 {
                             if !name.isEmpty {
-                                vm.nextPage()
+                                self.nextPage()
                             } else {
                                 AudioManager.instance.playSFXSecondary(audio: .popup)
                                 showingPopUp = true
                             }
                         } else {
-                            vm.nextPage()
+                            self.nextPage()
                         }
                         
-                        print(vm.currentIndex)
-                        print(vm.currentOnboarding)
+                        print(self.currentIndex)
+                        print(self.currentOnboarding)
                     } label: {
                         HStack {
-                            Image(vm.currentOnboarding.buttonSymbol)
+                            Image(self.currentOnboarding.buttonSymbol)
                                 .resizable()
                                 .frame(width: 32, height: 32)
-                            Text(vm.currentOnboarding.buttonLabel)
+                            Text(self.currentOnboarding.buttonLabel)
                                 .font(.typography(.title))
                                 .foregroundStyle(.tibbyBaseBlack)
                                 .padding(.horizontal)
@@ -119,7 +135,7 @@ struct OnboardingTab: View {
                     .buttonPrimary(bgColor: .tibbyBaseBlue)
                 }
             }
-            .padding(EdgeInsets(top: vm.currentOnboarding != .gacha ? 90 : 0, leading: vm.currentOnboarding != .gacha ? 16 : 0, bottom: vm.currentOnboarding != .gacha ? 30 : 0, trailing: vm.currentOnboarding != .gacha ? 16 : 0))
+            .padding(EdgeInsets(top: self.currentOnboarding != .gacha ? 90 : 0, leading: self.currentOnboarding != .gacha ? 16 : 0, bottom: self.currentOnboarding != .gacha ? 30 : 0, trailing: self.currentOnboarding != .gacha ? 16 : 0))
         }
         .popup(isPresented: $showingPopUp) {
             CustomPopUpView(

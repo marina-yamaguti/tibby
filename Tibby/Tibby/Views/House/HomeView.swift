@@ -152,6 +152,7 @@ struct HomeView: View {
         //Detect if the user is on or off the app
         .onChange(of: scenePhase) {
             if scenePhase == .active {
+                print("JORGE Active")
                 //Decrease the time spent out of the app
                 let enteredApp: Bool = UserDefaults.standard.value(forKey: "enteredApp") as? Bool ?? false
                 if enteredApp {
