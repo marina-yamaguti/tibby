@@ -25,7 +25,7 @@ struct TibbyCard: View {
                     .resizable()
                     .scaleEffect(1.5)
                     .scaledToFit()
-                    .brightness(status == .locked ? -1 : 0) // Dim the image if the item is locked
+                    .brightness(status == .locked ? -0.85 : 0) // Dim the image if the item is locked
                     .padding(.horizontal, 22)
             }
             .padding(.bottom, 5)
@@ -46,7 +46,7 @@ struct TibbyCard: View {
                 .cornerRadius(15)
                 .overlay {
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(.tibbyBaseBlack, lineWidth: status == .unselected ? 0 : 1)
+                        .stroke(.tibbyBaseBlack, lineWidth: status == .selected ? 1 : 0)
                 }
         }
         .shadow(color: Color(red: 0.16, green: 0.17, blue: 0.22).opacity(0.2), radius: 2, x: 0, y: 0)

@@ -41,7 +41,7 @@ struct EditingGoalsView: View {
                         showEdit = false
                     } label: {
                         HStack {
-                            Image(TibbySymbols.checkmarkWhite.rawValue)
+                            Image(TibbySymbols.checkmarkBlack.rawValue)
                                 .resizable()
                                 .frame(width: 32, height: 32)
                             Text("Save")

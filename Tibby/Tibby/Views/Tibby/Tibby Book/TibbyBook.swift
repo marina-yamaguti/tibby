@@ -45,11 +45,11 @@ struct TibbyBook: View {
                                 LazyVGrid(columns: columns, spacing: 16) {
                                     ForEach(bindingList(collection: collection)) { $tibbyL in
                                         if tibbyL.id == tibby.id {
-                                            TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
+                                            TibbyCard(name: $tibbyL.name, status: .selected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         } else if tibbyL.isUnlocked {
                                             TibbyCard(name: $tibbyL.name, status: .unselected, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         } else {
-                                            TibbyCard(name: $tibbyL.name, status: .locked, color: collection.color, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
+                                            TibbyCard(name: $tibbyL.name, status: .locked, color: .tibbyBasePearlBlue, image: "\(tibbyL.species)1", rarity: tibbyL.rarity)
                                         }
                                     }
                                 }

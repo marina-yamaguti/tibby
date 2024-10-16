@@ -39,6 +39,8 @@ struct HomeView: View {
                     HStack(alignment: .top) {
                         LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
+                                HapticManager.instance.impact(style: .soft)
+                                AudioManager.instance.playSFX(audio: .secondaryButton)
                                 showProfile.toggle()
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
@@ -225,6 +227,9 @@ struct HomeView: View {
                     if missionsDaily[i].missionType == .steps {
                         missionsDaily[i].updateProgress(value: healthManager.stepsDay)
                     }
+                    else if missionsDaily[i].missionType == .workout {
+                        missionsDaily[i].updateProgress(value: healthManager.workoutTimeDay)
+                    }
                 }
                 constants.dailyMission.missions = missionsDaily
                 
@@ -233,6 +238,9 @@ struct HomeView: View {
                 for i in 0 ..< missionsWeekly.count {
                     if missionsWeekly[i].missionType == .steps {
                         missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                    if missionsWeekly[i].missionType == .workout {
+                        missionsWeekly[i].updateProgress(value: healthManager.workoutTimeWeek)
                     }
                 }
                 constants.weeklyMission.missions = missionsWeekly
