@@ -26,6 +26,9 @@ struct CustomTextField: View {
     /// Maximum number of characters allowed
     var characterLimit: Int = 10
     
+    /// If the placeholder is mandatory
+    var mandatoryPlaceholder: Bool
+    
     /// Color of character limit
     @State private var stateColor: Color = .tibbyBaseGrey
 
@@ -34,7 +37,7 @@ struct CustomTextField: View {
             Text("How should we call you?")
                 .font(.typography(.body2))
             ZStack {
-                TextField(placeholder, text: $input)
+                TextField("", text: $input, prompt: Text("\(placeholder)\(mandatoryPlaceholder ? (Text("*") .foregroundStyle(.tibbyBaseSaturatedRed)) : Text(""))"))
                     .disableAutocorrection(true)
                     .preferredColorScheme(.light)
                     .font(.typography(.body2))
@@ -67,5 +70,5 @@ struct CustomTextField: View {
 }
 
 #Preview {
-    CustomTextField(input: .constant(""), prompt: "Name", placeholder: "Enter your name")
+    CustomTextField(input: .constant(""), prompt: "Name", placeholder: "Enter your name", mandatoryPlaceholder: true)
 }

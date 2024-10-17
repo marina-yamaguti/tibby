@@ -61,7 +61,6 @@ struct OnboardingTab: View {
                             .font(.typography(.headline))
                             .foregroundStyle(.tibbyBaseBlack)
                             .multilineTextAlignment(.center)
-                            .lineLimit(nil)
                         Text(self.currentOnboarding.description)
                             .font(.typography(.body2))
                             .foregroundStyle(.tibbyBaseBlack)
@@ -134,6 +133,7 @@ struct OnboardingTab: View {
             }
             .padding(EdgeInsets(top: self.currentOnboarding != .gacha ? 90 : 0, leading: self.currentOnboarding != .gacha ? 16 : 0, bottom: self.currentOnboarding != .gacha ? 30 : 0, trailing: self.currentOnboarding != .gacha ? 16 : 0))
         }
+        .ignoresSafeArea(.keyboard)
         .popup(isPresented: $showingPopUp) {
             CustomPopUpView(
                 isPresented: $showingPopUp, 
