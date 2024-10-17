@@ -140,6 +140,7 @@ struct CapsuleView: View {
                     if firstTimeHere {
                         UserDefaults.standard.setValue(false, forKey: "firstTimeHere")
                         firstTimeHere = false
+                        //AudioManager.instance.playMusic(audio: .happy)
                     } else {
                         presentationMode.wrappedValue.dismiss()
                     }

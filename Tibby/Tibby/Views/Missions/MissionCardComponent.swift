@@ -10,7 +10,8 @@ import SwiftUI
 struct MissionCardComponent: View {
     @EnvironmentObject var service: Service
     @Binding var missions: [MissionProtocol]
-    @ObservedObject var gameStreak: GameStreak
+    @Binding var reorderMissions: Bool
+    @State private var gameStreak = GameStreak() // Create a local instance of GameStreak
     
     var body: some View {
         VStack(spacing: 0) {
@@ -19,7 +20,8 @@ struct MissionCardComponent: View {
                     .padding(.vertical, 8)
                     .onTapGesture {
                         mission.claimReward(user: service.getUser()!, action: {
-                            checkAndIncrementStreak() // Check and increment streak on mission completion
+                            reorderMissions.toggle()
+                            gameStreak.incrementStreak()
                         })
                     }
             }

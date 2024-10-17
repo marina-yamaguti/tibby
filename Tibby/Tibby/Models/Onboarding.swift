@@ -46,7 +46,7 @@ enum OnboardingViews: CaseIterable {
         case .onboarding2:
             return "Accept"
         case .onboarding3:
-            return "Conclude"
+            return "Save"
         case .onboarding4:
             return "Start"
         case .gacha:
@@ -62,7 +62,7 @@ enum OnboardingViews: CaseIterable {
         case .onboarding2:
             TibbySymbols.lockBlack.rawValue
         case .onboarding3:
-            TibbySymbols.checkmarkBlack.rawValue
+            TibbySymbols.diskDark.rawValue
         case .onboarding4:
             TibbySymbols.playBlack.rawValue
         case .gacha:

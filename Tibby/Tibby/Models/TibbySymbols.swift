@@ -80,8 +80,8 @@ enum TibbySymbols: String {
     case searchBlack = "TibbySymbolSearchDark"
     case sleepWhite = "TibbySymbolSleepLight"
     case sleepBlack = "TibbySymbolSleepDark"
-    case squareWhite = "TibbySymbolSquareWhiteLight"
-    case squareBlack = "TibbySymbolSquareWhiteDark"
+    case squareWhite = "TibbySymbolSquareLight"
+    case squareBlack = "TibbySymbolSquareDark"
     case starWhite = "TibbySymbolStarLight"
     case starBlack = "TibbySymbolStarDark"
     case starListWhite = "TibbySymbolStarListLight"
@@ -91,4 +91,6 @@ enum TibbySymbols: String {
     case xmarkWhite = "TibbySymbolXMarkLight"
     case xmarkBlack = "TibbySymbolXMarkDark"
     case adLight = "TibbySymbolAdLight"
+    case diskLight = "TibbySymbolDiskLight"
+    case diskDark = "TibbySymbolDiskDark"
 }
