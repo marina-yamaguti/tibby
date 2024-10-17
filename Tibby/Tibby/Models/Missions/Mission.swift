@@ -32,13 +32,13 @@ enum MissionType: String, CaseIterable {
     var icon: String {
         switch self {
         case .workout:
-            return "TibbySymbolDumbbell"
+            return "TibbySymbolDumbbellLight"
         case .feed:
-            return "TibbySymbolCarrot"
+            return "TibbySymbolCarrotLight"
         case .sleep:
-            return "TibbySymbolSleep"
+            return "TibbySymbolSleepLight"
         case .steps:
-            return "TibbySymbolSteps"
+            return "TibbySymbolStepsLight"
         }
     }
     
@@ -51,7 +51,7 @@ enum MissionType: String, CaseIterable {
     func missionDescription(value: Int, frequency: DateType) -> String {
         switch self {
         case .workout:
-            return "\(value) \(frequency == .day ? "minutes" : "hours") of workout"
+            return "\(frequency == .day ? "\(value) minutes" : "\(Int(value/60)) hours") workout"
         case .feed:
             return "feed \(value) times"
         case .sleep:
@@ -76,10 +76,10 @@ enum MissionType: String, CaseIterable {
                 return Int(Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 1.5)
                 
             case 5:
-                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 5)/60)
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 5))
                 
             case 6:
-                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 7)/60)
+                return Int((Double(UserDefaults.standard.value(forKey: "workout") as? Int ?? 30) * 7))
                 
             default:
                 return 0
@@ -113,7 +113,7 @@ enum MissionType: String, CaseIterable {
                 return ((UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 5)
                 
             case 6:
-                return Int((Double(UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 7)/60)
+                return Int((Double(UserDefaults.standard.value(forKey: "sleep") as? Int ?? 8) * 7))
                 
             default:
                 return 0

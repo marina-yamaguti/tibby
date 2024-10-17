@@ -39,6 +39,8 @@ struct HomeView: View {
                     HStack(alignment: .top) {
                         LevelComponent(level: service.getUser()?.level ?? 1)
                             .onTapGesture {
+                                HapticManager.instance.impact(style: .soft)
+                                AudioManager.instance.playSFX(audio: .secondaryButton)
                                 showProfile.toggle()
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
@@ -63,6 +65,28 @@ struct HomeView: View {
                         SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                             .onAppear {
                                 tibbyView.setTibby(tibbyObject: tibby, constants: constants, service: service)
+                                if constants.tibbySleeping {
+                                    if tibby.currentAccessoryId != nil {
+                                        tibbyView.removeAccessory {
+                                            print("ACCESSORY REMOVED")
+                                        }
+                                    }
+                                    
+                                    tibbyView.animateTibby((TibbySpecie(rawValue: tibby.species)?.sleepAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                                } else {
+                                    if tibby.currentAccessoryId != nil {
+                                        tibbyView.addAccessory(service.getAllAccessories()!.first(where: { a in
+                                            a.id == tibby.currentAccessoryId
+                                        })!, species: tibby.species) {
+                                            print("ACCESSORY ADDED")
+                                        } remove: {
+                                            print("ACCESSORY REMOVED BEFORE ADD")
+                                        }
+                                    }
+                                    
+                                    let tibbySpecie = TibbySpecie(rawValue: tibby.species)
+                                    tibbyView.animateTibby((tibby.happiness < 33 || tibby.hunger < 33 || tibby.sleep < 33 ? tibbySpecie?.sadAnimation() : tibbySpecie?.baseAnimation())!, nodeID: .tibby, timeFrame: 0.5)
+                                }
                             }
                             .opacity(showSprite ? 1 : 0)
                         
@@ -156,6 +180,7 @@ struct HomeView: View {
         //Detect if the user is on or off the app
         .onChange(of: scenePhase) {
             if scenePhase == .active {
+                print("JORGE Active")
                 //Decrease the time spent out of the app
                 let enteredApp: Bool = UserDefaults.standard.value(forKey: "enteredApp") as? Bool ?? false
                 if enteredApp {
@@ -228,6 +253,9 @@ struct HomeView: View {
                     if missionsDaily[i].missionType == .steps {
                         missionsDaily[i].updateProgress(value: healthManager.stepsDay)
                     }
+                    else if missionsDaily[i].missionType == .workout {
+                        missionsDaily[i].updateProgress(value: healthManager.workoutTimeDay)
+                    }
                 }
                 constants.dailyMission.missions = missionsDaily
                 
@@ -236,6 +264,9 @@ struct HomeView: View {
                 for i in 0 ..< missionsWeekly.count {
                     if missionsWeekly[i].missionType == .steps {
                         missionsWeekly[i].updateProgress(value: healthManager.stepsWeek)
+                    }
+                    if missionsWeekly[i].missionType == .workout {
+                        missionsWeekly[i].updateProgress(value: healthManager.workoutTimeWeek)
                     }
                 }
                 constants.weeklyMission.missions = missionsWeekly

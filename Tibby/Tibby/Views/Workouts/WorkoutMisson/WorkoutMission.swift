@@ -10,8 +10,8 @@ import SwiftUI
 struct WorkoutMission: View {
     @EnvironmentObject var constants: Constants
     @Binding var showSheet: Bool
+    @State var workoutMissions: [MissionProtocol] = []
     let workout: WorkoutActivityType
-    let workoutMissions: [MissionsCollectionProtocol] = []
     var tibby: Tibby
     var body: some View {
         VStack {
@@ -38,6 +38,7 @@ struct WorkoutMission: View {
                 Text("Missions")
                     .font(.typography(.label))
                     .foregroundStyle(.tibbyBaseGreen)
+                    .padding(.bottom, 8)
                 Spacer()
             }.padding(.horizontal)
             if workoutMissions.isEmpty {
@@ -58,8 +59,23 @@ struct WorkoutMission: View {
                     )
                     .padding()
             } else {
-#warning("wating for mission component")
-                //mission component list
+                VStack {
+                    ForEach(workoutMissions, id: \.id) { mission in
+                        MissionProgressComponent(mission: .constant(mission))
+                            .padding(4)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(.tibbyBasePearlBlue)
+                            }
+                    }
+                    .padding(4)
+                } .cornerRadius(20)
+                    .padding(4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.tibbyBaseWhite, lineWidth: 2)
+                    )
+                    .padding()
             }
             Spacer()
             Rectangle()
@@ -91,6 +107,19 @@ struct WorkoutMission: View {
             }.padding()
         }.background(.tibbyBaseBlack)
             .withBorderRadius(40)
+            .onAppear {
+                workoutMissions = []
+                for mission in constants.dailyMission.missions {
+                    if mission.missionType == .workout && mission.progress == .inProgress {
+                        workoutMissions.append(mission)
+                    }
+                }
+                for mission in constants.weeklyMission.missions {
+                    if mission.missionType == .workout && mission.progress == .inProgress {
+                        workoutMissions.append(mission)
+                    }
+                }
+            }
         
     }
 }

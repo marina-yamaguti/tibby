@@ -113,6 +113,7 @@ struct TibbyNameEdit: View {
         }
         .onTapGesture {
             HapticManager.instance.impact(style: .soft)
+            AudioManager.instance.playSFX(audio: .secondaryButton)
             isEditing.toggle()
             isFocused.toggle()
         }

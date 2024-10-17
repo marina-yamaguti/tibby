@@ -29,7 +29,7 @@ struct SplashScreen: View {
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     @State var currentTibby: Tibby?
-    @State var offset: CGFloat = 0
+    @State var enteredApp: Bool = true
 
     var body: some View {
         NavigationStack {
@@ -42,7 +42,10 @@ struct SplashScreen: View {
                         if let tibby = self.currentTibby {
                             StartView(currentTibby: tibby)
                                 .onAppear {
-                                    AudioManager.instance.playMusic(audio: .happy)
+                                    if enteredApp {
+                                        enteredApp = false
+                                        AudioManager.instance.playMusic(audio: .happy)
+                                    }
                                 }
                         }
                     }

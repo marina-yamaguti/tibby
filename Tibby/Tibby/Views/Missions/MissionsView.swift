@@ -11,6 +11,8 @@ struct MissionsView: View {
     @ObservedObject var streak = GameStreak()
     @EnvironmentObject var constants: Constants
     
+    @State var reorderMissions: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
             PageHeader(title: "Missions", symbol: TibbySymbols.listBlack.rawValue)
@@ -32,7 +34,7 @@ struct MissionsView: View {
                         }
                         .padding(.bottom, 16)
                         
-                        MissionCardComponent(missions: $constants.dailyMission.missions, gameStreak: GameStreak())
+                        MissionCardComponent(missions: $constants.dailyMission.missions, reorderMissions: $reorderMissions)
                     }
                     .padding(.bottom, 16)
                     
@@ -44,7 +46,7 @@ struct MissionsView: View {
                         }
                         .padding(.bottom, 16)
                         
-                        MissionCardComponent(missions: $constants.weeklyMission.missions, gameStreak: GameStreak())
+                        MissionCardComponent(missions: $constants.weeklyMission.missions, reorderMissions: $reorderMissions)
                     }
                     Spacer()
                 }
@@ -57,6 +59,10 @@ struct MissionsView: View {
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
         .onAppear {
+            constants.weeklyMission.missions = constants.weeklyMission.getMissions()
+            constants.dailyMission.missions = constants.dailyMission.getMissions()
+        }
+        .onChange(of: reorderMissions) {
             constants.weeklyMission.missions = constants.weeklyMission.getMissions()
             constants.dailyMission.missions = constants.dailyMission.getMissions()
         }

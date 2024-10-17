@@ -44,6 +44,8 @@ struct CodeRedeemView: View {
                             .foregroundStyle(Color.tibbyBaseWhite)
                     }
                     .onTapGesture {
+                        HapticManager.instance.impact(style: .soft)
+                        AudioManager.instance.playSFX(audio: .secondaryButton)
                         viewModel.redeemCodeAction(service: service)
                     }
                 }
