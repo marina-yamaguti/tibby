@@ -10,6 +10,7 @@ import SwiftUI
 struct EquipComponent: View {
     @ObservedObject var viewModel: TibbySelectedViewModel
     @Binding var isSelected: SelectionStatus
+    @EnvironmentObject var constants: Constants
     
     var body: some View {
         HStack(spacing: 16) {
@@ -31,6 +32,8 @@ struct EquipComponent: View {
             if isSelected == .unselected {
                 isSelected = .selected
                 viewModel.changeTibby()
+                constants.tibbySleeping = false
+                AudioManager.instance.playMusic(audio: .happy)
             }
         }
     }

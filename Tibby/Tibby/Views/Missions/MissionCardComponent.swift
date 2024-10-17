@@ -21,7 +21,7 @@ struct MissionCardComponent: View {
                     .onTapGesture {
                         mission.claimReward(user: service.getUser()!, action: {
                             reorderMissions.toggle()
-                            checkAndIncrementStreak() // Check and increment streak on mission completion
+                            gameStreak.incrementStreak()
                         })
                     }
             }

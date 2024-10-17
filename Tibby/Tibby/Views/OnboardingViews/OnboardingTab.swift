@@ -30,7 +30,8 @@ struct OnboardingTab: View {
     }
     
     func previousPage() {
-            currentIndex -= 1
+        currentIndex -= 1
+        openHealth = false
     }
     
     var body: some View {
@@ -100,9 +101,6 @@ struct OnboardingTab: View {
                                     self.nextPage()
                                 })
                                 openHealth = true
-                            }
-                            else {
-                                self.nextPage()
                             }
                         } else if self.currentIndex == 2 {
                             if !name.isEmpty {

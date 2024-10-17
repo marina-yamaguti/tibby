@@ -74,7 +74,9 @@ struct ResourcesComponent: View {
             ForEach(ResourceCategory.allCases, id: \.self) { category in
                 HStack(alignment: .center, spacing: 8) {
                     Image(category.symbol.rawValue)
-                        .font(.typography(.body2))
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
                     
                     Text(category.label)
                         .font(.typography(.body2))
