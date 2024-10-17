@@ -29,6 +29,7 @@ struct SplashScreen: View {
     @State var canProceed: Bool = false
     @State var firstTimeHere: Bool = UserDefaults.standard.value(forKey: "firstTimeHere") as? Bool ?? true
     @State var currentTibby: Tibby?
+    @State var offset: CGFloat = 0
 
     var body: some View {
         NavigationStack {

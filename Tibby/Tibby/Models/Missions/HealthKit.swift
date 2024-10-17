@@ -112,6 +112,128 @@ struct WorkoutPratic {
     
 }
 
+
+/// Class responsible for controlling sleep sessions and intervals
+class SleepSessionController {
+    var start: Date
+    var intervals: [SleepSessionInterval] = []
+
+    init(start: Date, intervals: [SleepSessionInterval]) {
+        self.start = start
+        self.intervals = intervals
+    }
+
+    /// Adds a new sleep interval using the session's start time and the provided end time.
+    private func addNewInterval(end: Date) {
+        let newInterval = SleepSessionInterval(start: self.start, end: end)
+        intervals.append(newInterval)
+    }
+
+    /// Starts the sleep session by setting the start date.
+    func startSession(date: Date) {
+        start = date
+    }
+
+    /// Pauses the sleep session by creating an interval up to the given date.
+    func pauseSession(date: Date) {
+        let endDate = date
+        addNewInterval(end: endDate)
+    }
+
+    /// Ends the sleep session and returns a SleepPractic (formerly WorkoutPractic) containing the intervals.
+    func endSession() -> SleepPractic {
+        pauseSession(date: Date())
+        let sleepPractic = SleepPractic(intervals: intervals)
+        intervals.removeAll()
+        
+        return sleepPractic
+    }
+}
+
+/// Represents an individual interval during the sleep session
+struct SleepSessionInterval {
+    var start: Date
+    var end: Date
+
+    init(start: Date, end: Date) {
+        self.start = start
+        self.end = end
+    }
+
+    /// Returns the duration of the interval in seconds.
+    var duration: TimeInterval {
+        return end.timeIntervalSince(start)
+    }
+}
+
+/// Manages a sleep session
+class SleepSession {
+    var start: Date
+    var intervals: [SleepSessionInterval] = []
+    
+    init(start: Date) {
+        self.start = start
+    }
+
+    // Adds a new interval for the sleep session using the session's start time and the given end time.
+    private func addNewInterval(end: Date) {
+        let newInterval = SleepSessionInterval(start: self.start, end: end)
+        intervals.append(newInterval)
+    }
+
+    /// Starts the sleep session by setting the start date.
+    func startSession(date: Date) {
+        start = date
+    }
+
+    /// Pauses the sleep session by creating an interval up to the given date.
+    func pauseSession(date: Date) {
+        let endDate = date
+        addNewInterval(end: endDate)
+    }
+
+    /// Ends the sleep session and returns a SleepPractic containing the session intervals.
+    func endSession() -> SleepPractic {
+        pauseSession(date: Date()) // Pauses with current date as end time
+        let sleepPractic = SleepPractic(intervals: intervals)
+        intervals.removeAll() // Reset intervals after session ends
+
+        return sleepPractic
+    }
+}
+
+// Placeholder for SleepActivityType (could represent different types of sleep)
+enum SleepActivityType {
+    case deepSleep
+    case lightSleep
+    case REM
+    case awake
+}
+
+// Represents a finalized sleep session with intervals
+struct SleepPractic {
+    var intervals: [SleepSessionInterval]
+
+    /**
+     Initializes a SleepPractic with a list of intervals.
+     
+     - Parameters:
+        - intervals: The intervals recorded during the sleep session.
+     */
+    init(intervals: [SleepSessionInterval]) {
+        self.intervals = intervals
+    }
+
+    /// Calculates the total duration of the sleep session based on intervals.
+    var totalDuration: TimeInterval {
+        return intervals.reduce(0) { $0 + $1.duration }
+    }
+}
+
+
+
+
+
 /// A class that manages interactions with the HealthKit framework, providing functionality for retrieving health-related data such as steps, calories burned, and workout time.
 class HealthManager: ObservableObject {
     
@@ -206,21 +328,20 @@ class HealthManager: ObservableObject {
         return false
     }
     
-    #warning("SE A APP STORE NÃO ACEITAR POR LINK DAS CONFIGURAÇÕES, REVER ESSA PARTE DO CÓDIGO")
     /// Directs the user to the iOS settings to manage HealthKit permissions.
     func goToiOSSettings() {
         guard let url = URL(string: "App-Prefs:") else { return }
         UIApplication.shared.open(url)
     }
     
-    //Fetch HealthKit informations that are used
+    /// Fetch HealthKit informations that are used
     func fetchInformation(informationList: [(dateInfo: Date, sampleInfo: SampleType, dataTypeInfo: DateType)]) {
         for information in informationList {
             getHealthInfo(startDate: information.dateInfo, sample: information.sampleInfo, frequency: information.dataTypeInfo)
         }
     }
     
-    //Fetch height and body mass and birth
+    /// Fetch height and body mass and birth
     func fetchCharacteristics() {
         do {
             birth = try self.healthStore?.dateOfBirthComponents()
@@ -260,7 +381,7 @@ class HealthManager: ObservableObject {
         }
     }
     
-    //Fetch all the HealthKit informations that are used
+    /// Fetch all the HealthKit informations that are used
     func fetchAllInformation() {
         
         fetchCharacteristics()
@@ -270,7 +391,7 @@ class HealthManager: ObservableObject {
         fetchInformation(informationList: list)
     }
     
-    //Create a Sample list of all workouts done in a session
+    /// Create a Sample list of all workouts done in a session
     private func samples(for workout: WorkoutPratic) -> [HKSample] {
         ///Verify that the energy quantity type is still available to HealthKit.
         guard let energyQuantityType = HKSampleType.quantityType(
@@ -278,10 +399,10 @@ class HealthManager: ObservableObject {
             fatalError("*** Energy Burned Type Not Available ***")
         }
         
-        ///Create a sample for each WorkoutPraticInterval
+        /// Create a sample for each WorkoutPraticInterval
         let samples: [HKSample] = workout.intervals.map { interval in
             
-            ///Calculate the calories burned in the activity
+            /// Calculate the calories burned in the activity
             var caloreisBurned: Double {
                 if self.bodyMass == 0 {
                     let hours: Double = interval.duration/3600
@@ -307,14 +428,14 @@ class HealthManager: ObservableObject {
     }
     
     
-    //Save Workout Session in Healthkit from the app
+    /// Save Workout Session in Healthkit from the app
     func saveWorkout(workout: WorkoutPratic) {
         ///Configure the workout
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = workout.activity.workoutType
         let builder = HKWorkoutBuilder(healthStore: healthStore!, configuration: workoutConfiguration, device: .local())
         
-        ///Start the collection with all the workouts to save
+        /// Start the collection with all the workouts to save
         builder.beginCollection(withStart: workout.start) { success, error in
             guard success else {
                 print("error to begin collection")
@@ -322,7 +443,7 @@ class HealthManager: ObservableObject {
             }
         }
         
-        ///Create a list of samples of the activity
+        /// Create a list of samples of the activity
         let samples = self.samples(for: workout)
         
         builder.add(samples) { (success, error) in
@@ -346,14 +467,14 @@ class HealthManager: ObservableObject {
     }
     
     private func getHealthInfo(startDate: Date, sample: SampleType, frequency: DateType) {
-        //Create the time interval
+        /// Create the time interval
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
         var query: HKQuery?
         var count: Int = 0
         
         switch sample {
         case .workoutCalories:
-            //Create the Query to handle with the information
+            /// Create the Query to handle with the information
             query = HKSampleQuery(sampleType: sample.getSample(), predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
                 guard let workouts = sampleList as? [HKWorkout], error == nil else {
                     print("error fetching data")
@@ -365,12 +486,12 @@ class HealthManager: ObservableObject {
                     }
                     return
                 }
-                //Sum the workouts' information
+                /// Sum the workouts' information
                 for workout in workouts {
                     count += Int(round((workout.totalEnergyBurned?.doubleValue(for: sample.getUnit()!)) ?? 0))
                 }
                                 
-                //Save the workouts' information
+                /// Save the workouts' information
                 DispatchQueue.main.async {
                     if frequency == .day {
                         self.workoutCaloriesDay = count
@@ -383,7 +504,7 @@ class HealthManager: ObservableObject {
             })
             
         case .workoutTime:
-            //Create the Query to handle with the information
+            /// Create the Query to handle with the information
             query = HKSampleQuery(sampleType: sample.getSample(), predicate: predicate, limit: 20, sortDescriptors: nil, resultsHandler: { _, sampleList, error in
                 guard let workouts = sampleList as? [HKWorkout], error == nil else {
                     print("error fetching data")
@@ -400,7 +521,7 @@ class HealthManager: ObservableObject {
                     count += Int(workout.duration/60)
                 }
                                 
-                //Save the workouts' information
+                /// Save the workouts' information
                 DispatchQueue.main.async {
                     if frequency == .day {
                         self.workoutTimeDay = count
@@ -411,7 +532,7 @@ class HealthManager: ObservableObject {
                 }
             })
         case .steps:
-            //Create the Query to handle with the information
+            /// Create the Query to handle with the information
             query = HKStatisticsQuery(quantityType: sample.getSample() as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
                 guard let quantity = result?.sumQuantity(), error == nil else {
                     print("error fetching data")
@@ -423,7 +544,7 @@ class HealthManager: ObservableObject {
                     }
                     return
                 }
-                //Save the steps/calories' information
+                /// Save the steps/calories' information
                 count = Int(quantity.doubleValue(for: sample.getUnit()!))
                 DispatchQueue.main.async {
                     if frequency == .day {
@@ -436,7 +557,7 @@ class HealthManager: ObservableObject {
             })
             
         case .energyBurned:
-            //Create the Query to handle with the information
+            /// Create the Query to handle with the information
             query = HKStatisticsQuery(quantityType: sample.getSample() as! HKQuantityType, quantitySamplePredicate: predicate, completionHandler: { _, result, error in
                 guard let quantity = result?.sumQuantity(), error == nil else {
                     print("error fetching data")
@@ -448,7 +569,7 @@ class HealthManager: ObservableObject {
                     }
                     return
                 }
-                //Save the steps/calories' information
+                /// Save the steps/calories' information
                 count = Int(quantity.doubleValue(for: sample.getUnit()!))
                 DispatchQueue.main.async {
                     if frequency == .day {

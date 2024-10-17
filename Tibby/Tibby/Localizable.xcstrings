@@ -26,16 +26,6 @@
     "%lld" : {
 
     },
-    "%lld %@s" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld %2$@s"
-          }
-        }
-      }
-    },
     "%lld/%lld" : {
       "localizations" : {
         "en" : {
@@ -56,19 +46,10 @@
         }
       }
     },
-    "%lld%% Off" : {
-
-    },
-    "10 coins" : {
-
-    },
     "20" : {
 
     },
     "100" : {
-
-    },
-    "Are you sure you want to buy this item?" : {
 
     },
     "Brought to you by:" : {
@@ -113,6 +94,9 @@
     "Earn Rewards" : {
 
     },
+    "Elapsed time" : {
+
+    },
     "Elapsed Time" : {
 
     },
@@ -126,9 +110,6 @@
 
     },
     "Finish" : {
-
-    },
-    "Free" : {
 
     },
     "Gacha" : {
@@ -215,9 +196,6 @@
     "Redeem Code" : {
 
     },
-    "Reset in" : {
-
-    },
     "Resources" : {
 
     },
@@ -236,22 +214,22 @@
     "Showcase" : {
 
     },
+    "Sleep Tracker" : {
+
+    },
     "species" : {
 
     },
     "Start" : {
 
     },
+    "Started" : {
+
+    },
     "Stay Healthy" : {
 
     },
     "Steps Taken" : {
-
-    },
-    "Success" : {
-
-    },
-    "The purchased item has been added to your account." : {
 
     },
     "There are no missions attached to this workout type." : {

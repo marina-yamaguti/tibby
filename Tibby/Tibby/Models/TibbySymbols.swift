@@ -80,7 +80,7 @@ enum TibbySymbols: String {
     case searchBlack = "TibbySymbolSearchDark"
     case sleepWhite = "TibbySymbolSleepLight"
     case sleepBlack = "TibbySymbolSleepDark"
-    case squareWhite = "TibbySymbolSquareWhiteLight"
+    case squareWhite = "TibbySymbolSquareLight"
     case squareBlack = "TibbySymbolSquareWhiteDark"
     case starWhite = "TibbySymbolStarLight"
     case starBlack = "TibbySymbolStarDark"
