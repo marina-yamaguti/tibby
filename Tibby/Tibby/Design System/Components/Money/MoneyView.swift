@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoneyView: View {
+    @EnvironmentObject var service: Service
     @ObservedObject var viewModel: MoneyViewModel
     
     var body: some View {
@@ -21,7 +22,3 @@ struct MoneyView: View {
         }
     }
 }
-
-//#Preview {
-//    MoneyView(viewModel: MoneyViewModel(moneyType: .coin, service: Service()))
-//}

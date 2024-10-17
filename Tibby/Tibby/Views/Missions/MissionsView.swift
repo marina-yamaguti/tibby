@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionsView: View {
-    @ObservedObject var streak = GameStreak()  // Observed game streak object
+    @ObservedObject var streak = GameStreak()
     @EnvironmentObject var constants: Constants
     
     var body: some View {
@@ -26,13 +26,13 @@ struct MissionsView: View {
                             Spacer()
                             
                             // Pass the shared streak object to StreakUpComponent
-                            NavigationLink(destination: StreakView()) {
+                            NavigationLink(destination: StreakView(streak: GameStreak())) {
                                 StreakUpComponent(streak: streak)  // Pass the streak here
                             }
                         }
                         .padding(.bottom, 16)
                         
-                        MissionCardComponent(missions: $constants.dailyMission.missions)
+                        MissionCardComponent(missions: $constants.dailyMission.missions, gameStreak: GameStreak())
                     }
                     .padding(.bottom, 16)
                     
@@ -44,7 +44,7 @@ struct MissionsView: View {
                         }
                         .padding(.bottom, 16)
                         
-                        MissionCardComponent(missions: $constants.weeklyMission.missions)
+                        MissionCardComponent(missions: $constants.weeklyMission.missions, gameStreak: GameStreak())
                     }
                     Spacer()
                 }

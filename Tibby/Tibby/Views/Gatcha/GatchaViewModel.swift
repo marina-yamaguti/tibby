@@ -21,9 +21,57 @@ final class GatchaViewModel: ObservableObject {
     @Published var epicCapsuleImages: [Image] = []
     @Published var rareCapsuleImages: [Image] = []
     @Published var sparkImages: [Image] = []
-    
-    
+    @Published var countdownString: String = "00:00:00"
+    private var timer: Timer? = nil
     private var animationIndex = 0
+
+    
+    
+    
+    func startTimer() {
+            updateCountdown()  // Update immediately when the view appears
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                self.updateCountdown()
+            }
+        }
+        
+        // Function to stop the timer when it's no longer needed
+        func stopTimer() {
+            timer?.invalidate()
+            timer = nil
+        }
+        
+        // Function to calculate and update the countdown string
+        func updateCountdown() {
+            let currentDate = Date()
+            let calendar = Calendar.current
+            
+            // Get the current week and year
+            let currentWeek = calendar.component(.weekOfYear, from: currentDate)
+            let currentYear = calendar.component(.yearForWeekOfYear, from: currentDate)
+            
+            // Calculate the start of the next week (e.g., Monday 00:00)
+            if let nextWeekStart = calendar.date(from: DateComponents(weekOfYear: currentWeek + 1, yearForWeekOfYear: currentYear)) {
+                // Calculate the time interval between the current date and the start of the next week
+                let timeInterval = nextWeekStart.timeIntervalSince(currentDate)
+                
+                // If timeInterval is less than or equal to zero, stop the timer
+                if timeInterval <= 0 {
+                    stopTimer()
+                    countdownString = "00:00:00"  // Countdown finished
+                    return
+                }
+                
+                // Convert the time interval into hours, minutes, and seconds
+                let totalSeconds = Int(timeInterval)
+                let hours = totalSeconds / 3600
+                let minutes = (totalSeconds % 3600) / 60
+                let seconds = totalSeconds % 60
+                
+                // Format the output as "HH:mm:ss"
+                countdownString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            }
+        }
     
     // sprites gacha animations - all series
     let gachaBaseAnimation = [
@@ -199,6 +247,24 @@ final class GatchaViewModel: ObservableObject {
         let collectionIndex = currentWeek % Collection.allCases.count
         
         currentSeries = Collection.allCases[collectionIndex]
+    }
+    
+    func countdownUntilNextCollection() -> String {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let currentWeek = calendar.component(.weekOfYear, from: currentDate)
+        let currentYear = calendar.component(.yearForWeekOfYear, from: currentDate)
+        
+        if let nextWeekStart = calendar.date(from: DateComponents(weekOfYear: currentWeek + 1, yearForWeekOfYear: currentYear)) {
+            let timeInterval = nextWeekStart.timeIntervalSince(currentDate)
+            let totalSeconds = Int(timeInterval)
+            let hours = totalSeconds / 3600
+            let minutes = (totalSeconds % 3600) / 60
+            let seconds = totalSeconds % 60
+            let formattedCountdown = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            return formattedCountdown
+        }
+        return "00:00:00"
     }
     
     
@@ -390,12 +456,12 @@ final class GatchaViewModel: ObservableObject {
             animation = gachaHouseSeriesAnimation
         case .forestSeries:
             animation = gachaForestSeriesAnimation
-//        case .beachSeries:
-//            animation = gachaBeachSeriesAnimation
-//        case .foodSeries:
-//            animation = gachaFoodSeriesAnimation
-//        case .urbanSeries:
-//            animation = gachaUrbanSeriesAnimation
+            //        case .beachSeries:
+            //            animation = gachaBeachSeriesAnimation
+            //        case .foodSeries:
+            //            animation = gachaFoodSeriesAnimation
+            //        case .urbanSeries:
+            //            animation = gachaUrbanSeriesAnimation
         }
         
         //load series animation

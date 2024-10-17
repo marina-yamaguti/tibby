@@ -35,7 +35,7 @@ struct ConnectionView: View {
                         .kerning(0.15)
                         .multilineTextAlignment(.center)
 
-                    Image("shark1")
+                    Image("axolotl1")
                         .resizable()
                         .aspectRatio(1, contentMode: .fill)
                         .frame(width: 150)

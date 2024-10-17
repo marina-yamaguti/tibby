@@ -4,7 +4,6 @@
 //
 //  Created by Sofia Sartori on 05/09/24.
 //
-
 import SwiftUI
 
 struct WorkoutSessionView: View {
@@ -23,9 +22,12 @@ struct WorkoutSessionView: View {
     @Binding var offset: CGFloat
     var stepsGoal: Int
     var timeGoal: Int
-    
+
     @Environment(\.dismiss) var dismiss
+    @Environment(\.scenePhase) var scenePhase
     
+    @State private var lastActiveTime: Date?
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -139,10 +141,24 @@ struct WorkoutSessionView: View {
                 health.fetchInformation(informationList: [(dateInfo: .startOfDay, sampleInfo: .steps, dataTypeInfo: .day)])
                 startTimer()
             }
+            .onChange(of: scenePhase) { newPhase in
+                handleScenePhaseChange(newPhase)
+            }
             .navigationBarBackButtonHidden(true)
         
     }
-    
+
+    func handleScenePhaseChange(_ newPhase: ScenePhase) {
+        if newPhase == .background {
+            lastActiveTime = Date()
+            pauseTimer() 
+        } else if newPhase == .active, let lastActiveTime {
+            let timeInBackground = Date().timeIntervalSince(lastActiveTime)
+            timeSeconds += Int(timeInBackground)
+            startTimer()
+        }
+    }
+
     func startTimer() {
         if timer == nil {
             isRunning = true
@@ -154,13 +170,9 @@ struct WorkoutSessionView: View {
                 
                 if stepsStart == 0 {
                     stepsStart = health.stepsDay
-                    print("firstStepsStart: \(stepsStart)")
                 }
                 
-                print("stepsDay: \(health.stepsDay)")
-                print("stepsStart: \(stepsStart)")
                 steps = (health.stepsDay - stepsStart)
-                print("step: \(steps)")
             }
         }
     }
@@ -185,4 +197,3 @@ struct WorkoutSessionView: View {
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }
-

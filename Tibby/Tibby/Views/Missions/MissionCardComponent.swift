@@ -10,7 +10,7 @@ import SwiftUI
 struct MissionCardComponent: View {
     @EnvironmentObject var service: Service
     @Binding var missions: [MissionProtocol]
-    @State private var gameStreak = GameStreak() // Create a local instance of GameStreak
+    @ObservedObject var gameStreak: GameStreak
     
     var body: some View {
         VStack(spacing: 0) {
@@ -31,10 +31,8 @@ struct MissionCardComponent: View {
         }
     }
     
-    /// Check and increment the streak if necessary.
-    private func checkAndIncrementStreak() {
-        gameStreak.checkStreakStatus()
+    /// Increment the streak directly when a mission is completed.
+    private func incrementStreak() {
         gameStreak.incrementStreak()
     }
 }
-

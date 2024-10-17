@@ -54,7 +54,11 @@ struct HomeView: View {
                     .padding(16)
                     Spacer()
                     TibbyNameComponent(name: $tibby.name)
+                    
+                    TibbyStatusComponent(hunger: tibby.hunger, sleep: tibby.sleep, play: tibby.happiness)
+                        .frame(width: 145, alignment: .center)
                         .padding(.bottom, -20)
+                    
                     ZStack {
                         SpriteView(scene: tibbyView as SKScene, options: [.allowsTransparency]).frame(width: 300, height: 300)
                             .onAppear {
@@ -89,7 +93,7 @@ struct HomeView: View {
                         Button(action: {showShop = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.cartWhite.rawValue, text: "")})
                             .buttonSecondary(bgColor: .black.opacity(0.5))
                             .navigationDestination(isPresented: $showShop) {
-                                GatchaView(firstTimeHere: .constant(false), currentTibby: .constant(nil))
+                                GatchaView(isBaseOnFocus: true, firstTimeHere: .constant(false), currentTibby: .constant(nil))
                             }
                         Spacer()
                         Button(action: {
