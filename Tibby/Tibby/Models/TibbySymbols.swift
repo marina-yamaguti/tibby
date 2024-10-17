@@ -90,4 +90,5 @@ enum TibbySymbols: String {
     case stepsBlack = "TibbySymbolStepsDark"
     case xmarkWhite = "TibbySymbolXMarkLight"
     case xmarkBlack = "TibbySymbolXMarkDark"
+    case adLight = "TibbySymbolAdLight"
 }

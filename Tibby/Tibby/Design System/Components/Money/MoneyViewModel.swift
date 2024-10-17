@@ -52,7 +52,8 @@ class MoneyViewModel: ObservableObject {
 }
 
 //enum for the type of money
-enum MoneyType {
-    case coin
-    case gem
+enum MoneyType: String {
+    case coin = "Coin"
+    case gem = "Gem"
+    
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionsView: View {
-    @ObservedObject var streak = GameStreak()  // Observed game streak object
+    @ObservedObject var streak = GameStreak()
     @EnvironmentObject var constants: Constants
     
     @State var reorderMissions: Bool = false
@@ -28,7 +28,7 @@ struct MissionsView: View {
                             Spacer()
                             
                             // Pass the shared streak object to StreakUpComponent
-                            NavigationLink(destination: StreakView()) {
+                            NavigationLink(destination: StreakView(streak: GameStreak())) {
                                 StreakUpComponent(streak: streak)  // Pass the streak here
                             }
                         }

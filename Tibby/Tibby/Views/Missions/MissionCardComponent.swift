@@ -33,10 +33,8 @@ struct MissionCardComponent: View {
         }
     }
     
-    /// Check and increment the streak if necessary.
-    private func checkAndIncrementStreak() {
-        gameStreak.checkStreakStatus()
+    /// Increment the streak directly when a mission is completed.
+    private func incrementStreak() {
         gameStreak.incrementStreak()
     }
 }
-

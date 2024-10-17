@@ -132,7 +132,6 @@ struct WardrobeView: View {
             self.accessories = getFilteredList()
             for accessory in service.getAllAccessories() ?? [] {
                 if accessory.id == tibby.currentAccessoryId {
-                    print("usando \(accessory.name)")
                     tibbyView.addAccessory(accessory, species: tibby.species) {
                         service.addAccessoryToTibby(tibbyId: tibby.id, accessory: accessory)
                     } remove: {
