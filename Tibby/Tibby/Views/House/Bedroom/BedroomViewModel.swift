@@ -18,7 +18,8 @@ class BedroomViewModel: ObservableObject {
     }
     
     func lightsOff(tibby: Tibby) {
-        constants.tibbySleeping.toggle()
+        constants.tibbySleeping = true
+        constants.showSleepSession = true
         timerSleep?.invalidate()
         if constants.tibbySleeping {
             AudioManager.instance.playMusic(audio: .casual)

@@ -89,22 +89,47 @@ struct NavigationTabbarView: View {
                         .offset(y: offset)
                         .onAppear {
                             withAnimation(.easeIn(duration: 0.2), {
-                                    self.offset = 0
+                                self.offset = 0
                             })
                         }
-//                        .onDisappear {
-//                            withAnimation(.easeIn(duration: 0.1), {
-//                                self.offset = UIScreen.main.bounds.height
-//                            })
-//                            
-//                        }
-                        
+                    //                        .onDisappear {
+                    //                            withAnimation(.easeIn(duration: 0.1), {
+                    //                                self.offset = UIScreen.main.bounds.height
+                    //                            })
+                    //
+                    //                        }
+                    
                 }.padding(.top, 38)
                     .navigationBarBackButtonHidden(true)
                     .ignoresSafeArea(edges: [.bottom])
                     .background(
                         .tibbyBaseWhite
                     )
+                
+            }
+            if constants.showSleepSession {
+                VStack {
+                    SleepView(offset: $offset, tibby: vm.tibby)
+                        .offset(y: offset)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 0.2), {
+                                self.offset = 0
+                            })
+                        }
+                    //                        .onDisappear {
+                    //                            withAnimation(.easeIn(duration: 0.1), {
+                    //                                self.offset = UIScreen.main.bounds.height
+                    //                            })
+                    //
+                    //                        }
+                    
+                }
+                .padding(.top, 38)
+                .navigationBarBackButtonHidden(true)
+                .ignoresSafeArea(edges: [.bottom])
+                .background(
+                    .tibbyBaseWhite
+                )
                 
             }
         }
