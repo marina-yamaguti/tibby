@@ -29,16 +29,6 @@
     "%@!" : {
 
     },
-    "%@%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@%2$@"
-          }
-        }
-      }
-    },
     "%lld" : {
 
     },
@@ -108,6 +98,9 @@
 
     },
     "Earn Rewards" : {
+
+    },
+    "Elapsed time" : {
 
     },
     "Elapsed Time" : {
@@ -227,10 +220,16 @@
     "Showcase" : {
 
     },
+    "Sleep Tracker" : {
+
+    },
     "species" : {
 
     },
     "Start" : {
+
+    },
+    "Started" : {
 
     },
     "Stay Healthy" : {

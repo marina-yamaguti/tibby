@@ -24,6 +24,12 @@ class Constants: ObservableObject {
     @Published var workout: WorkoutActivityType?
     @Published var workoutSteps: Int = 0
     @Published var workoutSeconds: Int = 0
+    @Published var showSleepSession = false
+    @Published var showFinishedSleepSession = false
+    @Published var sleeptTime: Int = 0
+
+
+
     
     // MARK: - Tibby's Level Variables
     

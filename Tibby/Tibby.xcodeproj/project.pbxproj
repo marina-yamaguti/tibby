@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -445,6 +445,10 @@
 		FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BC60E4442CC02F44002BB4F2 /* Sleep */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Sleep; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		92B6476E2C2C97EB0068E98E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -503,6 +507,7 @@
 		7C2ED2642C2DF02B0030D0B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC60E4442CC02F44002BB4F2 /* Sleep */,
 				BC4F9FC12CA0DE2700D23338 /* PopUp */,
 				BC4F9FBA2C9E6ABC00D23338 /* Connection */,
 				BC7386602C9CE6D20079E5F5 /* Streak */,
@@ -1226,6 +1231,9 @@
 			dependencies = (
 				FD9075CE2C3489A6000E5F24 /* PBXTargetDependency */,
 				FD9075F12C3489F2000E5F24 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BC60E4442CC02F44002BB4F2 /* Sleep */,
 			);
 			name = Tibby;
 			productName = Tibby;
