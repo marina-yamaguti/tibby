@@ -8,7 +8,7 @@
 import SwiftUI
 
 class OnboardingTabViewModel: ObservableObject {
-    @Published var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4, .gacha]
+    @Published var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4, .onboarding5, .gacha]
     @Published var currentIndex: Int = 0
     //@Published var navigateToGatcha: Bool = false
 
@@ -17,7 +17,7 @@ class OnboardingTabViewModel: ObservableObject {
     }
     
     func nextPage() {
-        if currentIndex <= 4 {
+        if currentIndex <= 5 {
             currentIndex += 1
         }
     }

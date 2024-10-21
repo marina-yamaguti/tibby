@@ -12,6 +12,7 @@
 		7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636A2C77C77300D8389C /* ProgressBarType.swift */; };
 		7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */; };
 		7C35636F2C80E7E000D8389C /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636E2C80E7E000D8389C /* Mission.swift */; };
+		7C6E61D12CC6D1B7005A625E /* OnboardingView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E61D02CC6D1AF005A625E /* OnboardingView5.swift */; };
 		7C7B591D2C459E2A004FFD4B /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591C2C459E2A004FFD4B /* BedroomView.swift */; };
 		7C7B591F2C459E39004FFD4B /* KitchenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B591E2C459E39004FFD4B /* KitchenView.swift */; };
 		7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B59202C459E4F004FFD4B /* GradenView.swift */; };
@@ -266,6 +267,7 @@
 		7C35636A2C77C77300D8389C /* ProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarType.swift; sourceTree = "<group>"; };
 		7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarViewModel.swift; sourceTree = "<group>"; };
 		7C35636E2C80E7E000D8389C /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		7C6E61D02CC6D1AF005A625E /* OnboardingView5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView5.swift; sourceTree = "<group>"; };
 		7C7B591C2C459E2A004FFD4B /* BedroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
 		7C7B591E2C459E39004FFD4B /* KitchenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenView.swift; sourceTree = "<group>"; };
 		7C7B59202C459E4F004FFD4B /* GradenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradenView.swift; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 		7CE131C92C63F386001D7348 /* OnboardingViews */ = {
 			isa = PBXGroup;
 			children = (
+				7C6E61D02CC6D1AF005A625E /* OnboardingView5.swift */,
 				D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */,
 				D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */,
 				7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */,
@@ -1622,6 +1625,7 @@
 				D83B398D2C863EE100043BC7 /* ProfileView.swift in Sources */,
 				FD9075A12C2DD42E000E5F24 /* User.swift in Sources */,
 				FDCD3F722C37469A0075E0C7 /* ServiceProtocol.swift in Sources */,
+				7C6E61D12CC6D1B7005A625E /* OnboardingView5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

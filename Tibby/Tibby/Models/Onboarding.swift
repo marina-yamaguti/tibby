@@ -9,7 +9,7 @@ import Foundation
 
 /// Enum representing the different views in the onboarding process.
 enum OnboardingViews: CaseIterable {
-    case onboarding1, onboarding2, onboarding3, onboarding4, gacha
+    case onboarding1, onboarding2, onboarding3, onboarding4, onboarding5, gacha
     
     /// The title for the onboarding view.
     var title: String {
@@ -17,7 +17,8 @@ enum OnboardingViews: CaseIterable {
         case .onboarding1: return "Hi, welcome!"
         case .onboarding2: return "Before you start"
         case .onboarding3: return "Tell us about yourself"
-        case .onboarding4: return "So, to recap..."
+        case .onboarding4: return "Let's save your preferences"
+        case .onboarding5: return "So, to recap..."
         case .gacha: return ""
         }
     }
@@ -32,6 +33,8 @@ enum OnboardingViews: CaseIterable {
         case .onboarding3:
             return ""
         case .onboarding4:
+            return "Before you can continue, you need to grant us access to your email address, so your preferences can be saved."
+        case .onboarding5:
             return ""
         case .gacha:
             return ""
@@ -48,6 +51,8 @@ enum OnboardingViews: CaseIterable {
         case .onboarding3:
             return "Save"
         case .onboarding4:
+            return "Continue"
+        case .onboarding5:
             return "Start"
         case .gacha:
             return ""
@@ -64,6 +69,8 @@ enum OnboardingViews: CaseIterable {
         case .onboarding3:
             TibbySymbols.diskDark.rawValue
         case .onboarding4:
+            TibbySymbols.checkmarkBlack.rawValue
+        case .onboarding5:
             TibbySymbols.playBlack.rawValue
         case .gacha:
             ""

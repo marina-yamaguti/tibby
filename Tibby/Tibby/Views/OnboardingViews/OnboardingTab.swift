@@ -17,14 +17,14 @@ struct OnboardingTab: View {
     @State private var openHealth = false
     @Binding var currentTibby: Tibby?
     
-    @State var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4, .gacha]
+    @State var onboardingViews: [OnboardingViews] = [.onboarding1, .onboarding2, .onboarding3, .onboarding4, .onboarding5, .gacha]
     @State var currentIndex: Int = 0
     var currentOnboarding: OnboardingViews {
         return onboardingViews[currentIndex]
     }
     
     func nextPage() {
-        if currentIndex <= 4 {
+        if currentIndex <= 5 {
             currentIndex += 1
         }
     }
@@ -81,6 +81,8 @@ struct OnboardingTab: View {
                     OnboardingView3(name: $name)
                 case .onboarding4:
                     OnboardingView4()
+                case .onboarding5:
+                    OnboardingView5()
                         .onAppear {
                             service.getUser()?.username = name
                         }
@@ -109,6 +111,9 @@ struct OnboardingTab: View {
                                 AudioManager.instance.playSFXSecondary(audio: .popup)
                                 showingPopUp = true
                             }
+                        } else if self.currentIndex == 3 {
+                            #warning("AVISO DO CLOUDKIT AQUI")
+                            self.nextPage()
                         } else {
                             self.nextPage()
                         }
