@@ -8,10 +8,14 @@
 import SwiftUI
 import SwiftData
 import UIKit
+import GoogleMobileAds
 
 //App Delegate
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         return true
     }
     
@@ -44,6 +48,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 @main
 struct TibbyApp: App {
+    
+    // To handle app delegate callbacks in an app that uses the SwiftUI lifecycle,
+    // you must create an application delegate and attach it to your `App` struct
+    // using `UIApplicationDelegateAdaptor`.
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Tibby.self, Accessory.self, User.self, Activity.self, Interaction.self, Food.self, Mission.self
@@ -56,8 +66,6 @@ struct TibbyApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-    
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     var body: some Scene {
         WindowGroup {
