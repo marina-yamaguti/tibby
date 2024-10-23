@@ -10,6 +10,7 @@
 		5E9F90D238BFEDB5E28239B2 /* Pods_Tibby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFD3DA59FAD817ABE9C6999 /* Pods_Tibby.framework */; };
 		6F9000D82C99FA75002DF1B6 /* CodeRedeemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9000D72C99FA75002DF1B6 /* CodeRedeemView.swift */; };
 		7C082C072CC6C5AC006CA6B9 /* InterstitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082C062CC6C59E006CA6B9 /* InterstitialViewModel.swift */; };
+		7C1CD9A02CC9596A001B3E81 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 7C1CD99F2CC9596A001B3E81 /* GoogleMobileAds */; };
 		7C2ED2672C2DF0480030D0B9 /* TibbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2ED2662C2DF0480030D0B9 /* TibbyView.swift */; };
 		7C35636B2C77C77300D8389C /* ProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636A2C77C77300D8389C /* ProgressBarType.swift */; };
 		7C35636D2C77C78C00D8389C /* CustomBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35636C2C77C78C00D8389C /* CustomBarViewModel.swift */; };
@@ -52,14 +53,12 @@
 		7CF9CA8B2C88E7DC00A2AA2A /* IntricateSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */; };
 		7CF9CA8C2C88E7DC00A2AA2A /* CasualSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */; };
 		7CF9CA8D2C88E7DC00A2AA2A /* MysteriousSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */; };
-		8C43B828E48FD406E6D167EE /* Pods_TibbyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7CA0ABF95EC6F30AF28C12 /* Pods_TibbyTests.framework */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
 		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
 		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
 		92B647892C2C97EC0068E98E /* TibbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647882C2C97EC0068E98E /* TibbyTests.swift */; };
 		92B647932C2C97EC0068E98E /* TibbyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647922C2C97EC0068E98E /* TibbyUITests.swift */; };
 		92B647952C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647942C2C97EC0068E98E /* TibbyUITestsLaunchTests.swift */; };
-		A356C19DD7E446A899137C70 /* Pods_Tibby_TibbyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3287DCBA7292C9EEE7964515 /* Pods_Tibby_TibbyUITests.framework */; };
 		A50E92C02C65351E00762A11 /* TibbySpeciesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E92BF2C65351E00762A11 /* TibbySpeciesLabel.swift */; };
 		A50E92C32C6535DD00762A11 /* Biryani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */; };
 		A50E92C42C6535DF00762A11 /* Biryani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */; };
@@ -97,7 +96,6 @@
 		BCFE76192C94B417006FCD0D /* FavoriteTibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */; };
 		BCFE761B2C94B871006FCD0D /* ButtonSmallRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */; };
 		BCFE761D2C94BBD4006FCD0D /* GoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFE761C2C94BBD4006FCD0D /* GoalsCard.swift */; };
-		CD93ACD2EED929523C258D42 /* Pods_widgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F126803C1D1AB80069507A40 /* Pods_widgetExtension.framework */; };
 		D80755BE2C388D36000CA029 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755BD2C388D36000CA029 /* ButtonPrimary.swift */; };
 		D80755C12C3C5717000CA029 /* Extension + Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C02C3C5717000CA029 /* Extension + Border.swift */; };
 		D80755C32C3C5755000CA029 /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80755C22C3C5755000CA029 /* Extension + Button.swift */; };
@@ -141,8 +139,6 @@
 		D8D520782C80FADC00A37057 /* TibbyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D520772C80FADC00A37057 /* TibbyCard.swift */; };
 		D8EB88A42C750AA10051EAF9 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */; };
 		D8FA88CB2C82593B00938FE0 /* TibbyStatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */; };
-		DE0FF6E0D5159881785247BC /* Pods_tibby_watch_Watch_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6420BF10DC4BAFF79F5C27 /* Pods_tibby_watch_Watch_AppTests.framework */; };
-		F288CEDC1306BFFC99D17EBE /* Pods_tibby_watch_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBC89B0F7319740A9B4E7C0 /* Pods_tibby_watch_Watch_App.framework */; };
 		FD10046C2C9A05EE00EECB37 /* HomeArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */; };
 		FD45F25F2C6292320046DE49 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25E2C6292320046DE49 /* Collections.swift */; };
 		FD45F2612C629DED0046DE49 /* Roll.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F2602C629DED0046DE49 /* Roll.swift */; };
@@ -162,7 +158,6 @@
 		FD5155372C920B7400B9684A /* WorkoutMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155362C920B7400B9684A /* WorkoutMission.swift */; };
 		FD5155392C935A7C00B9684A /* FinishedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5155382C935A7C00B9684A /* FinishedWorkout.swift */; };
 		FD51553D2C9388B600B9684A /* WorkoutComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51553C2C9388B600B9684A /* WorkoutComponent.swift */; };
-		FD8DC04ED34CF65E8B4849D0 /* Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3EDBDB0C8C0755DC4BC618 /* Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework */; };
 		FD9075A12C2DD42E000E5F24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A02C2DD42E000E5F24 /* User.swift */; };
 		FD9075A32C2DDC95000E5F24 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A22C2DDC95000E5F24 /* Accessory.swift */; };
 		FD9075A52C2DE065000E5F24 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9075A42C2DE065000E5F24 /* Activity.swift */; };
@@ -269,14 +264,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00164EBABA5EEFE4459EA6C8 /* Pods-tibby-watch Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch App.release.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch App/Pods-tibby-watch Watch App.release.xcconfig"; sourceTree = "<group>"; };
-		13E92BEED8C5D1364AD4844F /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch App-tibby-watch Watch AppUITests/Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3287DCBA7292C9EEE7964515 /* Pods_Tibby_TibbyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tibby_TibbyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B264DD49E88DA0CF0AEED2 /* Pods-Tibby.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tibby.release.xcconfig"; path = "Target Support Files/Pods-Tibby/Pods-Tibby.release.xcconfig"; sourceTree = "<group>"; };
-		3A5F22B3208FEBC675CF05BC /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.release.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch App-tibby-watch Watch AppUITests/Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3A7CA0ABF95EC6F30AF28C12 /* Pods_TibbyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TibbyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47B2B42527BC9588D3F884F5 /* Pods-TibbyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TibbyTests.debug.xcconfig"; path = "Target Support Files/Pods-TibbyTests/Pods-TibbyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		61E874D0790A50772DB015CA /* Pods-TibbyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TibbyTests.release.xcconfig"; path = "Target Support Files/Pods-TibbyTests/Pods-TibbyTests.release.xcconfig"; sourceTree = "<group>"; };
 		6F9000D72C99FA75002DF1B6 /* CodeRedeemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRedeemView.swift; sourceTree = "<group>"; };
 		755A5E27D671B3E065C74A1D /* Pods-Tibby.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tibby.debug.xcconfig"; path = "Target Support Files/Pods-Tibby/Pods-Tibby.debug.xcconfig"; sourceTree = "<group>"; };
 		7C082C062CC6C59E006CA6B9 /* InterstitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewModel.swift; sourceTree = "<group>"; };
@@ -307,6 +295,7 @@
 		7CF056C72C3C64E9006039A4 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		7CF056C92C3C774D006039A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7CF713CD2C94D1E100552995 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		7CF9403E2CC9669E002EA2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF9CA6C2C88E7B100A2AA2A /* StreakUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = StreakUp.wav; sourceTree = "<group>"; };
 		7CF9CA6F2C88E7B800A2AA2A /* CapsuleOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapsuleOpen.mp3; sourceTree = "<group>"; };
 		7CF9CA702C88E7B800A2AA2A /* CoinInsert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinInsert1.mp3; sourceTree = "<group>"; };
@@ -323,9 +312,6 @@
 		7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CasualSong.wav; sourceTree = "<group>"; };
 		7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MysteriousSong.wav; sourceTree = "<group>"; };
 		7DFD3DA59FAD817ABE9C6999 /* Pods_Tibby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tibby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FBC89B0F7319740A9B4E7C0 /* Pods_tibby_watch_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tibby_watch_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A001F541CE7C4709E231DC9 /* Pods-tibby-watch Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch App.debug.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch App/Pods-tibby-watch Watch App.debug.xcconfig"; sourceTree = "<group>"; };
-		8D6420BF10DC4BAFF79F5C27 /* Pods_tibby_watch_Watch_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tibby_watch_Watch_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
 		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -347,7 +333,6 @@
 		A50E92D32C6BEC6100762A11 /* TibbyNameEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyNameEdit.swift; sourceTree = "<group>"; };
 		A5126BDE2C498842008703E7 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		A5126BE22C498A7B008703E7 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
-		AF3090CB93D1B0698A7F9150 /* Pods-Tibby-TibbyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tibby-TibbyUITests.release.xcconfig"; path = "Target Support Files/Pods-Tibby-TibbyUITests/Pods-Tibby-TibbyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC4F9FB42C9E5D2200D23338 /* StreakScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakScroll.swift; sourceTree = "<group>"; };
 		BC4F9FB62C9E5D2E00D23338 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
 		BC4F9FB82C9E5EFF00D23338 /* StreakCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCountComponent.swift; sourceTree = "<group>"; };
@@ -370,10 +355,6 @@
 		BCFE76182C94B417006FCD0D /* FavoriteTibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTibbyCard.swift; sourceTree = "<group>"; };
 		BCFE761A2C94B871006FCD0D /* ButtonSmallRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallRounded.swift; sourceTree = "<group>"; };
 		BCFE761C2C94BBD4006FCD0D /* GoalsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsCard.swift; sourceTree = "<group>"; };
-		C19C514945618459131ED601 /* Pods-tibby-watch Watch AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch AppTests.release.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch AppTests/Pods-tibby-watch Watch AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		C313E60C2EE2BFEB20861391 /* Pods-widgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-widgetExtension/Pods-widgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		D261AA338C44A3C491B47847 /* Pods-widgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetExtension.release.xcconfig"; path = "Target Support Files/Pods-widgetExtension/Pods-widgetExtension.release.xcconfig"; sourceTree = "<group>"; };
-		D56F88D252200194EE5AAB07 /* Pods-tibby-watch Watch AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tibby-watch Watch AppTests.debug.xcconfig"; path = "Target Support Files/Pods-tibby-watch Watch AppTests/Pods-tibby-watch Watch AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D80755BD2C388D36000CA029 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		D80755C02C3C5717000CA029 /* Extension + Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Border.swift"; sourceTree = "<group>"; };
 		D80755C22C3C5755000CA029 /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
@@ -415,8 +396,6 @@
 		D8D520772C80FADC00A37057 /* TibbyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyCard.swift; sourceTree = "<group>"; };
 		D8EB88A32C750AA10051EAF9 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		D8FA88CA2C82593B00938FE0 /* TibbyStatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyStatusComponent.swift; sourceTree = "<group>"; };
-		F126803C1D1AB80069507A40 /* Pods_widgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_widgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7A7262DDAD7BDEE65F5934E /* Pods-Tibby-TibbyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tibby-TibbyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Tibby-TibbyUITests/Pods-Tibby-TibbyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD10046B2C9A05EE00EECB37 /* HomeArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArrowAnimation.swift; sourceTree = "<group>"; };
 		FD45F25E2C6292320046DE49 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		FD45F2602C629DED0046DE49 /* Roll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roll.swift; sourceTree = "<group>"; };
@@ -472,7 +451,6 @@
 		FDE4F8282C2CA7C900490F38 /* Tibby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tibby.swift; sourceTree = "<group>"; };
 		FDFF4ABB2C3C739500831968 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		FDFF4ABE2C3C843F00831968 /* KitchenExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenExample.swift; sourceTree = "<group>"; };
-		FE3EDBDB0C8C0755DC4BC618 /* Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1CD9A02CC9596A001B3E81 /* GoogleMobileAds in Frameworks */,
 				5E9F90D238BFEDB5E28239B2 /* Pods_Tibby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +467,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C43B828E48FD406E6D167EE /* Pods_TibbyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +474,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A356C19DD7E446A899137C70 /* Pods_Tibby_TibbyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +481,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F288CEDC1306BFFC99D17EBE /* Pods_tibby_watch_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +488,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE0FF6E0D5159881785247BC /* Pods_tibby_watch_Watch_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +495,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD8DC04ED34CF65E8B4849D0 /* Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +504,6 @@
 			files = (
 				FD9075E32C3489F1000E5F24 /* SwiftUI.framework in Frameworks */,
 				FD9075E12C3489F1000E5F24 /* WidgetKit.framework in Frameworks */,
-				CD93ACD2EED929523C258D42 /* Pods_widgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,18 +515,6 @@
 			children = (
 				755A5E27D671B3E065C74A1D /* Pods-Tibby.debug.xcconfig */,
 				34B264DD49E88DA0CF0AEED2 /* Pods-Tibby.release.xcconfig */,
-				F7A7262DDAD7BDEE65F5934E /* Pods-Tibby-TibbyUITests.debug.xcconfig */,
-				AF3090CB93D1B0698A7F9150 /* Pods-Tibby-TibbyUITests.release.xcconfig */,
-				47B2B42527BC9588D3F884F5 /* Pods-TibbyTests.debug.xcconfig */,
-				61E874D0790A50772DB015CA /* Pods-TibbyTests.release.xcconfig */,
-				8A001F541CE7C4709E231DC9 /* Pods-tibby-watch Watch App.debug.xcconfig */,
-				00164EBABA5EEFE4459EA6C8 /* Pods-tibby-watch Watch App.release.xcconfig */,
-				13E92BEED8C5D1364AD4844F /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.debug.xcconfig */,
-				3A5F22B3208FEBC675CF05BC /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.release.xcconfig */,
-				D56F88D252200194EE5AAB07 /* Pods-tibby-watch Watch AppTests.debug.xcconfig */,
-				C19C514945618459131ED601 /* Pods-tibby-watch Watch AppTests.release.xcconfig */,
-				C313E60C2EE2BFEB20861391 /* Pods-widgetExtension.debug.xcconfig */,
-				D261AA338C44A3C491B47847 /* Pods-widgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -914,6 +875,7 @@
 		92B647732C2C97EB0068E98E /* Tibby */ = {
 			isa = PBXGroup;
 			children = (
+				7CF9403E2CC9669E002EA2D8 /* Info.plist */,
 				D80755C62C3C57D9000CA029 /* dogicapixel.ttf */,
 				D80755C72C3C57D9000CA029 /* dogicapixelbold.ttf */,
 				A50E92C22C6535D700762A11 /* Biryani-Bold.ttf */,
@@ -1196,12 +1158,6 @@
 				FD9075E02C3489F1000E5F24 /* WidgetKit.framework */,
 				FD9075E22C3489F1000E5F24 /* SwiftUI.framework */,
 				7DFD3DA59FAD817ABE9C6999 /* Pods_Tibby.framework */,
-				3287DCBA7292C9EEE7964515 /* Pods_Tibby_TibbyUITests.framework */,
-				3A7CA0ABF95EC6F30AF28C12 /* Pods_TibbyTests.framework */,
-				7FBC89B0F7319740A9B4E7C0 /* Pods_tibby_watch_Watch_App.framework */,
-				FE3EDBDB0C8C0755DC4BC618 /* Pods_tibby_watch_Watch_App_tibby_watch_Watch_AppUITests.framework */,
-				8D6420BF10DC4BAFF79F5C27 /* Pods_tibby_watch_Watch_AppTests.framework */,
-				F126803C1D1AB80069507A40 /* Pods_widgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1313,7 +1269,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92B6479B2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyTests" */;
 			buildPhases = (
-				56DCD9C6DEE241AB82C337A7 /* [CP] Check Pods Manifest.lock */,
 				92B647802C2C97EC0068E98E /* Sources */,
 				92B647812C2C97EC0068E98E /* Frameworks */,
 				92B647822C2C97EC0068E98E /* Resources */,
@@ -1332,11 +1287,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92B6479E2C2C97EC0068E98E /* Build configuration list for PBXNativeTarget "TibbyUITests" */;
 			buildPhases = (
-				8C562F229D4DA54A22536ADA /* [CP] Check Pods Manifest.lock */,
 				92B6478A2C2C97EC0068E98E /* Sources */,
 				92B6478B2C2C97EC0068E98E /* Frameworks */,
 				92B6478C2C2C97EC0068E98E /* Resources */,
-				BDFB5D6AE2D2C174B622181B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1352,7 +1305,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD9075D72C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch App" */;
 			buildPhases = (
-				3E5BC6E6FC00EFDEB902C416 /* [CP] Check Pods Manifest.lock */,
 				FD9075A82C3489A4000E5F24 /* Sources */,
 				FD9075A92C3489A4000E5F24 /* Frameworks */,
 				FD9075AA2C3489A4000E5F24 /* Resources */,
@@ -1370,7 +1322,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD9075D82C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppTests" */;
 			buildPhases = (
-				D8BA711855D89798358BF79D /* [CP] Check Pods Manifest.lock */,
 				FD9075B72C3489A6000E5F24 /* Sources */,
 				FD9075B82C3489A6000E5F24 /* Frameworks */,
 				FD9075B92C3489A6000E5F24 /* Resources */,
@@ -1389,7 +1340,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD9075D92C3489A6000E5F24 /* Build configuration list for PBXNativeTarget "tibby-watch Watch AppUITests" */;
 			buildPhases = (
-				FF0DC2DA07A90D40236D3887 /* [CP] Check Pods Manifest.lock */,
 				FD9075C12C3489A6000E5F24 /* Sources */,
 				FD9075C22C3489A6000E5F24 /* Frameworks */,
 				FD9075C32C3489A6000E5F24 /* Resources */,
@@ -1408,7 +1358,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD9075F32C3489F2000E5F24 /* Build configuration list for PBXNativeTarget "widgetExtension" */;
 			buildPhases = (
-				AB775849A6421ABD634173ED /* [CP] Check Pods Manifest.lock */,
 				FD9075DA2C3489F1000E5F24 /* Sources */,
 				FD9075DB2C3489F1000E5F24 /* Frameworks */,
 				FD9075DC2C3489F1000E5F24 /* Resources */,
@@ -1469,6 +1418,9 @@
 				"pt-BR",
 			);
 			mainGroup = 92B647682C2C97EB0068E98E;
+			packageReferences = (
+				7C1CD99E2CC9596A001B3E81 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 92B647722C2C97EB0068E98E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1593,133 +1545,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3E5BC6E6FC00EFDEB902C416 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tibby-watch Watch App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		56DCD9C6DEE241AB82C337A7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TibbyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C562F229D4DA54A22536ADA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tibby-TibbyUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AB775849A6421ABD634173ED /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-widgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BDFB5D6AE2D2C174B622181B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tibby-TibbyUITests/Pods-Tibby-TibbyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tibby-TibbyUITests/Pods-Tibby-TibbyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tibby-TibbyUITests/Pods-Tibby-TibbyUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8BA711855D89798358BF79D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tibby-watch Watch AppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F56C76F0F961271EA17BAF77 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1735,28 +1560,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tibby/Pods-Tibby-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF0DC2DA07A90D40236D3887 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tibby-watch Watch App-tibby-watch Watch AppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2029,7 +1832,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2092,7 +1895,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2127,6 +1930,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -2177,6 +1981,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = F3LPWZ43F8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tibby/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -2212,7 +2017,6 @@
 		};
 		92B6479C2C2C97EC0068E98E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47B2B42527BC9588D3F884F5 /* Pods-TibbyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2238,7 +2042,6 @@
 		};
 		92B6479D2C2C97EC0068E98E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61E874D0790A50772DB015CA /* Pods-TibbyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2264,7 +2067,6 @@
 		};
 		92B6479F2C2C97EC0068E98E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7A7262DDAD7BDEE65F5934E /* Pods-Tibby-TibbyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -2289,7 +2091,6 @@
 		};
 		92B647A02C2C97EC0068E98E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF3090CB93D1B0698A7F9150 /* Pods-Tibby-TibbyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -2314,7 +2115,6 @@
 		};
 		FD9075D12C3489A6000E5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A001F541CE7C4709E231DC9 /* Pods-tibby-watch Watch App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2350,7 +2150,6 @@
 		};
 		FD9075D22C3489A6000E5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00164EBABA5EEFE4459EA6C8 /* Pods-tibby-watch Watch App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2388,7 +2187,6 @@
 		};
 		FD9075D32C3489A6000E5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D56F88D252200194EE5AAB07 /* Pods-tibby-watch Watch AppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2411,7 +2209,6 @@
 		};
 		FD9075D42C3489A6000E5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C19C514945618459131ED601 /* Pods-tibby-watch Watch AppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2435,7 +2232,6 @@
 		};
 		FD9075D52C3489A6000E5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13E92BEED8C5D1364AD4844F /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -2457,7 +2253,6 @@
 		};
 		FD9075D62C3489A6000E5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A5F22B3208FEBC675CF05BC /* Pods-tibby-watch Watch App-tibby-watch Watch AppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -2480,7 +2275,6 @@
 		};
 		FD9075F42C3489F2000E5F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C313E60C2EE2BFEB20861391 /* Pods-widgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2516,7 +2310,6 @@
 		};
 		FD9075F52C3489F2000E5F24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D261AA338C44A3C491B47847 /* Pods-widgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -2627,6 +2420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C1CD99E2CC9596A001B3E81 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C1CD99F2CC9596A001B3E81 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C1CD99E2CC9596A001B3E81 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 92B647692C2C97EB0068E98E /* Project object */;
 }

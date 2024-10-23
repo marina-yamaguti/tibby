@@ -13,9 +13,6 @@ import GoogleMobileAds
 //App Delegate
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
         return true
     }
     
@@ -53,6 +50,10 @@ struct TibbyApp: App {
     // you must create an application delegate and attach it to your `App` struct
     // using `UIApplicationDelegateAdaptor`.
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([

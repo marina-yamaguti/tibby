@@ -28,8 +28,6 @@ struct HomeView: View {
     @State private var showMissions = false
     @State private var showSettings = false
     @State private var showProfile = false
-    #warning("TESTE DE AD, APAGAR DEPOIS")
-    private let adViewModel = InterstitialViewModel()
     
     //temporary
 
@@ -44,11 +42,8 @@ struct HomeView: View {
                                 HapticManager.instance.impact(style: .soft)
                                 AudioManager.instance.playSFX(audio: .secondaryButton)
                                 showProfile.toggle()
-                                #warning("TESTE DE AD, APAGAR DEPOIS")
-                                adViewModel.showAd(viewController: self)
                             }
                             .navigationDestination(isPresented: $showProfile, destination: {ProfileView(currentTibby: $tibby)})
-                        
                         Spacer()
                         
                         Button(action: {showSettings = true}, label: {ButtonLabel(type: .secondary, image: TibbySymbols.gearWhite.rawValue, text: "")})

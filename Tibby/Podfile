@@ -7,40 +7,6 @@ target 'Tibby' do
 
   # Pods for Tibby
 
-pod 'Google-Mobile-Ads-SDK'
-
-  target 'TibbyTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'TibbyUITests' do
-    # Pods for testing
-  end
-
-end
-
-target 'tibby-watch Watch App' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for tibby-watch Watch App
-
-  target 'tibby-watch Watch AppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'tibby-watch Watch AppUITests' do
-    # Pods for testing
-  end
-
-end
-
-target 'widgetExtension' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for widgetExtension
+  pod 'Google-Mobile-Ads-SDK'
 
 end
