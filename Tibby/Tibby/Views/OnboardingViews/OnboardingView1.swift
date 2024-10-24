@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct OnboardingView1: View {
     @State private var showFirstImage = true
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()

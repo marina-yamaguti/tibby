@@ -50,6 +50,7 @@
 		7CF9CA8B2C88E7DC00A2AA2A /* IntricateSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */; };
 		7CF9CA8C2C88E7DC00A2AA2A /* CasualSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */; };
 		7CF9CA8D2C88E7DC00A2AA2A /* MysteriousSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */; };
+		7CFF652C2CC6EDD8009DCFF5 /* OnboardingView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFF652B2CC6EDD8009DCFF5 /* OnboardingView5.swift */; };
 		92B647752C2C97EB0068E98E /* TibbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B647742C2C97EB0068E98E /* TibbyApp.swift */; };
 		92B6477B2C2C97EC0068E98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477A2C2C97EC0068E98E /* Assets.xcassets */; };
 		92B6477F2C2C97EC0068E98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B6477E2C2C97EC0068E98E /* Preview Assets.xcassets */; };
@@ -304,6 +305,7 @@
 		7CF9CA872C88E7DC00A2AA2A /* IntricateSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IntricateSong.wav; sourceTree = "<group>"; };
 		7CF9CA882C88E7DC00A2AA2A /* CasualSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CasualSong.wav; sourceTree = "<group>"; };
 		7CF9CA892C88E7DC00A2AA2A /* MysteriousSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MysteriousSong.wav; sourceTree = "<group>"; };
+		7CFF652B2CC6EDD8009DCFF5 /* OnboardingView5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView5.swift; sourceTree = "<group>"; };
 		92B647712C2C97EB0068E98E /* Tibby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tibby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B647742C2C97EB0068E98E /* TibbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TibbyApp.swift; sourceTree = "<group>"; };
 		92B6477A2C2C97EC0068E98E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -741,6 +743,7 @@
 		7CE131C92C63F386001D7348 /* OnboardingViews */ = {
 			isa = PBXGroup;
 			children = (
+				7CFF652B2CC6EDD8009DCFF5 /* OnboardingView5.swift */,
 				D8C53A8F2C3C7A2500CAB009 /* SplashScreen.swift */,
 				D8C53A912C3C7A8000CAB009 /* OnboardingView.swift */,
 				7CE131CA2C63F3AE001D7348 /* OnboardingTab.swift */,
@@ -1616,6 +1619,7 @@
 				FD45F26F2C667D900046DE49 /* CustomBackButton.swift in Sources */,
 				7C7B59212C459E4F004FFD4B /* GradenView.swift in Sources */,
 				BC4F9FB72C9E5D2E00D23338 /* StreakView.swift in Sources */,
+				7CFF652C2CC6EDD8009DCFF5 /* OnboardingView5.swift in Sources */,
 				D896AED42C6D1BAC009C208C /* PageHeader.swift in Sources */,
 				D857078A2CB9C97D00A256C3 /* Extension + Shadow.swift in Sources */,
 				D8D520742C7FC0CA00A37057 /* CreditsComponent.swift in Sources */,

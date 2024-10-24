@@ -7,61 +7,36 @@
 
 import SwiftUI
 
-
 struct OnboardingView4: View {
-    @EnvironmentObject var healthManager: HealthManager
-    
+    @State private var showFirstImage = true
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+
     var body: some View {
         VStack {
-            HStack {
-                Image("CapsuleCommon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                VStack(alignment: .leading) {
-                    Text("Gatcha Fun")
-                        .font(.typography(.body))
-                        .padding(.bottom, 2)
-                    Text("Unlock new Tibbies through our exciting gacha system")
-                        .font(.typography(.body2))
-                        .environment(\._lineHeightMultiple, 0.8)
+            
+            ZStack {
+                if showFirstImage {
+                    Image("Onboarding4")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.5)
+                        .frame(width: 200, height: 200)
+                        .animation(.linear(duration: 0.5), value: showFirstImage)
+
+                } else {
+                    Image("Onboarding4-2")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.5)
+                        .frame(width: 200, height: 200)
+                        .animation(.linear(duration: 0.5), value: showFirstImage)
+
                 }
-                Spacer()
             }
-            HStack {
-                Image("CapsuleRare")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                VStack(alignment: .leading) {
-                    Text("Earn Rewards")
-                        .font(.typography(.body))
-                        .padding(.bottom, 2)
-                    Text("Complete missions and earn rewards like coins and items")
-                        .font(.typography(.body2))
-                        .environment(\._lineHeightMultiple, 0.8)
-                }
-                Spacer()
-            }
-            HStack {
-                Image("CapsuleEpic")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                VStack(alignment: .leading) {
-                    Text("Stay Healthy")
-                        .font(.typography(.body))
-                        .padding(.bottom, 2)
-                    Text("Track your workouts, steps, and more to keep both you and your Tibby in top shape!")
-                        .font(.typography(.body2))
-                        .environment(\._lineHeightMultiple, 0.8)
-                }
-                Spacer()
-            }
-            Spacer()
-        }.foregroundStyle(.tibbyBaseBlack)
-            .onAppear {
-                healthManager.fetchAllInformation()
-            }
+        }
+        .onReceive(timer) { _ in
+            showFirstImage.toggle()
+        }
     }
 }
+
